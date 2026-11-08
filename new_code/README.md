@@ -266,6 +266,7 @@ The catalog holds **113 reports** and is driven from a single declarative table
 | Tools → Data Restore | Tools > Data Restore (guided) | copy backup over `data/madhushala.db` | Partial |
 | Tools → Shortcut Panel | Tools > Shortcut Panel | Help screen | Full |
 | Tools → Export To Tally → `frm_tally_export` | Tools > Export To Tally | `tools.tallyExport` `/api/tools/tally` | Full |
+| Tools → Remote Tally Sync (connectionless twin-agent) | Tools > Remote Tally Sync | `tally.*` `/api/tally/*` | Full |
 | Tools → WhatsApp / SMS (`frm_message`) | Tools > SMS / WhatsApp | `tools.sendMessage/listMessages` `/api/tools/messages` | Full |
 | Tools → PML Print and Reports | Tools > PML Print and Reports | `tools.addPml/listPml` `/api/tools/pml` | Full |
 | Tools → Clean Print Garbage | Tools > Clean Print Garbage | `tools.cleanPrintGarbage` `/api/tools/clean-print` | Full |
@@ -327,6 +328,11 @@ The backend exposes a small JSON API (`{ ok, data }` / `{ ok, error }`):
 | POST | `/api/tools/calc`, `/api/tools/backup`, `/api/tools/clean-print` | tools |
 | GET  | `/api/tools/tally`, `/api/tools/messages`, `/api/tools/sync-status`, `/api/tools/pml` | tools |
 | POST | `/api/tools/messages`, `/api/tools/sync`, `/api/tools/pml` | tools |
+| GET/PUT | `/api/tally/config`, `/api/tally/mapping`, `/api/tally/inbound` | remote Tally sync setup |
+| POST | `/api/tally/token`, `/api/tally/enqueue`, `/api/tally/retry`, `/api/tally/mapping`, `/api/tally/inbound/apply` | remote Tally sync actions |
+| GET  | `/api/tally/queue`, `/api/tally/summary`, `/api/tally/xml`, `/api/tally/report`, `/api/tally/logs` | remote Tally sync views |
+| GET  | `/api/tally/agent/pull?token=` | shop agent pulls pending voucher XML |
+| POST | `/api/tally/agent/ack`, `/api/tally/inbound` | shop agent acks delivery / receives masters |
 
 ## Tests
 
@@ -334,13 +340,14 @@ The backend exposes a small JSON API (`{ ok, data }` / `{ ok, error }`):
 npm test
 ```
 
-31 tests (two files) cover seeding, login, PIN reset, purchases, POS sales,
+34 tests (two files) cover seeding, login, PIN reset, purchases, POS sales,
 stock movement (transfer, breakage, returns), day close, vouchers, reports and
 master CRUD, plus the extended features: transfer sale/receive, debit/credit
 notes, on-a/c and a/c replace, excise fine, BRS, UPI, delivery, deleted-bill
 archiving, new-year carry-forward, parameters, excise audit, tools (calculator,
-messages, sync, PML, clean print, backup), and that **all 113 catalog reports
-execute**. Every test uses a fresh temporary database.
+messages, sync, PML, clean print, backup), remote Tally sync (auto-enqueue,
+voucher XML, ack, retry, inbound masters, token guard, sync report), and that
+**all 113 catalog reports execute**. Every test uses a fresh temporary database.
 
 ## Forgot the admin PIN?
 

@@ -8,6 +8,7 @@ import { MASTERS } from '../src/services/masters.js';
 import * as txn from '../src/services/transactions.js';
 import * as admin from '../src/services/admin.js';
 import * as tools from '../src/services/tools.js';
+import * as tally from '../src/services/tally.js';
 import * as sales from '../src/services/sales.js';
 import * as stock from '../src/services/stock.js';
 import { CATALOG, reportGroups, runCatalogReport } from '../src/services/reportCatalog.js';
@@ -258,5 +259,94 @@ test('every catalog report executes against a seeded database', () => {
       const rows = runCatalogReport(db, key, { company: COMPANY, year: YEAR });
       assert.ok(Array.isArray(rows), `${key} should return an array`);
     }
+  } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('tally sync: config, auto-enqueue on sale, xml, ack, retry', () => {
+  const { db, dir } = freshDb();
+  try {
+    // disabled by default -> sales are not queued
+    sales.createSale(db, {
+      company: COMPANY, year: YEAR, trndate: '2024-04-06', storecode: 'CNT1',
+      salestype: 'FL', ledgercode: 'C00001', lines: [{ itemcode: 'I00001', qnty: 2, rate: 250 }],
+    });
+    assert.equal(tally.queue(db, COMPANY).length, 0, 'no queueing while disabled');
+
+    const cfg = tally.saveConfig(db, COMPANY, { enabled: true, tallycompany: 'Madhushala Co', agenttoken: 'TOK1' });
+    assert.equal(cfg.enabled, 1);
+    assert.equal(cfg.tallycompany, 'Madhushala Co');
+
+    // a sale made while enabled is queued automatically
+    sales.createSale(db, {
+      company: COMPANY, year: YEAR, trndate: '2024-04-06', storecode: 'CNT1',
+      salestype: 'FL', ledgercode: 'C00001', lines: [{ itemcode: 'I00002', qnty: 1, rate: 320 }],
+    });
+    const q = tally.queue(db, COMPANY);
+    assert.equal(q.length, 1);
+    assert.equal(q[0].vouchertype, 'SALES');
+    assert.equal(q[0].status, 'PENDING');
+    assert.equal(tally.queueSummary(db, COMPANY).PENDING, 1);
+
+    // mapping + xml
+    tally.addMapping(db, { company: COMPANY, maptype: 'LEDGER', pattern: 'C00001', targetname: 'Cash', priority: 1 });
+    assert.equal(tally.resolveMapping(db, COMPANY, 'LEDGER', 'C00001'), 'Cash');
+    const xml = tally.buildVoucherXmlBatch(db, COMPANY, YEAR);
+    assert.equal(xml.count, 1);
+    assert.match(xml.xml, /<VOUCHER /);
+    assert.match(xml.xml, /<LEDGERNAME>Cash<\/LEDGERNAME>/);
+
+    // agent marks sent, then acks
+    tally.markSent(db, COMPANY, xml.ids);
+    assert.equal(tally.queueSummary(db, COMPANY).SENT, 1);
+    tally.acknowledge(db, COMPANY, [{ id: xml.ids[0], status: 'ACKED' }]);
+    assert.equal(tally.queueSummary(db, COMPANY).ACKED, 1);
+
+    // failure + retry path
+    const q2 = tally.queue(db, COMPANY)[0];
+    tally.markSent(db, COMPANY, [q2.id]);
+    tally.acknowledge(db, COMPANY, [{ id: q2.id, status: 'FAILED', message: 'company not loaded' }]);
+    assert.equal(tally.queueSummary(db, COMPANY).FAILED, 1);
+    assert.equal(tally.retryFailed(db, COMPANY).retried, 1);
+    assert.equal(tally.queueSummary(db, COMPANY).PENDING, 1);
+  } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('tally sync: inbound masters are received and applied', () => {
+  const { db, dir } = freshDb();
+  try {
+    tally.saveConfig(db, COMPANY, { enabled: true, agenttoken: 'TOK1' });
+    tally.receiveMaster(db, COMPANY, { type: 'LEDGER', name: 'SBI Bank', code: 'L90001', parent: 'AC0001' });
+    tally.receiveMaster(db, COMPANY, { type: 'STOCKITEM', name: 'Royal Stag 750ml', code: 'I90001', rate: 255 });
+    assert.equal(tally.listInbound(db, COMPANY).length, 2);
+
+    const rows = tally.listInbound(db, COMPANY);
+    for (const r of rows) tally.applyInbound(db, COMPANY, r.id);
+    assert.equal(tally.listInbound(db, COMPANY, 'APPLIED').length, 2);
+    const led = get(db, 'SELECT * FROM ledger WHERE companycode=? AND ledcode=?', [COMPANY, 'L90001']);
+    assert.equal(led.name, 'SBI Bank');
+    const item = get(db, 'SELECT * FROM itemmst WHERE companycode=? AND itemcode=?', [COMPANY, 'I90001']);
+    assert.equal(item.salesrate, 255);
+
+    // re-receive updates instead of duplicating
+    tally.receiveMaster(db, COMPANY, { type: 'LEDGER', name: 'SBI Bank Ltd', code: 'L90001' });
+    assert.equal(tally.listInbound(db, COMPANY).length, 2);
+    assert.equal(tally.listInbound(db, COMPANY, 'RECEIVED').length, 1);
+  } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('tally sync: token guard and sync report', () => {
+  const { db, dir } = freshDb();
+  try {
+    const cfg = tally.saveConfig(db, COMPANY, { enabled: true, agenttoken: 'SECRET' });
+    assert.doesNotThrow(() => tally.requireToken(cfg, 'SECRET'));
+    assert.throws(() => tally.requireToken(cfg, 'nope'), /Invalid agent token/);
+
+    sales.createSale(db, {
+      company: COMPANY, year: YEAR, trndate: '2024-04-06', storecode: 'CNT1',
+      salestype: 'FL', ledgercode: 'C00001', lines: [{ itemcode: 'I00001', qnty: 4, rate: 250 }],
+    });
+    const rep = tally.syncReport(db, COMPANY, YEAR);
+    assert.equal(rep.summary.PENDING, 1);
+    assert.ok(rep.logs.length >= 1);
   } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
 });

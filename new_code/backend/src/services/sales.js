@@ -1,6 +1,7 @@
 import { all, get, run, tx } from '../db/index.js';
 import { money, nextBillNo, nextTrnId, billPrefix, now } from './helpers.js';
 import { postVoucher } from './accounting.js';
+import { getConfig, enqueueSale } from './tally.js';
 
 const SALE_TYPES = ['FL', 'CS', 'NAI', 'CASH', 'CREDIT', 'CREDIT CARD', 'CREDIT ACCOUNT', 'RETURN'];
 
@@ -94,6 +95,11 @@ export function createSale(db, sale) {
       company: sale.company, year: sale.year, trnno, trndate,
       type: isReturn ? 'SALE RETURN' : 'SALE', trnid, lines,
     });
+
+    if (getConfig(db, sale.company).enabled) {
+      try { enqueueSale(db, sale.company, sale.year, trnno); }
+      catch { /* never block billing on sync queueing */ }
+    }
 
     return { trnno, trnid, amount, discamount, netamount, prefix: billPrefix(sale.salestype), lines: resolved.length };
   });

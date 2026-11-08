@@ -346,6 +346,79 @@ CREATE TABLE IF NOT EXISTS [tbl_PMLCAL] (
   PRIMARY KEY ([companycode], [yearcode], [slno])
 );
 
+-- ---- remote Tally sync (connectionless twin-agent) ----
+-- Local agent settings for the shop counter.
+CREATE TABLE IF NOT EXISTS [tbl_TallySyncConfig] (
+  [companycode] TEXT NOT NULL,
+  [enabled] INTEGER DEFAULT 0,
+  [brokerurl] TEXT,
+  [agenttoken] TEXT,
+  [companyguid] TEXT,
+  [tallycompany] TEXT,
+  [agentid] TEXT,
+  [lastpullat] TEXT,
+  [lastpushat] TEXT,
+  [updatedat] TEXT,
+  PRIMARY KEY ([companycode])
+);
+
+-- Outbound queue: one row per voucher pending delivery to remote Tally.
+CREATE TABLE IF NOT EXISTS [tbl_TallySyncQueue] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT NOT NULL,
+  [vouchertype] TEXT,
+  [sourcetable] TEXT,
+  [sourcetrnno] TEXT,
+  [docdate] TEXT,
+  [docno] TEXT,
+  [amount] REAL DEFAULT 0,
+  [payload] TEXT,
+  [status] TEXT DEFAULT 'PENDING',
+  [attempts] INTEGER DEFAULT 0,
+  [lasterror] TEXT,
+  [createdat] TEXT,
+  [updatedat] TEXT,
+  [ackedat] TEXT,
+  UNIQUE ([companycode], [yearcode], [sourcetable], [sourcetrnno])
+);
+
+-- Delivery log: one row per sync attempt (for the sync report).
+CREATE TABLE IF NOT EXISTS [tbl_TallySyncLog] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [queueid] INTEGER,
+  [companycode] TEXT,
+  [direction] TEXT,
+  [action] TEXT,
+  [status] TEXT,
+  [message] TEXT,
+  [loggedat] TEXT
+);
+
+-- String-pattern ledger / tax auto-mapping (POS pattern -> Tally master).
+CREATE TABLE IF NOT EXISTS [tbl_TallyMapping] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [maptype] TEXT NOT NULL,
+  [pattern] TEXT NOT NULL,
+  [targetname] TEXT,
+  [priority] INTEGER DEFAULT 0,
+  [active] INTEGER DEFAULT 1
+);
+
+-- Masters pulled from corporate Tally back to the counter.
+CREATE TABLE IF NOT EXISTS [tbl_TallyInbound] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [mtype] TEXT NOT NULL,
+  [mcode] TEXT,
+  [mname] TEXT NOT NULL,
+  [payload] TEXT,
+  [status] TEXT DEFAULT 'RECEIVED',
+  [receivedat] TEXT,
+  [appliedat] TEXT
+);
+
 -- ---- additive columns on the generated schema (SQLite ALTER ADD COLUMN) ----
 ALTER TABLE [itemmst] ADD COLUMN [manufcode] TEXT;
 ALTER TABLE [itemmst] ADD COLUMN [expirydate] TEXT;

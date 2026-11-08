@@ -36,22 +36,26 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
 - **Schema**: generated from `../dev/db/ddl.sql` by
   `backend/scripts/gen_schema.py` → `src/db/schema.sql` (45 tables). Do not
   hand-edit `schema.sql`; edit the generator. A second, hand-written layer
-  `src/db/schema_ext.sql` adds 33 tables the original snapshot lacked
+  `src/db/schema_ext.sql` adds the tables the original snapshot lacked
   (counter, customer, area, manufacturer, NAI, scheme/offer, excise item,
   report tagging, transfer sale/receive, notes, on-a/c, a/c replace, BRS, UPI,
-  delivery, deleted-bill archive, message log, sync status, audit, PML, version).
-  Total **78 tables**. Seeds live in `seed.sql` and `seed_ext.sql`.
+  delivery, deleted-bill archive, message log, sync status, audit, PML, version,
+  remote Tally sync). It is applied on every `openDatabase` (idempotent
+  `CREATE TABLE IF NOT EXISTS`; `ALTER ADD COLUMN` re-runs are ignored).
+  Total **82 tables**. Seeds live in `seed.sql` and `seed_ext.sql`.
 - **Services** (`backend/src/services/`): `auth`, `masters` (generic CRUD; see
   `MASTERS` registry), `sales` (POS), `purchase`, `stock`, `vouchers`,
   `accounting` (double entry), `reports`, `reportCatalog` (113 declarative
   reports), `transactions` (transfer/notes/adjustments/fine/BRS/UPI/delivery),
   `admin` (parameters, new-year carry-forward, excise audit), `tools`
-  (calculator, backup, tally, SMS, PML, sync, clean print).
+  (calculator, backup, tally, SMS, PML, sync, clean print), `tally`
+  (remote Tally Prime twin-agent sync: config, mapping, auto-enqueue, XML
+  envelopes, ack/retry, inbound masters, sync report).
 - **Report catalog** is one declarative table in `reportCatalog.js`; the
   report menu is generated from `/api/report-groups`, not hard-coded. Counts:
   sales 32, stock 20, purchase 10, accounts 14, MIS 12, breakage 2, transfer 2,
   excise 21.
-- **Tests**: `cd new_code/backend && npm test` (31 tests across
+- **Tests**: `cd new_code/backend && npm test` (34 tests across
   `test/services.test.js` and `test/features.test.js`, fresh temp DB each;
   includes a test that runs every catalog report).
 - **Run**: `cd new_code && npm start` (backend + web UI). Login `A00001` / `admin`.

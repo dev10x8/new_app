@@ -13,6 +13,7 @@ import * as catalog from './services/reportCatalog.js';
 import * as admin from './services/admin.js';
 import * as txn from './services/transactions.js';
 import * as tools from './services/tools.js';
+import * as tally from './services/tally.js';
 import { nextTrnNo } from './services/helpers.js';
 
 const db = openDatabase(config.dbFile);
@@ -151,6 +152,50 @@ route('POST', '/api/tools/sync', (b) => tools.dataSync(db, { company: config.com
 route('GET', '/api/tools/pml', () => tools.listPml(db, config.company, config.year));
 route('POST', '/api/tools/pml', (b) => tools.addPml(db, { company: config.company, year: config.year, ...b }));
 route('POST', '/api/tools/clean-print', () => tools.cleanPrintGarbage(db, config.company));
+
+// ---- remote Tally sync (connectionless twin-agent) ----
+route('GET', '/api/tally/config', () => tally.getConfig(db, config.company));
+route('PUT', '/api/tally/config', (b) => tally.saveConfig(db, config.company, b));
+route('POST', '/api/tally/token', () => tally.saveConfig(db, config.company, { ...tally.getConfig(db, config.company), agenttoken: tally.newAgentToken() }));
+route('GET', '/api/tally/queue', (b, p, q) => tally.queue(db, config.company, { status: q.get('status') }));
+route('GET', '/api/tally/summary', () => tally.queueSummary(db, config.company));
+route('POST', '/api/tally/enqueue', () => tally.enqueueAll(db, config.company, config.year));
+route('POST', '/api/tally/retry', () => tally.retryFailed(db, config.company));
+route('GET', '/api/tally/xml', (b, p, q) => {
+  const ids = (q.get('ids') || '').split(',').map((x) => Number(x)).filter(Boolean);
+  return tally.buildVoucherXmlBatch(db, config.company, config.year, { ids, limit: Number(q.get('limit')) || 100 });
+});
+route('GET', '/api/tally/report', () => tally.syncReport(db, config.company, config.year));
+route('GET', '/api/tally/logs', () => tally.logs(db, config.company));
+route('GET', '/api/tally/mapping', (b, p, q) => tally.listMapping(db, config.company, q.get('type')));
+route('POST', '/api/tally/mapping', (b) => tally.addMapping(db, { company: config.company, ...b }));
+route('DELETE', '/api/tally/mapping/:id', (b, p) => ({ deleted: tally.deleteMapping(db, Number(p.id)) }));
+route('GET', '/api/tally/inbound', (b, p, q) => tally.listInbound(db, config.company, q.get('status')));
+route('POST', '/api/tally/inbound/apply', (b) => tally.applyInbound(db, config.company, b.id));
+
+// agent-facing endpoints (called by the shop agent / cloud broker)
+route('GET', '/api/tally/agent/pull', (b, p, q) => {
+  const cfg = tally.getConfig(db, config.company);
+  tally.requireToken(cfg, q.get('token'));
+  const out = tally.buildVoucherXmlBatch(db, config.company, config.year, { limit: Number(q.get('limit')) || 100 });
+  tally.touchPull(db, config.company);
+  return out;
+});
+route('POST', '/api/tally/agent/ack', (b) => {
+  const cfg = tally.getConfig(db, config.company);
+  tally.requireToken(cfg, b.token);
+  const r = tally.acknowledge(db, config.company, b.results || []);
+  tally.touchPush(db, config.company);
+  return r;
+});
+route('POST', '/api/tally/inbound', (b) => {
+  const cfg = tally.getConfig(db, config.company);
+  tally.requireToken(cfg, b.token);
+  const masters = b.masters || [];
+  for (const m of masters) tally.receiveMaster(db, config.company, m);
+  tally.touchPush(db, config.company);
+  return { received: masters.length };
+});
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);

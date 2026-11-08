@@ -1,6 +1,7 @@
 import { all, get, run, tx } from '../db/index.js';
 import { money, nextTrnNo, nextTrnId } from './helpers.js';
 import { postVoucher } from './accounting.js';
+import { getConfig, enqueuePurchase } from './tally.js';
 
 /**
  * Create a purchase (goods receipt) and its tax detail.
@@ -60,6 +61,11 @@ export function createPurchase(db, p) {
         { ledcode: supplierLed, debit: sign < 0 ? totnetamt : 0, credit: sign > 0 ? totnetamt : 0, narr: ptype },
       ],
     });
+
+    if (getConfig(db, p.company).enabled) {
+      try { enqueuePurchase(db, p.company, p.year, trnno); }
+      catch { /* never block goods receipt on sync queueing */ }
+    }
 
     return { trnno, trnid, totamount, tottaxOth, totnetamt };
   });

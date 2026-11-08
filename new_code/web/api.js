@@ -113,6 +113,22 @@ export const api = {
   pml: () => req('GET', '/api/tools/pml'),
   addPml: (p) => req('POST', '/api/tools/pml', p),
   cleanPrint: () => req('POST', '/api/tools/clean-print'),
+
+  tallyConfig: () => req('GET', '/api/tally/config'),
+  saveTallyConfig: (c) => req('PUT', '/api/tally/config', c),
+  newTallyToken: () => req('POST', '/api/tally/token'),
+  tallyQueue: (status) => req('GET', `/api/tally/queue${status ? `?status=${status}` : ''}`),
+  tallySummary: () => req('GET', '/api/tally/summary'),
+  tallyEnqueue: () => req('POST', '/api/tally/enqueue'),
+  tallyRetry: () => req('POST', '/api/tally/retry'),
+  tallyXml: (ids) => req('GET', `/api/tally/xml${ids ? `?ids=${ids}` : ''}`),
+  tallyReport: () => req('GET', '/api/tally/report'),
+  tallyLogs: () => req('GET', '/api/tally/logs'),
+  tallyMapping: (type) => req('GET', `/api/tally/mapping${type ? `?type=${type}` : ''}`),
+  addTallyMapping: (m) => req('POST', '/api/tally/mapping', m),
+  deleteTallyMapping: (id) => req('DELETE', `/api/tally/mapping/${id}`),
+  tallyInbound: (status) => req('GET', `/api/tally/inbound${status ? `?status=${status}` : ''}`),
+  applyTallyInbound: (id) => req('POST', '/api/tally/inbound/apply', { id }),
 };
 
 export default api;

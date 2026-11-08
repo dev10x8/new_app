@@ -25,8 +25,28 @@ export function openDatabase(dbFile) {
     if (existsSync(schemaExtPath)) db.exec(readFileSync(schemaExtPath, 'utf8'));
     db.exec(readFileSync(seedPath, 'utf8'));
     if (existsSync(seedExtPath)) db.exec(readFileSync(seedExtPath, 'utf8'));
+  } else {
+    migrate(db);
   }
   return db;
+}
+
+/**
+ * Apply additive schema on an existing database. Statements are idempotent
+ * (CREATE TABLE IF NOT EXISTS); ALTER ADD COLUMN re-runs are ignored.
+ */
+function migrate(db) {
+  if (!existsSync(schemaExtPath)) return;
+  const sql = readFileSync(schemaExtPath, 'utf8')
+    .split('\n')
+    .filter((line) => !line.trim().startsWith('--'))
+    .join('\n');
+  const statements = sql.split(';').map((s) => s.trim()).filter(Boolean);
+  for (const stmt of statements) {
+    try { db.exec(stmt); } catch (err) {
+      if (!/duplicate column name/i.test(err.message)) throw err;
+    }
+  }
 }
 
 /** Run a query returning all rows. */

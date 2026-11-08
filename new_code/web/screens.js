@@ -758,6 +758,150 @@ async function syncScreen(ctx) {
     h('div', { class: 'card' }, h('pre', { style: 'white-space:pre-wrap;margin:0' }, JSON.stringify(status, null, 2))));
 }
 
+// --------------------------------------------------------------- remote Tally sync
+const TALLY_STATUS_BADGE = { PENDING: '', SENT: 'warn', ACKED: 'ok', FAILED: 'error' };
+
+async function tallySyncScreen(ctx) {
+  const [cfg, summary, queue, mapping, inbound, report] = await Promise.all([
+    api.tallyConfig(), api.tallySummary(), api.tallyQueue(),
+    api.tallyMapping(), api.tallyInbound(), api.tallyReport(),
+  ]);
+
+  // --- configuration ---
+  const enabled = h('input', { type: 'checkbox', name: 'enabled' });
+  enabled.checked = !!cfg.enabled;
+  const cfgForm = form([
+    [['Broker URL', input('brokerurl', cfg.brokerurl || 'https://broker.madhushala.cloud')],
+     ['Tally company', input('tallycompany', cfg.tallycompany || '')]],
+    [['Agent ID', input('agentid', cfg.agentid || '')],
+     ['Company GUID', input('companyguid', cfg.companyguid || '')]],
+    [['Agent token', input('agenttoken', cfg.agenttoken || '')],
+     ['Enabled', enabled]],
+  ], async (d) => {
+    await api.saveTallyConfig({ ...d, enabled: enabled.checked });
+    ctx.toast('Sync settings saved', 'ok');
+    ctx.navigate(ctx.state.route);
+  });
+  const tokenBtn = h('button', { class: 'btn' }, 'Generate token');
+  tokenBtn.onclick = async () => {
+    try { await api.newTallyToken(); ctx.toast('New agent token generated', 'ok'); ctx.navigate(ctx.state.route); }
+    catch (e) { ctx.toast(e.message, 'error'); }
+  };
+
+  // --- status + actions ---
+  const stat = (label, value, kind = '') => h('div', { class: 'card stat' },
+    h('div', { class: 'k' }, label), h('div', { class: `v${kind ? ` ${kind}` : ''}` }, String(value)));
+  const stats = h('div', { class: 'grid cols-4' },
+    stat('Pending', summary.PENDING, summary.PENDING ? 'warn' : ''),
+    stat('Sent', summary.SENT),
+    stat('Delivered', summary.ACKED),
+    stat('Failed', summary.FAILED, summary.FAILED ? 'danger' : ''),
+    stat('Total', summary.total));
+
+  const act = (label, fn, cls = 'btn') => {
+    const b = h('button', { class: cls }, label);
+    b.onclick = async () => { try { const r = await fn(); ctx.toast(typeof r === 'string' ? r : `${label} done`, 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } };
+    return b;
+  };
+  const actions = h('div', { class: 'toolbar' },
+    act('Queue pending bills', async () => { const r = await api.tallyEnqueue(); return `${r.queued} voucher(s) queued`; }, 'btn primary'),
+    act('Retry failed', async () => { const r = await api.tallyRetry(); return `${r.retried} requeued`; }),
+    act('Refresh', async () => ''));
+
+  // --- XML preview ---
+  const xmlOut = h('pre', { class: 'card', style: 'white-space:pre-wrap;max-height:340px;overflow:auto;margin:0' }, '');
+  const xmlBtn = h('button', { class: 'btn' }, 'Preview Tally XML');
+  xmlBtn.onclick = async () => {
+    try { const r = await api.tallyXml(); xmlOut.textContent = r.count ? r.xml : 'Queue is empty.'; }
+    catch (e) { ctx.toast(e.message, 'error'); }
+  };
+
+  // --- queue ---
+  const queueTable = table([
+    { key: 'id', title: '#' }, { key: 'vouchertype', title: 'Type' }, { key: 'docno', title: 'Doc' },
+    { key: 'docdate', title: 'Date' }, { key: 'amount', title: 'Amount', money: true },
+    { key: 'attempts', title: 'Tries', num: true },
+    { key: 'status', title: 'Status', badge: (r) => TALLY_STATUS_BADGE[r.status] || '' },
+    { key: 'lasterror', title: 'Last error' },
+  ], queue);
+
+  // --- mapping ---
+  const MAP_TYPES = ['LEDGER', 'ITEM', 'TAX', 'PAYMENT'];
+  const mapType = select('maptype', MAP_TYPES, 'LEDGER');
+  const mapForm = form([
+    [['Type', mapType], ['POS pattern', input('pattern', '')], ['Tally master', input('targetname', '')]],
+  ], async (d) => {
+    await api.addTallyMapping({ ...d, priority: 1 });
+    ctx.toast('Mapping rule added', 'ok');
+    ctx.navigate(ctx.state.route);
+  });
+  const mappingTable = table([
+    { key: 'maptype', title: 'Type' }, { key: 'pattern', title: 'POS pattern' },
+    { key: 'targetname', title: 'Tally master' }, { key: 'priority', title: 'Priority', num: true },
+    { key: 'active', title: 'Active', value: (r) => (r.active ? 'Yes' : 'No') },
+  ], mapping);
+  [...(mappingTable.querySelector('tbody')?.rows || [])].forEach((tr, i) => {
+    tr.append(h('td', {}, h('button', { class: 'btn danger small', onclick: async () => {
+      try { await api.deleteTallyMapping(mapping[i].id); ctx.toast('Mapping removed', 'ok'); ctx.navigate(ctx.state.route); }
+      catch (e) { ctx.toast(e.message, 'error'); }
+    } }, 'Delete')));
+  });
+  if (mapping.length) mappingTable.querySelector('thead tr').append(h('th', {}, ''));
+
+  // --- inbound masters ---
+  const inboundTable = table([
+    { key: 'mtype', title: 'Type' }, { key: 'mcode', title: 'Code' }, { key: 'mname', title: 'Name' },
+    { key: 'status', title: 'Status', badge: (r) => (r.status === 'APPLIED' ? 'ok' : 'warn') },
+    { key: 'receivedat', title: 'Received' },
+  ], inbound);
+  [...(inboundTable.querySelector('tbody')?.rows || [])].forEach((tr, i) => {
+    const row = inbound[i];
+    tr.append(h('td', {}, row.status === 'APPLIED' ? '—' : h('button', { class: 'btn small', onclick: async () => {
+      try { await api.applyTallyInbound(row.id); ctx.toast('Master applied', 'ok'); ctx.navigate(ctx.state.route); }
+      catch (e) { ctx.toast(e.message, 'error'); }
+    } }, 'Apply')));
+  });
+  if (inbound.length) inboundTable.querySelector('thead tr').append(h('th', {}, ''));
+
+  // --- log ---
+  const logTable = table([
+    { key: 'loggedat', title: 'When' }, { key: 'direction', title: 'Dir' }, { key: 'action', title: 'Action' },
+    { key: 'status', title: 'Status', badge: (r) => TALLY_STATUS_BADGE[r.status] || (r.status === 'APPLIED' ? 'ok' : '') },
+    { key: 'message', title: 'Message' },
+  ], report.logs);
+
+  return h('div', {},
+    h('div', { class: 'card' },
+      h('h3', {}, 'Remote Tally Sync'),
+      h('p', { class: 'muted' }, 'Connectionless twin-agent sync: the shop agent pushes sales and purchase vouchers to the cloud broker for your accountant\'s Tally Prime, and supported ledger / stock-item masters flow back to the counter. Billing and printing keep working offline; pending vouchers wait in the local queue and deliver when the connection returns.')),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Status'),
+      stats,
+      actions),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Agent settings'),
+      cfgForm,
+      h('div', { class: 'actions' }, tokenBtn),
+      h('p', { class: 'muted' }, `Last pull: ${cfg.lastpullat || '—'} · Last push: ${cfg.lastpushat || '—'}`)),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Outbound queue'),
+      queueTable),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Voucher XML'),
+      h('div', { class: 'toolbar' }, xmlBtn),
+      xmlOut),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Ledger / tax auto-mapping'),
+      h('p', { class: 'muted' }, 'Map POS values to Tally masters by string pattern (matched against the POS code or name).'),
+      mapForm, mappingTable),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Masters received from Tally'),
+      inboundTable),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Sync log'),
+      logTable));
+}
+
 // --------------------------------------------------------------- help
 function aboutScreen() {
   return h('div', { class: 'card' }, h('h3', {}, 'About Madhushala Pro'),
@@ -816,6 +960,7 @@ export async function screens(route, ctx) {
   if (route === 'backup') return backupScreen(ctx);
   if (route === 'restore') return restoreScreen(ctx);
   if (route === 'tally') return tallyScreen(ctx);
+  if (route === 'tally-sync') return tallySyncScreen(ctx);
   if (route === 'messages') return messagesScreen(ctx);
   if (route === 'pml') return pmlScreen(ctx);
   if (route === 'clean-print') return cleanPrintScreen(ctx);
