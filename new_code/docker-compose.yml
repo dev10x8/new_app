@@ -1,0 +1,56 @@
+# docker-compose.yml - run the Madhushala Pro rebuild (new_code) in containers.
+#
+#   backend  : Node.js + SQLite API on http://localhost:7100
+#   frontend : the TUI, served in a browser terminal on http://localhost:7681
+#
+# Usage (from the repository root):
+#
+#   docker compose -f new_code/docker-compose.yml up --build
+#
+#   then open http://localhost:7681  (login: A00001 / admin)
+#   and  http://localhost:7100/api/health
+#
+# The SQLite database is kept in the named volume `madhushala-data`, so it
+# survives restarts. To wipe and reseed it:
+#
+#   docker compose -f new_code/docker-compose.yml down -v
+#
+# Set MADHUSHALA_PORT / TUI_PORT to change the published host ports.
+
+name: madhushala-new
+
+services:
+  backend:
+    build:
+      context: ./backend
+    image: madhushala-backend:latest
+    container_name: madhushala-backend
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "7100"
+      COMPANY: "${COMPANY:-1}"
+      YEAR: "${YEAR:-2024}"
+      MADHUSHALA_DB: "/data/madhushala.db"
+    volumes:
+      - madhushala-data:/data
+    ports:
+      - "${MADHUSHALA_PORT:-7100}:7100"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./tui
+    image: madhushala-tui:latest
+    container_name: madhushala-tui
+    environment:
+      # The TUI talks to the backend by its compose service name.
+      API_URL: "http://backend:7100"
+    ports:
+      - "${TUI_PORT:-7681}:7681"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  madhushala-data:

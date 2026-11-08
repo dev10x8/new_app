@@ -49,6 +49,47 @@ npm run backend      # HTTP API on http://127.0.0.1:7100
 npm run tui          # TUI (expects the backend to be running)
 ```
 
+## Run with Docker
+
+`docker-compose.yml` builds and runs both halves:
+
+| Service | What it is | Default URL |
+| --- | --- | --- |
+| `backend` | Node.js + SQLite API | http://localhost:7100 |
+| `frontend` | the TUI, served in a browser terminal via [ttyd](https://github.com/tsl0922/ttyd) | http://localhost:7681 |
+
+```bash
+# from the repository root
+docker compose -f new_code/docker-compose.yml up --build
+```
+
+Then open **http://localhost:7681** — that is the TUI in a terminal in your
+browser. Log in with `A00001` / `admin`. The API is on
+**http://localhost:7100** (`/api/health`, `/api/report-groups`, ...).
+
+The SQLite file lives in the named volume `madhushala-data`, so data survives
+`down`/`up`. To wipe and reseed:
+
+```bash
+docker compose -f new_code/docker-compose.yml down -v
+```
+
+Change the published ports with environment variables:
+
+```bash
+MADHUSHALA_PORT=8000 TUI_PORT=8001 \
+  docker compose -f new_code/docker-compose.yml up --build
+```
+
+The images (`new_code/backend/Dockerfile`, `new_code/tui/Dockerfile`) have no
+third-party runtime dependencies — Node plus the source tree — so the builds are
+small and fast. The backend image is also useful on its own if you only want the
+API:
+
+```bash
+docker run --rm -p 7100:7100 madhushala-backend:latest
+```
+
 ## Project layout
 
 ```

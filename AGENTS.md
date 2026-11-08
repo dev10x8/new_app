@@ -55,6 +55,11 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   `test/services.test.js` and `test/features.test.js`, fresh temp DB each;
   includes a test that runs every catalog report).
 - **Run**: `cd new_code && npm start` (backend + TUI). Login `A00001` / `admin`.
+- **Docker**: `docker compose -f new_code/docker-compose.yml up --build` runs the
+  backend (port 7100) and the TUI in a browser terminal via ttyd (port 7681);
+  DB in the `madhushala-data` volume. Ports overridable with
+  `MADHUSHALA_PORT` / `TUI_PORT`. No third-party runtime deps, so the images
+  are just Node + source.
 
 ### Conventions in new_code
 
