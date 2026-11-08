@@ -1,0 +1,66 @@
+# docker-compose.yml - decompilation toolchain for Madhushala Pro.
+#
+# Brings up the full toolchain (see dev/docker/Dockerfile) with the repository
+# mounted at /work, so the same scripts used on the host run unchanged.
+#
+# Common usage (run from the repository root):
+#
+#   # 1. Decompile everything under Debug/ into decode/ (one-shot).
+#   docker compose -f dev/docker-compose.yml run --rm decompiler
+#
+#   # 2. Interactive shell with the toolchain on PATH.
+#   docker compose -f dev/docker-compose.yml run --rm shell
+#     ilspycmd --version
+#     dev/scripts/decompile.sh
+#     dev/scripts/admin_pin.sh find
+#
+#   # 3. Optional: a SQL Server instance to attach the .MDF and verify a reset.
+#   MSSQL_SA_PASSWORD='Str0ng!Passw0rd' \
+#     docker compose -f dev/docker-compose.yml --profile sql up -d mssql
+#
+# Notes:
+#   * The daemon must be running (in a container: `sudo dockerd &`).
+#   * Git LFS: run `git lfs pull` on the host first (or inside `shell`) so the
+#     real `Debug/Madhushala Pro.exe` is present instead of the LFS pointer.
+
+name: madhushala-dev
+
+x-toolchain: &toolchain
+  build:
+    context: docker
+    dockerfile: Dockerfile
+  image: madhushala-decompiler:latest
+  working_dir: /work
+  volumes:
+    - ..:/work
+  environment:
+    DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+    DOTNET_NOLOGO: "1"
+
+services:
+  # One-shot: decompile every managed assembly into decode/.
+  decompiler:
+    <<: *toolchain
+    command: ["/bin/bash", "-lc", "git lfs pull || true; dev/scripts/decompile.sh"]
+
+  # Interactive shell with ilspycmd / mono / python / git-lfs available.
+  shell:
+    <<: *toolchain
+    command: ["/bin/bash"]
+    stdin_open: true
+    tty: true
+    profiles: ["shell"]
+
+  # Optional: SQL Server 2022 to attach the shipped .MDF and verify a PIN reset
+  # (DBCC CHECKDB, SELECT password FROM users). Enable with --profile sql.
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    profiles: ["sql"]
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD:-Str0ng!Passw0rd}"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ../Debug/Resources:/resources:ro

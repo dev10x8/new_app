@@ -1,0 +1,16 @@
+{
+  "name": "madhushala-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Madhushala Pro backend (Node.js + SQLite)",
+  "engines": { "node": ">=22.5.0" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "gen-schema": "python3 scripts/gen_schema.py",
+    "seed": "node scripts/seed.js",
+    "reset-db": "node scripts/reset.js",
+    "test": "node --test"
+  }
+}

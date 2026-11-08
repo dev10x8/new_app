@@ -1,0 +1,12 @@
+{
+  "name": "madhushala-tui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Madhushala Pro terminal UI (Node.js)",
+  "bin": { "madhushala": "src/index.js" },
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
