@@ -1,6 +1,15 @@
-// Thin HTTP client for the backend API (uses global fetch).
+// Thin HTTP client for the backend API. Mirrors tui/src/lib/api.js but runs
+// in the browser (and inside the Tauri webview).
 
-const BASE = process.env.API_URL || 'http://127.0.0.1:7100';
+// Base URL resolution:
+//  - Tauri desktop: the bundled backend runs on localhost:7100.
+//  - Served over HTTP (docker compose): the web server proxies /api, so a
+//    same-origin (empty) base is used and there is no CORS to worry about.
+//  - Overridable with window.__API_BASE__ if needed.
+const isDesktop = typeof location !== 'undefined'
+  && (location.protocol === 'tauri:' || location.protocol === 'file:');
+const BASE = (typeof window !== 'undefined' && window.__API_BASE__)
+  || (isDesktop ? 'http://127.0.0.1:7100' : '');
 
 async function req(method, path, body) {
   const opts = { method, headers: {} };
@@ -14,14 +23,23 @@ async function req(method, path, body) {
   return json.data;
 }
 
+const qs = (o = {}) => {
+  const p = new URLSearchParams();
+  for (const [k, v] of Object.entries(o)) if (v !== undefined && v !== null && v !== '') p.set(k, v);
+  const s = p.toString();
+  return s ? `?${s}` : '';
+};
+
 export const api = {
   base: BASE,
   health: () => req('GET', '/api/health'),
   meta: () => req('GET', '/api/meta'),
+  systemInfo: () => req('GET', '/api/system-info'),
   login: (usercode, password) => req('POST', '/api/login', { usercode, password }),
 
   users: () => req('GET', '/api/users'),
   createUser: (u) => req('POST', '/api/users', u),
+  updateUser: (usercode, u) => req('PUT', `/api/users/${usercode}`, u),
   resetPin: (usercode, pin) => req('POST', `/api/users/${usercode}/reset-pin`, { pin }),
   setRights: (usercode, module, rights) => req('POST', `/api/users/${usercode}/rights`, { module, rights }),
 
@@ -30,20 +48,20 @@ export const api = {
   updateMaster: (name, keys, values) => req('PUT', `/api/masters/${name}`, { keys, values }),
   deleteMaster: (name, keys) => req('DELETE', `/api/masters/${name}`, { keys }),
   items: () => req('GET', '/api/items'),
-  findItem: (term) => req('GET', `/api/items/find?term=${encodeURIComponent(term)}`),
+  findItem: (term) => req('GET', `/api/items/find${qs({ term })}`),
 
-  sales: (q = '') => req('GET', `/api/sales${q}`),
+  sales: (q = {}) => req('GET', `/api/sales${qs(q)}`),
   sale: (trnno) => req('GET', `/api/sales/${encodeURIComponent(trnno)}`),
   createSale: (sale) => req('POST', '/api/sales', sale),
   deleteSale: (trnno) => req('DELETE', `/api/sales/${encodeURIComponent(trnno)}`),
   dayClose: (from, to) => req('POST', '/api/day-close', { from, to }),
-  salesSummary: (q = '') => req('GET', `/api/sales-summary${q}`),
+  salesSummary: (q = {}) => req('GET', `/api/sales-summary${qs(q)}`),
 
-  purchases: (q = '') => req('GET', `/api/purchases${q}`),
+  purchases: (q = {}) => req('GET', `/api/purchases${qs(q)}`),
   purchase: (trnno) => req('GET', `/api/purchases/${trnno}`),
   createPurchase: (p) => req('POST', '/api/purchases', p),
 
-  stock: (q = '') => req('GET', `/api/stock${q}`),
+  stock: (q = {}) => req('GET', `/api/stock${qs(q)}`),
   addOpeningStock: (o) => req('POST', '/api/opening-stock', o),
   stockTransfer: (t) => req('POST', '/api/stock-transfer', t),
   breakage: (b) => req('POST', '/api/breakage', b),
@@ -53,15 +71,12 @@ export const api = {
   ledger: (ledcode) => req('GET', `/api/ledger/${ledcode}`),
 
   reports: () => req('GET', '/api/reports'),
-  report: (key, q = '') => req('GET', `/api/reports/${key}${q}`),
+  report: (key, q = {}) => req('GET', `/api/reports/${key}${qs(q)}`),
   dashboard: () => req('GET', '/api/dashboard'),
 
-  // full report catalog
   reportGroups: () => req('GET', '/api/report-groups'),
-  catalogReport: (key, q = '') => req('GET', `/api/report-catalog/${key}${q}`),
+  catalogReport: (key, q = {}) => req('GET', `/api/report-catalog/${key}${qs(q)}`),
 
-  // admin
-  systemInfo: () => req('GET', '/api/system-info'),
   parameters: () => req('GET', '/api/admin/parameters'),
   updateParameters: (v) => req('PUT', '/api/admin/parameters', v),
   years: () => req('GET', '/api/admin/years'),
@@ -69,7 +84,6 @@ export const api = {
   exciseAudit: () => req('GET', '/api/admin/excise-audit'),
   deletedBills: () => req('GET', '/api/admin/deleted-bills'),
 
-  // extended transactions
   transferSales: () => req('GET', '/api/transfer-sales'),
   createTransferSale: (t) => req('POST', '/api/transfer-sales', t),
   transferReceives: () => req('GET', '/api/transfer-receives'),
@@ -89,7 +103,6 @@ export const api = {
   createDelivery: (d) => req('POST', '/api/deliveries', d),
   setDeliveryStatus: (orderno, status) => req('PUT', `/api/deliveries/${encodeURIComponent(orderno)}`, { status }),
 
-  // tools
   calc: (a, op, b) => req('POST', '/api/tools/calc', { a, op, b }),
   backup: (dest) => req('POST', '/api/tools/backup', { dest }),
   tally: (kind) => req('GET', `/api/tools/tally?kind=${kind || 'SALES'}`),

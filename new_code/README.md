@@ -3,11 +3,11 @@
 A from-scratch rebuild of the Madhushala Pro bar / liquor POS & management
 system on a modern, dependency-light stack:
 
-| Layer    | Old stack (this repo)                    | New stack (`new_code/`)            |
-| -------- | ---------------------------------------- | ---------------------------------- |
-| Frontend | VB.NET WinForms (MDI, TreeView menu)     | Terminal UI (TUI), Node.js         |
-| Backend  | VB.NET business logic + stored procedures| Node.js HTTP API, service modules  |
-| Database | Microsoft SQL Server (`barmanager.mdf`)  | SQLite (`data/madhushala.db`)      |
+| Layer    | Old stack (this repo)                    | New stack (`new_code/`)                 |
+| -------- | ---------------------------------------- | --------------------------------------- |
+| Frontend | VB.NET WinForms (MDI, TreeView menu)     | Tauri desktop app — Web UI + Rust shell |
+| Backend  | VB.NET business logic + stored procedures| Node.js HTTP API, service modules       |
+| Database | Microsoft SQL Server (`barmanager.mdf`)  | SQLite (`data/madhushala.db`)           |
 
 The rebuild keeps the same business flows and features described in
 `../PRODUCT_FEATURES.md` and the same data model as `../dev/db/ddl.sql`.
@@ -20,8 +20,10 @@ The rebuild keeps the same business flows and features described in
 - **Node.js backend** — no external runtime dependencies. The data layer uses
   the built-in `node:sqlite` module and the API uses `node:http`. Only Node.js
   (>= 22.5) is required.
-- **TUI frontend** — runs anywhere a terminal runs (including over SSH), with
-  no GUI toolkit. It mirrors the legacy `frm_main` menu tree.
+- **Tauri frontend (Web + Rust)** — the UI is ordinary HTML/CSS/JS (no
+  framework) rendered in a native window by Tauri v2; the Rust layer only
+  provides the window. The exact same UI also runs in a browser, which is how
+  it is served by Docker. See [`tauri/`](tauri/README.md).
 
 ## Requirements
 
@@ -32,7 +34,7 @@ The rebuild keeps the same business flows and features described in
 
 ```bash
 cd new_code
-npm start            # starts the backend, then opens the TUI
+npm start            # starts the backend, then opens the UI
 ```
 
 Sign in with the shipped credentials:
@@ -46,7 +48,8 @@ Run the pieces separately if you prefer:
 
 ```bash
 npm run backend      # HTTP API on http://127.0.0.1:7100
-npm run tui          # TUI (expects the backend to be running)
+npm run web          # web UI on http://127.0.0.1:8080 (expects the backend)
+npm run tauri        # desktop app (Tauri) - see tauri/README.md
 ```
 
 ## Run with Docker
@@ -56,16 +59,17 @@ npm run tui          # TUI (expects the backend to be running)
 | Service | What it is | Default URL |
 | --- | --- | --- |
 | `backend` | Node.js + SQLite API | http://localhost:7100 |
-| `frontend` | the TUI, served in a browser terminal via [ttyd](https://github.com/tsl0922/ttyd) | http://localhost:7681 |
+| `frontend` | the web UI (the frontend of the Tauri desktop app) | http://localhost:8080 |
 
 ```bash
 # from the repository root
 docker compose -f new_code/docker-compose.yml up --build
 ```
 
-Then open **http://localhost:7681** — that is the TUI in a terminal in your
-browser. Log in with `A00001` / `admin`. The API is on
-**http://localhost:7100** (`/api/health`, `/api/report-groups`, ...).
+Then open **http://localhost:8080** — that is the app UI in your browser. Log in
+with `A00001` / `admin`. The API is on **http://localhost:7100**
+(`/api/health`, `/api/report-groups`, ...). The web server proxies `/api` to the
+backend, so there is no CORS to configure.
 
 The SQLite file lives in the named volume `madhushala-data`, so data survives
 `down`/`up`. To wipe and reseed:
@@ -77,11 +81,11 @@ docker compose -f new_code/docker-compose.yml down -v
 Change the published ports with environment variables:
 
 ```bash
-MADHUSHALA_PORT=8000 TUI_PORT=8001 \
+MADHUSHALA_PORT=8000 WEB_PORT=8001 \
   docker compose -f new_code/docker-compose.yml up --build
 ```
 
-The images (`new_code/backend/Dockerfile`, `new_code/tui/Dockerfile`) have no
+The images (`new_code/backend/Dockerfile`, `new_code/web/Dockerfile`) have no
 third-party runtime dependencies — Node plus the source tree — so the builds are
 small and fast. The backend image is also useful on its own if you only want the
 API:
@@ -111,12 +115,20 @@ new_code/
 │   └── test/
 │       ├── services.test.js  # core service tests
 │       └── features.test.js  # extended feature + report catalog tests
-├── tui/
-│   └── src/
-│       ├── index.js          # TUI app + screen router
-│       └── lib/              # ansi, widgets, api client, menu tree
+├── web/                      # the UI (frontend of the Tauri desktop app)
+│   ├── index.html            # single page shell
+│   ├── app.js                # shell, router, session
+│   ├── screens.js            # every screen / flow
+│   ├── menu.js               # navigation tree (mirrors legacy frm_main)
+│   ├── ui.js, api.js         # DOM helpers + HTTP client
+│   ├── styles.css            # design system
+│   ├── server.js             # static server + /api proxy (Docker + dev)
+│   └── Dockerfile            # web image
+├── tauri/                    # desktop shell (Web + Rust)
+│   ├── package.json          # @tauri-apps/cli
+│   └── src-tauri/            # Rust crate + tauri.conf.json + icons
 ├── data/madhushala.db        # created on first run
-└── scripts/start.js          # backend + TUI launcher
+└── scripts/start.js          # backend + web launcher
 ```
 
 The SQLite database ends up with **78 tables**: the 45 from the original DDL
@@ -126,7 +138,7 @@ The SQLite database ends up with **78 tables**: the 45 from the original DDL
 
 | Flow (PRODUCT_FEATURES.md §) | New code |
 | --- | --- |
-| Startup / login / logout (§3.1) | `services/auth.js`, TUI `loginScreen` |
+| Startup / login / logout (§3.1) | `services/auth.js`, UI login screen |
 | Masters maintenance (§3.2) | `services/masters.js` (generic CRUD over every master table, incl. counter, customer, area, manufacturer, NAI, scheme/offer, tax scheme, excise item, report tagging) |
 | POS / counter sale (§3.3) | `services/sales.js` (`createSale`, returns, delete, day close) |
 | Purchase / goods receipt (§3.4) | `services/purchase.js` |
@@ -147,24 +159,24 @@ plus a running number (e.g. `FL00001`).
 ## Menu-by-menu, screen-by-screen mapping
 
 Old = the VB.NET WinForms app (`frm_main` TreeView → a form, e.g.
-`frm_countersales`, writing to a SQL Server table). New = this TUI screen and
+`frm_countersales`, writing to a SQL Server table). New = this UI screen and
 the service / API behind it.
 
 Status column values: **Full** = implemented end to end; **Partial** = present
-but simplified or read-only; **Not yet** = not implemented (kept out of the TUI
+but simplified or read-only; **Not yet** = not implemented (kept out of the UI
 menu, or shown as an informational screen).
 
 ### Main
 
-| Old menu → form (table) | New TUI screen | New service / API | Status |
+| Old menu → form (table) | New UI screen | New service / API | Status |
 | --- | --- | --- | --- |
-| Main → Log Out | returns to Login | `tui logout` | Full |
+| Main → Log Out | returns to Login | UI logout | Full |
 | Main → System Admin → `frm_sys_admin` | Main > System Admin | `admin.systemInfo` `/api/system-info` | Full |
-| Main → Exit | exits the TUI | `tui exit` | Full |
+| Main → Exit | exits the app | UI exit | Full |
 
 ### Admin
 
-| Old menu → form (table) | New TUI screen | New service / API | Status |
+| Old menu → form (table) | New UI screen | New service / API | Status |
 | --- | --- | --- | --- |
 | Admin → Company → `frm_companyinfo` (`companymast`) | Admin > Company | `services/masters.js` `/api/masters/company` | Full |
 | Admin → Parameters → `frm_companyparameter` (`companyparamtr`) | Admin > Parameters | `admin.getParameters/updateParameters` `/api/admin/parameters` | Full |
@@ -176,7 +188,7 @@ menu, or shown as an informational screen).
 
 ### Masters
 
-| Old menu → form (table) | New TUI screen | New service / API | Status |
+| Old menu → form (table) | New UI screen | New service / API | Status |
 | --- | --- | --- | --- |
 | Masters → A/C Main Group (`MasterAccountsMain` → `acgroupmst`) | Masters > A/C Main Group | `/api/masters/acgroup` | Full |
 | Masters → A/C Sub Group (`acountname`) | Masters > A/C Sub Group | `/api/masters/acount` | Full |
@@ -202,7 +214,7 @@ menu, or shown as an informational screen).
 
 ### Transactions
 
-| Old menu → form (table) | New TUI screen | New service / API | Status |
+| Old menu → form (table) | New UI screen | New service / API | Status |
 | --- | --- | --- | --- |
 | Sale - POS → `frm_countersales` (`salesbillmain`/`detail`) | Transactions > Sale - POS | `services/sales.js` `/api/sales` | Full |
 | Purchase → `frm_purchase` (`purchasemain`/`detail`) | Transactions > Purchase | `services/purchase.js` `/api/purchases` | Full |
@@ -225,7 +237,7 @@ menu, or shown as an informational screen).
 
 ### Reports
 
-| Old group (PRODUCT_FEATURES.md §2.5) | New TUI screen | New service / API | Status |
+| Old group (PRODUCT_FEATURES.md §2.5) | New UI screen | New service / API | Status |
 | --- | --- | --- | --- |
 | Sales Reports (32) | Reports > Sales Reports | `reportCatalog.js` (32 keys) `/api/report-catalog/:key` | Full |
 | Stock Reports (20) | Reports > Stock Reports | `reportCatalog.js` (20 keys) | Full |
@@ -237,12 +249,12 @@ menu, or shown as an informational screen).
 | Excise Reports (21) | Reports > Excise Reports | `reportCatalog.js` (21 keys) | Full |
 
 The catalog holds **113 reports** and is driven from a single declarative table
-(`services/reportCatalog.js`), so the TUI report menu is generated from the API
+(`services/reportCatalog.js`), so the report menu is generated from the API
 (`/api/report-groups`) rather than hard-coded.
 
 ### Dash Board, Tools, Help, other top-level
 
-| Old menu → form (table) | New TUI screen | New service / API | Status |
+| Old menu → form (table) | New UI screen | New service / API | Status |
 | --- | --- | --- | --- |
 | Dash Board → Sales Status | Dash Board > Sales Status | `reports.dashboard` `/api/dashboard` | Full |
 | Dash Board → Stock Status | Dash Board > Stock Status | `stock.items_closing` | Full |
@@ -252,7 +264,7 @@ The catalog holds **113 reports** and is driven from a single declarative table
 | Tools → Change Password | Tools > Change Password | `auth.resetPin` `/api/users/:code/reset-pin` | Full |
 | Tools → Data Back-Up (`backup()`) | Tools > Data Back-Up | `tools.backupDatabase` `/api/tools/backup` | Full |
 | Tools → Data Restore | Tools > Data Restore (guided) | copy backup over `data/madhushala.db` | Partial |
-| Tools → Shortcut Panel | Tools > Shortcut Panel | `tui` help text | Full |
+| Tools → Shortcut Panel | Tools > Shortcut Panel | Help screen | Full |
 | Tools → Export To Tally → `frm_tally_export` | Tools > Export To Tally | `tools.tallyExport` `/api/tools/tally` | Full |
 | Tools → WhatsApp / SMS (`frm_message`) | Tools > SMS / WhatsApp | `tools.sendMessage/listMessages` `/api/tools/messages` | Full |
 | Tools → PML Print and Reports | Tools > PML Print and Reports | `tools.addPml/listPml` `/api/tools/pml` | Full |
@@ -260,7 +272,7 @@ The catalog holds **113 reports** and is driven from a single declarative table
 | Tools → Data Sync | Tools > Data Sync | `tools.dataSync/syncStatus` `/api/tools/sync` | Full |
 | Tools → Excise form (`frm_exciseform`) | (covered by Excise Reports + Excise Fine) | `reportCatalog` excise group | Partial |
 | Help → About Madhushala | Help > About Madhushala | `admin.systemInfo` | Full |
-| Help → Ask for Help | Help > Ask for Help | `tui` help text | Full |
+| Help → Ask for Help | Help > Ask for Help | Help screen | Full |
 | Help → List of Updates | Help > List of Updates | `admin.systemInfo` | Full |
 
 ## Database
@@ -333,7 +345,7 @@ execute**. Every test uses a fresh temporary database.
 ## Forgot the admin PIN?
 
 The admin PIN lives in the `users` table (plaintext, as in the legacy app).
-Reset it from the TUI (**Tools → Change Password** or **Admin → User → Reset
+Reset it from the UI (**Tools → Change Password** or **Admin → User → Reset
 PIN**) or directly:
 
 ```bash

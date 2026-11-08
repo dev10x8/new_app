@@ -1,13 +1,17 @@
 #!/usr/bin/env node
-// Start the backend, wait for it to become healthy, then launch the TUI.
+// Start the backend, wait for it to become healthy, then launch the web UI
+// (the frontend of the Tauri desktop app) and open it in the default browser.
 import { spawn } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
-const backend = spawn(process.execPath, [join(root, 'backend', 'src', 'server.js')], { stdio: 'inherit' });
 const api = process.env.API_URL || 'http://127.0.0.1:7100';
+const webPort = process.env.WEB_PORT || '8080';
+const webUrl = `http://127.0.0.1:${webPort}`;
+
+const backend = spawn(process.execPath, [join(root, 'backend', 'src', 'server.js')], { stdio: 'inherit' });
 
 async function waitHealthy(tries = 40) {
   for (let i = 0; i < tries; i++) {
@@ -27,9 +31,22 @@ if (!healthy) {
   process.exit(1);
 }
 
-const tui = spawn(process.execPath, [join(root, 'tui', 'src', 'index.js')], { stdio: 'inherit', env: process.env });
+const web = spawn(process.execPath, [join(root, 'web', 'server.js')], {
+  stdio: 'inherit',
+  env: { ...process.env, PORT: webPort, API_URL: api },
+});
 
-function shutdown() { backend.kill(); tui.kill(); }
-tui.on('exit', (code) => { shutdown(); process.exit(code || 0); });
+console.log(`\nMadhushala Pro web UI: ${webUrl}  (login A00001 / admin)\n`);
+openBrowser(webUrl);
+
+function openBrowser(url) {
+  const cmd = process.platform === 'win32' ? 'start'
+    : process.platform === 'darwin' ? 'open' : 'xdg-open';
+  try { spawn(cmd, [url], { stdio: 'ignore', detached: true, shell: process.platform === 'win32' }).unref(); }
+  catch { /* headless - just print the URL */ }
+}
+
+function shutdown() { backend.kill(); web.kill(); }
+web.on('exit', (code) => { shutdown(); process.exit(code || 0); });
 process.on('SIGINT', shutdown);
 process.on('SIGTERM', shutdown);

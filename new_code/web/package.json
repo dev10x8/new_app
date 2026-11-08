@@ -1,0 +1,13 @@
+{
+  "name": "madhushala-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Madhushala Pro web frontend (also the frontend of the Tauri desktop app)",
+  "engines": { "node": ">=20.0.0" },
+  "scripts": {
+    "start": "node server.js",
+    "build": "node scripts/build_web.mjs",
+    "tauri": "tauri"
+  }
+}

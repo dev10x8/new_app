@@ -2,13 +2,14 @@
   "name": "madhushala-pro-new-code",
   "version": "1.0.0",
   "private": true,
-  "description": "Madhushala Pro rebuilt on Node.js + SQLite with a TUI frontend",
+  "description": "Madhushala Pro rebuilt on Node.js + SQLite with a Tauri (Web + Rust) frontend",
   "type": "module",
-  "workspaces": ["backend", "tui"],
+  "workspaces": ["backend", "web"],
   "scripts": {
     "start": "node scripts/start.js",
     "backend": "npm --prefix backend start",
-    "tui": "npm --prefix tui start",
+    "web": "npm --prefix web start",
+    "tauri": "npm --prefix tauri run tauri",
     "reset-db": "npm --prefix backend run reset-db",
     "gen-schema": "npm --prefix backend run gen-schema",
     "test": "npm --prefix backend test"

@@ -16,7 +16,7 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
 | `PRODUCT_FEATURES.md` | Menus, submenus and end-to-end business flows |
 | `dev/` | Developer guide, decompile scripts, Docker toolchain, DB scripts |
 | `dev/db/` | Authoritative DDL/DML/model generated from `barmanager.mdf` |
-| `new_code/` | **Rebuild** on Node.js + SQLite with a TUI frontend |
+| `new_code/` | **Rebuild** on Node.js + SQLite with a Tauri (Web + Rust) frontend |
 
 ## Key facts
 
@@ -31,7 +31,7 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
 
 ## new_code (the rebuild)
 
-- **Stack**: TUI (Node.js, raw ANSI) + backend (Node.js `node:http`) + SQLite
+- **Stack**: Tauri (Web + Rust) UI + backend (Node.js `node:http`) + SQLite
   (`node:sqlite`). **No external runtime dependencies** — Node >= 22.5 only.
 - **Schema**: generated from `../dev/db/ddl.sql` by
   `backend/scripts/gen_schema.py` → `src/db/schema.sql` (45 tables). Do not
@@ -47,19 +47,21 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   reports), `transactions` (transfer/notes/adjustments/fine/BRS/UPI/delivery),
   `admin` (parameters, new-year carry-forward, excise audit), `tools`
   (calculator, backup, tally, SMS, PML, sync, clean print).
-- **Report catalog** is one declarative table in `reportCatalog.js`; the TUI
+- **Report catalog** is one declarative table in `reportCatalog.js`; the
   report menu is generated from `/api/report-groups`, not hard-coded. Counts:
   sales 32, stock 20, purchase 10, accounts 14, MIS 12, breakage 2, transfer 2,
   excise 21.
 - **Tests**: `cd new_code/backend && npm test` (31 tests across
   `test/services.test.js` and `test/features.test.js`, fresh temp DB each;
   includes a test that runs every catalog report).
-- **Run**: `cd new_code && npm start` (backend + TUI). Login `A00001` / `admin`.
+- **Run**: `cd new_code && npm start` (backend + web UI). Login `A00001` / `admin`.
+- **UI**: `web/` is a framework-free SPA (HTML/CSS/JS) served by `web/server.js`
+  (static + `/api` proxy). It is also the frontend of the Tauri desktop app
+  (`tauri/`), which reuses `web/` unchanged and only adds a Rust window.
 - **Docker**: `docker compose -f new_code/docker-compose.yml up --build` runs the
-  backend (port 7100) and the TUI in a browser terminal via ttyd (port 7681);
-  DB in the `madhushala-data` volume. Ports overridable with
-  `MADHUSHALA_PORT` / `TUI_PORT`. No third-party runtime deps, so the images
-  are just Node + source.
+  backend (port 7100) and the web UI (port 8080); DB in the `madhushala-data`
+  volume. Ports overridable with `MADHUSHALA_PORT` / `WEB_PORT`. No third-party
+  runtime deps, so the images are just Node + source.
 
 ### Conventions in new_code
 
@@ -68,4 +70,5 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
 - Stock is computed on the fly in `stock.stockOnHand()` (opening + purchases −
   sales + returns − transfers out + transfers in − breakage); there is no
   materialised stock table.
-- The TUI input layer treats end-of-input (piped/scripted stdin) as a clean exit.
+- The web UI is framework-free: one route table (`web/menu.js`) drives the
+  sidebar; screens live in `web/screens.js`; there are no build-time deps.
