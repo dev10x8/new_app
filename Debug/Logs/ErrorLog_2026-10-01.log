@@ -1,0 +1,395 @@
+﻿2026-10-01 00:46:47.570  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 00:47:01.504     (previous error repeated 3 more time(s))
+2026-10-01 00:47:01.504  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 00:47:15.677     (previous error repeated 22 more time(s))
+2026-10-01 00:47:15.677  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:12:43.644     (previous error repeated 1 more time(s))
+2026-10-01 08:12:44.042  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:12:57.431     (previous error repeated 18 more time(s))
+2026-10-01 08:12:57.981  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:13:07.490     (previous error repeated 1 more time(s))
+2026-10-01 08:13:07.490  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:13:07.490     (previous error repeated 1 more time(s))
+2026-10-01 08:13:07.490  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:13:34.393     (previous error repeated 1 more time(s))
+2026-10-01 08:13:34.393  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:13:46.134     (previous error repeated 1 more time(s))
+2026-10-01 08:13:46.134  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:23:39.266  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__437
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 26 (background)
+2026-10-01 08:28:40.543  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:29:29.454  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:29:43.473  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:30:17.688  [TIMING] frm_countersales: created 1096 ms after Add click, Load took 16323 ms
+2026-10-01 08:30:17.688  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 17422 ms
+2026-10-01 08:30:18.023  [TIMING] frm_countersales: visible 17752 ms after Add click
+2026-10-01 08:30:23.607  [TIMING] frm_countersales: created 346 ms after Add click, Load took 1329 ms
+2026-10-01 08:30:23.607  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1675 ms
+2026-10-01 08:30:24.321  [TIMING] frm_countersales: visible 2384 ms after Add click
+2026-10-01 08:30:39.740  [TIMING] frm_countersales: created 314 ms after Add click, Load took 1168 ms
+2026-10-01 08:30:39.740  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1483 ms
+2026-10-01 08:30:40.438  [TIMING] frm_countersales: visible 2182 ms after Add click
+2026-10-01 08:31:35.724  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:31:56.870  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-01 08:32:05.876  [TIMING] frm_countersales: created 606 ms after Add click, Load took 2288 ms
+2026-10-01 08:32:05.876  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2895 ms
+2026-10-01 08:32:06.813  [TIMING] frm_countersales: visible 3841 ms after Add click
+2026-10-01 08:32:21.982  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-01 08:33:03.677  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:33:10.632     (previous error repeated 7 more time(s))
+2026-10-01 08:33:10.632  [ERROR] SqlException: Invalid column name 'isActive'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmDashboardNew.BtnLogout_Click <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:33:11.904  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:33:19.020  [ERROR] SqlException: Invalid column name 'counter'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmRegistration.CreateCounterTableIfNotExists <- frmRegistration.frmRegistration_Load <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-01 08:34:33.864  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:34:53.313  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:35:16.441  [ERROR] SqlException: Could not find stored procedure 'SP_SetStockAllPUNE'.
+   SQL error 2812, line 1
+   At: Form1.LoginBackgroundWorker
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 7 (background)
+2026-10-01 08:35:21.361     (previous error repeated 3 more time(s))
+2026-10-01 08:35:21.361  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-01 08:35:25.513  [TIMING] frm_countersales: created 1257 ms after Add click, Load took 2190 ms
+2026-10-01 08:35:25.513  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 3448 ms
+2026-10-01 08:35:26.293  [TIMING] frm_countersales: visible 4229 ms after Add click
+2026-10-01 08:35:39.603  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 21 (background)
+2026-10-01 08:35:43.433  [TIMING] frm_countersales: created 327 ms after Add click, Load took 1678 ms
+2026-10-01 08:35:43.433  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2006 ms
+2026-10-01 08:35:44.168  [TIMING] frm_countersales: visible 2736 ms after Add click
+2026-10-01 08:35:59.037  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)
+2026-10-01 08:36:12.229  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:36:25.614  [ERROR] SqlException: Could not find stored procedure 'SP_SetStockAllPUNE'.
+   SQL error 2812, line 1
+   At: Form1.LoginBackgroundWorker
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 20 (background)
+2026-10-01 08:36:29.137     (previous error repeated 3 more time(s))
+2026-10-01 08:36:29.137  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-01 08:36:33.037  [TIMING] frm_countersales: created 675 ms after Add click, Load took 1961 ms
+2026-10-01 08:36:33.037  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2636 ms
+2026-10-01 08:36:33.831  [TIMING] frm_countersales: visible 3434 ms after Add click
+2026-10-01 08:37:05.196  [TIMING] frm_countersales: created 356 ms after Add click, Load took 1694 ms
+2026-10-01 08:37:05.196  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2050 ms
+2026-10-01 08:37:05.892  [TIMING] frm_countersales: visible 2741 ms after Add click
+2026-10-01 08:37:14.328  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 19 (background)
+2026-10-01 08:37:27.159  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 19 (background)
+2026-10-01 08:37:41.061  [TIMING] frm_countersales: created 346 ms after Add click, Load took 1600 ms
+2026-10-01 08:37:41.061  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1947 ms
+2026-10-01 08:37:41.829  [TIMING] frm_countersales: visible 2719 ms after Add click
+2026-10-01 08:37:49.553  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-10-01 08:38:02.176  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-10-01 08:38:05.218  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardShow(lambda)._Lambda$__418 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:38:12.157  [ERROR] SqlException: Invalid object name 'sales_statementPOS'.
+   SQL error 208, line 1
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:38:20.070     (previous error repeated 3 more time(s))
+2026-10-01 08:38:20.070  [ERROR] SqlException: Invalid object name 'sales_statementPOS'.
+   SQL error 208, line 1
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:38:29.201     (previous error repeated 3 more time(s))
+2026-10-01 08:38:29.206  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-10-01 08:38:42.837  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 21 (background)
+2026-10-01 08:38:56.213  [TIMING] frm_countersales: created 350 ms after Add click, Load took 1554 ms
+2026-10-01 08:38:56.213  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1904 ms
+2026-10-01 08:38:56.966  [TIMING] frm_countersales: visible 2662 ms after Add click
+2026-10-01 08:39:05.411  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 19 (background)
+2026-10-01 08:41:16.560  [TIMING] frm_countersales: created 323 ms after Add click, Load took 1677 ms
+2026-10-01 08:41:16.560  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2001 ms
+2026-10-01 08:41:17.263  [TIMING] frm_countersales: visible 2707 ms after Add click
+2026-10-01 08:41:41.530  [TIMING] frm_countersales: created 347 ms after Add click, Load took 1721 ms
+2026-10-01 08:41:41.530  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2069 ms
+2026-10-01 08:41:42.217  [TIMING] frm_countersales: visible 2763 ms after Add click
+2026-10-01 08:42:18.362  [TIMING] frm_countersales: created 330 ms after Add click, Load took 1615 ms
+2026-10-01 08:42:18.362  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1946 ms
+2026-10-01 08:42:19.051  [TIMING] frm_countersales: visible 2637 ms after Add click
+2026-10-01 08:42:56.121  [TIMING] frm_countersales: created 347 ms after Add click, Load took 1755 ms
+2026-10-01 08:42:56.121  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2102 ms
+2026-10-01 08:42:56.847  [TIMING] frm_countersales: visible 2833 ms after Add click
+2026-10-01 08:43:51.881  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-01 08:43:56.899  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardShow(lambda)._Lambda$__418 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:44:00.679  [ERROR] SqlException: Invalid object name 'sales_statementPOS'.
+   SQL error 208, line 1
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:44:24.588     (previous error repeated 3 more time(s))
+2026-10-01 08:44:25.789  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-01 08:44:29.507  [TIMING] frm_countersales: created 415 ms after Add click, Load took 1708 ms
+2026-10-01 08:44:29.507  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2124 ms
+2026-10-01 08:44:30.239  [TIMING] frm_countersales: visible 2849 ms after Add click
+2026-10-01 08:44:47.575  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 08:45:02.478  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-10-01 08:45:09.386  [TIMING] frm_countersales: created 318 ms after Add click, Load took 1677 ms
+2026-10-01 08:45:09.386  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1995 ms
+2026-10-01 08:45:10.088  [TIMING] frm_countersales: visible 2693 ms after Add click
+2026-10-01 08:45:48.185  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-01 08:46:17.914  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 08:46:43.295  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 13 (background)
+2026-10-01 08:46:44.279  [TIMING] frm_countersales: created 2403 ms after Add click, Load took 2753 ms
+2026-10-01 08:46:44.342  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 5214 ms
+2026-10-01 08:46:45.168  [TIMING] frm_countersales: visible 6041 ms after Add click
+2026-10-01 08:47:07.480  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 12 (background)
+2026-10-01 10:17:55.168  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 10:18:13.912  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-01 10:18:48.210  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-01 10:19:31.079  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-01 10:19:36.678     (previous error repeated 1 more time(s))
+2026-10-01 10:19:36.678  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardShow(lambda)._Lambda$__418 <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:19:47.305  [ERROR] SqlException: There is already an object named '##tempOpeningStock' in the database.
+   SQL error 2714, line 2, proc sp_xcise_statement_POSexcz
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Excise Report - Monthly Stock Online) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:00.073     (previous error repeated 3 more time(s))
+2026-10-01 10:31:00.075  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:02.129     (previous error repeated 3 more time(s))
+2026-10-01 10:31:02.129  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:13.696     (previous error repeated 1 more time(s))
+2026-10-01 10:31:13.696  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:17.500     (previous error repeated 7 more time(s))
+2026-10-01 10:31:17.500  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:29.102     (previous error repeated 1 more time(s))
+2026-10-01 10:31:29.102  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:31.027     (previous error repeated 7 more time(s))
+2026-10-01 10:31:31.027  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:31.027     (previous error repeated 1 more time(s))
+2026-10-01 10:31:31.027  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:31.042     (previous error repeated 1 more time(s))
+2026-10-01 10:31:31.042  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:31.042     (previous error repeated 1 more time(s))
+2026-10-01 10:31:31.042  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:33.299     (previous error repeated 1 more time(s))
+2026-10-01 10:31:33.299  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:33.299     (previous error repeated 1 more time(s))
+2026-10-01 10:31:33.299  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:34.912     (previous error repeated 1 more time(s))
+2026-10-01 10:31:34.912  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:34.912     (previous error repeated 1 more time(s))
+2026-10-01 10:31:34.912  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:31:58.297     (previous error repeated 1 more time(s))
+2026-10-01 10:31:58.297  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:13.123     (previous error repeated 22 more time(s))
+2026-10-01 10:32:13.123  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:14.733     (previous error repeated 1 more time(s))
+2026-10-01 10:32:14.748  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:14.748     (previous error repeated 1 more time(s))
+2026-10-01 10:32:14.748  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:25.174     (previous error repeated 1 more time(s))
+2026-10-01 10:32:25.174  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:37.211     (previous error repeated 1 more time(s))
+2026-10-01 10:32:37.211  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:39.170     (previous error repeated 7 more time(s))
+2026-10-01 10:32:39.170  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:39.170     (previous error repeated 1 more time(s))
+2026-10-01 10:32:39.170  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:39.170     (previous error repeated 1 more time(s))
+2026-10-01 10:32:39.170  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:48.296     (previous error repeated 1 more time(s))
+2026-10-01 10:32:48.296  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:32:48.296     (previous error repeated 1 more time(s))
+2026-10-01 10:32:48.296  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:43:30.186     (previous error repeated 1 more time(s))
+2026-10-01 10:43:30.204  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:43:32.101     (previous error repeated 3 more time(s))
+2026-10-01 10:43:32.101  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-01 10:53:48.450  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__443
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)

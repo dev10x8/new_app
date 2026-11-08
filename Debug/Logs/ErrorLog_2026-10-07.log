@@ -1,0 +1,767 @@
+﻿2026-10-07 09:47:21.053  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-07 09:47:23.566  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-07 09:47:45.142  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-07 09:47:46.484  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form:  | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-07 09:48:42.418  [HANG] Screen did not respond for 22539 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.EnsureLoginColumns <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:48:56.299  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-07 09:49:06.681  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 09:49:29.088  [HANG] Screen did not respond for 4438 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Value Wise Closing) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:49:29.764  [TIMING] frm_ReportForm report 11: data + report load took 5338 ms (database 784 ms, Crystal/report 4554 ms, 16-09-2026 to 16-09-2026)
+2026-10-07 09:51:35.219  [HANG] Screen did not respond for 2491 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Value Wise Closing) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:58:44.774  [HANG] Screen did not respond for 6995 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:59:04.016  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The specified network name is no longer available.)
+   Inner: Win32Exception: The specified network name is no longer available
+   SQL error 64, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:59:29.532     (previous error repeated 3 more time(s))
+2026-10-07 09:59:29.532  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:59:41.135     (previous error repeated 1 more time(s))
+2026-10-07 09:59:41.136  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:59:43.064     (previous error repeated 7 more time(s))
+2026-10-07 09:59:43.065  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:59:43.066  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:59:43.067  [HANG] Screen did not respond for 15297 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 09:59:54.529     (previous error repeated 1 more time(s))
+2026-10-07 09:59:54.530  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:06.103     (previous error repeated 1 more time(s))
+2026-10-07 10:00:06.103  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:08.018     (previous error repeated 7 more time(s))
+2026-10-07 10:00:08.019  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:08.019  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:08.022  [HANG] Screen did not respond for 15190 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:17.651     (previous error repeated 1 more time(s))
+2026-10-07 10:00:17.652  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:17.652     (previous error repeated 1 more time(s))
+2026-10-07 10:00:17.653  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:17.653  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:44.538     (previous error repeated 1 more time(s))
+2026-10-07 10:00:44.539  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:56.109     (previous error repeated 1 more time(s))
+2026-10-07 10:00:56.110  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:58.019     (previous error repeated 7 more time(s))
+2026-10-07 10:00:58.020  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:00:59.909  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:11.486     (previous error repeated 1 more time(s))
+2026-10-07 10:01:11.486  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:13.401  [HANG] Screen did not respond for 30526 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:13.403     (previous error repeated 7 more time(s))
+2026-10-07 10:01:13.403  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:13.404     (previous error repeated 1 more time(s))
+2026-10-07 10:01:13.404  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:13.405  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:34.541     (previous error repeated 1 more time(s))
+2026-10-07 10:01:34.542  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:46.125     (previous error repeated 1 more time(s))
+2026-10-07 10:01:46.126  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:48.041     (previous error repeated 7 more time(s))
+2026-10-07 10:01:48.042  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:01:49.930  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:02:00.499  [HANG] Screen did not respond for 27831 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:04:29.612     (previous error repeated 1 more time(s))
+2026-10-07 10:04:29.613  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-07 10:07:16.937  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:07:16.944  [HANG] Screen did not respond for 19240 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:07:20.214     (previous error repeated 3 more time(s))
+2026-10-07 10:07:20.214  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:07:27.569  [HANG] Screen did not respond for 9132 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:12:05.910     (previous error repeated 1 more time(s))
+2026-10-07 10:12:05.946  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 8 (background)
+2026-10-07 10:12:53.413  [TIMING] frm_ReportForm report 13: data + report load took 2781 ms (database 751 ms, Crystal/report 2030 ms, 06-10-2026 to 06-10-2026)
+2026-10-07 10:12:59.846  [TIMING] frm_ReportForm report 13: data + report load took 1580 ms (database 647 ms, Crystal/report 933 ms, 06-10-2026 to 06-10-2026)
+2026-10-07 10:13:11.494     (previous error repeated 1 more time(s))
+2026-10-07 10:13:11.495  [ERROR] SqlException: The multi-part identifier "opening_closing_stock.storecode" could not be bound.
+   SQL error 4104, line 1
+   At: frm_ReportForm.stock_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Brand - Category Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:13:18.365  [TIMING] frm_ReportForm report 14: data + report load took 7040 ms (database 327 ms, Crystal/report 6713 ms, 07-10-2026 to 07-10-2026)
+2026-10-07 10:13:22.214     (previous error repeated 3 more time(s))
+2026-10-07 10:13:22.215  [ERROR] SqlException: The multi-part identifier "opening_closing_stock.storecode" could not be bound.
+   SQL error 4104, line 1
+   At: frm_ReportForm.stock_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Brand - Category Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:13:25.629  [TIMING] frm_ReportForm report 14: data + report load took 3506 ms (database 92 ms, Crystal/report 3414 ms, 07-10-2026 to 07-10-2026)
+2026-10-07 10:13:30.470  [TIMING] frm_ReportForm report 14: data + report load took 1715 ms (database 890 ms, Crystal/report 825 ms, 07-10-2026 to 07-10-2026)
+2026-10-07 10:13:36.207  [TIMING] frm_ReportForm report 14: data + report load took 1573 ms (database 474 ms, Crystal/report 1099 ms, 07-10-2026 to 07-10-2026)
+2026-10-07 10:13:44.718     (previous error repeated 3 more time(s))
+2026-10-07 10:13:44.718  [ERROR] SqlException: The multi-part identifier "opening_closing_stock.storecode" could not be bound.
+   SQL error 4104, line 1
+   At: frm_ReportForm.stock_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Brand - Category Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:14:11.387  [TIMING] frm_ReportForm report 14: data + report load took 26744 ms (database 250 ms, Crystal/report 26494 ms, 07-10-2026 to 07-10-2026)
+2026-10-07 10:14:16.492  [TIMING] frm_ReportForm report 14: data + report load took 1380 ms (database 232 ms, Crystal/report 1148 ms, 07-10-2026 to 07-10-2026)
+2026-10-07 10:56:31.150  [HANG] Screen did not respond for 2596 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 10:57:02.651  [HANG] Screen did not respond for 9111 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:15:51.502  [TIMING] frm_ReportForm report 11: data + report load took 2819 ms (database 1364 ms, Crystal/report 1455 ms, 07-10-2026 to 07-10-2026)
+2026-10-07 12:17:37.238     (previous error repeated 3 more time(s))
+2026-10-07 12:17:37.240  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 20 (background)
+2026-10-07 12:17:50.018  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-07 12:18:18.156  [HANG] Screen did not respond for 9402 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.PatchExciseGlobalTempTables <- Form1.EnsureExciseStockObjects <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:18:21.853  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-07 12:18:29.433  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 143 ms
+2026-10-07 12:18:29.529  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 241 ms
+2026-10-07 12:18:29.602  [TIMING] frmTill Load: rate list / shop list done at 314 ms
+2026-10-07 12:18:29.809  [TIMING] frmTill Load: panel layout + action buttons created at 520 ms
+2026-10-07 12:18:30.045  [TIMING] frmTill Load: category / product buttons (getButton) done at 756 ms
+2026-10-07 12:18:30.084  [TIMING] frmTill Load: end of frmTill_Load at 795 ms
+2026-10-07 12:18:30.085  [TIMING] frmTill: created 978 ms after Add click, Load took 1007 ms
+2026-10-07 12:18:30.085  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1986 ms
+2026-10-07 12:18:30.608  [TIMING] frmTill: visible 2509 ms after Add click
+2026-10-07 12:18:34.084  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:18:34.088  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:18:44.608  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00057 | Thread: 26 (background)
+2026-10-07 12:18:55.538  [TIMING] frm_countersales: created 872 ms after Add click, Load took 2238 ms
+2026-10-07 12:18:55.538  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 3111 ms
+2026-10-07 12:18:55.549  [HANG] Screen did not respond for 3003 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.CallWindowProc] cls_conn.combofill <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:18:56.569  [TIMING] frm_countersales: visible 4142 ms after Add click
+2026-10-07 12:19:22.285  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:19:24.398  [HANG] Screen did not respond for 3428 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_countersales.populate3 <- frm_countersales.show_sale <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:19:31.968  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-07 12:19:42.182  [TIMING] frm_Form1 Add (count 23): formshow() returned after 2897 ms
+2026-10-07 12:19:42.191  [HANG] Screen did not respond for 2864 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_purchase.AiOrNaiItemLoad <- frm_purchase.cmb_supplier_SelectedIndexChanged <- frm_purchase.formload <- frm_purchase.RadioButton1_CheckedChanged <- frm_purchase.purchase_Load <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_purchase (Purchase Bill) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:19:51.038  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-07 12:20:08.183  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00057 | Thread: 8 (background)
+2026-10-07 12:20:23.791  [HANG] Screen did not respond for 2470 ms (Not Responding).
+   Stuck at: [IAutoComplete2.SetOptions] frm_ReportForm.cmb_load <- frm_ReportForm.ReportForm_Load <- mdl_ReportMap.OpenById <- _Closure$__55._Lambda$__424 <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:20:33.245  [HANG] Screen did not respond for 7473 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:20:35.128  [TIMING] frm_ReportForm report 2: data + report load took 9372 ms (database 3892 ms, Crystal/report 5480 ms, 07-10-2026 to 07-10-2026)
+2026-10-07 12:20:45.574  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 23 (background)
+2026-10-07 12:25:02.705  [TIMING] frm_countersales: created 419 ms after Add click, Load took 6803 ms
+2026-10-07 12:25:02.706  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 7222 ms
+2026-10-07 12:25:02.732  [HANG] Screen did not respond for 7232 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.RebuildStockIfStale <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:25:03.896  [TIMING] frm_countersales: visible 8411 ms after Add click
+2026-10-07 12:33:37.686  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-07 12:34:05.552  [HANG] Screen did not respond for 3750 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:34:16.213  [HANG] Screen did not respond for 10424 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:34:18.678  [HANG] Screen did not respond for 2139 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:35:19.938  [HANG] Screen did not respond for 2969 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:35:22.671  [HANG] Screen did not respond for 2571 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:44:34.351  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 25 (background)
+2026-10-07 12:44:57.829  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 25 (background)
+2026-10-07 12:45:04.951  [TIMING] frm_countersales: created 423 ms after Add click, Load took 4060 ms
+2026-10-07 12:45:04.952  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 4483 ms
+2026-10-07 12:45:04.960  [HANG] Screen did not respond for 4433 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.RebuildStockIfStale <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:45:05.620  [TIMING] frm_countersales: visible 5151 ms after Add click
+2026-10-07 12:45:25.833  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:45:28.204  [HANG] Screen did not respond for 3537 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_countersales.populate3 <- frm_countersales.show_sale <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:45:38.405  [TIMING] frm_countersales: created 402 ms after Add click, Load took 1674 ms
+2026-10-07 12:45:38.405  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2076 ms
+2026-10-07 12:45:39.036  [TIMING] frm_countersales: visible 2708 ms after Add click
+2026-10-07 12:45:48.637  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-07 12:46:39.650  [TIMING] frm_Form1 Add (count 23): formshow() returned after 2797 ms
+2026-10-07 12:46:39.659  [HANG] Screen did not respond for 2701 ms (Not Responding).
+   Stuck at: [SqlDataReader.TryReadColumnInternal] cls_conn.populate <- frm_purchase.AiOrNaiItemLoad <- frm_purchase.cmb_supplier_SelectedIndexChanged <- frm_purchase.formload <- frm_purchase.RadioButton1_CheckedChanged <- frm_purchase.purchase_Load <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_purchase (Purchase Bill) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 12:46:53.740  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-07 12:47:02.758  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-07 13:30:52.856  [HANG] Screen did not respond for 2236 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.IntRestoreDC] frmDashboardNew.LoadDashboardShow <- _Closure$__37._Lambda$__365 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 13:30:57.410  [ERROR] IOException: The process cannot access the file 'C:\GatewayAgent\Gateway.Agent.exe' because it is being used by another process.
+   At: mdl_GatewayAgent.ExtractResource <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 25 (background)
+2026-10-07 13:30:57.410  [HANG] Screen did not respond for 2154 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.DrawTextExW] frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 13:31:00.389  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 19 (background)
+2026-10-07 13:51:55.132  [HANG] Screen did not respond for 3114 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 14:06:26.358  [HANG] Screen did not respond for 2251 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 14:06:36.448  [HANG] Screen did not respond for 3126 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 14:08:40.432  [HANG] Screen did not respond for 3479 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 14:19:38.176  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 14:19:38.186  [HANG] Screen did not respond for 48730 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 14:25:43.527  [HANG] Screen did not respond for 3765 ms (Not Responding).
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 14:41:13.887  [HANG] Screen did not respond for 5357 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 15:54:32.863     (previous error repeated 3 more time(s))
+2026-10-07 15:54:32.866  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 15:54:32.868  [HANG] Screen did not respond for 19214 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 15:54:34.766     (previous error repeated 3 more time(s))
+2026-10-07 15:54:34.768  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 15:54:40.244  [HANG] Screen did not respond for 7230 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 16:07:47.420     (previous error repeated 1 more time(s))
+2026-10-07 16:07:47.424  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 23 (background)
+2026-10-07 16:08:21.651  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 16:08:37.569  [TIMING] frm_countersales: created 488 ms after Add click, Load took 10292 ms
+2026-10-07 16:08:37.570  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 10781 ms
+2026-10-07 16:08:37.585  [HANG] Screen did not respond for 10790 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.RebuildStockIfStale <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 16:08:38.611  [TIMING] frm_countersales: visible 11822 ms after Add click
+2026-10-07 16:09:07.638  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 16:09:09.581  [HANG] Screen did not respond for 3055 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_countersales.populate3 <- frm_countersales.show_sale <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 16:09:17.695  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 16:09:33.429  [TIMING] frm_Form1 Add (count 23): formshow() returned after 2692 ms
+2026-10-07 16:09:33.440  [HANG] Screen did not respond for 2545 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- frm_purchase.formload <- frm_purchase.RadioButton1_CheckedChanged <- frm_purchase.purchase_Load <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_purchase (Purchase Bill) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 16:09:41.593  [HANG] Screen did not respond for 2119 ms (Not Responding).
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 16:09:41.643  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 16:31:01.836  [ERROR] AuthenticationException: A call to SSPI failed, see inner exception.
+   Inner: Win32Exception: The Local Security Authority cannot be contacted
+   At: frmDashboardShow(lambda)._Lambda$__437
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 26 (background)
+2026-10-07 16:31:01.860     (previous error repeated 4 more time(s))
+2026-10-07 16:31:02.173  [ERROR] ObjectDisposedException: Safe handle has been closed
+   At: frmDashboardShow(lambda)._Lambda$__437
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 26 (background)
+2026-10-07 16:31:02.176  [ERROR] WebException: The request was aborted: Could not create SSL/TLS secure channel.
+   At: frmDashboardShow(lambda)._Lambda$__437
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 26 (background)
+2026-10-07 16:31:09.805     (previous error repeated 2 more time(s))
+2026-10-07 16:31:09.808  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-07 16:31:16.266  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 24 (background)
+2026-10-07 16:48:17.137  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 16:48:19.030     (previous error repeated 3 more time(s))
+2026-10-07 16:48:19.031  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 17:17:44.115  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-07 17:17:45.970  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=1083; handshake=3;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: Form1.StartupWorkProc
+   Form:  | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-07 17:17:47.339  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form:  | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-07 17:21:59.813  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-07 17:27:48.237  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-07 17:28:16.680  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:28:16.681  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-07 17:28:16.681  [HANG] Screen did not respond for 10382 ms (Not Responding).
+   Stuck at: Form1.comparamtr <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 17:28:16.682     (previous error repeated 1 more time(s))
+2026-10-07 17:28:16.685  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-07 17:28:16.686  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:28:16.692  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:28:17.264     (previous error repeated 2 more time(s))
+2026-10-07 17:28:17.265  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:28:24.586     (previous error repeated 3 more time(s))
+2026-10-07 17:28:24.931  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-07 17:28:24.971     (previous error repeated 2 more time(s))
+2026-10-07 17:28:24.973  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:25.011     (previous error repeated 4 more time(s))
+2026-10-07 17:28:25.012  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:28.684     (previous error repeated 3 more time(s))
+2026-10-07 17:28:28.936  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-07 17:28:28.936  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:28.947  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-07 17:28:28.948  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:28.949  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-07 17:28:28.951  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:28.993     (previous error repeated 2 more time(s))
+2026-10-07 17:28:28.993  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:40.635     (previous error repeated 3 more time(s))
+2026-10-07 17:28:40.736  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-07 17:28:40.767     (previous error repeated 2 more time(s))
+2026-10-07 17:28:40.768  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:40.793     (previous error repeated 4 more time(s))
+2026-10-07 17:28:40.794  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:50.329     (previous error repeated 3 more time(s))
+2026-10-07 17:28:50.719  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-10-07 17:28:50.796     (previous error repeated 2 more time(s))
+2026-10-07 17:28:50.819  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:50.843     (previous error repeated 4 more time(s))
+2026-10-07 17:28:50.844  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 17:28:57.085  [TIMING] frm_countersales: created 563 ms after Add click, Load took 2138 ms
+2026-10-07 17:28:57.085  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2702 ms
+2026-10-07 17:28:57.099  [HANG] Screen did not respond for 2586 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_countersales.ComboBox2_SelectedIndexChanged <- frm_countersales.create_dataset_for_datagrid <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__256 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 17:28:58.100  [TIMING] frm_countersales: visible 3717 ms after Add click
+2026-10-07 17:29:02.822     (previous error repeated 3 more time(s))
+2026-10-07 17:29:02.930  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-07 17:29:02.977     (previous error repeated 2 more time(s))
+2026-10-07 17:29:02.978  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:29:03.005     (previous error repeated 4 more time(s))
+2026-10-07 17:29:03.006  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:29:08.232  [TIMING] frm_countersales: created 351 ms after Add click, Load took 1846 ms
+2026-10-07 17:29:08.233  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2198 ms
+2026-10-07 17:29:08.298  [HANG] Screen did not respond for 2065 ms (Not Responding).
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 17:29:09.001  [TIMING] frm_countersales: visible 2967 ms after Add click
+2026-10-07 17:29:15.433  [TIMING] frm_countersales: created 377 ms after Add click, Load took 1777 ms
+2026-10-07 17:29:15.433  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2154 ms
+2026-10-07 17:29:15.441  [HANG] Screen did not respond for 2154 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.DrawTextExW] frm_countersales.FillGridWidth <- _Closure$__13._Lambda$__154 <- frm_countersales.create_dataset_for_datagrid <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__256 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 17:29:16.135  [TIMING] frm_countersales: visible 2856 ms after Add click
+2026-10-07 17:29:21.558     (previous error repeated 3 more time(s))
+2026-10-07 17:29:21.750  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 6 (background)
+2026-10-07 17:29:21.833     (previous error repeated 2 more time(s))
+2026-10-07 17:29:21.834  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:29:21.862     (previous error repeated 4 more time(s))
+2026-10-07 17:29:21.863  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:29:34.776  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 128 ms
+2026-10-07 17:29:34.842  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 193 ms
+2026-10-07 17:29:34.921  [TIMING] frmTill Load: rate list / shop list done at 272 ms
+2026-10-07 17:29:35.123  [TIMING] frmTill Load: panel layout + action buttons created at 475 ms
+2026-10-07 17:29:35.331  [TIMING] frmTill Load: category / product buttons (getButton) done at 683 ms
+2026-10-07 17:29:35.375  [TIMING] frmTill Load: end of frmTill_Load at 726 ms
+2026-10-07 17:29:35.375  [TIMING] frmTill: created 737 ms after Add click, Load took 905 ms
+2026-10-07 17:29:35.375  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1642 ms
+2026-10-07 17:29:35.824  [TIMING] frmTill: visible 2091 ms after Add click
+2026-10-07 17:29:45.992  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 117 ms
+2026-10-07 17:29:46.054  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 179 ms
+2026-10-07 17:29:46.117  [TIMING] frmTill Load: rate list / shop list done at 242 ms
+2026-10-07 17:29:46.299  [TIMING] frmTill Load: panel layout + action buttons created at 424 ms
+2026-10-07 17:29:46.468  [TIMING] frmTill Load: category / product buttons (getButton) done at 594 ms
+2026-10-07 17:29:46.510  [TIMING] frmTill Load: end of frmTill_Load at 636 ms
+2026-10-07 17:29:46.511  [TIMING] frmTill: created 425 ms after Add click, Load took 747 ms
+2026-10-07 17:29:46.511  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1173 ms
+2026-10-07 17:29:46.849  [TIMING] frmTill: visible 1510 ms after Add click
+2026-10-07 17:29:55.504  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 137 ms
+2026-10-07 17:29:55.583  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 216 ms
+2026-10-07 17:29:55.652  [TIMING] frmTill Load: rate list / shop list done at 284 ms
+2026-10-07 17:29:55.876  [TIMING] frmTill Load: panel layout + action buttons created at 509 ms
+2026-10-07 17:29:56.045  [TIMING] frmTill Load: category / product buttons (getButton) done at 678 ms
+2026-10-07 17:29:56.092  [TIMING] frmTill Load: end of frmTill_Load at 724 ms
+2026-10-07 17:29:56.092  [TIMING] frmTill: created 438 ms after Add click, Load took 840 ms
+2026-10-07 17:29:56.093  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1278 ms
+2026-10-07 17:29:56.528  [TIMING] frmTill: visible 1713 ms after Add click
+2026-10-07 17:32:45.015     (previous error repeated 3 more time(s))
+2026-10-07 17:32:45.017  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 9 (background)
+2026-10-07 17:32:45.207     (previous error repeated 2 more time(s))
+2026-10-07 17:32:45.208  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 6 (background)
+2026-10-07 17:32:45.339     (previous error repeated 4 more time(s))
+2026-10-07 17:32:45.340  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 6 (background)
+2026-10-07 17:32:49.524  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 122 ms
+2026-10-07 17:32:49.587  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 185 ms
+2026-10-07 17:32:49.655  [TIMING] frmTill Load: rate list / shop list done at 253 ms
+2026-10-07 17:32:49.835  [TIMING] frmTill Load: panel layout + action buttons created at 433 ms
+2026-10-07 17:32:50.105  [TIMING] frmTill Load: category / product buttons (getButton) done at 703 ms
+2026-10-07 17:32:50.147  [TIMING] frmTill Load: end of frmTill_Load at 745 ms
+2026-10-07 17:32:50.147  [TIMING] frmTill: created 438 ms after Add click, Load took 1166 ms
+2026-10-07 17:32:50.148  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1605 ms
+2026-10-07 17:32:50.569  [TIMING] frmTill: visible 2026 ms after Add click
+2026-10-07 17:32:57.253     (previous error repeated 3 more time(s))
+2026-10-07 17:32:57.436  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-07 17:32:57.515     (previous error repeated 2 more time(s))
+2026-10-07 17:32:57.515  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 6 (background)
+2026-10-07 17:32:57.541     (previous error repeated 4 more time(s))
+2026-10-07 17:32:57.542  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 6 (background)
+2026-10-07 17:33:09.048     (previous error repeated 3 more time(s))
+2026-10-07 17:33:09.264  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 9 (background)
+2026-10-07 17:33:09.313     (previous error repeated 2 more time(s))
+2026-10-07 17:33:09.314  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-07 17:33:09.334     (previous error repeated 4 more time(s))
+2026-10-07 17:33:09.335  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-07 17:33:23.019  [TIMING] frm_countersales: created 379 ms after Add click, Load took 2044 ms
+2026-10-07 17:33:23.019  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2423 ms
+2026-10-07 17:33:23.060  [HANG] Screen did not respond for 2235 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_countersales.create_dataset_for_datagrid <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__256 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 17:33:23.739  [TIMING] frm_countersales: visible 3144 ms after Add click
+2026-10-07 17:34:26.225     (previous error repeated 3 more time(s))
+2026-10-07 17:34:26.323  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-07 17:34:26.505     (previous error repeated 2 more time(s))
+2026-10-07 17:34:26.506  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-07 17:34:26.552     (previous error repeated 4 more time(s))
+2026-10-07 17:34:26.553  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-07 17:35:07.237     (previous error repeated 3 more time(s))
+2026-10-07 17:35:07.406  [ERROR] WebException: The remote server returned an error: (404) Not Found.
+   At: frmDashboardShow(lambda)._Lambda$__439
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-10-07 17:35:07.449     (previous error repeated 2 more time(s))
+2026-10-07 17:35:07.451  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-07 17:35:07.480     (previous error repeated 4 more time(s))
+2026-10-07 17:35:07.480  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-07 17:40:57.014  [HANG] Screen did not respond for 2253 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 17:50:22.532     (previous error repeated 3 more time(s))
+2026-10-07 17:50:22.537  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 17:50:22.749     (previous error repeated 4 more time(s))
+2026-10-07 17:50:22.750  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-07 18:00:39.498     (previous error repeated 3 more time(s))
+2026-10-07 18:00:39.528  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-10-07 18:00:39.862     (previous error repeated 4 more time(s))
+2026-10-07 18:00:39.981  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-10-07 18:00:47.098  [TIMING] frm_Form1 Add (count 23): formshow() returned after 4223 ms
+2026-10-07 18:00:47.107  [HANG] Screen did not respond for 4110 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_purchase.AiOrNaiItemLoad <- frm_purchase.formload <- frm_purchase.RadioButton1_CheckedChanged <- frm_purchase.purchase_Load <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__256 <- MyApplication.Main
+   Form: frm_purchase (Purchase Bill) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-07 18:00:58.029     (previous error repeated 3 more time(s))
+2026-10-07 18:00:58.030  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)
+2026-10-07 18:00:58.069     (previous error repeated 4 more time(s))
+2026-10-07 18:00:58.070  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)
+2026-10-07 18:01:52.334     (previous error repeated 3 more time(s))
+2026-10-07 18:01:52.356  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 18:01:52.514     (previous error repeated 4 more time(s))
+2026-10-07 18:01:52.515  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-07 18:03:02.311     (previous error repeated 3 more time(s))
+2026-10-07 18:03:02.343  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 16 (background)
+2026-10-07 18:03:02.530     (previous error repeated 4 more time(s))
+2026-10-07 18:03:02.530  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 16 (background)
+2026-10-07 18:03:48.823     (previous error repeated 3 more time(s))
+2026-10-07 18:03:48.859  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-07 18:03:48.924     (previous error repeated 4 more time(s))
+2026-10-07 18:03:48.926  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)

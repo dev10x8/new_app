@@ -1,0 +1,509 @@
+﻿2026-10-13 09:54:15.335  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-13 09:54:21.460  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-13 09:54:21.507  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:e690c1ee-6942-432e-ba7d-d334cddd7b0a
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-13 09:54:47.244  [HANG-NOW] Screen frozen for 10018 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.sp_recordcorrection <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-13 09:55:30.125  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-13 09:57:03.051  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-13 09:58:49.139  [HANG-NOW] Screen frozen for 10083 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-13 09:58:50.729  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-13 09:58:50.789  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgentCore <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__472
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-13 09:58:50.809  [HANG] Screen did not respond for 11760 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 09:58:57.957  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 9 (background)
+2026-10-13 09:59:01.153  [TIMING] Stock rebuild (SP_SetStockAllPOSLatest, staged) took 8878 ms
+2026-10-13 09:59:31.058  [HANG] Screen did not respond for 9189 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Excise Report - Daily Stock Online IML   [BARISSTA FL ON SHOP  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 09:59:31.818  [TIMING] frm_ReportForm report 5829: data + report load took 10006 ms (database 5540 ms, Crystal/report 4466 ms, 13-10-2026 to 13-10-2026)
+2026-10-13 09:59:43.401  [HANG] Screen did not respond for 5824 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Excise Report - Daily Stock Online IML   [BARISSTA FL ON SHOP  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 09:59:43.901  [TIMING] frm_ReportForm report 5829: data + report load took 6163 ms (database 5564 ms, Crystal/report 599 ms, 13-10-2026 to 13-10-2026)
+2026-10-13 10:00:00.514  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)
+2026-10-13 10:00:31.712  [HANG-NOW] Screen frozen for 10060 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+2026-10-13 10:00:45.637  [HANG] Screen did not respond for 23993 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Excise Report - Daily Stock Online   [BARISSTA FL ON SHOP  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:00:46.663  [TIMING] frm_ReportForm report 58: data + report load took 25041 ms (database 24494 ms, Crystal/report 547 ms, 13-10-2026 to 13-10-2026)
+2026-10-13 10:01:01.323  [HANG-NOW] Screen frozen for 10048 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+2026-10-13 10:01:22.794  [HANG] Screen did not respond for 31527 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Excise Report - Daily Stock Online   [BARISSTA FL ON SHOP  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:01:23.403  [TIMING] frm_ReportForm report 58: data + report load took 31609 ms (database 31098 ms, Crystal/report 511 ms, 13-10-2026 to 13-10-2026)
+2026-10-13 10:01:39.730  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 21 (background)
+2026-10-13 10:01:48.477  [TIMING] frm_Form1 Add (count 1990): formshow() returned after 1075 ms
+2026-10-13 10:02:32.664  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 20 (background)
+2026-10-13 10:28:51.280  [HANG] Screen did not respond for 6372 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:28:59.899  [HANG] Screen did not respond for 8152 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:29:05.542  [HANG] Screen did not respond for 5436 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:29:41.129  [HANG] Screen did not respond for 3671 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:29:55.266  [HANG] Screen did not respond for 7330 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:30:10.111  [HANG-NOW] Screen frozen for 10165 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 10:30:16.628  [HANG] Screen did not respond for 16684 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:30:27.352  [HANG-NOW] Screen frozen for 10201 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate33 <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+2026-10-13 10:30:52.098  [ERROR] SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: cls_conn.populate33 <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:30:53.990     (previous error repeated 3 more time(s))
+2026-10-13 10:30:53.990  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate33 <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:30:57.431  [HANG-NOW] Screen frozen for 40278 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] cls_conn.populate33 <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+2026-10-13 10:31:05.574     (previous error repeated 1 more time(s))
+2026-10-13 10:31:05.575  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate33 <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:07.653  [HANG] Screen did not respond for 50501 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate33 <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:09.653     (previous error repeated 7 more time(s))
+2026-10-13 10:31:09.653  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:18.029  [HANG-NOW] Screen frozen for 10184 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 10:31:21.246     (previous error repeated 1 more time(s))
+2026-10-13 10:31:21.246  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.168     (previous error repeated 7 more time(s))
+2026-10-13 10:31:23.168  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.171  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.173  [HANG] Screen did not respond for 15328 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.174     (previous error repeated 1 more time(s))
+2026-10-13 10:31:23.175  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.175     (previous error repeated 1 more time(s))
+2026-10-13 10:31:23.176  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.176  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.177     (previous error repeated 1 more time(s))
+2026-10-13 10:31:23.178  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.178     (previous error repeated 1 more time(s))
+2026-10-13 10:31:23.179  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.179  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.179     (previous error repeated 1 more time(s))
+2026-10-13 10:31:23.179  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.180     (previous error repeated 1 more time(s))
+2026-10-13 10:31:23.180  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.181  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.183     (previous error repeated 1 more time(s))
+2026-10-13 10:31:23.184  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.184     (previous error repeated 1 more time(s))
+2026-10-13 10:31:23.185  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:23.186  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:27.782     (previous error repeated 1 more time(s))
+2026-10-13 10:31:27.783  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:27.783     (previous error repeated 1 more time(s))
+2026-10-13 10:31:27.784  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:27.784  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:41.707     (previous error repeated 1 more time(s))
+2026-10-13 10:31:41.707  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:50.094  [HANG-NOW] Screen frozen for 10169 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 10:31:53.089     (previous error repeated 1 more time(s))
+2026-10-13 10:31:53.089  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed during the post-login phase.  The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=8854; handshake=1387; [Login] initialization=0; authentication=0; [Post-Login] complete=3009;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.002  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.004     (previous error repeated 6 more time(s))
+2026-10-13 10:31:55.004  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.005  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.006  [HANG] Screen did not respond for 15082 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.007     (previous error repeated 1 more time(s))
+2026-10-13 10:31:55.007  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.008     (previous error repeated 1 more time(s))
+2026-10-13 10:31:55.009  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.010  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.013     (previous error repeated 1 more time(s))
+2026-10-13 10:31:55.016  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.017     (previous error repeated 1 more time(s))
+2026-10-13 10:31:55.018  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.021  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.022     (previous error repeated 1 more time(s))
+2026-10-13 10:31:55.022  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.023     (previous error repeated 1 more time(s))
+2026-10-13 10:31:55.023  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:31:55.024  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:36:45.350     (previous error repeated 1 more time(s))
+2026-10-13 10:36:45.351  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 8 (background)
+2026-10-13 10:49:05.474  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 33 (background)
+2026-10-13 10:52:40.043  [HANG-NOW] Screen frozen for 10091 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 10:52:49.218  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:52:49.230  [HANG] Screen did not respond for 19279 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:53:05.138  [HANG-NOW] Screen frozen for 10094 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 10:53:14.916     (previous error repeated 3 more time(s))
+2026-10-13 10:53:14.916  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:53:14.930  [HANG] Screen did not respond for 19886 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:53:17.106     (previous error repeated 3 more time(s))
+2026-10-13 10:53:17.107  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 10:53:21.237  [HANG] Screen did not respond for 5945 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 11:05:32.486  [HANG] Screen did not respond for 4819 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 11:11:21.560  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-13 11:11:34.212     (previous error repeated 1 more time(s))
+2026-10-13 11:11:34.213  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 22 (background)
+2026-10-13 11:11:46.418  [HANG] Screen did not respond for 2056 ms (Not Responding).
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 11:11:57.031  [HANG] Screen did not respond for 4296 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 11:11:58.920  [TIMING] frm_ReportForm report 2: data + report load took 6071 ms (database 4330 ms, Crystal/report 1741 ms, 12-10-2026 to 12-10-2026)
+2026-10-13 13:41:36.051  [HANG] Screen did not respond for 9882 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 13:41:46.185  [HANG-NOW] Screen frozen for 10092 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 13:42:16.358  [HANG-NOW] Screen frozen for 40269 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 13:42:46.371  [HANG-NOW] Screen frozen for 70281 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 13:43:16.580  [HANG-NOW] Screen frozen for 100491 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 13:43:33.888  [HANG] Screen did not respond for 117799 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 13:46:58.325  [HANG] Screen did not respond for 5325 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 13:47:09.254  [HANG-NOW] Screen frozen for 10059 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 13:47:39.360  [HANG-NOW] Screen frozen for 40165 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-13 13:48:06.358  [HANG] Screen did not respond for 67164 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 13:58:16.907  [HANG] Screen did not respond for 2803 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-13 14:01:43.727  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 27 (background)
+2026-10-13 14:02:29.787  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-13 14:02:31.161  [MANUAL] Old-format machine rows deleted in client DB: 13
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-13 14:02:33.249  [MANUAL] Old-format machine rows deleted in ABMCRM: 7
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 18 (background)
+2026-10-13 14:02:53.992  [ERROR] SqlException: Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Could not use view or function 'dbo.sales_statementPOSIncludeTransfer' because of binding errors.
+   SQL error 209, line 25, proc sales_statementPOSIncludeTransfer
+   At: cls_conn.populate <- mdl_ReportProcs.IsAmbiguousIsOffer <- mdl_ReportProcs.RepairAmbiguousIsOfferCore <- mdl_ReportProcs.RepairAmbiguousIsOffer <- mdl_ReportProcs.EnsureSalesReportProcs <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.016  [MANUAL] Repaired ambiguous isOffer in sales_statementPOSIncludeTransfer
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.187  [MANUAL] Repaired test values in SP_GetNewSaleSettlement_POS2
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.229     (previous error repeated 3 more time(s))
+2026-10-13 14:02:54.385  [MANUAL] Stock rebuild limited to its own company in SP_SetStockAll
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.484  [MANUAL] Stock rebuild limited to its own company in SP_SetStockAllPOSLatest
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.541  [MANUAL] Stock rebuild limited to its own company in SP_SetStockAllPUNE
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.649  [MANUAL] Stock rebuild limited to its own company in SP_SetStockAllWB
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.707  [MANUAL] Bill type added to the bill join of vw_CASHreturn_sale_daywisePOS_Both
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.715  [MANUAL] Bill type added to the bill join of vw_creditcard_sale_daywisepos_Both
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.727  [MANUAL] Bill type added to the bill join of vw_credit_sale_daywisepos_Both
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.737  [MANUAL] Bill type added to the bill join of vw_cash_sale_daywisePOS_Both
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.741  [MANUAL] Bill type added to the bill join of vw_UPI_sale_daywisePOS_Both
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.747  [MANUAL] Bill type added to the bill join of vw_cash_sale_daywisePOSIncludeTransfer
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.752  [MANUAL] Bill type added to the bill join of vw_UPI_sale_daywisePOSIncludeTransfer
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.758  [MANUAL] Bill type added to the bill join of vw_credit_sale_daywisePOSIncludeTransfer
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.765  [MANUAL] Bill type added to the bill join of vw_creditcard_sale_daywisePOSIncludeTransfer
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.772  [MANUAL] Bill type added to the bill join of vw_UPI_sale_daywisePOSWholeSale
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.777  [MANUAL] Bill type added to the bill join of vw_cash_sale_daywisePOSWholeSale
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:54.800  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 14 (background)
+2026-10-13 14:02:54.804  [HANG] Screen did not respond for 4944 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.GetWindowPlacement] frmDashboardNew.InitializeDashboard <- frmDashboardNew.frmDashboard_Load <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:02:59.727  [TIMING] Stock rebuild (SP_SetStockAll, staged) took 4874 ms
+2026-10-13 14:03:02.043  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 16 (background)
+2026-10-13 14:03:09.206  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 15 (background)
+2026-10-13 14:03:20.109  [HANG] Screen did not respond for 2318 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.DrawTextExW] frm_Form1.Form1_Load <- frmDashboardNew.LoadFormInPanel <- _Closure$__55._Lambda$__410 <- MyApplication.Main
+   Form: frm_Form1 (                                  ) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:03:27.192  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 15 (background)
+2026-10-13 14:03:31.562  [TIMING] frm_countersales: created 771 ms after Add click, Load took 2083 ms
+2026-10-13 14:03:31.563  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2855 ms
+2026-10-13 14:03:31.586  [HANG] Screen did not respond for 2659 ms (Not Responding).
+   Stuck at: [RuntimeTypeHandle._IsVisible] frm_countersales.create_dataset_for_datagrid <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__274 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:03:31.600  [TIMING] frm_countersales: visible 2892 ms after Add click
+2026-10-13 14:03:40.922  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 15 (background)
+2026-10-13 14:04:00.608  [TIMING] Stock rebuild (SP_SetStockAll, staged) took 8465 ms
+2026-10-13 14:04:00.796  [TIMING] frmTillNew: created 707 ms after Add click, Load took 8687 ms
+2026-10-13 14:04:00.796  [TIMING] frm_Form1 Add (count 15): formshow() returned after 9395 ms
+2026-10-13 14:04:00.997  [HANG] Screen did not respond for 9603 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.RunStockSpStaged <- cls_conn.RebuildStockIfStale <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__274 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 14:04:01.416  [TIMING] frmTillNew: visible 10010 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-13 14:04:06.895  [TIMING] frmTillNew: created 361 ms after Add click, Load took 326 ms
+2026-10-13 14:04:06.896  [TIMING] frm_Form1 Add (count 15): formshow() returned after 687 ms
+2026-10-13 14:04:07.105  [TIMING] frmTillNew: visible 896 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-13 14:04:19.094  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 15 (background)
+2026-10-13 14:04:26.757  [TIMING] frmTillNew: created 423 ms after Add click, Load took 317 ms
+2026-10-13 14:04:26.758  [TIMING] frm_Form1 Add (count 15): formshow() returned after 741 ms
+2026-10-13 14:04:26.959  [TIMING] frmTillNew: visible 943 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-13 14:04:30.803     (previous error repeated 1 more time(s))
+2026-10-13 14:04:30.804  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 26 (background)
+2026-10-13 14:14:28.158     (previous error repeated 1 more time(s))
+2026-10-13 14:14:28.160  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 8 (background)
+2026-10-13 14:14:36.764  [TIMING] frmTillNew: created 395 ms after Add click, Load took 329 ms
+2026-10-13 14:14:36.764  [TIMING] frm_Form1 Add (count 15): formshow() returned after 725 ms
+2026-10-13 14:14:36.951  [TIMING] frmTillNew: visible 911 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-13 14:14:44.095  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 16 (background)
+2026-10-13 14:23:22.911  [TIMING] frm_Form1 Add (count 16): formshow() returned after 603 ms
+2026-10-13 14:32:58.990  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 23 (background)
+2026-10-13 14:33:29.235  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__458
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 23 (background)
+2026-10-13 14:33:57.155  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_DataSync.StartDataSync <- frmDashboardNew(lambda)._Lambda$__385 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-13 15:18:51.746  [HANG] Screen did not respond for 2566 ms (Not Responding).
+   Stuck at: [Gdip.GdipDrawImageRectI] MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1

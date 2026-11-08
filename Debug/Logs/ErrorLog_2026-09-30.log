@@ -1,0 +1,1305 @@
+﻿2026-09-30 10:44:49.434  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 10:44:50.318  [ERROR] InvalidOperationException: ExecuteReader requires an open and available Connection. The connection's current state is closed.
+   At: cls_conn.executereader <- Form1.EnsureLoginColumns <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 10:44:51.195  [ERROR] InvalidOperationException: The ConnectionString property has not been initialized.
+   At: cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 10:44:51.748     (previous error repeated 1 more time(s))
+2026-09-30 10:44:51.748  [ERROR] InvalidOperationException: The ConnectionString property has not been initialized.
+   At: cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 10:44:51.845     (previous error repeated 1 more time(s))
+2026-09-30 10:44:51.846  [ERROR] InvalidOperationException: ExecuteReader requires an open and available Connection. The connection's current state is closed.
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 10:44:51.849     (previous error repeated 4 more time(s))
+2026-09-30 10:44:51.849  [ERROR] InvalidOperationException: The ConnectionString property has not been initialized.
+   At: cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 10:44:55.705     (previous error repeated 1 more time(s))
+2026-09-30 10:44:55.758  [ERROR] InvalidOperationException: The ConnectionString property has not been initialized.
+   At: cls_conn.populate <- Form1.getcompany <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 10:44:55.761     (previous error repeated 1 more time(s))
+2026-09-30 10:44:55.762  [ERROR] InvalidOperationException: The ConnectionString property has not been initialized.
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 10:44:55.785     (previous error repeated 3 more time(s))
+2026-09-30 10:44:55.786  [ERROR] InvalidOperationException: The ConnectionString property has not been initialized.
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__16 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-09-30 10:44:55.788     (previous error repeated 3 more time(s))
+2026-09-30 10:44:55.789  [ERROR] InvalidOperationException: ExecuteReader requires an open and available Connection. The connection's current state is closed.
+   At: cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__16 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-09-30 10:44:55.791     (previous error repeated 5 more time(s))
+2026-09-30 10:44:55.791  [ERROR] InvalidOperationException: The ConnectionString property has not been initialized.
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__16 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-09-30 10:48:21.387  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 10:48:27.387  [ERROR] SqlException: Invalid column name 'counter'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmRegistration.CreateCounterTableIfNotExists <- frmRegistration.frmRegistration_Load <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 10:48:36.947  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 11:00:08.383  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 11:01:29.924  [ERROR] SqlException: Invalid object name 'dbo.vw_credit_sale_daywisepos'.
+   SQL error 208, line 1, proc vw_credit_sale_daywisepos
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:30.233     (previous error repeated 3 more time(s))
+2026-09-30 11:01:30.233  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:30.244     (previous error repeated 3 more time(s))
+2026-09-30 11:01:30.244  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:30.954     (previous error repeated 3 more time(s))
+2026-09-30 11:01:30.954  [ERROR] SqlException: Invalid object name 'tbltest'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:30.954     (previous error repeated 3 more time(s))
+2026-09-30 11:01:30.954  [ERROR] SqlException: Cannot find the object "tbltest" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:34.554     (previous error repeated 3 more time(s))
+2026-09-30 11:01:34.554  [ERROR] SqlException: Invalid column name 'sync'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:34.744     (previous error repeated 3 more time(s))
+2026-09-30 11:01:34.744  [ERROR] SqlException: Invalid column name 'counterID'.  Invalid column name 'userID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:34.864     (previous error repeated 3 more time(s))
+2026-09-30 11:01:34.864  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:34.864     (previous error repeated 3 more time(s))
+2026-09-30 11:01:34.873  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:34.894     (previous error repeated 3 more time(s))
+2026-09-30 11:01:34.894  [ERROR] SqlException: Invalid column name 'QRImgUrl'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:35.103     (previous error repeated 3 more time(s))
+2026-09-30 11:01:35.103  [ERROR] SqlException: Invalid column name 'salesratename'.  Invalid column name 'salesratecode'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:35.114     (previous error repeated 3 more time(s))
+2026-09-30 11:01:35.114  [ERROR] SqlException: Invalid column name 'blockchk'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:35.133     (previous error repeated 3 more time(s))
+2026-09-30 11:01:35.133  [ERROR] SqlException: Invalid column name 'CustomerID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:35.138     (previous error repeated 3 more time(s))
+2026-09-30 11:01:35.138  [ERROR] SqlException: Invalid column name 'Discount'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:35.144     (previous error repeated 3 more time(s))
+2026-09-30 11:01:35.144  [ERROR] SqlException: Invalid column name 'ID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:38.644     (previous error repeated 3 more time(s))
+2026-09-30 11:01:38.644  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:38.924     (previous error repeated 3 more time(s))
+2026-09-30 11:01:38.924  [ERROR] SqlException: Invalid column name 'DOCDATE'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:39.133     (previous error repeated 3 more time(s))
+2026-09-30 11:01:39.133  [ERROR] SqlException: Invalid column name 'isNew'.  Invalid column name 'isUpdate'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:39.143     (previous error repeated 7 more time(s))
+2026-09-30 11:01:39.143  [ERROR] SqlException: Invalid column name 'isNew'.  Invalid column name 'isUpdate'.  Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:39.173     (previous error repeated 19 more time(s))
+2026-09-30 11:01:39.173  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:39.173     (previous error repeated 3 more time(s))
+2026-09-30 11:01:39.173  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:49.413     (previous error repeated 3 more time(s))
+2026-09-30 11:01:49.413  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:50.051     (previous error repeated 2 more time(s))
+2026-09-30 11:01:50.053  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:50.554     (previous error repeated 2 more time(s))
+2026-09-30 11:01:50.554  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:50.633     (previous error repeated 2 more time(s))
+2026-09-30 11:01:50.633  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:50.822     (previous error repeated 2 more time(s))
+2026-09-30 11:01:50.822  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:01:50.893     (previous error repeated 5 more time(s))
+2026-09-30 11:01:50.893  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:02:08.619     (previous error repeated 2 more time(s))
+2026-09-30 11:02:08.619  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:06:06.114  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:06:14.948  [ERROR] SqlException: Invalid column name 'Offer'.
+   SQL error 207, line 1
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:07:34.873     (previous error repeated 3 more time(s))
+2026-09-30 11:07:34.883  [ERROR] SqlException: Invalid column name 'Offer'.
+   SQL error 207, line 1
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:07:41.173     (previous error repeated 3 more time(s))
+2026-09-30 11:07:41.174  [ERROR] SqlException: Invalid column name 'Offer'.
+   SQL error 207, line 1
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:07:46.034     (previous error repeated 3 more time(s))
+2026-09-30 11:07:46.034  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:07:47.853  [ERROR] SqlException: Invalid column name 'Offer'.
+   SQL error 207, line 1
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:09:39.340     (previous error repeated 3 more time(s))
+2026-09-30 11:09:39.340  [ERROR] SqlException: Incorrect syntax near the keyword 'union'.  Incorrect syntax near ')'.
+   SQL error 156, line 1
+   At: cls_conn.populate <- frm_ReportForm.ExportToExcelnew <- frm_ReportForm.Button2_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:12:03.373     (previous error repeated 3 more time(s))
+2026-09-30 11:12:03.373  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:12:06.347  [ERROR] SqlException: Invalid object name 'sales_statement_dateWisePOS'.
+   SQL error 208, line 1
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Date Wise Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:12:12.076     (previous error repeated 3 more time(s))
+2026-09-30 11:12:12.076  [ERROR] SqlException: Invalid object name 'sales_statement_dateWisePOS'.
+   SQL error 208, line 1
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Date Wise Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:13:49.545     (previous error repeated 3 more time(s))
+2026-09-30 11:13:49.546  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:13:51.243  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Multi Bill Print) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:14:14.064  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:14:51.333  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:15:49.823  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:16:33.813  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:17:34.342  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:18:24.922  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:35:16.033  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:36:17.123  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:47:25.462  [ERROR] ArgumentException: Value does not fall within the expected range.
+   At: frm_ReportForm.sales_all_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Party Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:47:40.873  [ERROR] ArgumentException: Value does not fall within the expected range.
+   At: frm_ReportForm.sales_all_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Party Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 11:52:13.543  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:01:36.857  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:04:46.662  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:05:54.823  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:06:49.767  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:07:09.493  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:07:31.158  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:07:46.668  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:08:28.078  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:09:18.788  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:18:39.423  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 12:20:41.752  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 14:18:40.551  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 14:18:46.517  [ERROR] SqlException: Invalid column name 'UserName'.
+   SQL error 207, line 1
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Transfer) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 14:19:00.926     (previous error repeated 3 more time(s))
+2026-09-30 14:19:00.926  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 14:19:05.795  [ERROR] SqlException: Invalid column name 'UserName'.
+   SQL error 207, line 1
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Transfer) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 14:19:11.800     (previous error repeated 3 more time(s))
+2026-09-30 14:19:11.800  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 15:39:09.022  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 15:39:48.254  [ERROR] SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: frm_ReportForm.stock_value_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 15:40:48.586     (previous error repeated 3 more time(s))
+2026-09-30 15:40:48.587  [ERROR] SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: frm_ReportForm.stock_value_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Value Wise Detail) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 15:41:24.929     (previous error repeated 3 more time(s))
+2026-09-30 15:41:24.930  [ERROR] SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: frm_ReportForm.stock_value_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 15:41:40.610     (previous error repeated 3 more time(s))
+2026-09-30 15:41:40.611  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 15:42:15.537  [ERROR] SqlException: Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: frm_ReportForm.stock_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Brand - Category Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 15:42:27.116     (previous error repeated 3 more time(s))
+2026-09-30 15:42:27.117  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__382 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:53:51.030  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 16:54:02.889  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:02.909     (previous error repeated 3 more time(s))
+2026-09-30 16:54:02.909  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:08.367     (previous error repeated 3 more time(s))
+2026-09-30 16:54:08.368  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:08.383     (previous error repeated 3 more time(s))
+2026-09-30 16:54:08.384  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:08.444     (previous error repeated 3 more time(s))
+2026-09-30 16:54:08.444  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:09.983     (previous error repeated 3 more time(s))
+2026-09-30 16:54:09.984  [ERROR] SqlException: Invalid column name 'isOffer'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:11.170     (previous error repeated 3 more time(s))
+2026-09-30 16:54:11.170  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:11.182     (previous error repeated 3 more time(s))
+2026-09-30 16:54:11.182  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:16.456     (previous error repeated 3 more time(s))
+2026-09-30 16:54:16.456  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:16.497     (previous error repeated 3 more time(s))
+2026-09-30 16:54:16.498  [ERROR] SqlException: Ambiguous column name 'counterID'.  Could not use view or function 'Fnc_SalePOSCounterAdmin' because of binding errors.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:17.865     (previous error repeated 3 more time(s))
+2026-09-30 16:54:17.866  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:20.680     (previous error repeated 3 more time(s))
+2026-09-30 16:54:20.680  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:20.683     (previous error repeated 3 more time(s))
+2026-09-30 16:54:20.684  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:42.024     (previous error repeated 3 more time(s))
+2026-09-30 16:54:42.024  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:42.537     (previous error repeated 2 more time(s))
+2026-09-30 16:54:42.538  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:42.904     (previous error repeated 2 more time(s))
+2026-09-30 16:54:42.904  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:42.978     (previous error repeated 2 more time(s))
+2026-09-30 16:54:42.978  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:43.143     (previous error repeated 2 more time(s))
+2026-09-30 16:54:43.143  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:54:43.204     (previous error repeated 5 more time(s))
+2026-09-30 16:54:43.205  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:55:08.025  [TIMING] frm_countersales: created 594 ms after Add click, Load took 4893 ms
+2026-09-30 16:55:08.026  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 5488 ms
+2026-09-30 16:55:08.435  [TIMING] frm_countersales: visible 5899 ms after Add click
+2026-09-30 16:55:12.389     (previous error repeated 2 more time(s))
+2026-09-30 16:55:12.390  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frm_countersales.ComboBox3_SelectedIndexChanged <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 16:55:26.453  [TIMING] frm_countersales: created 356 ms after Add click, Load took 5164 ms
+2026-09-30 16:55:26.453  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 5521 ms
+2026-09-30 16:55:26.747  [TIMING] frm_countersales: visible 5814 ms after Add click
+2026-09-30 16:55:38.952  [TIMING] frm_countersales: created 351 ms after Add click, Load took 5107 ms
+2026-09-30 16:55:38.952  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 5458 ms
+2026-09-30 16:55:39.289  [TIMING] frm_countersales: visible 5795 ms after Add click
+2026-09-30 16:55:54.706  [TIMING] frm_countersales: created 354 ms after Add click, Load took 5849 ms
+2026-09-30 16:55:54.711  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 6208 ms
+2026-09-30 16:55:55.036  [TIMING] frm_countersales: visible 6534 ms after Add click
+2026-09-30 16:56:22.168  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 16:56:53.272  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 5 (background)
+2026-09-30 16:56:57.417  [TIMING] frm_countersales: created 610 ms after Add click, Load took 2023 ms
+2026-09-30 16:56:57.418  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2634 ms
+2026-09-30 16:56:57.894  [TIMING] frm_countersales: visible 3111 ms after Add click
+2026-09-30 16:57:13.875  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 5 (background)
+2026-09-30 16:57:18.233  [TIMING] frm_countersales: created 861 ms after Add click, Load took 2111 ms
+2026-09-30 16:57:18.233  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2973 ms
+2026-09-30 16:57:18.657  [TIMING] frm_countersales: visible 3396 ms after Add click
+2026-09-30 16:57:31.355  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 20 (background)
+2026-09-30 16:57:35.355  [TIMING] frm_countersales: created 699 ms after Add click, Load took 2048 ms
+2026-09-30 16:57:35.356  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2747 ms
+2026-09-30 16:57:35.781  [TIMING] frm_countersales: visible 3173 ms after Add click
+2026-09-30 16:57:43.532  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 7 (background)
+2026-09-30 16:57:49.978  [TIMING] frm_countersales: created 352 ms after Add click, Load took 1737 ms
+2026-09-30 16:57:49.979  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2089 ms
+2026-09-30 16:57:50.402  [TIMING] frm_countersales: visible 2513 ms after Add click
+2026-09-30 16:58:11.864  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 21 (background)
+2026-09-30 16:58:27.424  [TIMING] frm_countersales: created 343 ms after Add click, Load took 1573 ms
+2026-09-30 16:58:27.424  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1916 ms
+2026-09-30 16:58:27.873  [TIMING] frm_countersales: visible 2366 ms after Add click
+2026-09-30 16:58:38.256  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 32 (background)
+2026-09-30 17:06:49.293  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 17:06:54.434  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 17:10:31.490  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 17:41:03.973  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 17:43:38.752  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 18:02:36.982  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 18:03:03.099  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:16:18.077  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:53:52.823  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 18:53:56.980  [ERROR] SocketException: A blocking operation was interrupted by a call to WSACancelBlockingCall 142.251.156.119:80
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 18:53:56.996  [ERROR] ObjectDisposedException: Safe handle has been closed
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 18:53:56.996  [ERROR] WebException: The request was canceled
+   Inner: SocketException: A blocking operation was interrupted by a call to WSACancelBlockingCall 142.251.156.119:80
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 18:53:56.996     (previous error repeated 1 more time(s))
+2026-09-30 18:53:56.996  [ERROR] ObjectDisposedException: Cannot access a disposed object.  Object name: 'System.Net.Sockets.NetworkStream'.
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 18:53:56.996  [ERROR] WebException: The operation has timed out
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 18:53:57.121     (previous error repeated 1 more time(s))
+2026-09-30 18:53:57.136  [ERROR] SqlException: The parameterized query '(@CustomerID nvarchar(4000),@MachineSerialID nvarchar(64))SELECT' expects the parameter '@CustomerID', which was not supplied.
+   SQL error 8178, line 0
+   At: mdl_public_variables.IsAMCEndDateValid <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 18:54:17.799     (previous error repeated 3 more time(s))
+2026-09-30 18:54:19.179  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 18 (background)
+2026-09-30 18:54:27.633  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 18 (background)
+2026-09-30 18:54:36.115  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00001 | Thread: 17 (background)
+2026-09-30 18:54:46.045  [ERROR] SqlException: Invalid object name 'SalesBarMain'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmTillNew.design_bt_qr <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__250 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:54:46.248  [TIMING] frmTillNew: created 818 ms after Add click, Load took 378 ms
+2026-09-30 18:54:46.248  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1196 ms
+2026-09-30 18:54:46.389  [TIMING] frmTillNew: visible 1334 ms after Add click
+2026-09-30 18:54:51.762     (previous error repeated 3 more time(s))
+2026-09-30 18:54:51.762  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTillNew.getAllItemWithDataTable <- frmTillNew.btnSearch_Click <- frmTillNew.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:54:51.762  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTillNew.getAllItemWithDataTable <- frmTillNew.btnSearch_Click <- frmTillNew.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:54:54.013  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:54:54.029  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:54:55.719  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:54:55.734  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:54:56.357  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:54:56.357  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:01.376  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:01.376  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:01.657  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:01.657  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:07.362  [ERROR] SqlException: Invalid column name 'sold_today'.
+   SQL error 207, line 1
+   At: cls_conn.populate <- frmStockView.show_stock <- frmStockView.frmStockView_Load <- frmOtherOption.CButton27_ClickButtonArea <- frmTillNew.CButton27_ClickButtonArea <- MyApplication.Main
+   Form: frmOtherOption () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:25.123     (previous error repeated 3 more time(s))
+2026-09-30 18:55:25.123  [ERROR] COMException: Invalid FORMATETC structure (Exception from HRESULT: 0x80040064 (DV_E_FORMATETC))
+   At: MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:26.076     (previous error repeated 1 more time(s))
+2026-09-30 18:55:26.076  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTillNew.getAllItemWithDataTable <- frmTillNew.btnSearch_Click <- frmTillNew.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:26.076  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTillNew.getAllItemWithDataTable <- frmTillNew.btnSearch_Click <- frmTillNew.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:28.155  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:28.170  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:28.904  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:28.904  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:29.175  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:29.175  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:37.533  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 14 (background)
+2026-09-30 18:55:41.637  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_purchase.AiOrNaiItemLoad <- frm_purchase.master_load_check <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__250 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:42.478  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_purchase.AiOrNaiItemLoad <- frm_purchase.formload <- frm_purchase.RadioButton1_CheckedChanged <- frm_purchase.purchase_Load <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__250 <- MyApplication.Main
+   Form: frm_purchase (Purchase Bill) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-30 18:55:43.120  [TIMING] frm_Form1 Add (count 23): formshow() returned after 1588 ms
+2026-09-30 18:55:51.045  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 12 (background)
+2026-09-30 18:56:27.133  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__428
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 8 (background)
+2026-09-30 18:57:21.662  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 18:57:30.574  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:30.574     (previous error repeated 3 more time(s))
+2026-09-30 18:57:30.574  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:32.729     (previous error repeated 3 more time(s))
+2026-09-30 18:57:32.729  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:32.745     (previous error repeated 3 more time(s))
+2026-09-30 18:57:32.745  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:32.761     (previous error repeated 3 more time(s))
+2026-09-30 18:57:32.761  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:33.917     (previous error repeated 3 more time(s))
+2026-09-30 18:57:33.917  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:33.933     (previous error repeated 3 more time(s))
+2026-09-30 18:57:33.933  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:36.467     (previous error repeated 3 more time(s))
+2026-09-30 18:57:36.467  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:36.483     (previous error repeated 3 more time(s))
+2026-09-30 18:57:36.483  [ERROR] SqlException: Ambiguous column name 'counterID'.  Could not use view or function 'Fnc_SalePOSCounterAdmin' because of binding errors.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:36.623     (previous error repeated 3 more time(s))
+2026-09-30 18:57:36.623  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:36.979     (previous error repeated 3 more time(s))
+2026-09-30 18:57:36.979  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:36.994     (previous error repeated 3 more time(s))
+2026-09-30 18:57:36.994  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:42.514     (previous error repeated 3 more time(s))
+2026-09-30 18:57:42.514  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:42.920     (previous error repeated 2 more time(s))
+2026-09-30 18:57:42.920  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:43.264     (previous error repeated 2 more time(s))
+2026-09-30 18:57:43.264  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:43.342     (previous error repeated 2 more time(s))
+2026-09-30 18:57:43.342  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:43.498     (previous error repeated 2 more time(s))
+2026-09-30 18:57:43.498  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:57:43.561     (previous error repeated 5 more time(s))
+2026-09-30 18:57:43.561  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 18:58:04.260     (previous error repeated 2 more time(s))
+2026-09-30 18:58:04.260  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:08:24.905  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:09:08.775  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:10:49.326  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:10:50.279  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_ReportForm.cmb_filter1_SelectedIndexChanged <- frm_ReportForm.ReportForm_Load <- mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Category - Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:11:55.598  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:12:18.511  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:12:42.258  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:13:07.199  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:13:33.029  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:13:37.534  [ERROR] SqlException: The multi-part identifier "opening_closing_stock.companycode" could not be bound.  The multi-part identifier "opening_closing_stock.itemcode" could not be bound.  The multi-part identifier "opening_closing_stock.companycode" could not be bound.  The multi-part identifier "opening_closing_stock.yearcode" could not be bound.  The multi-part identifier "opening_closing_stock.companycode" could not be bound.  The multi-part identifier "opening_closing_stock.itemcode" could not be bound.  The multi-part identifier "opening_closing_stock.itemname" could not be bound.  The multi-part identifier "opening_closing_stock.companycode" could not be bound.  The multi-part identifier "opening_closing_stock.itemcode" could not be bound.  The multi-part identifier "opening_closing_stock.itemname" could not be bound.
+   SQL error 4104, line 14
+   At: frm_ReportForm.stock_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - BL/LPL) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:15:16.118     (previous error repeated 3 more time(s))
+2026-09-30 19:15:16.118  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:15:58.218  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:15:59.852  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Main Group - Sub Group) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:16:06.380     (previous error repeated 1 more time(s))
+2026-09-30 19:16:06.380  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Main Group - Sub Group) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:16:28.551     (previous error repeated 1 more time(s))
+2026-09-30 19:16:28.551  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:16:37.614     (previous error repeated 1 more time(s))
+2026-09-30 19:16:37.614  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:16:57.022  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:18:52.067  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:21:03.631  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:22:07.063  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:22:10.828  [ERROR] ArgumentException: Items collection cannot be modified when the DataSource property is set.
+   At: frm_ReportForm.combo_bill_selection <- frm_ReportForm.cmb_load <- frm_ReportForm.DateTimePicker1_ValueChanged <- MyApplication.Main
+   Form: frm_ReportForm (Purchase Report - Bill No Wise Details) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:22:27.097  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:22:34.544  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:22:42.085  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:22:45.624  [ERROR] ArgumentException: Items collection cannot be modified when the DataSource property is set.
+   At: frm_ReportForm.combo_bill_selection <- frm_ReportForm.cmb_load <- frm_ReportForm.DateTimePicker1_ValueChanged <- MyApplication.Main
+   Form: frm_ReportForm (Purchase Report - Bill No Wise Summary) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:22:57.023  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:24:14.715  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:24:59.694  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:25:37.449  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:25:44.710  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:26:21.452  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:27:07.540  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:27:42.921  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:27:48.610  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:28:17.490  [TIMING] frm_Form1 Add (count 16): formshow() returned after 1412 ms
+2026-09-30 19:28:53.827  [TIMING] frm_Form1 Add (count 16): formshow() returned after 1329 ms
+2026-09-30 19:29:32.030     (previous error repeated 1 more time(s))
+2026-09-30 19:29:32.030  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:29:53.627  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:30:04.009  [ERROR] SqlException: Invalid column name 'UserName'.
+   SQL error 207, line 1
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Transfer) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:30:12.424     (previous error repeated 3 more time(s))
+2026-09-30 19:30:12.424  [ERROR] SqlException: Invalid column name 'UserName'.
+   SQL error 207, line 1
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Transfer) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:31:09.398     (previous error repeated 3 more time(s))
+2026-09-30 19:31:09.398  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:33:26.859  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:34:26.359  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 19:35:14.382  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:27:57.283  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 20:28:41.166  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:29:26.832  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:31:39.214  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:32:49.080  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:33:18.109  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:46:11.258  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:46:19.903  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\ExciseOnlineReport'.
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:46:26.293  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:46:33.336  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\ExciseOnlineReport'.
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Excise Report - Monthly Stock Online) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:47:09.140  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:48:04.926  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:49:55.290  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:51:45.120  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:54:19.088  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:54:25.480  [ERROR] SqlException: Could not find stored procedure 'sp_LiquorRegister_MrgdCompNEWFORMAT'.
+   SQL error 2812, line 1
+   At: cls_conn.populate <- cls_ExcelExport.BrandCatagoryRegisterFormat2 <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Excise - Category Register) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:54:42.366     (previous error repeated 3 more time(s))
+2026-09-30 20:54:42.366  [ERROR] SqlException: Could not find stored procedure 'sp_LiquorRegister_MrgdCompNEWFORMAT'.
+   SQL error 2812, line 1
+   At: cls_conn.populate <- cls_ExcelExport.BrandCatagoryRegisterFormat2 <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Excise - Category Register) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:54:52.686     (previous error repeated 3 more time(s))
+2026-09-30 20:54:52.686  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:55:37.817  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: cls_ExcelExport.ReleaseComObject <- cls_ExcelExport.BrandCatagoryRegister <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:56:05.339     (previous error repeated 2 more time(s))
+2026-09-30 20:56:05.344  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:57:01.772  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:57:25.717  [ERROR] ArgumentException: Font 'MingLiU_HKSCS' cannot be found.
+   At: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:57:25.886     (previous error repeated 20 more time(s))
+2026-09-30 20:57:25.887  [ERROR] ArgumentException: Font 'MingLiU_HKSCS' cannot be found.
+   At: MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:11.554     (previous error repeated 20 more time(s))
+2026-09-30 20:59:11.555  [ERROR] FormatException: String was not recognized as a valid Boolean.
+   At: frm_companyparameter.companyparameter_Load <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:15.950     (previous error repeated 1 more time(s))
+2026-09-30 20:59:15.951  [ERROR] SqlException: Invalid object name 'dbo.TBL_RazorPayCardDetail'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:15.981     (previous error repeated 3 more time(s))
+2026-09-30 20:59:15.982  [ERROR] SqlException: Invalid column name 'partyledger'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:16.002     (previous error repeated 3 more time(s))
+2026-09-30 20:59:16.002  [ERROR] SqlException: Invalid column name 'UserName'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:16.080     (previous error repeated 3 more time(s))
+2026-09-30 20:59:16.080  [ERROR] SqlException: Invalid column name 'kflname'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:16.126     (previous error repeated 3 more time(s))
+2026-09-30 20:59:16.126  [ERROR] InvalidOperationException: ExecuteReader: CommandText property has not been initialized
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:16.128  [ERROR] SqlException: Invalid column name 'Sync'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:16.562     (previous error repeated 3 more time(s))
+2026-09-30 20:59:16.563  [ERROR] SqlException: Invalid column name 'CounterID'.
+   SQL error 207, line 7, proc InsertItemgroupml
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:16.947     (previous error repeated 7 more time(s))
+2026-09-30 20:59:16.947  [ERROR] SqlException: Could not find stored procedure 'False'.
+   SQL error 2812, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:17.076     (previous error repeated 3 more time(s))
+2026-09-30 20:59:17.077  [ERROR] SqlException: There is already an object named 'USP_ExciseReportMumbaiFormat2' in the database.
+   SQL error 2714, line 1, proc USP_ExciseReportMumbaiFormat2
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:18.338     (previous error repeated 3 more time(s))
+2026-09-30 20:59:18.338  [ERROR] SqlException: Incorrect syntax near 'descEND'.
+   SQL error 102, line 1, proc SP_CATEGORY_WITH_ML_WISE_REPORT
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:18.587     (previous error repeated 3 more time(s))
+2026-09-30 20:59:18.587  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:19.109     (previous error repeated 3 more time(s))
+2026-09-30 20:59:19.109  [ERROR] SqlException: Incorrect syntax near the keyword 'user'.
+   SQL error 156, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:19.113     (previous error repeated 3 more time(s))
+2026-09-30 20:59:19.113  [ERROR] SqlException: Column names in each table must be unique. Column name 'Sync' in table 'users' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:19.130     (previous error repeated 3 more time(s))
+2026-09-30 20:59:19.130  [ERROR] SqlException: Invalid column name 'isquick_item'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:19.139     (previous error repeated 3 more time(s))
+2026-09-30 20:59:19.139  [ERROR] SqlException: Column names in each table must be unique. Column name 'type' in table 'ExizeCompany' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:19.210     (previous error repeated 3 more time(s))
+2026-09-30 20:59:19.211  [ERROR] SqlException: Ambiguous column name 'MRP'.  Ambiguous column name 'MRP'.
+   SQL error 209, line 24, proc opening_closing_stockPOS_batchwise
+   At: cls_conn.executereader <- frm_companyparameter.opening_closing_stockPOS_batchwise <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:20.364     (previous error repeated 3 more time(s))
+2026-09-30 20:59:20.365  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:20.372     (previous error repeated 3 more time(s))
+2026-09-30 20:59:20.372  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:22.878     (previous error repeated 3 more time(s))
+2026-09-30 20:59:22.879  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:22.891     (previous error repeated 3 more time(s))
+2026-09-30 20:59:22.892  [ERROR] SqlException: Ambiguous column name 'counterID'.  Could not use view or function 'Fnc_SalePOSCounterAdmin' because of binding errors.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:23.029     (previous error repeated 3 more time(s))
+2026-09-30 20:59:23.029  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:23.251     (previous error repeated 3 more time(s))
+2026-09-30 20:59:23.251  [ERROR] SqlException: Invalid column name 'DOCDATE'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:23.371     (previous error repeated 3 more time(s))
+2026-09-30 20:59:23.371  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:23.374     (previous error repeated 3 more time(s))
+2026-09-30 20:59:23.374  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- frm_companyparameter.btnDBUpdate_Click <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 20:59:41.813     (previous error repeated 3 more time(s))
+2026-09-30 20:59:41.814  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:00:43.300  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 21:01:05.200  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__386 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:08:03.528  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 21:09:24.069  [TIMING] frmTill: created 908 ms after Add click, Load took 2033 ms
+2026-09-30 21:09:24.070  [TIMING] frm_Form1 Add (count 15): formshow() returned after 2942 ms
+2026-09-30 21:09:24.714  [TIMING] frmTill: visible 3586 ms after Add click
+2026-09-30 21:10:07.508  [TIMING] frmTill: created 432 ms after Add click, Load took 2458 ms
+2026-09-30 21:10:07.509  [TIMING] frm_Form1 Add (count 15): formshow() returned after 2891 ms
+2026-09-30 21:10:07.927  [TIMING] frmTill: visible 3310 ms after Add click
+2026-09-30 21:19:01.120  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 21:20:03.987  [TIMING] frmTill: created 839 ms after Add click, Load took 3098 ms
+2026-09-30 21:20:03.987  [TIMING] frm_Form1 Add (count 15): formshow() returned after 3938 ms
+2026-09-30 21:20:04.620  [TIMING] frmTill: visible 4558 ms after Add click
+2026-09-30 21:20:36.887  [TIMING] frm_countersales: created 936 ms after Add click, Load took 1195 ms
+2026-09-30 21:20:36.902  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2131 ms
+2026-09-30 21:20:37.591  [TIMING] frm_countersales: visible 2823 ms after Add click
+2026-09-30 21:20:44.178  [TIMING] frm_countersales: created 322 ms after Add click, Load took 925 ms
+2026-09-30 21:20:44.178  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1247 ms
+2026-09-30 21:20:44.854  [TIMING] frm_countersales: visible 1910 ms after Add click
+2026-09-30 21:20:58.634  [TIMING] frm_countersales: created 330 ms after Add click, Load took 934 ms
+2026-09-30 21:20:58.634  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1265 ms
+2026-09-30 21:20:59.271  [TIMING] frm_countersales: visible 1907 ms after Add click
+2026-09-30 21:21:14.800  [TIMING] frm_countersales: created 358 ms after Add click, Load took 1021 ms
+2026-09-30 21:21:14.800  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1379 ms
+2026-09-30 21:21:15.464  [TIMING] frm_countersales: visible 2040 ms after Add click
+2026-09-30 21:21:42.419  [ERROR] SqlException: Invalid column name 'Disc'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frm_countersales.cmb_party_SelectedIndexChanged <- frm_countersales.bt_party_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:22:02.615  [TIMING] frm_countersales: created 336 ms after Add click, Load took 924 ms
+2026-09-30 21:22:02.615  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1261 ms
+2026-09-30 21:22:03.271  [TIMING] frm_countersales: visible 1914 ms after Add click
+2026-09-30 21:22:42.235     (previous error repeated 7 more time(s))
+2026-09-30 21:22:42.235  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:22:50.999  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:22:59.472  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:23:10.947  [TIMING] frm_countersales: created 315 ms after Add click, Load took 904 ms
+2026-09-30 21:23:10.947  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1219 ms
+2026-09-30 21:23:11.521  [TIMING] frm_countersales: visible 1784 ms after Add click
+2026-09-30 21:23:17.523  [TIMING] frm_countersales: created 329 ms after Add click, Load took 938 ms
+2026-09-30 21:23:17.523  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 1268 ms
+2026-09-30 21:23:18.186  [TIMING] frm_countersales: visible 1924 ms after Add click
+2026-09-30 21:23:47.900  [TIMING] frmTill: created 429 ms after Add click, Load took 1163 ms
+2026-09-30 21:23:47.900  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1593 ms
+2026-09-30 21:23:48.135  [TIMING] frmTill: visible 1820 ms after Add click
+2026-09-30 21:23:52.794  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- frmTill.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:23:52.794  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- frmTill.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:23:54.091  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:23:56.530  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTill.saveOffShop <- frmTill.billSaveCheck <- frmTill.BillSave <- frmTill._Lambda$__508 <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:23:58.637  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:24:05.790  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTill.saveOffShop <- frmTill.billSaveCheck <- frmTill.BillSavePrint <- frmTill._Lambda$__509 <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:24:09.363  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:24:10.936  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTill.saveOffShop <- frmTill.billSaveCheck <- frmTill.BillSave <- frmTill._Lambda$__508 <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:24:13.051  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:24:17.412  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTill.saveOffShop <- frmTill.billSaveCheck <- frmTill.BillSavePrint <- frmTill._Lambda$__509 <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:24:27.601  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:24:29.042  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTill.saveOffShop <- frmTill.billSaveCheck <- frmTill.BillSave <- frmTill._Lambda$__508 <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:36:45.207  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 21:37:36.401  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 21:37:50.802  [ERROR] SqlException: Invalid column name 'counter'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmRegistration.CreateCounterTableIfNotExists <- frmRegistration.frmRegistration_Load <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-30 21:39:00.982  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 21:39:50.228  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 21:40:17.061  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-30 21:40:35.620  [ERROR] SqlException: Invalid object name 'dbo.vw_credit_sale_daywisepos'.
+   SQL error 208, line 1, proc vw_credit_sale_daywisepos
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:40:38.063     (previous error repeated 3 more time(s))
+2026-09-30 21:40:38.064  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:40:38.336     (previous error repeated 3 more time(s))
+2026-09-30 21:40:38.336  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:40:44.705     (previous error repeated 3 more time(s))
+2026-09-30 21:40:44.705  [ERROR] SqlException: Invalid object name 'tbltest'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:40:44.783     (previous error repeated 3 more time(s))
+2026-09-30 21:40:44.783  [ERROR] SqlException: Cannot find the object "tbltest" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:24.053     (previous error repeated 3 more time(s))
+2026-09-30 21:41:24.053  [ERROR] SqlException: Invalid column name 'sync'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:28.227     (previous error repeated 3 more time(s))
+2026-09-30 21:41:28.227  [ERROR] SqlException: Invalid column name 'counterID'.  Invalid column name 'userID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:29.198     (previous error repeated 3 more time(s))
+2026-09-30 21:41:29.198  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:29.261     (previous error repeated 3 more time(s))
+2026-09-30 21:41:29.261  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:29.697     (previous error repeated 3 more time(s))
+2026-09-30 21:41:29.697  [ERROR] SqlException: Invalid column name 'QRImgUrl'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:30.822     (previous error repeated 3 more time(s))
+2026-09-30 21:41:30.822  [ERROR] SqlException: Invalid column name 'salesratename'.  Invalid column name 'salesratecode'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:30.963     (previous error repeated 3 more time(s))
+2026-09-30 21:41:30.963  [ERROR] SqlException: Invalid column name 'blockchk'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:31.463     (previous error repeated 3 more time(s))
+2026-09-30 21:41:31.463  [ERROR] SqlException: Invalid column name 'CustomerID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:31.603     (previous error repeated 3 more time(s))
+2026-09-30 21:41:31.603  [ERROR] SqlException: Invalid column name 'Discount'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:31.761     (previous error repeated 3 more time(s))
+2026-09-30 21:41:31.761  [ERROR] SqlException: Invalid column name 'ID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:46.674     (previous error repeated 3 more time(s))
+2026-09-30 21:41:46.674  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:53.984     (previous error repeated 3 more time(s))
+2026-09-30 21:41:53.984  [ERROR] SqlException: Invalid column name 'DOCDATE'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:56.250     (previous error repeated 3 more time(s))
+2026-09-30 21:41:56.250  [ERROR] SqlException: Invalid column name 'isNew'.  Invalid column name 'isUpdate'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:56.531     (previous error repeated 7 more time(s))
+2026-09-30 21:41:56.531  [ERROR] SqlException: Invalid column name 'isNew'.  Invalid column name 'isUpdate'.  Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:57.289     (previous error repeated 19 more time(s))
+2026-09-30 21:41:57.289  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:41:57.352     (previous error repeated 3 more time(s))
+2026-09-30 21:41:57.352  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:42:17.639     (previous error repeated 3 more time(s))
+2026-09-30 21:42:17.639  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:42:22.094     (previous error repeated 2 more time(s))
+2026-09-30 21:42:22.094  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:42:25.163     (previous error repeated 2 more time(s))
+2026-09-30 21:42:25.163  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:42:25.771     (previous error repeated 2 more time(s))
+2026-09-30 21:42:25.771  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:42:27.883     (previous error repeated 2 more time(s))
+2026-09-30 21:42:27.883  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:42:28.696     (previous error repeated 5 more time(s))
+2026-09-30 21:42:28.696  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-30 21:42:43.922     (previous error repeated 2 more time(s))
+2026-09-30 21:42:43.922  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__437
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-09-30 21:43:59.825  [TIMING] frm_countersales: created 572 ms after Add click, Load took 2528 ms
+2026-09-30 21:43:59.825  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 3101 ms
+2026-09-30 21:44:00.497  [TIMING] frm_countersales: visible 3761 ms after Add click

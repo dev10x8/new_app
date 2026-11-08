@@ -1,0 +1,74 @@
+                                                                      TOPMOST WINES
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                                                                                  4/26/2022 
+ 
+ 
+ 
+ 
+ 
+**IMFL
+**VODKA
+XXX                           15                                                                                                           15                            
+Total IMFL             0   0  15    0   0    0    0   0   0   0   0   0  0   0   0   0   0  0   0   0   0  0   0   0   0   0   0   0   0   15   0    0    0    0   0    0
+**IMP SPIRTS
+**IMP SCOTCH
+JACK DANIEL O                                                                                                                                                            
+**IMP VODKA
+ABSOLUT CITRO                 10                                                                                                           10                            
+ABSOLUT LIME                  52                                                                                                           52                            
+ABSOLUT VANIL                 15                                                                                                           15                            
+**IMP WHISKY
+JACK DANIEL O                  3                                                                                                            3                            
+JACK DANIELS                   5                                                                                                            5                            
+JACK DANIEL A                  3                                                                                                            3                            
+JOHN BARR                      5                                                                                                            5                            
+JOHNNIE WALKE                 24                                                                                                           24                            
+Total IMP SPIR         0   0 117    0   0    0    0   0   0   0   0   0  0   0   0   0   0  0   0   0   0  0   0   0   0   0   0   0   0  117   0    0    0    0   0    0
+**IMP WINE
+**IMP WINE
+JACOB CREEK C                 15                                                                                                           15                            
+JACOB CREEK C                  5                                                                                                            5                            
+JACOB S CREEK                 29                                                                                                           29                            
+K1 SHIRAZ                      1                                                                                                            1                            
+AFRICAN PASSI                 10                                                                                                           10                            
+HARDYS STAMP                  60                                                                                                           60                            
+Total IMP WINE         0   0 120    0   0    0    0   0   0   0   0   0  0   0   0   0   0  0   0   0   0  0   0   0   0   0   0   0   0  120   0    0    0    0   0    0
+**FERMENTED/STRONG  BEER
+**STORNG/FERM BEER
+BUHO STRONG               25                                                                                                          25                                 
+BUHO WITBIER              15                                                                                                          15                                 
+BUDWEISER MAG                               11                                                                                                           11              
+BUDWEISER MAG                                                                                                                                                            
+Total FERMENTE         0  40   0    0   0   11    0   0   0   0   0   0  0   0   0   0   0  0   0   0   0  0   0   0   0   0   0   0  40    0   0    0   11    0   0    0
+**INDIAN MILD BEER
+**MILD BEER
+BUDWEISER MIL                      12       15                                                                                                 12        15              
+BUDWEISER MIL             10                                                                                                          10                                 
+TUBORG MILD B                     108                                                                                                         108                        
+K F WITBIER                        12                                                                                                          12                        
+Total INDIAN M         0  10   0  132   0   15    0   0   0   0   0   0  0   0   0   0   0  0   0   0   0  0   0   0   0   0   0   0  10    0 132    0   15    0   0    0
+**INDIAN SPRITS
+**BRANDY
+GREAT NEPOLEO                                                                                           1                  1               -1                     -1     
+XX                                               15                                                                                                           15         
+BURLINGTONS B                                                                                           1                                  -1                            
+BRIHAN NO.1 B                                                                                                  1           3                        -1            -3     
+**WHISKY
+100 PIPER WHI                                                                                                              1                                      -1     
+IMPERIAL BLUE                120                                                                                                          120                            
+BLACK & WHITE          9      12       48                                                                                          9       12       48                   
+BLENDERS PRID          2                                                                                                           2                                     
+MCDOWELLS NO          18               48                                                                                         18                48                   
+OFFICERS CHOI                 96                                                                                                           96                            
+TEACHERS HIGH                                            12                                                                                                            12
+Total INDIAN S        29   0 228    0  96    0   15   0  12   0   0   0  0   0   0   0   0  0   0   0   2  0   1   0   0   5   0  29   0  226   0   95    0   15  -5   12
+**CL
+**CL
+GM SANTRA                     12                    144                                                                                    12                    144     
+Total INDIAN S         0   0  12    0   0    0    0 144   0   0   0   0  0   0   0   0   0  0   0   0   0  0   0   0   0   0   0   0   0   12   0    0    0    0 144    0

@@ -1,0 +1,289 @@
+﻿2026-10-06 10:17:12.249  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-06 10:17:33.898  [HANG] Screen did not respond for 8796 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.sp_recordcorrection <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:17:39.710  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 12 (background)
+2026-10-06 10:19:09.528  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 9 (background)
+2026-10-06 10:19:16.945  [TIMING] frmTillBatchWisePuneLoyalty: created 824 ms after Add click, Load took 2074 ms
+2026-10-06 10:19:16.945  [TIMING] frm_Form1 Add (count 15): formshow() returned after 2899 ms
+2026-10-06 10:19:16.945  [HANG] Screen did not respond for 2748 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmTillBatchWisePuneLoyalty.frmTill_Load <- frmTillBatchWisePuneLoyalty.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:19:17.160  [TIMING] frmTillBatchWisePuneLoyalty: visible 3113 ms after Add click
+2026-10-06 10:20:01.431  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTillBatchWisePuneLoyalty.getAllItemWithDataTable <- frmTillBatchWisePuneLoyalty.btnSearch_Click <- frmTillBatchWisePuneLoyalty.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:20:01.441  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTillBatchWisePuneLoyalty.getAllItemWithDataTable <- frmTillBatchWisePuneLoyalty.btnSearch_Click <- frmTillBatchWisePuneLoyalty.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:20:03.849  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTillBatchWisePuneLoyalty.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:20:11.841  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTillBatchWisePuneLoyalty.saveOffShop <- frmTillBatchWisePuneLoyalty.billSaveCheck <- frmTillBatchWisePuneLoyalty.BillSave <- frmTillBatchWisePuneLoyalty._Lambda$__548 <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:20:12.136  [HANG] Screen did not respond for 2499 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.insert <- frmTillBatchWisePuneLoyalty.UpdateStock <- frmTillBatchWisePuneLoyalty.saveOffShop <- frmTillBatchWisePuneLoyalty.billSaveCheck <- frmTillBatchWisePuneLoyalty.BillSave <- frmTillBatchWisePuneLoyalty._Lambda$__548 <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:20:23.233  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 13 (background)
+2026-10-06 10:22:18.502  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:22:18.511  [HANG] Screen did not respond for 19269 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:22:20.618     (previous error repeated 3 more time(s))
+2026-10-06 10:22:20.625  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:22:24.244  [HANG] Screen did not respond for 5410 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:42:56.926  [HANG] Screen did not respond for 7424 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:43:34.535  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:43:34.535  [HANG] Screen did not respond for 19253 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 10:46:45.026  [HANG] Screen did not respond for 10425 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 11:26:02.422  [HANG] Screen did not respond for 4919 ms (Not Responding).
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 11:41:44.482  [HANG] Screen did not respond for 9706 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 11:52:52.941  [HANG] Screen did not respond for 2129 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:30:10.333  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-06 12:30:46.140  [HANG] Screen did not respond for 15660 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.PatchExciseGlobalTempTables <- Form1.EnsureExciseStockObjects <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:30:51.849  [HANG] Screen did not respond for 5508 ms (Not Responding).
+   Stuck at: [Gdip.GdipCreateFromHDC] frm_Form1.SetupModernUI <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:30:51.850  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 13 (background)
+2026-10-06 12:30:55.822  [TIMING] frmTillBatchWisePuneLoyalty: created 1500 ms after Add click, Load took 1060 ms
+2026-10-06 12:30:55.822  [TIMING] frm_Form1 Add (count 15): formshow() returned after 2560 ms
+2026-10-06 12:30:55.828  [HANG] Screen did not respond for 2548 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- frmTillBatchWisePuneLoyalty.gettrn <- frmTillBatchWisePuneLoyalty.frmTill_Load <- frmTillBatchWisePuneLoyalty.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:30:56.024  [TIMING] frmTillBatchWisePuneLoyalty: visible 2762 ms after Add click
+2026-10-06 12:31:08.452  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTillBatchWisePuneLoyalty.getAllItemWithDataTable <- frmTillBatchWisePuneLoyalty.btnSearch_Click <- frmTillBatchWisePuneLoyalty.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:31:08.456  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTillBatchWisePuneLoyalty.getAllItemWithDataTable <- frmTillBatchWisePuneLoyalty.btnSearch_Click <- frmTillBatchWisePuneLoyalty.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:31:10.240  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTillBatchWisePuneLoyalty.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:31:12.317  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTillBatchWisePuneLoyalty.dgView_CellContentClick <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:31:17.703  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTillBatchWisePuneLoyalty.saveOffShop <- frmTillBatchWisePuneLoyalty.billSaveCheck <- frmTillBatchWisePuneLoyalty.BillSave <- frmTillBatchWisePuneLoyalty._Lambda$__548 <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:31:17.965  [HANG] Screen did not respond for 2593 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- frmTillBatchWisePuneLoyalty.saveOffShop <- frmTillBatchWisePuneLoyalty.billSaveCheck <- frmTillBatchWisePuneLoyalty.BillSave <- frmTillBatchWisePuneLoyalty._Lambda$__548 <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:31:27.224  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 14 (background)
+2026-10-06 12:31:31.649  [HANG] Screen did not respond for 2354 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.CallWindowProc] frm_ReportForm.cmb_load <- frm_ReportForm.ReportForm_Load <- mdl_ReportMap.OpenById <- _Closure$__55._Lambda$__424 <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:31:50.940  [HANG] Screen did not respond for 8610 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:31:51.616  [TIMING] frm_ReportForm report 2: data + report load took 9319 ms (database 4103 ms, Crystal/report 5216 ms, 06-10-2026 to 06-10-2026)
+2026-10-06 12:32:01.459  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 15 (background)
+2026-10-06 12:32:05.962  [TIMING] frmTillBatchWisePuneLoyalty: created 400 ms after Add click, Load took 843 ms
+2026-10-06 12:32:05.962  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1244 ms
+2026-10-06 12:32:06.141  [TIMING] frmTillBatchWisePuneLoyalty: visible 1422 ms after Add click
+2026-10-06 12:32:26.683  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTillBatchWisePuneLoyalty.getAllItemWithDataTable <- frmTillBatchWisePuneLoyalty.btnSearch_Click <- frmTillBatchWisePuneLoyalty.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:32:26.683  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTillBatchWisePuneLoyalty.getAllItemWithDataTable <- frmTillBatchWisePuneLoyalty.btnSearch_Click <- frmTillBatchWisePuneLoyalty.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:32:28.986  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTillBatchWisePuneLoyalty.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:32:30.961  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTillBatchWisePuneLoyalty.dgView_CellContentClick <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:32:37.590     (previous error repeated 2 more time(s))
+2026-10-06 12:32:37.591  [ERROR] SqlException: Invalid column name 'phn'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmLoyaltyRedeem.getCusRecord <- frmLoyaltyRedeem.frmLoyaltyRedeem_Load <- frmCustomersSearch.btnRedeemLoyalty_ClickButtonArea <- frmTillBatchWisePuneLoyalty.btnCustomerList_ClickButtonArea <- MyApplication.Main
+   Form: frmCustomersSearch (frmCustomersSearch) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:33:05.708     (previous error repeated 3 more time(s))
+2026-10-06 12:33:05.709  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTillBatchWisePuneLoyalty.saveOffShop <- frmTillBatchWisePuneLoyalty.billSaveCheck <- frmTillBatchWisePuneLoyalty.BillSave <- frmTillBatchWisePuneLoyalty._Lambda$__548 <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:33:06.054  [HANG] Screen did not respond for 2514 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.insert <- frmTillBatchWisePuneLoyalty.UpdateStock <- frmTillBatchWisePuneLoyalty.saveOffShop <- frmTillBatchWisePuneLoyalty.billSaveCheck <- frmTillBatchWisePuneLoyalty.BillSave <- frmTillBatchWisePuneLoyalty._Lambda$__548 <- MyApplication.Main
+   Form: frmTillBatchWisePuneLoyalty (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:33:23.490  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 15 (background)
+2026-10-06 12:33:38.946  [HANG] Screen did not respond for 3521 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 12:33:39.914  [TIMING] frm_ReportForm report 2: data + report load took 4559 ms (database 3893 ms, Crystal/report 666 ms, 06-10-2026 to 06-10-2026)
+2026-10-06 12:33:46.253  [HANG] Screen did not respond for 2180 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 13:03:03.588  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 29 (background)
+2026-10-06 13:03:13.760  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 29 (background)
+2026-10-06 14:18:31.261  [HANG] Screen did not respond for 35588 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 15:19:37.209  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 15:19:37.219  [HANG] Screen did not respond for 19197 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 15:20:44.679  [HANG] Screen did not respond for 4871 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-06 16:02:53.640  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-06 16:04:10.856  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-06 16:07:58.141  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-06 16:08:05.884  [ERROR] ObjectDisposedException: Safe handle has been closed
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-06 16:08:05.884  [ERROR] WebException: The request was canceled
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-06 16:08:05.894     (previous error repeated 1 more time(s))
+2026-10-06 16:08:05.894  [ERROR] ObjectDisposedException: Cannot access a disposed object.  Object name: 'System.Net.Sockets.NetworkStream'.
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-06 16:08:05.894  [ERROR] WebException: The operation has timed out
+   At: mdl_public_variables.CheckForInternetConnection <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-06 16:08:06.763     (previous error repeated 1 more time(s))
+2026-10-06 16:08:06.763  [ERROR] SqlException: The parameterized query '(@CustomerID nvarchar(4000),@MachineSerialID nvarchar(64))SELECT' expects the parameter '@CustomerID', which was not supplied.
+   SQL error 8178, line 0
+   At: mdl_public_variables.IsAMCEndDateValid <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-06 16:09:18.151  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-06 16:09:48.706  [HANG] Screen did not respond for 15884 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- Form1.EnsureExciseStockObjects <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 16:09:52.716  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-06 16:10:10.203  [HANG] Screen did not respond for 2049 ms (Not Responding).
+   Stuck at: [SafeNativeMethods.SetWindowPos] frm_ReportForm.ReportForm_Load <- mdl_ReportMap.OpenById <- _Closure$__55._Lambda$__424 <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 16:10:32.593  [HANG] Screen did not respond for 8205 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 16:10:34.614  [TIMING] frm_ReportForm report 2: data + report load took 10146 ms (database 4813 ms, Crystal/report 5333 ms, 16-09-2026 to 16-09-2026)
+2026-10-06 16:11:50.517  [HANG] Screen did not respond for 4066 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 16:11:51.026  [TIMING] frm_ReportForm report 2: data + report load took 4628 ms (database 3868 ms, Crystal/report 760 ms, 15-09-2026 to 15-09-2026)
+2026-10-06 16:12:18.501  [HANG] Screen did not respond for 3365 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 16:12:19.331  [TIMING] frm_ReportForm report 2: data + report load took 4119 ms (database 3317 ms, Crystal/report 802 ms, 16-09-2026 to 16-09-2026)
+2026-10-06 16:12:53.893  [HANG] Screen did not respond for 2719 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_ReportForm.stock_value_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Value Wise Closing) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 16:12:54.562  [TIMING] frm_ReportForm report 11: data + report load took 3418 ms (database 2612 ms, Crystal/report 806 ms, 16-09-2026 to 16-09-2026)
+2026-10-06 16:24:38.392  [TIMING] frm_ReportForm report 11: data + report load took 1942 ms (database 1025 ms, Crystal/report 917 ms, 15-09-2026 to 15-09-2026)
+2026-10-06 16:25:00.868  [TIMING] frm_ReportForm report 11: data + report load took 1117 ms (database 409 ms, Crystal/report 708 ms, 16-09-2026 to 16-09-2026)
+2026-10-06 16:40:39.317  [HANG] Screen did not respond for 3440 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.SendMessage] mdl_public_variables.CheckForInternetConnection <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- frmDashboardNew.ShowDashboardAfterMinimize <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 16:41:09.700  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form:  | User:  | Company: 2 | Counter: C00057 | Thread: 33 (background)
+2026-10-06 16:44:33.744  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-06 16:44:54.389  [HANG] Screen did not respond for 9045 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 16:44:57.591  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-06 16:45:20.786  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 144 ms
+2026-10-06 16:45:20.915  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 271 ms
+2026-10-06 16:45:21.026  [TIMING] frmTill Load: rate list / shop list done at 389 ms
+2026-10-06 16:45:21.215  [TIMING] frmTill Load: panel layout + action buttons created at 579 ms
+2026-10-06 16:45:21.440  [TIMING] frmTill Load: category / product buttons (getButton) done at 801 ms
+2026-10-06 16:45:21.481  [TIMING] frmTill Load: end of frmTill_Load at 836 ms
+2026-10-06 16:45:21.481  [TIMING] frmTill: created 720 ms after Add click, Load took 1067 ms
+2026-10-06 16:45:21.481  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1788 ms
+2026-10-06 16:45:21.940  [TIMING] frmTill: visible 2247 ms after Add click
+2026-10-06 16:45:33.585  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__451
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-06 17:24:16.506  [HANG] Screen did not respond for 5902 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Value Wise Closing) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 17:24:17.220  [TIMING] frm_ReportForm report 11: data + report load took 6839 ms (database 1811 ms, Crystal/report 5028 ms, 16-09-2026 to 16-09-2026)
+2026-10-06 17:40:09.792  [HANG] Screen did not respond for 4515 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 17:40:48.853  [HANG] Screen did not respond for 31656 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 17:40:55.247  [HANG] Screen did not respond for 6093 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 17:41:01.259  [HANG] Screen did not respond for 6009 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 18:06:35.814  [HANG] Screen did not respond for 3575 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 18:21:01.911  [HANG] Screen did not respond for 2910 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_ReportForm.stock_value_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Value Wise Closing) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 18:21:02.701  [TIMING] frm_ReportForm report 11: data + report load took 3942 ms (database 2881 ms, Crystal/report 1061 ms, 05-10-2026 to 05-10-2026)
+2026-10-06 18:23:08.326  [TIMING] frm_ReportForm report 11: data + report load took 1420 ms (database 770 ms, Crystal/report 650 ms, 16-08-2026 to 16-08-2026)
+2026-10-06 18:25:32.714  [HANG] Screen did not respond for 2363 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Value Wise Closing) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 18:26:32.724  [HANG] Screen did not respond for 50572 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 19:22:04.493  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-06 19:22:04.509  [HANG] Screen did not respond for 19116 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1

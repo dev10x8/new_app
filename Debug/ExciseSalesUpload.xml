@@ -1,0 +1,48 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ExciseSalesUpload
+</name>
+</assembly>
+<members>
+<member name="F:ExciseSalesUpload.mdl_public_variables.tblstock">
+---------------Added by Raza---------------
+
+</member><member name="M:ExciseSalesUpload.mdl_public_variables.GetDayOfWeek(System.DateTime)">
+	<summary>
+ This function is used to return day of the week at a particular date.
+ </summary>
+	<param name="dateForDay"> Date for which u want to find week day </param>
+	<returns> It return Day of the week </returns>
+</member><member name="M:ExciseSalesUpload.mdl_public_variables.PoleDisplayImportText(System.String,System.String)">
+	<summary>
+ This sub is used to import text to pole display.
+ </summary>
+	<param name="line1"> Line no 1 which you want to show in pole display </param>
+	<param name="line2"> Line no 2 which you want to display in pole display </param>
+</member><member name="M:ExciseSalesUpload.mdl_public_variables.CreateServerString(System.String)">
+-----------/ create cby raza for server data transactions /------------
+
+</member><member name="T:ExciseSalesUpload.Form1.StockPostModel">
+-------------/ added by raza /ranjit bariq/ for booozie app stock work/  10 june 22/ 
+
+</member><member name="T:ExciseSalesUpload.Form1">
+-----/end of added by raza  / 14 aug 23 / for excise stock upload
+
+</member><member name="P:ExciseSalesUpload.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ExciseSalesUpload.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ExciseSalesUpload.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

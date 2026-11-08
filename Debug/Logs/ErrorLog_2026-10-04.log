@@ -1,0 +1,419 @@
+﻿2026-10-04 20:44:15.832  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-04 20:44:18.301  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:24.481     (previous error repeated 8 more time(s))
+2026-10-04 20:44:24.481  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:36.055     (previous error repeated 1 more time(s))
+2026-10-04 20:44:36.055  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:37.961     (previous error repeated 7 more time(s))
+2026-10-04 20:44:37.961  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:37.961  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.499     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.499  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.499     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.499  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.499  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.562     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.562     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.562     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.562     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.562     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.577  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.577     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.577  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.577  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.577     (previous error repeated 1 more time(s))
+2026-10-04 20:44:39.577  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:39.577  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:41.977     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.018  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getcompany <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.018     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.018  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getcompany <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.018  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- Form1.getcompany <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.018     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.018  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.018     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.018  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.018  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.018     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.018  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.027     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.027  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.027  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-10-04 20:44:42.037     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.037  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.037     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.037  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.037  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.037     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.037  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.037     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.037  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.037  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.037     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.037  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.037     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.037  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.047  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.057     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.057  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.057  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.057     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.057  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.057     (previous error repeated 1 more time(s))
+2026-10-04 20:44:42.057  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:44:42.057  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-04 20:45:26.818  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-04 20:46:55.851  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-04 20:47:45.421  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-04 20:48:22.611  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:49:06.759     (previous error repeated 3 more time(s))
+2026-10-04 20:49:06.759  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 20, proc Sp_updateLedgerDue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:49:18.146  [MANUAL] FixDiscountDivisionObjects: db=hedu_test1 found=12 repaired=12
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:49:26.969     (previous error repeated 2 more time(s))
+2026-10-04 20:49:26.969  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__449
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 11 (background)
+2026-10-04 20:49:30.916  [TIMING] frm_countersales: created 853 ms after Add click, Load took 2085 ms
+2026-10-04 20:49:30.916  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2938 ms
+2026-10-04 20:49:31.494  [TIMING] frm_countersales: visible 3515 ms after Add click
+2026-10-04 20:49:43.290  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__449
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 10 (background)
+2026-10-04 20:50:23.406  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 147 ms
+2026-10-04 20:50:23.484  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 227 ms
+2026-10-04 20:50:23.562  [TIMING] frmTill Load: rate list / shop list done at 299 ms
+2026-10-04 20:50:23.734  [TIMING] frmTill Load: panel layout + action buttons created at 470 ms
+2026-10-04 20:50:24.085  [TIMING] frmTill Load: category / product buttons (getButton) done at 827 ms
+2026-10-04 20:50:24.124  [TIMING] frmTill Load: end of frmTill_Load at 861 ms
+2026-10-04 20:50:24.124  [TIMING] frmTill: created 674 ms after Add click, Load took 1048 ms
+2026-10-04 20:50:24.124  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1723 ms
+2026-10-04 20:50:24.556  [TIMING] frmTill: visible 2149 ms after Add click
+2026-10-04 20:50:29.117  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- frmTill.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:50:29.133  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- frmTill.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:50:30.572  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:50:34.370  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTill.saveOffShop <- frmTill.billSaveCheck <- frmTill.BillSave <- frmTill._Lambda$__521 <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:50:36.743  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:50:39.447  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frmTill.saveOffShop <- frmTill.billSaveCheck <- frmTill.BillSave <- frmTill._Lambda$__521 <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 20:50:49.099  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__449
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 13 (background)
+2026-10-04 21:10:40.984  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-04 21:11:32.516  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__449
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 10 (background)
+2026-10-04 21:11:59.593  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__449
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 9 (background)
+2026-10-04 21:13:28.981  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 124 ms
+2026-10-04 21:13:29.065  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 208 ms
+2026-10-04 21:13:29.128  [TIMING] frmTill Load: rate list / shop list done at 270 ms
+2026-10-04 21:13:29.320  [TIMING] frmTill Load: panel layout + action buttons created at 463 ms
+2026-10-04 21:13:29.754  [TIMING] frmTill Load: category / product buttons (getButton) done at 896 ms
+2026-10-04 21:13:29.799  [TIMING] frmTill Load: end of frmTill_Load at 942 ms
+2026-10-04 21:13:29.799  [TIMING] frmTill: created 817 ms after Add click, Load took 1095 ms
+2026-10-04 21:13:29.800  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1913 ms
+2026-10-04 21:13:30.252  [TIMING] frmTill: visible 2364 ms after Add click
+2026-10-04 21:13:38.726  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- frmTill.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:38.727  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- frmTill.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:39.732  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:39.745  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:42.890  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:42.898  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:46.574  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- frmTill.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:46.575  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTill.getAllItemWithDataTable <- frmTill.btnSearch_Click <- frmTill.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:47.810  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:13:47.817  [ERROR] IOException: The port 'COM2' does not exist.
+   At: frmTill.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:20:24.438  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 148 ms
+2026-10-04 21:20:24.505  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 215 ms
+2026-10-04 21:20:24.580  [TIMING] frmTill Load: rate list / shop list done at 291 ms
+2026-10-04 21:20:24.755  [TIMING] frmTill Load: panel layout + action buttons created at 465 ms
+2026-10-04 21:20:25.141  [TIMING] frmTill Load: category / product buttons (getButton) done at 851 ms
+2026-10-04 21:20:25.176  [TIMING] frmTill Load: end of frmTill_Load at 886 ms
+2026-10-04 21:20:25.177  [TIMING] frmTill: created 400 ms after Add click, Load took 1317 ms
+2026-10-04 21:20:25.177  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1717 ms
+2026-10-04 21:20:25.650  [TIMING] frmTill: visible 2190 ms after Add click
+2026-10-04 21:20:53.878  [ERROR] ObjectDisposedException: Cannot access a disposed object.  Object name: 'System.Net.Sockets.NetworkStream'.
+   At: frm_customer_pos.CheckForInternetConnectionDLL <- frm_customer_pos.memberSave <- frm_customer_pos.btn_save_Click <- frmCustomersSearch.CButton2_ClickButtonArea_1 <- frmTill.btnCustomerList_ClickButtonArea <- MyApplication.Main
+   Form: frm_customer_pos (frm_customer) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-04 21:20:54.233  [ERROR] SqlException: Invalid object name 'customerDetails'.
+   SQL error 208, line 1
+   At: frm_customer_pos.memberSave <- frm_customer_pos.btn_save_Click <- frmCustomersSearch.CButton2_ClickButtonArea_1 <- frmTill.btnCustomerList_ClickButtonArea <- MyApplication.Main
+   Form: frm_customer_pos (frm_customer) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1

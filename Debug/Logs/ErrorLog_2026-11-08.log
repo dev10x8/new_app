@@ -1,0 +1,1626 @@
+﻿2026-11-08 12:15:16.406  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-I48RVHC, Windows user rajib) ====================
+2026-11-08 12:15:17.651  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Load <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:15:17.943  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Shown <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:15:17.949  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.454  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.729     (previous error repeated 6 more time(s))
+2026-11-08 12:15:18.731  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.731     (previous error repeated 6 more time(s))
+2026-11-08 12:15:18.731  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.745  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.745     (previous error repeated 1 more time(s))
+2026-11-08 12:15:18.745  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.755  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.755  [MANUAL] Old-format machine row cleanup (client DB) failed
+   System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.
+      at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+      at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+      at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+      at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+      at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+      at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+      at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+      at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+      at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+      at System.Data.SqlClient.SqlConnection.Open()
+      at Madhushala_Ultimate.mdl_public_variables.EnsureCustomerRegistration()
+   ClientConnectionId:266f8a42-6795-422e-b54e-66bb48c4fd60
+   Error Number:18456,State:1,Class:14
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.755     (previous error repeated 6 more time(s))
+2026-11-08 12:15:18.760  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:18.760     (previous error repeated 1 more time(s))
+2026-11-08 12:15:18.762  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:19.510  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:19.513     (previous error repeated 1 more time(s))
+2026-11-08 12:15:19.513  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:19.521  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.238     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.238  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.238     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.243  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.245  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.467     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.469  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.469     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.469  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.469  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.469     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.469  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.469  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.474     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.475  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.477  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.477     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.478  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.479  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.480     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.480  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.481  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.482     (previous error repeated 1 more time(s))
+2026-11-08 12:15:20.482  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:15:20.483  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.308     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.308  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_DateValidity.EnforceCloudValidity <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.308     (previous error repeated 6 more time(s))
+2026-11-08 12:23:11.308  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_DateValidity.EnforceCloudValidity <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.308  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- mdl_DateValidity.EnforceCloudValidity <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.308  [MANUAL] EnforceCloudValidity check failed
+   System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.
+      at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+      at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+      at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+      at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+      at System.Data.SqlClient.SqlConnection.Open()
+      at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+      at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+      at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+      at Madhushala_Ultimate.cls_conn.populate(String s)
+      at Madhushala_Ultimate.mdl_DateValidity.EnforceCloudValidity()
+   ClientConnectionId:d2776251-a5d8-4304-ba26-bd66f009800d
+   Error Number:18456,State:1,Class:14
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.308  [TIMING] Startup licence / registration check took 472833 ms (barmanager)
+2026-11-08 12:23:11.350     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.379  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getcompany <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.379     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.379  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getcompany <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.379  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getcompany <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.379     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.379  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.379     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.379  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.379  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.379     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.379  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.379     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.395  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.395  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:23:11.400     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.400  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.406     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.406  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411     (previous error repeated 1 more time(s))
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:11.411  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:14.224     (previous error repeated 1 more time(s))
+2026-11-08 12:23:14.224  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmYearPOS.getAllProduct <- frmYearPOS.frmNewBankPOS_Load <- Form1.btnYear_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:14.224     (previous error repeated 1 more time(s))
+2026-11-08 12:23:14.224  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmYearPOS.getAllProduct <- frmYearPOS.frmNewBankPOS_Load <- Form1.btnYear_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:14.224  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- frmYearPOS.getAllProduct <- frmYearPOS.frmNewBankPOS_Load <- Form1.btnYear_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:17.486     (previous error repeated 1 more time(s))
+2026-11-08 12:23:17.486  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:17.486  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:17.502     (previous error repeated 6 more time(s))
+2026-11-08 12:23:17.502  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:17.502  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:17.502     (previous error repeated 1 more time(s))
+2026-11-08 12:23:17.502  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:17.502     (previous error repeated 1 more time(s))
+2026-11-08 12:23:17.502  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:17.502  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:18.703     (previous error repeated 1 more time(s))
+2026-11-08 12:23:18.703  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmCompanyPOS.getAllProduct <- frmCompanyPOS.frmNewBankPOS_Load <- Form1.CButton15_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:18.703     (previous error repeated 1 more time(s))
+2026-11-08 12:23:18.703  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmCompanyPOS.getAllProduct <- frmCompanyPOS.frmNewBankPOS_Load <- Form1.CButton15_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:23:18.703  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- frmCompanyPOS.getAllProduct <- frmCompanyPOS.frmNewBankPOS_Load <- Form1.CButton15_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:42.789  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-I48RVHC, Windows user rajib) ====================
+2026-11-08 12:37:43.546  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Load <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:43.721  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Shown <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:43.726  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:43.957  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the login process. (provider: Shared Memory Provider, error: 0 - No process is on the other end of the pipe.)
+   Inner: Win32Exception: No process is on the other end of the pipe
+   SQL error 233, line 0
+   At: Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.181     (previous error repeated 6 more time(s))
+2026-11-08 12:37:44.181  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.195     (previous error repeated 6 more time(s))
+2026-11-08 12:37:44.195  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.195  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.195     (previous error repeated 1 more time(s))
+2026-11-08 12:37:44.195  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.195  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.211  [MANUAL] Old-format machine row cleanup (client DB) failed
+   System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.
+      at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+      at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+      at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+      at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+      at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+      at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+      at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+      at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+      at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+      at System.Data.SqlClient.SqlConnection.Open()
+      at Madhushala_Ultimate.mdl_public_variables.EnsureCustomerRegistration()
+   ClientConnectionId:02e7a3c5-aadf-4e61-a38b-6dae63739237
+   Error Number:18456,State:1,Class:14
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.211     (previous error repeated 6 more time(s))
+2026-11-08 12:37:44.211  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.211     (previous error repeated 1 more time(s))
+2026-11-08 12:37:44.211  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.861  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.861     (previous error repeated 1 more time(s))
+2026-11-08 12:37:44.877  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:44.877  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.446     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.448  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.448     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.448  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.450  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.497     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.497  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.497     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.497  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.497  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.497     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.497  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.497  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.497     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.497  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.497  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.497     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.509  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.509  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.509     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.509  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.509  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.509     (previous error repeated 1 more time(s))
+2026-11-08 12:37:45.509  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:45.509  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.764     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.769  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_DateValidity.EnforceCloudValidity <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.769     (previous error repeated 6 more time(s))
+2026-11-08 12:37:50.769  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_DateValidity.EnforceCloudValidity <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.769  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- mdl_DateValidity.EnforceCloudValidity <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.769  [MANUAL] EnforceCloudValidity check failed
+   System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'sa'.
+      at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+      at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+      at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+      at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+      at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+      at System.Data.SqlClient.SqlConnection.Open()
+      at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+      at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+      at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+      at Madhushala_Ultimate.cls_conn.populate(String s)
+      at Madhushala_Ultimate.mdl_DateValidity.EnforceCloudValidity()
+   ClientConnectionId:2eca9d51-68cc-466d-8982-12c94ad87788
+   Error Number:18456,State:1,Class:14
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.769  [TIMING] Startup licence / registration check took 6791 ms (barmanager)
+2026-11-08 12:37:50.825     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.848  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getcompany <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.848     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.848  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getcompany <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.848  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getcompany <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.848     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.860  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.860     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.860  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.860  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.860     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.860  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.860     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.860  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.864  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:37:50.864     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.864  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.864     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.864  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.864  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.864     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.864  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.873     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.873  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.873  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.873     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.873  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.873     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.873  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.873  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.873     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.873  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.873  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.873     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.873  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.880  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.880     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.880  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.880  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.880     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.880  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.880  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.880     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.880  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.880  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.880     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.880  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.890  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.890     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.890  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.890     (previous error repeated 1 more time(s))
+2026-11-08 12:37:50.890  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:50.890  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__24 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:54.674     (previous error repeated 1 more time(s))
+2026-11-08 12:37:54.674  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmCompanyPOS.getAllProduct <- frmCompanyPOS.frmNewBankPOS_Load <- Form1.CButton15_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:54.674     (previous error repeated 1 more time(s))
+2026-11-08 12:37:54.674  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmCompanyPOS.getAllProduct <- frmCompanyPOS.frmNewBankPOS_Load <- Form1.CButton15_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:37:54.674  [ERROR] SqlException: Login failed for user 'sa'.
+   SQL error 18456, line 65536
+   At: cls_conn.populate <- frmCompanyPOS.getAllProduct <- frmCompanyPOS.frmNewBankPOS_Load <- Form1.CButton15_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:44:20.940  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-I48RVHC, Windows user rajib) ====================
+2026-11-08 12:44:21.655  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Load <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:44:21.858  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Shown <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:44:21.858  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:44:23.188  [ERROR] SqlException: Invalid object name 'dbo.TBL_CustomerValidation'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:44:23.210     (previous error repeated 7 more time(s))
+2026-11-08 12:44:23.210  [ERROR] SqlException: Invalid object name 'dbo.TBL_CustomerValidation'.
+   SQL error 208, line 1
+   At: mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:44:23.210  [MANUAL] Old-format machine row cleanup (client DB) failed
+   System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'dbo.TBL_CustomerValidation'.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+      at System.Data.SqlClient.SqlDataReader.get_MetaData()
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+      at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+      at Madhushala_Ultimate.mdl_public_variables.EnsureCustomerRegistration()
+   ClientConnectionId:7320678e-1d9d-4173-862f-17d72c7ae914
+   Error Number:208,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:44:23.210     (previous error repeated 3 more time(s))
+2026-11-08 12:44:23.210  [ERROR] SqlException: Invalid object name 'dbo.TBL_CustomerValidation'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:44:23.763     (previous error repeated 3 more time(s))
+2026-11-08 12:44:23.763  [ERROR] SqlException: Invalid object name 'TBL_CustomerValidation'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:44:24.126     (previous error repeated 3 more time(s))
+2026-11-08 12:44:24.126  [ERROR] SqlException: Invalid object name 'TBL_CustomerValidation'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:44:24.220     (previous error repeated 3 more time(s))
+2026-11-08 12:44:24.221  [ERROR] SqlException: Cannot find the object "dbo.TBL_CustomerValidation" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupLicenceChecks <- Form1.StartupMaintenance <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:50:57.538  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-I48RVHC, Windows user rajib) ====================
+2026-11-08 12:50:58.298  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Load <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:50:58.475  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Shown <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 12:50:58.475  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:51:09.492  [TIMING] Startup licence / registration check took 10409 ms (barmanager)
+2026-11-08 12:51:09.574  [ERROR] SqlException: Invalid column name 'bookstartingDate'.
+   SQL error 207, line 1
+   At: cls_conn.populate <- Form1.getcompany <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 12:51:16.662     (previous error repeated 3 more time(s))
+2026-11-08 12:51:16.662  [ERROR] SqlException: Invalid column name 'counterID'.  Invalid column name 'counterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.EnsureCounterTable <- Form1.getCounterButton <- Form1.ddclick <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter:  | Thread: 1
+2026-11-08 12:51:30.904     (previous error repeated 3 more time(s))
+2026-11-08 12:51:30.904  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid object name 'naiItemMaster'.
+   SQL error 207, line 5, proc CounterSL_opening_closing_stockPOS
+   At: cls_conn.executereader <- Form1.EnsureCounterSaleStockFunction <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:30.947     (previous error repeated 3 more time(s))
+2026-11-08 12:51:30.947  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid object name 'naiItemMaster'.
+   SQL error 207, line 23, proc opening_closing_stockPOSexcz
+   At: cls_conn.executereader <- Form1.EnsureExciseStockObjects <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:30.994     (previous error repeated 3 more time(s))
+2026-11-08 12:51:30.994  [ERROR] SqlException: Invalid object name 'MasterAccountsLedger'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:30.996     (previous error repeated 3 more time(s))
+2026-11-08 12:51:30.996  [ERROR] SqlException: Cannot find the object "MasterAccountsLedger" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.055     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.055  [ERROR] SqlException: Invalid column name 'billtype'.  Invalid column name 'billtype'.  Invalid column name 'billtype'.  Invalid column name 'billtype'.
+   SQL error 207, line 45, proc SP_RecordCorrection
+   At: cls_conn.executereader <- Form1.sp_recordcorrection <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.145     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.147  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billtype'.  Invalid object name 'vw_itemCodebarCode'.
+   SQL error 207, line 1, proc vw_credit_sale_daywisepos
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.203     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.203  [ERROR] SqlException: Invalid object name 'MasterAccountsLedger'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.208     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.208  [ERROR] SqlException: Cannot find the object "MasterAccountsLedger" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.246     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.246  [ERROR] SqlException: Invalid object name 'naiitemmaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.248     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.250  [ERROR] SqlException: Cannot find the object "naiitemmaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.252     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.252  [ERROR] SqlException: Invalid object name 'naiitemmaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.254     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.255  [ERROR] SqlException: Cannot find the object "naiitemmaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.255     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.255  [ERROR] SqlException: Invalid object name 'naiitemmaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.255     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.255  [ERROR] SqlException: Cannot find the object "naiitemmaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.291     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.291  [ERROR] SqlException: Invalid object name 'offermst'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.293     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.293  [ERROR] SqlException: Cannot find the object "offermst" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.295     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.295  [ERROR] SqlException: Invalid object name 'offermst'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.295     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.295  [ERROR] SqlException: Cannot find the object "offermst" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.298     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.298  [ERROR] SqlException: Invalid object name 'offermst'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.302     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.302  [ERROR] SqlException: Cannot find the object "offermst" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.311     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.311  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.311     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.311  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.311     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.311  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.321     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.321  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.323     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.323  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.325     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.325  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.325     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.330  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.330     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.330  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.330     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.330  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.330     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.330  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.330     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.330  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.340     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.340  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.341     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.341  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.341     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.341  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.341     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.341  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.348     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.348  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.348     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.350  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.352     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.352  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.352     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.352  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.357     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.357  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.373     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.373  [ERROR] SqlException: Invalid object name 'tempmst'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.373     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.373  [ERROR] SqlException: Cannot find the object "tempmst" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.373     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.373  [ERROR] SqlException: Invalid object name 'tempmst'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.373     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.373  [ERROR] SqlException: Cannot find the object "tempmst" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.388     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.389  [ERROR] SqlException: Invalid object name 'tempprc'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.389     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.391  [ERROR] SqlException: Cannot find the object "tempprc" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.391     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.393  [ERROR] SqlException: Invalid object name 'tempprc'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.393     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.393  [ERROR] SqlException: Cannot find the object "tempprc" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.410     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.410  [ERROR] SqlException: Invalid object name 'tempmst'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.412     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.412  [ERROR] SqlException: Cannot find the object "tempmst" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.414     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.414  [ERROR] SqlException: Invalid object name 'tempprc'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.416     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.416  [ERROR] SqlException: Cannot find the object "tempprc" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.420     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.420  [ERROR] SqlException: Invalid object name 'tempprc'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.538     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.540  [ERROR] SqlException: Invalid column name 'billtype'.  Invalid column name 'Sync'.  Invalid column name 'referencebillNo'.  Invalid column name 'referencebilltype'.  Invalid column name 'billtype'.  Invalid column name 'customerName'.  Invalid column name 'userID'.  Invalid column name 'MachineName'.  Invalid column name 'roundoff'.  Invalid column name 'counterID'.  Invalid column name 'PaymentType'.  Invalid column name 'PaymentName'.  Invalid column name 'DisUser'.  Invalid column name 'CustomerID'.  Invalid column name 'ref_name'.  Invalid column name 'user_allowed'.  Invalid column name 'Remarks'.  Invalid column name 'CashAmount'.  Invalid column name 'CardAmount'.  Invalid column name 'UPIAmount'.  Invalid column name 'PartyAmount'.  Invalid column name 'DeletedCounterID'.  Invalid column name 'DeleteRemarks'.  Invalid column name 'PTransactionID'.  Invalid column name 'oerderDelivery'.  Invalid column name 'isdelivery'.  Invalid column name 'otpno'.  Invalid column name 'deli_reason'.  Invalid column name 'billtype'.  Invalid column name 'billtype'.  Invalid column name 'billtype'.  Invalid column name 'Sync'.  Invalid column name 'itemDiscountPercentage'.  Invalid column name 'itemDiscountAmount'.  Invalid column name 'billtype'.  Invalid column name 'ItemTax'.  Invalid column name 'DisUser'.  Invalid column name 'DeletedCounterID'.  Invalid column name 'discount_reasonnew'.  Invalid column name 'billType'.  Invalid column name 'Sync'.  Invalid column name 'billType'.
+   SQL error 207, line 172, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.558     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.558  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 13, proc vw_itemCodebarCode
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.658     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.658  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'PaymentType'.  Invalid column name 'billType'.  Invalid column name 'Cashamount'.  Invalid column name 'UPIamount'.  Invalid column name 'Cardamount'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'PaymentType'.  Invalid column name 'billType'.  Invalid column name 'Cashamount'.  Invalid column name 'UPIamount'.  Invalid column name 'Cardamount'.  Invalid column name 'cashamount'.  Invalid column name 'cashamount'.  Invalid column name 'cashamount'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'PaymentType'.  Invalid column name 'billType'.  Invalid column name 'Cashamount'.  Invalid column name 'UPIamount'.  Invalid column name 'Cardamount'.  Invalid column name 'UPIAmount'.  Invalid column name 'UPIAmount'.  Invalid column name 'UPIAmount'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'PaymentType'.  Invalid column name 'billType'.  Invalid column name 'Cashamount'.  Invalid column name 'UPIamount'.  Invalid column name 'Cardamount'.  Invalid column name 'CardAmount'.  Invalid column name 'CardAmount'.  Invalid column name 'CardAmount'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.
+   SQL error 207, line 37, proc fun_Sales_Summary2
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.658     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.663  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.663     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.663  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.663     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.663  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.680     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.680  [ERROR] SqlException: Invalid column name 'CashAmount'.  Invalid column name 'CardAmount'.  Invalid column name 'UPIAmount'.  Invalid column name 'PartyAmount'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.680     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.680  [ERROR] SqlException: Invalid column name 'PTransactionID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.689     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.689  [ERROR] SqlException: Invalid column name 'oerderDelivery'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.695     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.695  [ERROR] SqlException: Invalid column name 'isdelivery'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.695     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.695  [ERROR] SqlException: Invalid column name 'otpno'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.695     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.695  [ERROR] SqlException: Invalid column name 'deli_reason'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.695     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.695  [ERROR] SqlException: Invalid column name 'isOffer'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.790     (previous error repeated 7 more time(s))
+2026-11-08 12:51:31.790  [ERROR] SqlException: Invalid object name 'TransactionDetail'.
+   SQL error 208, line 16, proc fun_Cash_Summary_Both
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.805     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.805  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 16, proc sales_statementPOSnew_2
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.853     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.853  [ERROR] SqlException: Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.  Invalid column name 'counterID'.
+   SQL error 207, line 47, proc USP_SalesSummery
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.887     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.887  [ERROR] SqlException: Column names in each table must be unique. Column name 'sync' in table 'customerDetails' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.909     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.909  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid object name 'vw_itemCodebarCode'.
+   SQL error 207, line 12, proc vw_return_sale_daywisePOS
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.965     (previous error repeated 15 more time(s))
+2026-11-08 12:51:31.965  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billtype'.  Invalid object name 'vw_itemCodebarCode'.
+   SQL error 207, line 1, proc vw_credit_sale_daywisepos
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:31.981     (previous error repeated 3 more time(s))
+2026-11-08 12:51:31.981  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid object name 'vw_itemCodebarCode'.
+   SQL error 207, line 11, proc vw_UPI_sale_daywisePOS_Both
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.032     (previous error repeated 15 more time(s))
+2026-11-08 12:51:32.032  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.
+   SQL error 207, line 20, proc sp_SaleRecordsPOS_2
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.230     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.236  [ERROR] SqlException: Invalid column name 'counterID'.  Invalid column name 'userID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.243     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.243  [ERROR] SqlException: Invalid column name 'MGQ'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.254     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.254  [ERROR] SqlException: Invalid column name 'userID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.256     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.256  [ERROR] SqlException: Invalid column name 'MachineName'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.265     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.265  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.270     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.271  [ERROR] SqlException: The object 'FK_payment_detail_purchasemain' is dependent on column 'docno'.  ALTER TABLE ALTER COLUMN docno failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.271     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.271  [ERROR] SqlException: Invalid column name 'pdfpath'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.271     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.271  [ERROR] SqlException: Invalid column name 'exp_date'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.284     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.286  [ERROR] SqlException: Invalid object name 'MasterAccountsLedger'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.287     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.287  [ERROR] SqlException: Cannot find the object "MasterAccountsLedger" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.290     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.290  [ERROR] SqlException: Invalid column name 'AMC'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.290     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.290  [ERROR] SqlException: Invalid column name 'meargeStore'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.372     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.372  [ERROR] SqlException: Invalid column name 'roundoff'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.372     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.384  [ERROR] SqlException: Invalid column name 'counterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.387     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.387  [ERROR] SqlException: Invalid column name 'PaymentType'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.391     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.391  [ERROR] SqlException: Invalid column name 'PaymentName'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.391     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.391  [ERROR] SqlException: Invalid column name 'salesratename'.  Invalid column name 'salesratecode'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.404     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.404  [ERROR] SqlException: Invalid column name 'blockchk'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.422     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.422  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.
+   SQL error 207, line 20, proc sp_SaleRecordsPOS
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.422     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.422  [ERROR] SqlException: Invalid column name 'CustomerID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.440     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.440  [ERROR] SqlException: Invalid column name 'Discount'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.440     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.440  [ERROR] SqlException: Invalid column name 'ID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.440     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.453  [ERROR] SqlException: Invalid column name 'DisUser'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.453     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.453  [ERROR] SqlException: Column names in each table must be unique. Column name 'counterID' in table 'salesbillmain' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.453     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.453  [ERROR] SqlException: Invalid column name 'CustomerID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.470     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.470  [ERROR] SqlException: Invalid column name 'ref_name'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.470     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.470  [ERROR] SqlException: Invalid column name 'user_allowed'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.470     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.485  [ERROR] SqlException: Invalid column name 'Remarks'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.489     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.489  [ERROR] SqlException: Column names in each table must be unique. Column name 'discount_reason' in table 'salesbillmain' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.496     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.496  [ERROR] SqlException: Invalid column name 'ItemTax'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.502     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.503  [ERROR] SqlException: Invalid column name 'DisUser'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.510     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.510  [ERROR] SqlException: Column names in each table must be unique. Column name 'MultiplePOSMachine' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.528     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.528  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.
+   SQL error 207, line 17, proc sp_SaleRecordsPartyWiseCounter
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.653     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.653  [ERROR] SqlException: Invalid column name 'DeletedCounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.668     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.668  [ERROR] SqlException: Invalid column name 'discount_reasonnew'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.670     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.670  [ERROR] SqlException: Invalid column name 'DeletedCounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.678     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.678  [ERROR] SqlException: Invalid column name 'DeleteRemarks'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.719     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.722  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'customerName'.  Invalid column name 'referencebillNo'.  Invalid column name 'referencebilltype'.  Invalid column name 'Sync'.
+   SQL error 207, line 60, proc AfterDeleteSalesBillMain
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.739     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.739  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'itemDiscountPercentage'.  Invalid column name 'itemDiscountAmount'.
+   SQL error 207, line 43, proc AfterDeleteSalesBillDetail
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.791     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.791  [ERROR] SqlException: Invalid column name 'billType'.
+   SQL error 207, line 21, proc USP_ItemWiseMRPSale
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:32.810     (previous error repeated 3 more time(s))
+2026-11-08 12:51:32.810  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 12, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.194     (previous error repeated 11 more time(s))
+2026-11-08 12:51:33.194  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billtype'.  Invalid object name 'vw_itemCodebarCode'.
+   SQL error 207, line 15, proc sales_statementPOS
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.210     (previous error repeated 3 more time(s))
+2026-11-08 12:51:33.210  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 16, proc sales_statementPOSN
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.237     (previous error repeated 3 more time(s))
+2026-11-08 12:51:33.239  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode_BrandCategory_Wise'.
+   SQL error 208, line 15, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.275     (previous error repeated 3 more time(s))
+2026-11-08 12:51:33.275  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid column name 'billType'.  Invalid object name 'naiItemMaster'.
+   SQL error 207, line 23, proc opening_closing_stockPOS
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.588     (previous error repeated 3 more time(s))
+2026-11-08 12:51:33.588  [ERROR] SqlException: Invalid object name 'DAILY_STOCK_RPT'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.588     (previous error repeated 3 more time(s))
+2026-11-08 12:51:33.588  [ERROR] SqlException: Cannot find the object "DAILY_STOCK_RPT" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.698     (previous error repeated 3 more time(s))
+2026-11-08 12:51:33.698  [ERROR] SqlException: Invalid object name 'MasterAccountsLedger'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.702     (previous error repeated 3 more time(s))
+2026-11-08 12:51:33.702  [ERROR] SqlException: Cannot find the object "MasterAccountsLedger" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:33.730     (previous error repeated 3 more time(s))
+2026-11-08 12:51:33.730  [ERROR] SqlException: Invalid column name 'billType'.  Invalid column name 'billType'.
+   SQL error 207, line 1, proc sp_SaleRecords
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:34.287     (previous error repeated 3 more time(s))
+2026-11-08 12:51:34.287  [ERROR] SqlException: Cannot define PRIMARY KEY constraint on nullable column in table 'salesbilldetail'.  Could not create constraint or index. See previous errors.
+   SQL error 8111, line 9
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:34.604     (previous error repeated 2 more time(s))
+2026-11-08 12:51:34.604  [ERROR] SqlException: There is already an object named 'FK_categorymst_companymast' in the database.  Could not create constraint or index. See previous errors.
+   SQL error 2714, line 1
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:34.670     (previous error repeated 2 more time(s))
+2026-11-08 12:51:34.670  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 13, proc vw_tally_purchase
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:35.954     (previous error repeated 5 more time(s))
+2026-11-08 12:51:35.954  [ERROR] SqlException: Invalid object name 'vw_accGroupNameFromLedgerCode'.
+   SQL error 208, line 21, proc FUN_OpeningClosing
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:37.568     (previous error repeated 2 more time(s))
+2026-11-08 12:51:37.568  [ERROR] SqlException: Invalid object name 'naiItemMaster'.
+   SQL error 208, line 28, proc fun_Cash_Summary_NAI
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:38.297     (previous error repeated 2 more time(s))
+2026-11-08 12:51:38.297  [ERROR] SqlException: Cannot find the object "naiItemMaster" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:38.504     (previous error repeated 8 more time(s))
+2026-11-08 12:51:38.504  [ERROR] SqlException: Invalid column name 'barCode2'.  Invalid column name 'barCode3'.  Invalid column name 'cgst'.  Invalid column name 'sgst'.  Invalid column name 'cess'.  Invalid column name 'cessamt'.  Invalid column name 'igst'.
+   SQL error 207, line 9, proc vw_itemCodebarCode
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:38.519     (previous error repeated 2 more time(s))
+2026-11-08 12:51:38.519  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 25, proc opening_stock_show2
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:38.695     (previous error repeated 11 more time(s))
+2026-11-08 12:51:38.695  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode_BrandCategory_Wise'.
+   SQL error 208, line 15, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:38.987     (previous error repeated 2 more time(s))
+2026-11-08 12:51:38.989  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 10, proc Fnc_Sale
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:40.522     (previous error repeated 8 more time(s))
+2026-11-08 12:51:40.522  [ERROR] SqlException: Invalid column name 'barCode2'.  Invalid column name 'barCode3'.
+   SQL error 207, line 11, proc vw_itemCodebarCode_BrandCategory_Wise
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:40.522     (previous error repeated 2 more time(s))
+2026-11-08 12:51:40.522  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode_BrandCategory_Wise'.
+   SQL error 208, line 15, proc sales_statement_dateWise
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:40.837     (previous error repeated 2 more time(s))
+2026-11-08 12:51:40.837  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 10, proc Fnc_Sale
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:40.949     (previous error repeated 20 more time(s))
+2026-11-08 12:51:40.949  [ERROR] IndexOutOfRangeException: There is no row at position 0.
+   At: Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:51:41.021  [HANG] Screen did not respond for 10092 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:58:38.402     (previous error repeated 1 more time(s))
+2026-11-08 12:58:38.402  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company:  | Counter: C00057 | Thread: 1
+2026-11-08 12:58:55.997  [ERROR] InvalidCastException: Conversion from string "" to type 'Date' is not valid.
+   At: frmCompanyPOS.getCategoryButtonItemCategory <- Form1.CButton15_ClickButtonArea <- MyApplication.Main
+   Form: frmNewBankPOS (frmNewBankPOS) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 12:59:08.000  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.CButton16_Click <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:13.291  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-I48RVHC, Windows user rajib) ====================
+2026-11-08 13:01:13.748  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Load <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 13:01:13.844  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Shown <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-11-08 13:01:13.851  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-11-08 13:01:27.810  [TIMING] Startup licence / registration check took 13636 ms (barmanager)
+2026-11-08 13:01:27.842  [ERROR] InvalidCastException: Object cannot be cast from DBNull to other types.
+   At: Form1.getcompany <- Form1.LoadCompanyYearAndUsers <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company: 1 | Counter:  | Thread: 6 (background)
+2026-11-08 13:01:40.428  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 1, proc vw_credit_sale_daywisepos
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.511     (previous error repeated 3 more time(s))
+2026-11-08 13:01:40.511  [ERROR] SqlException: Invalid column name 'Sync'.  Invalid column name 'Sync'.  Invalid column name 'Sync'.  Invalid column name 'Sync'.  Invalid column name 'customerName'.  Invalid column name 'Sync'.  Invalid column name 'Sync'.
+   SQL error 207, line 150, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.511     (previous error repeated 3 more time(s))
+2026-11-08 13:01:40.511  [ERROR] SqlException: Invalid column name 'barCode2'.  Invalid column name 'barCode3'.
+   SQL error 207, line 9, proc vw_itemCodebarCode
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.670     (previous error repeated 3 more time(s))
+2026-11-08 13:01:40.670  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 16, proc sales_statementPOSnew_2
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.702     (previous error repeated 3 more time(s))
+2026-11-08 13:01:40.702  [ERROR] SqlException: Column names in each table must be unique. Column name 'sync' in table 'customerDetails' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.702     (previous error repeated 3 more time(s))
+2026-11-08 13:01:40.702  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 13, proc vw_return_sale_daywisePOS
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.814     (previous error repeated 35 more time(s))
+2026-11-08 13:01:40.814  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.830     (previous error repeated 3 more time(s))
+2026-11-08 13:01:40.830  [ERROR] SqlException: Invalid column name 'QRImgUrl'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.943     (previous error repeated 3 more time(s))
+2026-11-08 13:01:40.943  [ERROR] SqlException: Invalid column name 'customerName'.  Invalid column name 'Sync'.
+   SQL error 207, line 62, proc AfterDeleteSalesBillMain
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:40.990     (previous error repeated 3 more time(s))
+2026-11-08 13:01:40.990  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 12, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:41.101     (previous error repeated 19 more time(s))
+2026-11-08 13:01:41.101  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode_BrandCategory_Wise'.
+   SQL error 208, line 15, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:41.370     (previous error repeated 3 more time(s))
+2026-11-08 13:01:41.370  [ERROR] SqlException: Invalid object name 'DAILY_STOCK_RPT'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:41.370     (previous error repeated 3 more time(s))
+2026-11-08 13:01:41.370  [ERROR] SqlException: Cannot find the object "DAILY_STOCK_RPT" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:41.619     (previous error repeated 3 more time(s))
+2026-11-08 13:01:41.619  [ERROR] SqlException: Cannot define PRIMARY KEY constraint on nullable column in table 'salesbilldetail'.  Could not create constraint or index. See previous errors.
+   SQL error 8111, line 9
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:41.705     (previous error repeated 2 more time(s))
+2026-11-08 13:01:41.705  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode'.
+   SQL error 208, line 13, proc vw_tally_purchase
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:43.564     (previous error repeated 5 more time(s))
+2026-11-08 13:01:43.564  [ERROR] SqlException: Invalid object name 'vw_itemCodebarCode_BrandCategory_Wise'.
+   SQL error 208, line 15, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:44.256     (previous error repeated 2 more time(s))
+2026-11-08 13:01:44.256  [ERROR] IndexOutOfRangeException: There is no row at position 0.
+   At: Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-11-08 13:01:44.285  [HANG] Screen did not respond for 3889 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- MyApplication.Main
+   Form:  (Madhushala Pro) | User: Admin | Company: 1 | Counter: C00057 | Thread: 1

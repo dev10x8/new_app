@@ -1,0 +1,1414 @@
+﻿2026-10-09 16:47:11.794  [ERROR] SqlException: Invalid object name 'SalesBarMain'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmTillNew.design_bt_qr <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:47:11.992  [TIMING] frmTillNew: created 383 ms after Add click, Load took 265 ms
+2026-10-09 16:47:11.992  [TIMING] frm_Form1 Add (count 15): formshow() returned after 648 ms
+2026-10-09 16:47:12.164  [TIMING] frmTillNew: visible 820 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 16:47:19.446     (previous error repeated 3 more time(s))
+2026-10-09 16:47:19.447  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 15 (background)
+2026-10-09 16:47:34.583  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:47:35.352  [HANG] Screen did not respond for 3961 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:47:36.609  [TIMING] frm_ReportForm report 2: data + report load took 5462 ms (database 415 ms, Crystal/report 5047 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:47:41.507  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:47:42.239  [TIMING] frm_ReportForm report 2: data + report load took 768 ms (database 29 ms, Crystal/report 739 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:47:47.089  [TIMING] frm_ReportForm report 2: data + report load took 725 ms (database 28 ms, Crystal/report 697 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:47:53.000     (previous error repeated 1 more time(s))
+2026-10-09 16:47:53.000  [ERROR] SqlException: Invalid object name 'vw_creditcard_sale_daywisePOSWholeSale'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:48:21.699  [TIMING] frm_ReportForm report 2: data + report load took 28804 ms (database 109 ms, Crystal/report 28695 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:48:25.710     (previous error repeated 3 more time(s))
+2026-10-09 16:48:25.711  [ERROR] SqlException: Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Could not use view or function 'sales_statementPOSIncludeTransfer' because of binding errors.
+   SQL error 209, line 25, proc sales_statementPOSIncludeTransfer
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:48:42.253  [TIMING] frm_ReportForm report 2: data + report load took 16558 ms (database 190 ms, Crystal/report 16368 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:48:49.850  [HANG] Screen did not respond for 5851 ms (Not Responding).
+   Stuck at: frm_ReportForm.ExportToExcelnew <- frm_ReportForm.Button2_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:49:53.906     (previous error repeated 3 more time(s))
+2026-10-09 16:49:53.907  [ERROR] SqlException: Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Ambiguous column name 'isOffer'.  Could not use view or function 'sales_statementPOSIncludeTransfer' because of binding errors.
+   SQL error 209, line 25, proc sales_statementPOSIncludeTransfer
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:49:55.963  [TIMING] frm_ReportForm report 2: data + report load took 2076 ms (database 20 ms, Crystal/report 2056 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:50:03.440     (previous error repeated 3 more time(s))
+2026-10-09 16:50:03.442  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:50:03.443  [TIMING] frm_ReportForm report 2: data + report load took 2140 ms (database 292 ms, Crystal/report 1848 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:50:12.799  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:50:12.799  [TIMING] frm_ReportForm report 2: data + report load took 1869 ms (database 246 ms, Crystal/report 1623 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:50:26.789  [TIMING] frm_ReportForm report 8: data + report load took 577 ms (database 27 ms, Crystal/report 550 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:50:31.817  [TIMING] frm_ReportForm report 8: data + report load took 566 ms (database 35 ms, Crystal/report 531 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:50:37.290  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales and Closing Report   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:50:37.291  [TIMING] frm_ReportForm report 8: data + report load took 1659 ms (database 33 ms, Crystal/report 1626 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:50:42.256  [TIMING] frm_ReportForm report 8: data + report load took 1613 ms (database 33 ms, Crystal/report 1580 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:50:56.643  [TIMING] frm_ReportForm report 2123: data + report load took 893 ms (database 48 ms, Crystal/report 845 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:51:02.370  [TIMING] frm_ReportForm report 2123: data + report load took 2829 ms (database 1088 ms, Crystal/report 1741 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:51:12.522  [TIMING] frm_ReportForm report 2123: data + report load took 440 ms (database 55 ms, Crystal/report 385 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:51:22.933  [TIMING] frm_ReportForm report 2123: data + report load took 443 ms (database 29 ms, Crystal/report 414 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:51:29.033  [TIMING] frm_ReportForm report 2123: data + report load took 503 ms (database 103 ms, Crystal/report 400 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:51:34.317     (previous error repeated 1 more time(s))
+2026-10-09 16:51:34.318  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Offer Discount Report   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 16:51:34.319  [TIMING] frm_ReportForm report 2123: data + report load took 1247 ms (database 15 ms, Crystal/report 1232 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:51:38.361  [TIMING] frm_ReportForm report 2123: data + report load took 680 ms (database 0 ms, Crystal/report 680 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 16:53:49.895  [HANG] Screen did not respond for 5225 ms (Not Responding).
+   Stuck at: [SafeNativeMethods.SetWindowPos] frmDashboardNew.ApplyCardWrapBreaks <- _Closure$__37._Lambda$__360 <- frmDashboardNew.OnResize <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:09:16.456  [HANG-NOW] Screen frozen for 10057 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+2026-10-09 17:09:17.705  [HANG] Screen did not respond for 11305 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Offer Discount Report   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:09:18.262  [TIMING] frm_ReportForm report 2123: data + report load took 11947 ms (database 11083 ms, Crystal/report 864 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 17:09:40.015  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 28 (background)
+2026-10-09 17:09:48.762  [ERROR] SqlException: Invalid object name 'SalesBarMain'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmTillNew.design_bt_qr <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:09:49.039  [TIMING] frmTillNew: created 442 ms after Add click, Load took 413 ms
+2026-10-09 17:09:49.039  [TIMING] frm_Form1 Add (count 15): formshow() returned after 856 ms
+2026-10-09 17:09:49.240  [TIMING] frmTillNew: visible 1054 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 17:10:50.381     (previous error repeated 3 more time(s))
+2026-10-09 17:10:50.383  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 16 (background)
+2026-10-09 17:11:39.451  [HANG] Screen did not respond for 3193 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.IntCreateWindowEx] frmDashboardShow.BuildReportsMenu <- frmDashboardShow.LoadReportsMenuInDashboard <- frmDashboardShow.StatsCard_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:11:39.451  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 28 (background)
+2026-10-09 17:12:02.209  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 28 (background)
+2026-10-09 17:38:35.885  [ERROR] SqlException: Invalid object name 'SalesBarMain'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmTillNew.design_bt_qr <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:38:36.166  [TIMING] frmTillNew: created 481 ms after Add click, Load took 423 ms
+2026-10-09 17:38:36.166  [TIMING] frm_Form1 Add (count 15): formshow() returned after 905 ms
+2026-10-09 17:38:36.349  [TIMING] frmTillNew: visible 1086 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 17:38:48.602  [HANG] Screen did not respond for 3123 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.CallWindowProc] frmDashboardShow.BuildReportsMenu <- frmDashboardShow.LoadReportsMenuInDashboard <- frmDashboardShow.StatsCard_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:38:48.666     (previous error repeated 3 more time(s))
+2026-10-09 17:38:48.681  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 35 (background)
+2026-10-09 17:39:02.180  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Breakage Report   [.  |  Year 2026-2027]) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:02.181  [TIMING] frm_ReportForm report 20: data + report load took 1758 ms (database 19 ms, Crystal/report 1739 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 17:39:25.034  [HANG] Screen did not respond for 5474 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_countersales.memberload <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.bt_editClick <- frm_Form1._Lambda$__256 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:49.037  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 16 (background)
+2026-10-09 17:39:50.962  [ERROR] SqlException: Invalid object name 'SalesBarMain'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmTillNew.design_bt_qr <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:51.206  [TIMING] frmTillNew: created 400 ms after Add click, Load took 693 ms
+2026-10-09 17:39:51.207  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1093 ms
+2026-10-09 17:39:51.394  [TIMING] frmTillNew: visible 1280 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 17:39:56.640     (previous error repeated 3 more time(s))
+2026-10-09 17:39:56.641  [ERROR] ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.  Parameter name: index
+   At: frmTillNew.getAllItemWithDataTable <- frmTillNew.btnSearch_Click <- frmTillNew.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:56.645  [ERROR] IndexOutOfRangeException: Cannot find table 0.
+   At: frmTillNew.getAllItemWithDataTable <- frmTillNew.btnSearch_Click <- frmTillNew.txtNumber_KeyUp <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:58.067  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:58.197  [ERROR] InvalidOperationException: Current cell cannot be set to an invisible cell.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:58.238  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:58.582  [ERROR] InvalidOperationException: Current cell cannot be set to an invisible cell.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:39:58.592  [ERROR] IOException: The port 'COM2*' does not exist.
+   At: frmTillNew.getItemDetailsQuickItem <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:40:01.367  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmTillNew.CalculateLeftLength <- frmTillNew.printindos <- frmTillNew.billSplitPrintOffShopAfterSave <- frmTillNew.saveOffShop <- frmTillNew.billSaveCheck <- frmTillNew.BillSave <- frmTillNew._Lambda$__573 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:40:02.613  [HANG] Screen did not respond for 2678 ms (Not Responding).
+   Stuck at: [SafeNativeMethods.StartDoc] mdl_public_variables.SafePrint <- frmTillNew.printindos <- frmTillNew.billSplitPrintOffShopAfterSave <- frmTillNew.saveOffShop <- frmTillNew.billSaveCheck <- frmTillNew.BillSave <- frmTillNew._Lambda$__573 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:40:12.949  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 36 (background)
+2026-10-09 17:40:26.334  [HANG] Screen did not respond for 7854 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_countersales.memberload <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:40:41.728  [ERROR] SqlException: Invalid object name 'SalesBarMain'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmTillNew.design_bt_qr <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:40:41.965  [TIMING] frmTillNew: created 353 ms after Add click, Load took 3255 ms
+2026-10-09 17:40:41.966  [TIMING] frm_Form1 Add (count 15): formshow() returned after 3609 ms
+2026-10-09 17:40:41.976  [HANG] Screen did not respond for 3489 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmTillNew.getItemName <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:40:42.150  [TIMING] frmTillNew: visible 3792 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 17:40:51.654     (previous error repeated 3 more time(s))
+2026-10-09 17:40:51.953  [ERROR] IOException: The process cannot access the file 'C:\GatewayAgent\Gateway.Agent.exe' because it is being used by another process.
+   At: mdl_GatewayAgent.ExtractResource <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 28 (background)
+2026-10-09 17:40:54.058  [HANG] Screen did not respond for 2005 ms (Not Responding).
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:40:54.984  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 30 (background)
+2026-10-09 17:40:57.108  [ERROR] IOException: The process cannot access the file 'C:\GatewayAgent\Gateway.Agent.exe' because it is being used by another process.
+   At: mdl_GatewayAgent.ExtractResource <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 39 (background)
+2026-10-09 17:41:00.322  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 38 (background)
+2026-10-09 17:41:03.924  [ERROR] SqlException: Invalid object name 'SalesBarMain'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmTillNew.design_bt_qr <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:04.230  [TIMING] frmTillNew: created 362 ms after Add click, Load took 2214 ms
+2026-10-09 17:41:04.230  [TIMING] frm_Form1 Add (count 15): formshow() returned after 2576 ms
+2026-10-09 17:41:04.237  [HANG] Screen did not respond for 2494 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmTillNew.getItemName <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:04.391  [TIMING] frmTillNew: visible 2738 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 17:41:14.188     (previous error repeated 3 more time(s))
+2026-10-09 17:41:14.282  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 30 (background)
+2026-10-09 17:41:25.131  [HANG-NOW] Screen frozen for 10155 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+2026-10-09 17:41:28.064  [ERROR] SqlException: Invalid column name 'sunsign'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.078     (previous error repeated 3 more time(s))
+2026-10-09 17:41:28.078  [ERROR] SqlException: Invalid column name 'ids'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.095     (previous error repeated 7 more time(s))
+2026-10-09 17:41:28.095  [ERROR] SqlException: Invalid column name 'Salespath'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.101     (previous error repeated 3 more time(s))
+2026-10-09 17:41:28.101  [ERROR] SqlException: Invalid column name 'PurchaseImport'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.115     (previous error repeated 3 more time(s))
+2026-10-09 17:41:28.115  [ERROR] SqlException: Invalid column name 'isOpeningEdit'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.203     (previous error repeated 3 more time(s))
+2026-10-09 17:41:28.203  [ERROR] SqlException: Incorrect syntax near the keyword 'user'.
+   SQL error 156, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.210     (previous error repeated 3 more time(s))
+2026-10-09 17:41:28.210  [ERROR] SqlException: Column names in each table must be unique. Column name 'Sync' in table 'users' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.270     (previous error repeated 3 more time(s))
+2026-10-09 17:41:28.270  [ERROR] SqlException: Invalid column name 'Disc'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.275     (previous error repeated 3 more time(s))
+2026-10-09 17:41:28.276  [ERROR] SqlException: Invalid column name 'lastdate'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- frmDashboardShow.columns_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:28.401     (previous error repeated 3 more time(s))
+2026-10-09 17:41:28.401  [ERROR] InvalidOperationException: ExecuteReader: CommandText property has not been initialized
+   At: cls_conn.executereader <- frmDashboardShow.SP_GetNewSaleSettlement_shopwise <- frmDashboardShow.proc_update <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:41:29.219  [HANG] Screen did not respond for 14247 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- frmDashboardShow.troubleshoot_update <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: ATENDRA | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-09 17:46:46.475  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-09 17:47:05.882  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-09 17:47:20.868  [HANG] Screen did not respond for 2754 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.sp_recordcorrection <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  (Madhushala Pro) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 17:47:34.227  [HANG-NOW] Screen frozen for 10090 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-09 17:47:34.566  [HANG] Screen did not respond for 10430 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 17:47:40.605  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-09 17:47:43.000  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 127 ms
+2026-10-09 17:47:43.080  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 207 ms
+2026-10-09 17:47:43.155  [TIMING] frmTill Load: rate list / shop list done at 281 ms
+2026-10-09 17:47:43.348  [TIMING] frmTill Load: panel layout + action buttons created at 475 ms
+2026-10-09 17:47:43.563  [TIMING] frmTill Load: category / product buttons (getButton) done at 690 ms
+2026-10-09 17:47:43.597  [TIMING] frmTill Load: end of frmTill_Load at 724 ms
+2026-10-09 17:47:43.600  [TIMING] frmTill: created 1634 ms after Add click, Load took 932 ms
+2026-10-09 17:47:43.600  [TIMING] frm_Form1 Add (count 15): formshow() returned after 2566 ms
+2026-10-09 17:47:43.607  [HANG] Screen did not respond for 2492 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.IntFillRect] frmTill.frmTill_Load <- frmTill.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 17:47:44.118  [TIMING] frmTill: visible 3084 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 17:48:10.723  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-10-09 18:00:04.578  [HANG] Screen did not respond for 2846 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.PeekMessage] MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:01:52.583  [HANG] Screen did not respond for 9526 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:02:18.119  [HANG-NOW] Screen frozen for 10250 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:02:32.662  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:02:32.663  [HANG] Screen did not respond for 24795 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:02:43.247  [HANG-NOW] Screen frozen for 10134 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:02:44.916     (previous error repeated 3 more time(s))
+2026-10-09 18:02:44.916  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:02:47.485     (previous error repeated 11 more time(s))
+2026-10-09 18:02:47.486  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:02:47.487  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:03:02.132  [HANG] Screen did not respond for 29019 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:03:02.133     (previous error repeated 20 more time(s))
+2026-10-09 18:03:02.133  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:03:02.134     (previous error repeated 1 more time(s))
+2026-10-09 18:03:02.134  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:03:02.135  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:03:22.854     (previous error repeated 1 more time(s))
+2026-10-09 18:03:22.854  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:03:33.045  [HANG-NOW] Screen frozen for 10083 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:03:37.554     (previous error repeated 23 more time(s))
+2026-10-09 18:03:37.555  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:03:37.556  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:03:43.747  [HANG] Screen did not respond for 20795 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:04:48.009  [HANG-NOW] Screen frozen for 10070 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:04:53.029     (previous error repeated 6 more time(s))
+2026-10-09 18:04:53.029  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:04:53.030  [HANG] Screen did not respond for 15093 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:16:52.230  [HANG] Screen did not respond for 9252 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:17:18.168  [HANG-NOW] Screen frozen for 10036 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:17:25.975  [HANG] Screen did not respond for 17843 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:17:43.096  [HANG-NOW] Screen frozen for 10188 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:18:13.212  [HANG-NOW] Screen frozen for 40303 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:18:36.216     (previous error repeated 3 more time(s))
+2026-10-09 18:18:36.217  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:18:36.219  [HANG] Screen did not respond for 63310 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:18:46.336  [HANG-NOW] Screen frozen for 10082 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:18:48.256     (previous error repeated 3 more time(s))
+2026-10-09 18:18:48.257  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:00.404  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:00.406     (previous error repeated 6 more time(s))
+2026-10-09 18:19:00.406  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:00.407  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:15.322  [HANG] Screen did not respond for 39068 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:15.325     (previous error repeated 23 more time(s))
+2026-10-09 18:19:15.325  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:25.580  [HANG-NOW] Screen frozen for 10054 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:19:30.154     (previous error repeated 23 more time(s))
+2026-10-09 18:19:30.154  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:30.154  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:30.154  [HANG] Screen did not respond for 14631 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:37.875     (previous error repeated 1 more time(s))
+2026-10-09 18:19:37.881  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:19:45.339  [HANG] Screen did not respond for 7340 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:23:08.247  [HANG-NOW] Screen frozen for 10219 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:23:13.037     (previous error repeated 8 more time(s))
+2026-10-09 18:23:13.038  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:23:13.039  [HANG] Screen did not respond for 15012 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:23:32.975  [HANG-NOW] Screen frozen for 10049 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:23:34.933     (previous error repeated 3 more time(s))
+2026-10-09 18:23:34.934  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:23:43.148  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:23:43.151     (previous error repeated 6 more time(s))
+2026-10-09 18:23:43.151  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:23:45.534  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=2369; handshake=4;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:23:46.352  [HANG] Screen did not respond for 23426 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:25:12.970  [HANG-NOW] Screen frozen for 10072 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:25:22.137  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:25:22.139  [HANG] Screen did not respond for 19241 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:25:36.675     (previous error repeated 3 more time(s))
+2026-10-09 18:25:36.675  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=8797; handshake=0;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:25:37.206  [HANG] Screen did not respond for 9190 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:26:52.997  [HANG-NOW] Screen frozen for 10078 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:26:58.008  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:26:58.009  [HANG] Screen did not respond for 15090 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:27:18.081  [HANG-NOW] Screen frozen for 10056 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:27:19.907     (previous error repeated 3 more time(s))
+2026-10-09 18:27:19.907  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:27:22.455     (previous error repeated 11 more time(s))
+2026-10-09 18:27:22.455  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:27:22.456  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:27:22.457  [HANG] Screen did not respond for 14433 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:27:32.877     (previous error repeated 1 more time(s))
+2026-10-09 18:27:32.878  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:27:43.186  [HANG-NOW] Screen frozen for 10075 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:27:47.562     (previous error repeated 23 more time(s))
+2026-10-09 18:27:47.562  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:27:47.563  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:02.222  [HANG] Screen did not respond for 29112 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:02.223     (previous error repeated 23 more time(s))
+2026-10-09 18:28:02.223  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:02.224     (previous error repeated 1 more time(s))
+2026-10-09 18:28:02.224  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:02.225  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:22.877     (previous error repeated 1 more time(s))
+2026-10-09 18:28:22.878  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:33.152  [HANG-NOW] Screen frozen for 10103 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:28:37.600     (previous error repeated 23 more time(s))
+2026-10-09 18:28:37.601  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:37.603  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:52.340  [HANG] Screen did not respond for 29292 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:52.340     (previous error repeated 23 more time(s))
+2026-10-09 18:28:52.340  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:52.340     (previous error repeated 1 more time(s))
+2026-10-09 18:28:52.340  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:28:52.340  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:29:12.865     (previous error repeated 1 more time(s))
+2026-10-09 18:29:12.865  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:29:23.031  [HANG-NOW] Screen frozen for 10057 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:29:27.580     (previous error repeated 23 more time(s))
+2026-10-09 18:29:27.581  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:29:27.583  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:29:27.585  [HANG] Screen did not respond for 14611 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:29:37.867     (previous error repeated 1 more time(s))
+2026-10-09 18:29:37.868  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:29:48.016  [HANG-NOW] Screen frozen for 10087 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:29:52.565     (previous error repeated 23 more time(s))
+2026-10-09 18:29:52.565  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:29:52.566  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:29:52.566  [HANG] Screen did not respond for 14639 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:30:05.247     (previous error repeated 1 more time(s))
+2026-10-09 18:30:05.258  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:30:15.514  [HANG-NOW] Screen frozen for 10133 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:30:20.249     (previous error repeated 23 more time(s))
+2026-10-09 18:30:20.249  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:30:20.250  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:30:34.989  [HANG] Screen did not respond for 29609 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:30:35.015     (previous error repeated 23 more time(s))
+2026-10-09 18:30:35.016  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:30:35.016     (previous error repeated 1 more time(s))
+2026-10-09 18:30:35.017  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:30:35.017  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:30:52.878     (previous error repeated 1 more time(s))
+2026-10-09 18:30:52.879  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:03.199  [HANG-NOW] Screen frozen for 10066 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:31:07.735     (previous error repeated 23 more time(s))
+2026-10-09 18:31:07.736  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:07.737  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:22.501  [HANG] Screen did not respond for 29370 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:22.501     (previous error repeated 23 more time(s))
+2026-10-09 18:31:22.501  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:22.501     (previous error repeated 1 more time(s))
+2026-10-09 18:31:22.501  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:22.501  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:42.872     (previous error repeated 1 more time(s))
+2026-10-09 18:31:42.873  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:53.069  [HANG-NOW] Screen frozen for 10113 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:31:57.790     (previous error repeated 23 more time(s))
+2026-10-09 18:31:57.791  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:57.792  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:31:57.798  [HANG] Screen did not respond for 14845 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:32:07.873     (previous error repeated 1 more time(s))
+2026-10-09 18:32:07.874  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:32:18.020  [HANG-NOW] Screen frozen for 10097 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:32:22.735     (previous error repeated 23 more time(s))
+2026-10-09 18:32:22.735  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:32:22.738  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:32:22.740  [HANG] Screen did not respond for 14818 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:32:32.874     (previous error repeated 1 more time(s))
+2026-10-09 18:32:32.875  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:32:43.188  [HANG-NOW] Screen frozen for 10081 ms so far.
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 18:32:47.793     (previous error repeated 23 more time(s))
+2026-10-09 18:32:47.793  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:32:47.795  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:02.601  [HANG] Screen did not respond for 29498 ms (Not Responding).
+   Stuck at: [Thread.SleepInternal] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:02.601     (previous error repeated 23 more time(s))
+2026-10-09 18:33:02.601  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:02.601     (previous error repeated 1 more time(s))
+2026-10-09 18:33:02.601  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:02.601  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:22.873     (previous error repeated 1 more time(s))
+2026-10-09 18:33:22.874  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:37.666     (previous error repeated 23 more time(s))
+2026-10-09 18:33:37.666  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:37.682  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:52.468     (previous error repeated 23 more time(s))
+2026-10-09 18:33:52.469  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:52.470     (previous error repeated 1 more time(s))
+2026-10-09 18:33:52.470  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:33:52.471  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:34:12.866     (previous error repeated 1 more time(s))
+2026-10-09 18:34:12.867  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:34:27.572     (previous error repeated 23 more time(s))
+2026-10-09 18:34:27.607  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:34:27.625  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:34:37.872     (previous error repeated 1 more time(s))
+2026-10-09 18:34:37.873  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:34:52.619     (previous error repeated 23 more time(s))
+2026-10-09 18:34:52.621  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:34:52.622  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:35:02.874     (previous error repeated 1 more time(s))
+2026-10-09 18:35:02.875  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:35:17.726     (previous error repeated 23 more time(s))
+2026-10-09 18:35:17.727  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:35:17.742  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - No such host is known.)
+   Inner: Win32Exception: No such host is known
+   SQL error 11001, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:39:38.514     (previous error repeated 6 more time(s))
+2026-10-09 18:39:38.515  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:40:02.947     (previous error repeated 3 more time(s))
+2026-10-09 18:40:02.948  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:40:27.954     (previous error repeated 3 more time(s))
+2026-10-09 18:40:27.955  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:40:52.954     (previous error repeated 3 more time(s))
+2026-10-09 18:40:52.956  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:41:17.954     (previous error repeated 3 more time(s))
+2026-10-09 18:41:17.955  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:41:42.990     (previous error repeated 3 more time(s))
+2026-10-09 18:41:42.990  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:42:07.965     (previous error repeated 3 more time(s))
+2026-10-09 18:42:07.966  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:42:32.986     (previous error repeated 3 more time(s))
+2026-10-09 18:42:32.987  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:42:58.027     (previous error repeated 3 more time(s))
+2026-10-09 18:42:58.028  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:43:23.032     (previous error repeated 3 more time(s))
+2026-10-09 18:43:23.033  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:43:48.044     (previous error repeated 3 more time(s))
+2026-10-09 18:43:48.045  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:44:13.009     (previous error repeated 3 more time(s))
+2026-10-09 18:44:13.010  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:44:38.274     (previous error repeated 3 more time(s))
+2026-10-09 18:44:38.275  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:45:03.149     (previous error repeated 3 more time(s))
+2026-10-09 18:45:03.150  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:45:28.356     (previous error repeated 3 more time(s))
+2026-10-09 18:45:28.357  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:45:53.892     (previous error repeated 3 more time(s))
+2026-10-09 18:45:53.893  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:46:17.947     (previous error repeated 3 more time(s))
+2026-10-09 18:46:17.948  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:46:42.952     (previous error repeated 3 more time(s))
+2026-10-09 18:46:42.953  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:47:07.944     (previous error repeated 3 more time(s))
+2026-10-09 18:47:07.944  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:47:32.986     (previous error repeated 3 more time(s))
+2026-10-09 18:47:32.987  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:47:57.960     (previous error repeated 3 more time(s))
+2026-10-09 18:47:57.960  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:48:22.948     (previous error repeated 3 more time(s))
+2026-10-09 18:48:22.950  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:48:47.949     (previous error repeated 3 more time(s))
+2026-10-09 18:48:47.950  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:49:12.937     (previous error repeated 3 more time(s))
+2026-10-09 18:49:12.937  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:49:37.946     (previous error repeated 3 more time(s))
+2026-10-09 18:49:37.947  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:50:02.988     (previous error repeated 3 more time(s))
+2026-10-09 18:50:02.990  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:50:28.028     (previous error repeated 3 more time(s))
+2026-10-09 18:50:28.029  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:50:52.943     (previous error repeated 3 more time(s))
+2026-10-09 18:50:52.944  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:51:17.942     (previous error repeated 3 more time(s))
+2026-10-09 18:51:17.943  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:51:42.938     (previous error repeated 3 more time(s))
+2026-10-09 18:51:42.940  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:52:07.976     (previous error repeated 3 more time(s))
+2026-10-09 18:52:07.976  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:52:33.518     (previous error repeated 3 more time(s))
+2026-10-09 18:52:33.519  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:52:57.934     (previous error repeated 3 more time(s))
+2026-10-09 18:52:57.935  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:53:22.928     (previous error repeated 3 more time(s))
+2026-10-09 18:53:22.930  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:53:48.261     (previous error repeated 3 more time(s))
+2026-10-09 18:53:48.262  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:54:12.946     (previous error repeated 3 more time(s))
+2026-10-09 18:54:12.947  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:54:37.975     (previous error repeated 3 more time(s))
+2026-10-09 18:54:37.975  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:55:02.938     (previous error repeated 3 more time(s))
+2026-10-09 18:55:02.939  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:55:27.937     (previous error repeated 3 more time(s))
+2026-10-09 18:55:27.937  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:55:52.932     (previous error repeated 3 more time(s))
+2026-10-09 18:55:52.934  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:56:17.939     (previous error repeated 3 more time(s))
+2026-10-09 18:56:17.940  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:56:42.940     (previous error repeated 3 more time(s))
+2026-10-09 18:56:42.940  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:57:07.935     (previous error repeated 3 more time(s))
+2026-10-09 18:57:07.936  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:57:32.934     (previous error repeated 3 more time(s))
+2026-10-09 18:57:32.935  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:57:57.929     (previous error repeated 3 more time(s))
+2026-10-09 18:57:57.929  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:58:22.928     (previous error repeated 3 more time(s))
+2026-10-09 18:58:22.929  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:58:47.927     (previous error repeated 3 more time(s))
+2026-10-09 18:58:47.927  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:59:12.953     (previous error repeated 3 more time(s))
+2026-10-09 18:59:12.953  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 18:59:37.942     (previous error repeated 3 more time(s))
+2026-10-09 18:59:37.943  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:00:05.231     (previous error repeated 3 more time(s))
+2026-10-09 19:00:05.233  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:00:27.931     (previous error repeated 3 more time(s))
+2026-10-09 19:00:27.931  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:00:52.943     (previous error repeated 3 more time(s))
+2026-10-09 19:00:52.944  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:01:17.983     (previous error repeated 3 more time(s))
+2026-10-09 19:01:17.983  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:01:42.924     (previous error repeated 3 more time(s))
+2026-10-09 19:01:42.924  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:02:07.937     (previous error repeated 3 more time(s))
+2026-10-09 19:02:07.937  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:02:32.928     (previous error repeated 3 more time(s))
+2026-10-09 19:02:32.929  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:02:57.941     (previous error repeated 3 more time(s))
+2026-10-09 19:02:57.941  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:03:22.952     (previous error repeated 3 more time(s))
+2026-10-09 19:03:22.953  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:03:47.928     (previous error repeated 3 more time(s))
+2026-10-09 19:03:47.928  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:04:12.940     (previous error repeated 3 more time(s))
+2026-10-09 19:04:12.941  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:04:37.924     (previous error repeated 3 more time(s))
+2026-10-09 19:04:37.925  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:05:02.934     (previous error repeated 3 more time(s))
+2026-10-09 19:05:02.935  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:05:27.961     (previous error repeated 3 more time(s))
+2026-10-09 19:05:27.961  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:06:02.648     (previous error repeated 3 more time(s))
+2026-10-09 19:06:02.649  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:06:17.981     (previous error repeated 3 more time(s))
+2026-10-09 19:06:17.982  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:06:43.027     (previous error repeated 3 more time(s))
+2026-10-09 19:06:43.028  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:07:07.940     (previous error repeated 3 more time(s))
+2026-10-09 19:07:07.941  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:07:33.245     (previous error repeated 3 more time(s))
+2026-10-09 19:07:33.245  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:07:57.931     (previous error repeated 3 more time(s))
+2026-10-09 19:07:57.931  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:08:22.932     (previous error repeated 3 more time(s))
+2026-10-09 19:08:22.932  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:08:47.932     (previous error repeated 3 more time(s))
+2026-10-09 19:08:47.932  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:09:12.939     (previous error repeated 3 more time(s))
+2026-10-09 19:09:12.940  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:09:38.424     (previous error repeated 3 more time(s))
+2026-10-09 19:09:38.425  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:10:02.929     (previous error repeated 3 more time(s))
+2026-10-09 19:10:02.929  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 19:10:28.678     (previous error repeated 3 more time(s))
+2026-10-09 19:10:28.679  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-09 20:41:55.928  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-09 20:42:17.359  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-09 20:42:18.599  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=678; handshake=1;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-09 20:42:19.976  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-09 20:42:22.701  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=2658; handshake=4131;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-09 20:42:31.208     (previous error repeated 6 more time(s))
+2026-10-09 20:42:31.209  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-09 20:42:31.407  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__672
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 11 (background)
+2026-10-09 20:42:53.056  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-09 20:42:54.217  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-09 20:42:59.049  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__672
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 18 (background)
+2026-10-09 20:43:11.518  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-09 20:43:25.818  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-09 20:43:54.578  [HANG-NOW] Screen frozen for 10178 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- mdl_ReportProcs.EnsureSalesReportProcs <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-09 20:43:59.276  [HANG] Screen did not respond for 14875 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 20:43:59.699  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgentCore <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__454
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 13 (background)
+2026-10-09 20:45:05.466  [HANG] Screen did not respond for 2417 ms (Not Responding).
+   Stuck at: [SafeNativeMethods.SetWindowPos] frm_ReportForm.cmb_load <- frm_ReportForm.ReportForm_Load <- mdl_ReportMap.OpenById <- _Closure$__59._Lambda$__427 <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 20:45:27.813  [HANG] Screen did not respond for 4647 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 20:45:31.459  [TIMING] frm_ReportForm report 2: data + report load took 8162 ms (database 1483 ms, Crystal/report 6679 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 20:45:39.871  [TIMING] frm_ReportForm report 2: data + report load took 5084 ms (database 1385 ms, Crystal/report 3699 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 20:45:49.556  [TIMING] frm_ReportForm report 2: data + report load took 5736 ms (database 1905 ms, Crystal/report 3831 ms, 08-10-2026 to 08-10-2026)
+2026-10-09 20:45:55.609  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 20:45:59.689  [TIMING] frm_ReportForm report 2: data + report load took 5949 ms (database 2233 ms, Crystal/report 3716 ms, 08-10-2026 to 09-10-2026)
+2026-10-09 20:46:11.627     (previous error repeated 5 more time(s))
+2026-10-09 20:46:11.627  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 20:46:12.765  [TIMING] frm_ReportForm report 2: data + report load took 2300 ms (database 1209 ms, Crystal/report 1091 ms, 08-10-2026 to 09-10-2026)
+2026-10-09 20:46:20.357     (previous error repeated 5 more time(s))
+2026-10-09 20:46:20.358  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 20:46:20.472  [HANG] Screen did not respond for 2205 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_ReportForm.sale_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Sales Statement   [.  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 20:46:21.126  [TIMING] frm_ReportForm report 2: data + report load took 2772 ms (database 1994 ms, Crystal/report 778 ms, 08-10-2026 to 09-10-2026)
+2026-10-09 20:47:17.804  [TIMING] frm_ReportForm report 217: data + report load took 1433 ms (database 314 ms, Crystal/report 1119 ms, 09-10-2026 to 09-10-2026)
+2026-10-09 20:47:22.520  [TIMING] frm_ReportForm report 217: data + report load took 712 ms (database 187 ms, Crystal/report 525 ms, 01-10-2026 to 09-10-2026)
+2026-10-09 21:06:39.254  [HANG] Screen did not respond for 4773 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 21:22:09.056  [HANG] Screen did not respond for 9594 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 21:23:13.330  [TIMING] frmTillNew: created 853 ms after Add click, Load took 2236 ms
+2026-10-09 21:23:13.331  [TIMING] frm_Form1 Add (count 15): formshow() returned after 3090 ms
+2026-10-09 21:23:13.341  [HANG] Screen did not respond for 3029 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmTillNew.getItemName <- frmTillNew.frmTill_Load <- frmTillNew.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__256 <- MyApplication.Main
+   Form: frmTillNew (Counter Sale) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 21:23:13.529  [TIMING] frmTillNew: visible 3286 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 21:23:20.266  [TIMING] frmTillNew: created 373 ms after Add click, Load took 1344 ms
+2026-10-09 21:23:20.267  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1717 ms
+2026-10-09 21:23:20.435  [TIMING] frmTillNew: visible 1886 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 21:23:40.221  [TIMING] frmTillNew: created 409 ms after Add click, Load took 1629 ms
+2026-10-09 21:23:40.221  [TIMING] frm_Form1 Add (count 15): formshow() returned after 2039 ms
+2026-10-09 21:23:40.388  [TIMING] frmTillNew: visible 2206 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-09 21:54:31.968  [HANG] Screen did not respond for 2579 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 21:55:10.037  [HANG] Screen did not respond for 2639 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 21:59:57.423  [HANG] Screen did not respond for 3044 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 22:57:28.105  [HANG] Screen did not respond for 3585 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 23:02:01.804  [HANG] Screen did not respond for 2238 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 23:08:36.201  [HANG-NOW] Screen frozen for 10080 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-09 23:08:42.280     (previous error repeated 5 more time(s))
+2026-10-09 23:08:42.282  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The network connection was aborted by the local system.)
+   Inner: Win32Exception: The network connection was aborted by the local system
+   SQL error 1236, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 23:08:42.298  [HANG] Screen did not respond for 16180 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 23:18:58.855  [HANG] Screen did not respond for 2920 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-10-09 23:20:41.947  [HANG] Screen did not respond for 2971 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.GetCursorPos] MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1

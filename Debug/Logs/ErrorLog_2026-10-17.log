@@ -1,0 +1,11 @@
+﻿2026-10-17 08:21:53.175  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-17 08:21:53.871  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Load <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-17 08:21:53.949  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.Form1_Shown <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-17 08:21:53.965  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: mdl_MultiCompany.IsEnabled <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-17 08:22:00.396  [TIMING] Startup licence / registration check took 3799 ms (test)

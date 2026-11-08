@@ -1,0 +1,274 @@
+13:59:15.018  ========== Button3_Click (WB Import) started ==========
+13:59:32.152  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\New folder (2)\BEVCOInvoice_2026-2027-W-2022-015-01-032195 (1).pdf
+13:59:32.172  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\New folder (2)\BEVCOTP_tFLDR-2026-2027-07246088-P (1).pdf
+14:09:48.511  ========== Button3_Click (WB Import) started ==========
+14:09:58.317  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\New folder (2)\BEVCOInvoice_2026-2027-W-2022-015-01-032195 (1).pdf
+14:09:58.335  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\New folder (2)\BEVCOTP_tFLDR-2026-2027-07246088-P (1).pdf
+14:10:59.374  ========== Button3_Click (WB Import) started ==========
+14:11:08.287  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\BEVCOInvoice_ (20).pdf
+14:11:08.313  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\BEVCOInvoice_ (3) (1).pdf
+14:11:08.356  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\BEVCOInvoice_ (5).pdf
+14:11:08.392  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\BEVCOInvoice_ (6).pdf
+14:11:08.425  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\BEVCOInvoice_.pdf
+14:11:08.444  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\BEVCOTP (20).pdf
+14:11:08.463  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\BEVCOTP (3) (1).pdf
+14:11:08.484  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\BEVCOTP (5).pdf
+14:17:41.345  ========== Button3_Click (WB Import) started ==========
+14:17:53.243  ExtractAllTextFromPdf threw for E:\Root\Software Development\Dev_Sandeep\New folder (2)\BEVCOInvoice_2026-2027-W-2022-015-01-032195 (1).pdf: System.IO.FileNotFoundException: Could not load file or assembly 'BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942' or one of its dependencies. The system cannot find the file specified.
+File name: 'BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942'
+   at iTextSharp.text.pdf.PdfReader..ctor(ReaderProperties properties, IRandomAccessSource byteSource)
+   at iTextSharp.text.pdf.PdfReader..ctor(ReaderProperties properties, String filename)
+   at iTextSharp.text.pdf.PdfReader..ctor(String filename)
+   at Madhushala_Ultimate.frmImportfromPDF.ExtractAllTextFromPdf(String pdfPath) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 7171
+   at Madhushala_Ultimate.frmImportfromPDF.ScanFolderForPendingWbImports(String folderPath) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 182
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+14:17:53.244  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\New folder (2)\BEVCOInvoice_2026-2027-W-2022-015-01-032195 (1).pdf
+14:17:53.263  ExtractAllTextFromPdf threw for E:\Root\Software Development\Dev_Sandeep\New folder (2)\BEVCOTP_tFLDR-2026-2027-07246088-P (1).pdf: System.IO.FileNotFoundException: Could not load file or assembly 'BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942' or one of its dependencies. The system cannot find the file specified.
+File name: 'BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942'
+   at iTextSharp.text.pdf.PdfReader..ctor(ReaderProperties properties, IRandomAccessSource byteSource)
+   at iTextSharp.text.pdf.PdfReader..ctor(ReaderProperties properties, String filename)
+   at iTextSharp.text.pdf.PdfReader..ctor(String filename)
+   at Madhushala_Ultimate.frmImportfromPDF.ExtractAllTextFromPdf(String pdfPath) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 7171
+   at Madhushala_Ultimate.frmImportfromPDF.ScanFolderForPendingWbImports(String folderPath) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 182
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+14:17:53.264  ScanFolderForPendingWbImports: could not read text, skipped: E:\Root\Software Development\Dev_Sandeep\New folder (2)\BEVCOTP_tFLDR-2026-2027-07246088-P (1).pdf
+14:25:22.076  ========== Button3_Click (WB Import) started ==========
+14:25:55.110  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=24
+14:25:55.352  After BevInvoice insert loop, actual DB count=24
+14:25:55.799  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=22 kh=2
+14:25:56.880  subfolders.Length=2 [E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\bin\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\bin\Debug\ExcisePdfImport\BEVCOTP.pdf]
+14:25:56.922  Before getInvoicePDF(), folder=E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\bin\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+14:25:58.357  After getInvoicePDF()
+14:26:00.315  After getTPPDF(), pdfFound=False
+14:26:00.618  Before getInvoicePDFIndv()
+14:26:01.752  After getInvoicePDFIndv()
+14:26:03.527  After getTPPDFIndv()
+14:26:03.531  Before MigratedInvoiceExcel choice
+14:26:03.598  MigratedInvoiceExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2787
+14:26:03.608  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=24
+14:26:03.797  After BevInvoice insert loop, actual DB count=24
+14:26:04.127  After MigratedInvoiceExcel choice
+14:26:04.128  Before MigratedInvoiceTPExcel choice
+14:26:04.170  MigratedInvoiceTPExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2806
+14:26:04.181  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=22 kh=2
+14:26:04.663  After MigratedInvoiceTPExcel choice
+14:26:04.705  getInvalidItem_wb/getInvalidItem threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2819
+14:26:04.858  MsgInvalidItem=''
+14:26:04.901  InsertDataIntoMainTable main path threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2943
+14:26:05.619  Batch-check query row count=10
+14:46:41.208  ========== Button3_Click (WB Import) started ==========
+14:47:04.682  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=50
+14:47:05.371  After BevInvoice insert loop, actual DB count=50
+14:47:06.027  MigratedInvoiceTPExcel: xlii.Length=3 dtrp.Rows.Count=43 kh=3
+14:47:07.872  subfolders.Length=2 [D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | D:\1\ATISH\Debug\ExcisePdfImport\BEVCOTP.pdf]
+14:47:07.872  Before getInvoicePDF(), folder=D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+14:47:08.169  After getInvoicePDF()
+14:47:08.452  After getTPPDF(), pdfFound=False
+14:47:08.452  Before getInvoicePDFIndv()
+14:47:08.950  After getInvoicePDFIndv()
+14:47:09.966  After getTPPDFIndv()
+14:47:09.982  Before MigratedInvoiceExcel choice
+14:47:10.060  MigratedInvoiceExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2787
+14:47:10.107  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=50
+14:47:10.607  After BevInvoice insert loop, actual DB count=50
+14:47:11.598  After MigratedInvoiceExcel choice
+14:47:11.598  Before MigratedInvoiceTPExcel choice
+14:47:11.614  MigratedInvoiceTPExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2806
+14:47:11.662  MigratedInvoiceTPExcel: xlii.Length=3 dtrp.Rows.Count=43 kh=3
+14:47:12.910  After MigratedInvoiceTPExcel choice
+14:47:12.926  getInvalidItem_wb/getInvalidItem threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2819
+14:47:13.192  MsgInvalidItem=''
+14:47:13.192  InsertDataIntoMainTable main path threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2943
+14:47:14.036  Batch-check query row count=28
+14:48:06.663  ========== Button3_Click (WB Import) started ==========
+14:48:18.127  ScanFolderForPendingWbImports: already imported, skipping Invoice No 2026-2027/W/2022/015/01/032195
+14:48:20.806  ========== Button3_Click (WB Import) started ==========
+14:48:35.969  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=50
+14:48:36.396  After BevInvoice insert loop, actual DB count=50
+14:48:37.295  MigratedInvoiceTPExcel: xlii.Length=3 dtrp.Rows.Count=43 kh=3
+14:48:38.765  subfolders.Length=2 [D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | D:\1\ATISH\Debug\ExcisePdfImport\BEVCOTP.pdf]
+14:48:38.766  Before getInvoicePDF(), folder=D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+14:48:38.970  After getInvoicePDF()
+14:48:39.271  After getTPPDF(), pdfFound=False
+14:48:39.280  Before getInvoicePDFIndv()
+14:48:39.730  After getInvoicePDFIndv()
+14:48:40.455  After getTPPDFIndv()
+14:48:40.466  Before MigratedInvoiceExcel choice
+14:48:40.471  MigratedInvoiceExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2787
+14:48:40.505  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=50
+14:48:41.046  After BevInvoice insert loop, actual DB count=50
+14:48:41.745  After MigratedInvoiceExcel choice
+14:48:41.745  Before MigratedInvoiceTPExcel choice
+14:48:41.745  MigratedInvoiceTPExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2806
+14:48:41.806  MigratedInvoiceTPExcel: xlii.Length=3 dtrp.Rows.Count=43 kh=3
+14:48:42.697  After MigratedInvoiceTPExcel choice
+14:48:42.705  getInvalidItem_wb/getInvalidItem threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2819
+14:48:42.946  MsgInvalidItem=''
+14:48:42.955  InsertDataIntoMainTable main path threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2943
+14:48:43.945  Batch-check query row count=28
+14:50:44.092  ========== Button3_Click (WB Import) started ==========
+14:50:53.087  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=41
+14:50:53.480  After BevInvoice insert loop, actual DB count=41
+14:50:54.053  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=31 kh=2
+14:52:27.031  ========== Button3_Click (WB Import) started ==========
+14:52:29.048  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=41
+14:52:29.407  After BevInvoice insert loop, actual DB count=41
+14:52:30.002  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=31 kh=2
+14:52:31.182  subfolders.Length=2 [D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | D:\1\ATISH\Debug\ExcisePdfImport\BEVCOTP.pdf]
+14:52:31.198  Before getInvoicePDF(), folder=D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+14:52:31.386  After getInvoicePDF()
+14:52:31.635  After getTPPDF(), pdfFound=False
+14:52:31.635  Before getInvoicePDFIndv()
+14:52:32.028  After getInvoicePDFIndv()
+14:52:32.598  After getTPPDFIndv()
+14:52:32.598  Before MigratedInvoiceExcel choice
+14:52:32.614  MigratedInvoiceExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2787
+14:52:32.645  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=41
+14:52:32.997  After BevInvoice insert loop, actual DB count=41
+14:52:33.480  After MigratedInvoiceExcel choice
+14:52:33.480  Before MigratedInvoiceTPExcel choice
+14:52:33.480  MigratedInvoiceTPExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2806
+14:52:33.542  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=31 kh=2
+14:52:34.465  After MigratedInvoiceTPExcel choice
+14:52:34.465  getInvalidItem_wb/getInvalidItem threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2819
+14:52:34.699  MsgInvalidItem=''
+14:52:34.699  InsertDataIntoMainTable main path threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2943
+14:52:35.675  Batch-check query row count=19
+15:54:33.001  ========== Button3_Click (WB Import) started ==========
+15:54:54.271  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=50
+15:54:54.681  After BevInvoice insert loop, actual DB count=50
+15:54:55.758  MigratedInvoiceTPExcel: xlii.Length=3 dtrp.Rows.Count=43 kh=3
+15:54:57.667  subfolders.Length=2 [D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | D:\1\ATISH\Debug\ExcisePdfImport\BEVCOTP.pdf]
+15:54:57.667  Before getInvoicePDF(), folder=D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+15:54:57.884  After getInvoicePDF()
+15:54:58.134  After getTPPDF(), pdfFound=False
+15:54:58.149  Before getInvoicePDFIndv()
+15:54:58.573  After getInvoicePDFIndv()
+15:54:59.874  After getTPPDFIndv()
+15:54:59.874  Before MigratedInvoiceExcel choice
+15:54:59.937  MigratedInvoiceExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2787
+15:54:59.984  MigratedInvoiceExcel: xlii.Length=2 dtrpp.Rows.Count=50
+15:55:00.336  After BevInvoice insert loop, actual DB count=50
+15:55:01.139  After MigratedInvoiceExcel choice
+15:55:01.139  Before MigratedInvoiceTPExcel choice
+15:55:01.139  MigratedInvoiceTPExcel main path threw: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2806
+15:55:01.201  MigratedInvoiceTPExcel: xlii.Length=3 dtrp.Rows.Count=43 kh=3
+15:55:02.183  After MigratedInvoiceTPExcel choice
+15:55:02.199  getInvalidItem_wb/getInvalidItem threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2819
+15:55:02.373  MsgInvalidItem=''
+15:55:02.379  InsertDataIntoMainTable main path threw, falling back: System.NullReferenceException: Object reference not set to an instance of an object.
+   at Madhushala_Ultimate.frmImportfromPDF.Button3_Click(Object sender, EventArgs e) in E:\Root\Software Development\Dev_Sandeep\Windows Application\POS New Design\POS_All_inONE\Madhushala\frmImportfromPDF.vb:line 2943
+15:55:03.227  Batch-check query row count=28
+18:37:00.694  ========== Button3_Click (WB Import) started ==========
+18:37:24.626  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+18:37:24.872  After BevInvoice insert loop, actual DB count=25
+18:37:25.351  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+18:37:26.935  subfolders.Length=2 [D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | D:\1\ATISH\Debug\ExcisePdfImport\BEVCOTP.pdf]
+18:37:26.947  Before getInvoicePDF(), folder=D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+18:37:27.188  After getInvoicePDF()
+18:37:27.448  After getTPPDF(), pdfFound=False
+18:37:27.454  Before getInvoicePDFIndv()
+18:37:27.895  After getInvoicePDFIndv()
+18:37:28.509  After getTPPDFIndv()
+18:37:28.515  Before MigratedInvoiceExcel choice
+18:37:28.542  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+18:37:28.781  After BevInvoice insert loop, actual DB count=25
+18:37:29.232  After MigratedInvoiceExcel choice
+18:37:29.232  Before MigratedInvoiceTPExcel choice
+18:37:29.285  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+18:37:29.905  After MigratedInvoiceTPExcel choice
+18:37:30.081  MsgInvalidItem=''
+18:37:30.770  Batch-check query row count=6
+20:05:03.061  ========== Button3_Click (WB Import) started ==========
+20:05:15.874  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+20:05:16.098  After BevInvoice insert loop, actual DB count=25
+20:05:16.544  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+20:05:18.039  subfolders.Length=2 [D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | D:\1\ATISH\Debug\ExcisePdfImport\BEVCOTP.pdf]
+20:05:18.042  Before getInvoicePDF(), folder=D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+20:05:18.268  After getInvoicePDF()
+20:05:18.509  After getTPPDF(), pdfFound=False
+20:05:18.516  Before getInvoicePDFIndv()
+20:05:18.842  After getInvoicePDFIndv()
+20:05:19.480  After getTPPDFIndv()
+20:05:19.486  Before MigratedInvoiceExcel choice
+20:05:19.516  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+20:05:19.741  After BevInvoice insert loop, actual DB count=25
+20:05:20.157  After MigratedInvoiceExcel choice
+20:05:20.157  Before MigratedInvoiceTPExcel choice
+20:05:20.203  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+20:05:20.718  After MigratedInvoiceTPExcel choice
+20:05:20.885  MsgInvalidItem=''
+20:05:21.517  Batch-check query row count=6
+20:56:13.950  ========== Button3_Click (WB Import) started ==========
+20:56:27.676  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+20:56:27.981  After BevInvoice insert loop, actual DB count=25
+20:56:28.550  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+20:56:30.205  subfolders.Length=2 [D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | D:\1\ATISH\Debug\ExcisePdfImport\BEVCOTP.pdf]
+20:56:30.209  Before getInvoicePDF(), folder=D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+20:56:30.525  After getInvoicePDF()
+20:56:30.765  After getTPPDF(), pdfFound=False
+20:56:30.771  Before getInvoicePDFIndv()
+20:56:31.091  After getInvoicePDFIndv()
+20:56:31.685  After getTPPDFIndv()
+20:56:31.692  Before MigratedInvoiceExcel choice
+20:56:31.726  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+20:56:32.002  After BevInvoice insert loop, actual DB count=25
+20:56:32.445  After MigratedInvoiceExcel choice
+20:56:32.445  Before MigratedInvoiceTPExcel choice
+20:56:32.494  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+20:56:33.255  After MigratedInvoiceTPExcel choice
+20:56:33.567  MsgInvalidItem=''
+20:56:34.445  Batch-check query row count=6
+21:03:22.399  ========== Button3_Click (WB Import) started ==========
+21:04:03.272  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+21:04:03.674  After BevInvoice insert loop, actual DB count=25
+21:04:04.189  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+21:05:43.170  ========== Button3_Click (WB Import) started ==========
+21:05:45.103  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+21:05:45.582  After BevInvoice insert loop, actual DB count=25
+21:05:46.051  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+21:05:47.198  subfolders.Length=2 [D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf | D:\1\ATISH\Debug\ExcisePdfImport\BEVCOTP.pdf]
+21:05:47.201  Before getInvoicePDF(), folder=D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice_.pdf
+21:05:47.413  After getInvoicePDF()
+21:05:47.684  After getTPPDF(), pdfFound=False
+21:05:47.691  Before getInvoicePDFIndv()
+21:05:48.007  After getInvoicePDFIndv()
+21:05:48.558  After getTPPDFIndv()
+21:05:48.563  Before MigratedInvoiceExcel choice
+21:05:48.586  MigratedInvoiceExcel: xlii.Length=1 dtrpp.Rows.Count=25
+21:05:48.858  After BevInvoice insert loop, actual DB count=25
+21:05:49.229  After MigratedInvoiceExcel choice
+21:05:49.230  Before MigratedInvoiceTPExcel choice
+21:05:49.280  MigratedInvoiceTPExcel: xlii.Length=2 dtrp.Rows.Count=18 kh=2
+21:05:49.880  After MigratedInvoiceTPExcel choice
+21:05:50.089  MsgInvalidItem=''
+21:05:51.091  Batch-check query row count=6

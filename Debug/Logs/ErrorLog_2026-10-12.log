@@ -1,0 +1,732 @@
+﻿2026-10-12 09:56:06.969     (previous error repeated 3 more time(s))
+2026-10-12 09:56:06.984  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:07.015     (previous error repeated 3 more time(s))
+2026-10-12 09:56:07.015  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network location cannot be reached. For information about network troubleshooting, see Windows Help.)
+   Inner: Win32Exception: The network location cannot be reached. For information about network troubleshooting, see Windows Help
+   SQL error 1232, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:13.914     (previous error repeated 6 more time(s))
+2026-10-12 09:56:13.981  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network connection was aborted by the local system.)
+   Inner: Win32Exception: The network connection was aborted by the local system
+   SQL error 1236, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:22.133  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:22.157     (previous error repeated 6 more time(s))
+2026-10-12 09:56:22.157  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:24.064  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:35.829     (previous error repeated 1 more time(s))
+2026-10-12 09:56:35.842  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:37.444  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=15272; handshake=2;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:37.444     (previous error repeated 6 more time(s))
+2026-10-12 09:56:37.444  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=15272; handshake=2;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:37.444     (previous error repeated 1 more time(s))
+2026-10-12 09:56:37.444  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=15272; handshake=2;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:56:37.452  [ERROR] SqlException: Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=15272; handshake=2;
+   Inner: Win32Exception: The wait operation timed out
+   SQL error -2, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 09:59:05.716     (previous error repeated 1 more time(s))
+2026-10-12 09:59:05.726  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 10:10:36.864     (previous error repeated 3 more time(s))
+2026-10-12 10:10:37.274  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow(lambda)._Lambda$__440
+   Form: frmDashboardNew (Business Dashboard) | User:  | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-12 13:00:26.127  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 13:00:29.439  [HANG] Screen did not respond for 2984 ms (Not Responding).
+   Stuck at: [SafeNativeMethods.SetWindowPos] Form1.Form1_Load <- MyApplication.Main
+   Form:  | User:  | Company:  | Counter:  | Thread: 1
+2026-10-12 13:02:14.616  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 13:02:46.590  [HANG-NOW] Screen frozen for 10085 ms so far.
+   Stuck at: [IntUnsafeNativeMethods.DrawTextExW] frmDashboardNew.InitializeDashboard <- frmDashboardNew.frmDashboard_Load <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 13:02:56.995  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow._Lambda$__70-0
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 20 (background)
+2026-10-12 13:03:12.284  [HANG] Screen did not respond for 35788 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:03:12.325  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgentCore <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow(lambda)._Lambda$__103-0
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 6 (background)
+2026-10-12 13:03:15.395  [HANG] Screen did not respond for 2310 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.DrawTextExW] MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:03:37.448  [HANG] Screen did not respond for 2587 ms (Not Responding).
+   Stuck at: [IAutoComplete2.SetOptions] frm_ReportForm.cmb_load <- frm_ReportForm.ReportForm_Load <- mdl_ReportMap.OpenById <- _Closure$__44-0._Lambda$__0 <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Category - Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:04:03.312  [HANG-NOW] Screen frozen for 10131 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] frm_ReportForm.stock_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+2026-10-12 13:04:04.409  [HANG] Screen did not respond for 11307 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:04:07.733  [TIMING] frm_ReportForm report 13: data + report load took 14470 ms (database 2147 ms, Crystal/report 12323 ms, 01-04-2026 to 12-10-2026)
+2026-10-12 13:06:09.061  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow._Lambda$__70-0
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-12 13:06:44.463  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 171 ms
+2026-10-12 13:06:44.883  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 591 ms
+2026-10-12 13:06:44.959  [TIMING] frmTill Load: rate list / shop list done at 666 ms
+2026-10-12 13:06:45.242  [TIMING] frmTill Load: panel layout + action buttons created at 950 ms
+2026-10-12 13:06:45.579  [TIMING] frmTill Load: category / product buttons (getButton) done at 1287 ms
+2026-10-12 13:06:45.638  [TIMING] frmTill Load: end of frmTill_Load at 1346 ms
+2026-10-12 13:06:45.640  [HANG] Screen did not respond for 2776 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmTill.getDefaultList <- frmTill.frmTill_Load <- frmTill.OnLoad <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frmTill (Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:06:52.704  [HANG] Screen did not respond for 2534 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.DrawTextExW] frm_Form1.mainformload <- frmTill.frmTill_FormClosing <- frmTill.CButton2_ClickButtonArea <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:06:56.401  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow._Lambda$__70-0
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 16 (background)
+2026-10-12 13:07:28.196  [HANG] Screen did not respond for 4814 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:07:51.352  [HANG] Screen did not respond for 4645 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_KeyDown <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:08:17.393  [HANG] Screen did not respond for 5435 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.CallWindowProc] frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:08:34.682  [HANG] Screen did not respond for 4345 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.CallWindowProc] frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:36:00.529  [HANG] Screen did not respond for 8260 ms (Not Responding).
+   Stuck at: [Gdip.GdipDrawLineI] MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:44:41.812  [HANG] Screen did not respond for 4848 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.IntFillRect] MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:44:46.164  [HANG] Screen did not respond for 3312 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.PeekMessage] MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 13:44:52.013  [HANG] Screen did not respond for 2107 ms (Not Responding).
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:02:32.626  [HANG] Screen did not respond for 2231 ms (Not Responding).
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:15.986  [HANG-NOW] Screen frozen for 10133 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-12 14:26:25.031  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:25.036  [HANG] Screen did not respond for 19198 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:26.943     (previous error repeated 3 more time(s))
+2026-10-12 14:26:26.944  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:35.300  [HANG-NOW] Screen frozen for 10185 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-12 14:26:38.531     (previous error repeated 1 more time(s))
+2026-10-12 14:26:38.532  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.458     (previous error repeated 7 more time(s))
+2026-10-12 14:26:40.459  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.461  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.462  [HANG] Screen did not respond for 15349 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.463     (previous error repeated 1 more time(s))
+2026-10-12 14:26:40.464  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.465     (previous error repeated 1 more time(s))
+2026-10-12 14:26:40.466  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.467  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.469     (previous error repeated 1 more time(s))
+2026-10-12 14:26:40.469  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.470     (previous error repeated 1 more time(s))
+2026-10-12 14:26:40.470  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.471  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.472     (previous error repeated 1 more time(s))
+2026-10-12 14:26:40.473  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.473     (previous error repeated 1 more time(s))
+2026-10-12 14:26:40.474  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:40.475  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:41.410     (previous error repeated 1 more time(s))
+2026-10-12 14:26:41.411  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:41.412     (previous error repeated 1 more time(s))
+2026-10-12 14:26:41.413  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:41.414  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:57.618     (previous error repeated 1 more time(s))
+2026-10-12 14:26:57.618  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:26:59.503  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The network connection was aborted by the local system.)
+   Inner: Win32Exception: The network connection was aborted by the local system
+   SQL error 1236, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:06.048  [HANG-NOW] Screen frozen for 10080 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-12 14:27:07.211  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.745     (previous error repeated 7 more time(s))
+2026-10-12 14:27:10.746  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.747  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.748  [HANG] Screen did not respond for 14781 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.749     (previous error repeated 1 more time(s))
+2026-10-12 14:27:10.749  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.750     (previous error repeated 1 more time(s))
+2026-10-12 14:27:10.751  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.752  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.757     (previous error repeated 1 more time(s))
+2026-10-12 14:27:10.758  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.759     (previous error repeated 1 more time(s))
+2026-10-12 14:27:10.763  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:10.764  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:22.608     (previous error repeated 1 more time(s))
+2026-10-12 14:27:22.608  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:27:27.617  [HANG] Screen did not respond for 6809 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIOpenSyncEx] mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-12 14:30:48.164     (previous error repeated 1 more time(s))
+2026-10-12 14:30:48.166  [ERROR] ArgumentException: Parameter is not valid.
+   At: frmDashboardShow._Lambda$__70-0
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 16 (background)
+2026-10-12 14:32:05.609  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:32:07.125  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-12 14:32:35.299  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:37:20.975  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:37:52.785  [HANG-NOW] Screen frozen for 10216 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:38:22.857  [HANG-NOW] Screen frozen for 40289 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:38:52.943  [HANG-NOW] Screen frozen for 70374 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:39:22.969  [HANG-NOW] Screen frozen for 100401 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:39:52.982  [HANG-NOW] Screen frozen for 130414 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:40:22.986  [HANG-NOW] Screen frozen for 160419 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:40:53.061  [HANG-NOW] Screen frozen for 190491 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:41:23.278  [HANG-NOW] Screen frozen for 220619 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:41:53.291  [HANG-NOW] Screen frozen for 250724 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:42:23.385  [HANG-NOW] Screen frozen for 280818 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:42:53.485  [HANG-NOW] Screen frozen for 310918 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:43:49.622  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:44:24.401  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:44:46.197  [HANG-NOW] Screen frozen for 10060 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:45:16.425  [HANG-NOW] Screen frozen for 40289 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:46:17.232  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:46:32.670  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: frmRegistration.btnSave_Click <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: frmRegistration (frmRegistration) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-12 14:46:40.633  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:46:41.902  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-12 14:46:43.276  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-12 14:46:49.705  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 18 (background)
+2026-10-12 14:46:49.715  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:145f2796-d403-4f02-a5c6-9a629576cb01
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 18 (background)
+2026-10-12 14:47:05.185  [HANG-NOW] Screen frozen for 10185 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:47:22.448  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:47:23.800  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-12 14:47:30.900  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 18 (background)
+2026-10-12 14:47:30.913  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:6673c78a-64f1-45c5-90ea-e8cbf939c5dc
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 18 (background)
+2026-10-12 14:47:53.054  [HANG-NOW] Screen frozen for 10013 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:48:23.178  [HANG-NOW] Screen frozen for 40139 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:48:53.309  [HANG-NOW] Screen frozen for 70269 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:49:23.521  [HANG-NOW] Screen frozen for 100481 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:49:53.714  [HANG-NOW] Screen frozen for 130674 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:50:19.155  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:50:57.644  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 14:51:18.460  [HANG-NOW] Screen frozen for 10163 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:51:48.694  [HANG-NOW] Screen frozen for 40397 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:52:18.810  [HANG-NOW] Screen frozen for 70513 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:52:48.868  [HANG-NOW] Screen frozen for 100569 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:53:19.033  [HANG-NOW] Screen frozen for 130738 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:53:49.223  [HANG-NOW] Screen frozen for 160927 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:54:19.240  [HANG-NOW] Screen frozen for 190944 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.update_Openingstocktable <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:54:49.473  [HANG-NOW] Screen frozen for 221177 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:55:19.480  [HANG-NOW] Screen frozen for 251182 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:55:49.588  [HANG-NOW] Screen frozen for 281292 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:56:19.772  [HANG-NOW] Screen frozen for 311476 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:56:49.830  [HANG-NOW] Screen frozen for 341534 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:57:19.856  [HANG-NOW] Screen frozen for 371560 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:57:50.095  [HANG-NOW] Screen frozen for 401799 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:58:20.131  [HANG-NOW] Screen frozen for 431835 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:58:50.207  [HANG-NOW] Screen frozen for 461911 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:59:20.430  [HANG-NOW] Screen frozen for 492134 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 14:59:50.545  [HANG-NOW] Screen frozen for 522248 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:00:20.646  [HANG-NOW] Screen frozen for 552349 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:00:50.730  [HANG-NOW] Screen frozen for 582435 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:01:20.934  [HANG-NOW] Screen frozen for 612638 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:01:51.054  [HANG-NOW] Screen frozen for 642758 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:02:21.245  [HANG-NOW] Screen frozen for 672948 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:02:51.256  [HANG-NOW] Screen frozen for 702960 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:38:58.472  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 15:39:11.560  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: frmRegistration.btnSave_Click <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: frmRegistration (frmRegistration) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-12 15:39:18.506  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 15:39:26.411  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 15:39:26.426  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:8076fa02-a0f8-4bb4-a14b-aace5fc6e427
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 15:41:12.099  [HANG-NOW] Screen frozen for 10158 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:41:42.332  [HANG-NOW] Screen frozen for 40389 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 15:42:12.345  [HANG-NOW] Screen frozen for 70404 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:28:55.363  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 16:29:03.193  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 16:29:03.243  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:7e3fa469-0ef6-46c7-8fdb-c8a21ba9922c
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 16:30:30.405  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 16:30:50.985  [HANG-NOW] Screen frozen for 10159 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:31:21.121  [HANG-NOW] Screen frozen for 40295 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:31:51.334  [HANG-NOW] Screen frozen for 70509 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:32:21.571  [HANG-NOW] Screen frozen for 100744 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:32:51.625  [HANG-NOW] Screen frozen for 130800 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:33:21.663  [HANG-NOW] Screen frozen for 160839 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:37:41.055  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 16:37:46.897  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 16:37:46.940  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:991e6888-0bae-4e1c-b6f9-3970d021a5db
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 16:38:04.324  [HANG-NOW] Screen frozen for 10231 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:38:15.073  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 16:38:20.232  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 16:38:20.243  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:397e2127-c2d8-4644-80eb-80cae95bf622
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 16:38:40.726  [HANG-NOW] Screen frozen for 10242 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:39:10.909  [HANG-NOW] Screen frozen for 40423 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 16:39:40.979  [HANG-NOW] Screen frozen for 70494 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:08:18.644  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 17:23:25.480  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: frmRegistration.btnSave_Click <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: frmRegistration (frmRegistration) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-12 17:23:32.070     (previous error repeated 3 more time(s))
+2026-10-12 17:23:32.071  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: frmRegistration.btnSave_Click <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: frmRegistration (frmRegistration) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-12 17:23:39.849  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 17:23:45.125  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 17:23:45.146  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:41dc646a-d2b5-4f9e-a580-88530905cc2d
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 17:24:19.868  [HANG-NOW] Screen frozen for 10238 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:24:50.079  [HANG-NOW] Screen frozen for 40448 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:25:20.159  [HANG-NOW] Screen frozen for 70528 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:25:50.179  [HANG-NOW] Screen frozen for 100546 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:26:20.185  [HANG-NOW] Screen frozen for 130554 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:26:50.247  [HANG-NOW] Screen frozen for 160617 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:27:20.283  [HANG-NOW] Screen frozen for 190650 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:27:50.385  [HANG-NOW] Screen frozen for 220754 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:28:20.584  [HANG-NOW] Screen frozen for 250953 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:28:50.648  [HANG-NOW] Screen frozen for 281018 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:29:20.759  [HANG-NOW] Screen frozen for 311128 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:29:50.897  [HANG-NOW] Screen frozen for 341266 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:30:20.964  [HANG-NOW] Screen frozen for 371334 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:30:51.184  [HANG-NOW] Screen frozen for 401554 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:31:21.203  [HANG-NOW] Screen frozen for 431573 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:31:51.445  [HANG-NOW] Screen frozen for 461814 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:32:21.525  [HANG-NOW] Screen frozen for 491894 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:32:51.671  [HANG-NOW] Screen frozen for 522041 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:33:21.851  [HANG-NOW] Screen frozen for 552220 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:33:52.022  [HANG-NOW] Screen frozen for 582391 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:34:22.122  [HANG-NOW] Screen frozen for 612492 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:34:52.322  [HANG-NOW] Screen frozen for 642692 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:35:22.363  [HANG-NOW] Screen frozen for 672732 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:36:04.972  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 17:36:10.174  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 18 (background)
+2026-10-12 17:36:10.196  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:a6c5726b-e5f1-4c97-aaac-623a17da98f2
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 18 (background)
+2026-10-12 17:36:19.480  [HANG] Screen did not respond for 4377 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.EnsureCounterTable <- Form1.getCounterButton <- Form1.ddclick <- MyApplication.Main
+   Form: Form1 (Form1) | User: Admin | Company: 2 | Counter:  | Thread: 1
+2026-10-12 17:36:52.668  [HANG-NOW] Screen frozen for 10092 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:37:22.746  [HANG-NOW] Screen frozen for 40169 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:37:52.919  [HANG-NOW] Screen frozen for 70344 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-12 17:38:18.759  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-12 17:38:26.425  [ERROR] SqlException: Same CustomerID with different SoftwareName is NOT allowed.  The transaction ended in the trigger. The batch has been aborted.
+   SQL error 50000, line 16, proc TRG_Block_Different_Software
+   At: mdl_public_variables.SyncMachineRowToABMCRM <- mdl_public_variables(lambda)._Lambda$__0
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)
+2026-10-12 17:38:26.449  [MANUAL] SyncMachineRowToABMCRM failed (ABMCRM row for this machine not added)
+   System.Data.SqlClient.SqlException (0x80131904): Same CustomerID with different SoftwareName is NOT allowed.
+   The transaction ended in the trigger. The batch has been aborted.
+      at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+      at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+      at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+      at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+      at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+      at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+      at Madhushala_Ultimate.mdl_public_variables.SyncMachineRowToABMCRM(String localConnStr)
+   ClientConnectionId:437c583b-18ca-45d9-8b9a-fe3e432a02db
+   Error Number:50000,State:1,Class:16
+   Form: Form1 (Form1) | User:  | Company: 2 | Counter:  | Thread: 17 (background)

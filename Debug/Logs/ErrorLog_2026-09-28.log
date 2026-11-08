@@ -1,0 +1,1963 @@
+﻿2026-09-28 16:52:47.172  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 16:52:50.179  [ERROR] SqlException: Column names in each table must be unique. Column name 'newcusid' in table 'dbo.TBL_CustomerValidation' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-28 16:52:50.257     (previous error repeated 3 more time(s))
+2026-09-28 16:52:50.258  [ERROR] SqlException: Column names in each table must be unique. Column name 'osname' in table 'dbo.TBL_CustomerValidation' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-28 16:52:50.313     (previous error repeated 3 more time(s))
+2026-09-28 16:52:50.314  [ERROR] SqlException: Column names in each table must be unique. Column name 'Deactive' in table 'dbo.TBL_CustomerValidation' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-28 16:53:09.451  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 16:53:11.354  [ERROR] SqlException: Column names in each table must be unique. Column name 'newcusid' in table 'dbo.TBL_CustomerValidation' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-28 16:53:11.422     (previous error repeated 3 more time(s))
+2026-09-28 16:53:11.423  [ERROR] SqlException: Column names in each table must be unique. Column name 'osname' in table 'dbo.TBL_CustomerValidation' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-28 16:53:11.475     (previous error repeated 3 more time(s))
+2026-09-28 16:53:11.476  [ERROR] SqlException: Column names in each table must be unique. Column name 'Deactive' in table 'dbo.TBL_CustomerValidation' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-28 16:53:24.012     (previous error repeated 3 more time(s))
+2026-09-28 16:53:24.013  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:24.066     (previous error repeated 3 more time(s))
+2026-09-28 16:53:24.066  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:34.069     (previous error repeated 3 more time(s))
+2026-09-28 16:53:34.070  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:34.181     (previous error repeated 3 more time(s))
+2026-09-28 16:53:34.181  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:34.396     (previous error repeated 3 more time(s))
+2026-09-28 16:53:34.397  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:41.549     (previous error repeated 3 more time(s))
+2026-09-28 16:53:41.550  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:41.602     (previous error repeated 3 more time(s))
+2026-09-28 16:53:41.603  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:46.787     (previous error repeated 3 more time(s))
+2026-09-28 16:53:46.787  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:47.985     (previous error repeated 3 more time(s))
+2026-09-28 16:53:47.986  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:50.816     (previous error repeated 3 more time(s))
+2026-09-28 16:53:50.816  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:53:50.877     (previous error repeated 3 more time(s))
+2026-09-28 16:53:50.877  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:00.872     (previous error repeated 3 more time(s))
+2026-09-28 16:54:00.872  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:04.611     (previous error repeated 2 more time(s))
+2026-09-28 16:54:04.612  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:07.818     (previous error repeated 2 more time(s))
+2026-09-28 16:54:07.819  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:08.393     (previous error repeated 2 more time(s))
+2026-09-28 16:54:08.393  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:10.212     (previous error repeated 2 more time(s))
+2026-09-28 16:54:10.213  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:10.910     (previous error repeated 5 more time(s))
+2026-09-28 16:54:10.911  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:13.520     (previous error repeated 2 more time(s))
+2026-09-28 16:54:13.520  [ERROR] InvalidCastException: Object cannot be cast from DBNull to other types.
+   At: Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:15.759     (previous error repeated 1 more time(s))
+2026-09-28 16:54:15.759  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:22.966     (previous error repeated 3 more time(s))
+2026-09-28 16:54:22.970  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-09-28 16:54:24.381  [ERROR] ArgumentException: Column named SaleTransfer cannot be found.  Parameter name: columnName
+   At: frm_Form1.dgv_load <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:37.097  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- frmDashboardNew.ShowDashboardAfterMinimize <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:38.913     (previous error repeated 3 more time(s))
+2026-09-28 16:54:38.914  [ERROR] ArgumentException: Column named SaleTransfer cannot be found.  Parameter name: columnName
+   At: frm_Form1.dgv_load <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:40.824  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:41.867     (previous error repeated 3 more time(s))
+2026-09-28 16:54:41.868  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-09-28 16:54:44.794  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- frmDashboardNew.ShowDashboardAfterMinimize <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:54:57.491     (previous error repeated 3 more time(s))
+2026-09-28 16:54:57.492  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 8 (background)
+2026-09-28 16:55:02.166  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- frmDashboardShow.ShowToolsReportSelector <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:55:27.186     (previous error repeated 11 more time(s))
+2026-09-28 16:55:27.186  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- frmDashboardShow.ShowToolsReportSelector <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:55:52.160     (previous error repeated 11 more time(s))
+2026-09-28 16:55:52.161  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- frmDashboardShow.ShowToolsReportSelector <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:56:17.196     (previous error repeated 11 more time(s))
+2026-09-28 16:56:17.196  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- frmDashboardShow.ShowToolsReportSelector <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:56:42.153     (previous error repeated 11 more time(s))
+2026-09-28 16:56:42.154  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- frmDashboardShow.ShowToolsReportSelector <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:05.320     (previous error repeated 11 more time(s))
+2026-09-28 16:57:05.321  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- frmDashboardNew.ShowDashboardAfterMinimize <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:07.705     (previous error repeated 3 more time(s))
+2026-09-28 16:57:07.705  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:09.777     (previous error repeated 3 more time(s))
+2026-09-28 16:57:09.779  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 11 (background)
+2026-09-28 16:57:10.833  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:12.013     (previous error repeated 3 more time(s))
+2026-09-28 16:57:12.014  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- frmDashboardNew.ShowDashboardAfterMinimize <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:15.142     (previous error repeated 3 more time(s))
+2026-09-28 16:57:15.142  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- frmDashboardShow.ShowToolsReportSelector <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:16.224     (previous error repeated 3 more time(s))
+2026-09-28 16:57:16.226  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-09-28 16:57:22.201  [ERROR] ArgumentException: Column named SaleTransfer cannot be found.  Parameter name: columnName
+   At: frm_Form1.dgv_load <- frm_Form1.mainformload_Core <- frm_Form1.mainformload <- frm_Form1.Form1_Load <- frmDashboardShow.LoadFormInPanel <- frmDashboardShow.StockCard_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:23.923  [ERROR] ArgumentException: Column named SaleTransfer cannot be found.  Parameter name: columnName
+   At: frm_Form1.dgv_load <- frm_Form1.TextBox3_KeyUp <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:30.398  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:57:55.374     (previous error repeated 19 more time(s))
+2026-09-28 16:57:55.375  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:58:20.371     (previous error repeated 19 more time(s))
+2026-09-28 16:58:20.372  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:58:45.371     (previous error repeated 19 more time(s))
+2026-09-28 16:58:45.372  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:59:10.384     (previous error repeated 19 more time(s))
+2026-09-28 16:59:10.384  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 16:59:35.397     (previous error repeated 19 more time(s))
+2026-09-28 16:59:35.398  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:00:00.389     (previous error repeated 19 more time(s))
+2026-09-28 17:00:00.390  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:00:25.370     (previous error repeated 19 more time(s))
+2026-09-28 17:00:25.371  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:00:50.383     (previous error repeated 19 more time(s))
+2026-09-28 17:00:50.384  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:01:15.394     (previous error repeated 19 more time(s))
+2026-09-28 17:01:15.394  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:01:40.380     (previous error repeated 19 more time(s))
+2026-09-28 17:01:40.381  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:02:05.391     (previous error repeated 19 more time(s))
+2026-09-28 17:02:05.392  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:02:10.412     (previous error repeated 3 more time(s))
+2026-09-28 17:02:10.412  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:02:30.490     (previous error repeated 15 more time(s))
+2026-09-28 17:02:30.491  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:02:55.397     (previous error repeated 19 more time(s))
+2026-09-28 17:02:55.397  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:03:20.386     (previous error repeated 19 more time(s))
+2026-09-28 17:03:20.387  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:03:21.724     (previous error repeated 3 more time(s))
+2026-09-28 17:03:21.725  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- frmDashboardNew.ShowDashboardAfterMinimize <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:03:22.173     (previous error repeated 3 more time(s))
+2026-09-28 17:03:22.174  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:03:25.835     (previous error repeated 3 more time(s))
+2026-09-28 17:03:25.836  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- frmDashboardShow.ShowToolsReportSelector <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:03:26.058     (previous error repeated 3 more time(s))
+2026-09-28 17:03:26.059  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00057 | Thread: 17 (background)
+2026-09-28 17:03:27.073  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- frmDashboardShow.ShowToolsReportSelector <- frmDashboardShow.ActionButton_Click <- MyApplication.Main
+   Form:  (Tools - Select Reports) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:03:45.390     (previous error repeated 7 more time(s))
+2026-09-28 17:03:45.391  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:04:10.384     (previous error repeated 23 more time(s))
+2026-09-28 17:04:10.385  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:04:35.375     (previous error repeated 23 more time(s))
+2026-09-28 17:04:35.388  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:05:00.374     (previous error repeated 23 more time(s))
+2026-09-28 17:05:00.375  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:05:25.400     (previous error repeated 23 more time(s))
+2026-09-28 17:05:25.401  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:05:50.735     (previous error repeated 23 more time(s))
+2026-09-28 17:05:50.736  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:06:16.155     (previous error repeated 23 more time(s))
+2026-09-28 17:06:16.155  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:06:40.954     (previous error repeated 23 more time(s))
+2026-09-28 17:06:40.954  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:07:05.969     (previous error repeated 23 more time(s))
+2026-09-28 17:07:05.969  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:07:31.740     (previous error repeated 23 more time(s))
+2026-09-28 17:07:31.741  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:07:55.661     (previous error repeated 23 more time(s))
+2026-09-28 17:07:55.661  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:08:20.387     (previous error repeated 23 more time(s))
+2026-09-28 17:08:20.388  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:08:45.531     (previous error repeated 23 more time(s))
+2026-09-28 17:08:45.531  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:09:10.385     (previous error repeated 23 more time(s))
+2026-09-28 17:09:10.385  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:09:35.371     (previous error repeated 23 more time(s))
+2026-09-28 17:09:35.371  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:10:00.374     (previous error repeated 23 more time(s))
+2026-09-28 17:10:00.375  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:10:25.389     (previous error repeated 23 more time(s))
+2026-09-28 17:10:25.389  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:10:50.376     (previous error repeated 23 more time(s))
+2026-09-28 17:10:50.377  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:11:15.392     (previous error repeated 23 more time(s))
+2026-09-28 17:11:15.393  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:11:40.378     (previous error repeated 23 more time(s))
+2026-09-28 17:11:40.378  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:12:05.380     (previous error repeated 23 more time(s))
+2026-09-28 17:12:05.381  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:12:30.375     (previous error repeated 23 more time(s))
+2026-09-28 17:12:30.375  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:12:55.401     (previous error repeated 23 more time(s))
+2026-09-28 17:12:55.401  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:13:20.388     (previous error repeated 23 more time(s))
+2026-09-28 17:13:20.389  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:13:45.376     (previous error repeated 23 more time(s))
+2026-09-28 17:13:45.377  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:14:10.367     (previous error repeated 23 more time(s))
+2026-09-28 17:14:10.367  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:14:35.376     (previous error repeated 23 more time(s))
+2026-09-28 17:14:35.376  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:15:00.393     (previous error repeated 23 more time(s))
+2026-09-28 17:15:00.393  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:15:25.373     (previous error repeated 23 more time(s))
+2026-09-28 17:15:25.373  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:15:50.381     (previous error repeated 23 more time(s))
+2026-09-28 17:15:50.381  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:16:15.382     (previous error repeated 23 more time(s))
+2026-09-28 17:16:15.383  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:16:40.378     (previous error repeated 23 more time(s))
+2026-09-28 17:16:40.379  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:17:05.585     (previous error repeated 23 more time(s))
+2026-09-28 17:17:05.585  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:17:30.399     (previous error repeated 23 more time(s))
+2026-09-28 17:17:30.400  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:17:55.400     (previous error repeated 23 more time(s))
+2026-09-28 17:17:55.400  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:18:20.439     (previous error repeated 23 more time(s))
+2026-09-28 17:18:20.439  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:18:45.393     (previous error repeated 23 more time(s))
+2026-09-28 17:18:45.394  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:19:10.390     (previous error repeated 23 more time(s))
+2026-09-28 17:19:10.391  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:19:35.425     (previous error repeated 23 more time(s))
+2026-09-28 17:19:35.426  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:20:00.367     (previous error repeated 23 more time(s))
+2026-09-28 17:20:00.367  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:20:25.426     (previous error repeated 23 more time(s))
+2026-09-28 17:20:25.427  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:20:50.399     (previous error repeated 23 more time(s))
+2026-09-28 17:20:50.400  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:21:15.451     (previous error repeated 23 more time(s))
+2026-09-28 17:21:15.451  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:21:40.376     (previous error repeated 23 more time(s))
+2026-09-28 17:21:40.385  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:22:05.388     (previous error repeated 23 more time(s))
+2026-09-28 17:22:05.389  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:22:30.372     (previous error repeated 23 more time(s))
+2026-09-28 17:22:30.373  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:22:55.377     (previous error repeated 23 more time(s))
+2026-09-28 17:22:55.377  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:23:20.397     (previous error repeated 23 more time(s))
+2026-09-28 17:23:20.397  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:23:45.488     (previous error repeated 23 more time(s))
+2026-09-28 17:23:45.488  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:24:11.710     (previous error repeated 23 more time(s))
+2026-09-28 17:24:11.711  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:24:35.406     (previous error repeated 23 more time(s))
+2026-09-28 17:24:35.407  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:25:00.394     (previous error repeated 23 more time(s))
+2026-09-28 17:25:00.394  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:25:25.367     (previous error repeated 23 more time(s))
+2026-09-28 17:25:25.368  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:25:50.375     (previous error repeated 23 more time(s))
+2026-09-28 17:25:50.375  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:26:15.397     (previous error repeated 23 more time(s))
+2026-09-28 17:26:15.399  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:26:40.380     (previous error repeated 23 more time(s))
+2026-09-28 17:26:40.384  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:27:05.384     (previous error repeated 23 more time(s))
+2026-09-28 17:27:05.385  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:27:30.382     (previous error repeated 23 more time(s))
+2026-09-28 17:27:30.383  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:27:55.407     (previous error repeated 23 more time(s))
+2026-09-28 17:27:55.408  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:28:20.374     (previous error repeated 23 more time(s))
+2026-09-28 17:28:20.375  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:28:45.386     (previous error repeated 23 more time(s))
+2026-09-28 17:28:45.386  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:29:10.385     (previous error repeated 23 more time(s))
+2026-09-28 17:29:10.386  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:29:35.376     (previous error repeated 23 more time(s))
+2026-09-28 17:29:35.376  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:30:00.409     (previous error repeated 23 more time(s))
+2026-09-28 17:30:00.409  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:30:25.394     (previous error repeated 23 more time(s))
+2026-09-28 17:30:25.394  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:30:50.378     (previous error repeated 23 more time(s))
+2026-09-28 17:30:50.378  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:31:15.391     (previous error repeated 23 more time(s))
+2026-09-28 17:31:15.392  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:31:40.379     (previous error repeated 23 more time(s))
+2026-09-28 17:31:40.379  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:32:05.392     (previous error repeated 23 more time(s))
+2026-09-28 17:32:05.393  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:32:30.381     (previous error repeated 23 more time(s))
+2026-09-28 17:32:30.381  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:32:55.386     (previous error repeated 23 more time(s))
+2026-09-28 17:32:55.387  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:33:20.402     (previous error repeated 23 more time(s))
+2026-09-28 17:33:20.402  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:33:45.387     (previous error repeated 23 more time(s))
+2026-09-28 17:33:45.387  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:34:10.393     (previous error repeated 23 more time(s))
+2026-09-28 17:34:10.394  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:34:35.379     (previous error repeated 23 more time(s))
+2026-09-28 17:34:35.380  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:35:00.407     (previous error repeated 23 more time(s))
+2026-09-28 17:35:00.407  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:35:25.386     (previous error repeated 23 more time(s))
+2026-09-28 17:35:25.386  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:35:50.415     (previous error repeated 23 more time(s))
+2026-09-28 17:35:50.415  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:36:15.402     (previous error repeated 23 more time(s))
+2026-09-28 17:36:15.403  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:36:40.426     (previous error repeated 23 more time(s))
+2026-09-28 17:36:40.427  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:37:05.393     (previous error repeated 23 more time(s))
+2026-09-28 17:37:05.393  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:37:30.411     (previous error repeated 23 more time(s))
+2026-09-28 17:37:30.412  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:37:55.399     (previous error repeated 23 more time(s))
+2026-09-28 17:37:55.399  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:38:20.413     (previous error repeated 23 more time(s))
+2026-09-28 17:38:20.413  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:38:45.417     (previous error repeated 23 more time(s))
+2026-09-28 17:38:45.417  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:39:10.435     (previous error repeated 23 more time(s))
+2026-09-28 17:39:10.457  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:39:35.410     (previous error repeated 23 more time(s))
+2026-09-28 17:39:35.410  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:40:00.438     (previous error repeated 23 more time(s))
+2026-09-28 17:40:00.438  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:40:25.396     (previous error repeated 23 more time(s))
+2026-09-28 17:40:25.396  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:40:50.396     (previous error repeated 23 more time(s))
+2026-09-28 17:40:50.397  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:41:20.227     (previous error repeated 23 more time(s))
+2026-09-28 17:41:20.227  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:41:50.035     (previous error repeated 23 more time(s))
+2026-09-28 17:41:50.036  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:42:07.859     (previous error repeated 23 more time(s))
+2026-09-28 17:42:07.859  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:42:30.412     (previous error repeated 23 more time(s))
+2026-09-28 17:42:30.412  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:42:55.399     (previous error repeated 23 more time(s))
+2026-09-28 17:42:55.400  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:43:20.406     (previous error repeated 23 more time(s))
+2026-09-28 17:43:20.407  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:43:45.403     (previous error repeated 23 more time(s))
+2026-09-28 17:43:45.403  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:44:10.427     (previous error repeated 23 more time(s))
+2026-09-28 17:44:10.427  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:44:35.406     (previous error repeated 23 more time(s))
+2026-09-28 17:44:35.406  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:45:00.396     (previous error repeated 23 more time(s))
+2026-09-28 17:45:00.397  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:45:25.394     (previous error repeated 23 more time(s))
+2026-09-28 17:45:25.394  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:45:50.427     (previous error repeated 23 more time(s))
+2026-09-28 17:45:50.428  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:46:15.452     (previous error repeated 23 more time(s))
+2026-09-28 17:46:15.453  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:46:40.432     (previous error repeated 23 more time(s))
+2026-09-28 17:46:40.432  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:47:05.435     (previous error repeated 23 more time(s))
+2026-09-28 17:47:05.435  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:47:30.409     (previous error repeated 23 more time(s))
+2026-09-28 17:47:30.409  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:47:55.431     (previous error repeated 23 more time(s))
+2026-09-28 17:47:55.431  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:48:20.466     (previous error repeated 23 more time(s))
+2026-09-28 17:48:20.466  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:48:45.411     (previous error repeated 23 more time(s))
+2026-09-28 17:48:45.411  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:49:10.410     (previous error repeated 23 more time(s))
+2026-09-28 17:49:10.410  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:49:35.436     (previous error repeated 23 more time(s))
+2026-09-28 17:49:35.437  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:50:00.418     (previous error repeated 23 more time(s))
+2026-09-28 17:50:00.419  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:50:25.416     (previous error repeated 23 more time(s))
+2026-09-28 17:50:25.417  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:50:50.428     (previous error repeated 23 more time(s))
+2026-09-28 17:50:50.428  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:51:15.429     (previous error repeated 23 more time(s))
+2026-09-28 17:51:15.430  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:51:40.428     (previous error repeated 23 more time(s))
+2026-09-28 17:51:40.428  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:52:05.430     (previous error repeated 23 more time(s))
+2026-09-28 17:52:05.431  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:52:30.428     (previous error repeated 23 more time(s))
+2026-09-28 17:52:30.429  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:52:55.427     (previous error repeated 23 more time(s))
+2026-09-28 17:52:55.427  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:53:20.429     (previous error repeated 23 more time(s))
+2026-09-28 17:53:20.429  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:53:45.428     (previous error repeated 23 more time(s))
+2026-09-28 17:53:45.429  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:54:10.425     (previous error repeated 23 more time(s))
+2026-09-28 17:54:10.425  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:54:35.467     (previous error repeated 23 more time(s))
+2026-09-28 17:54:35.467  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:55:00.420     (previous error repeated 23 more time(s))
+2026-09-28 17:55:00.421  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:55:25.462     (previous error repeated 23 more time(s))
+2026-09-28 17:55:25.463  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:55:50.425     (previous error repeated 23 more time(s))
+2026-09-28 17:55:50.425  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:56:15.425     (previous error repeated 23 more time(s))
+2026-09-28 17:56:15.425  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:56:40.428     (previous error repeated 23 more time(s))
+2026-09-28 17:56:40.429  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:57:05.412     (previous error repeated 23 more time(s))
+2026-09-28 17:57:05.413  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:57:30.418     (previous error repeated 23 more time(s))
+2026-09-28 17:57:30.419  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:57:55.425     (previous error repeated 23 more time(s))
+2026-09-28 17:57:55.425  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:58:20.405     (previous error repeated 23 more time(s))
+2026-09-28 17:58:20.405  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:58:45.419     (previous error repeated 23 more time(s))
+2026-09-28 17:58:45.419  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:59:10.441     (previous error repeated 23 more time(s))
+2026-09-28 17:59:10.441  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 17:59:35.420     (previous error repeated 23 more time(s))
+2026-09-28 17:59:35.421  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:00:00.427     (previous error repeated 23 more time(s))
+2026-09-28 18:00:00.428  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:00:06.192     (previous error repeated 3 more time(s))
+2026-09-28 18:00:06.193  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:00:25.426     (previous error repeated 19 more time(s))
+2026-09-28 18:00:25.426  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:00:50.428     (previous error repeated 23 more time(s))
+2026-09-28 18:00:50.429  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:01:15.427     (previous error repeated 23 more time(s))
+2026-09-28 18:01:15.428  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:01:40.459     (previous error repeated 23 more time(s))
+2026-09-28 18:01:40.459  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:02:05.405     (previous error repeated 23 more time(s))
+2026-09-28 18:02:05.406  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:02:30.429     (previous error repeated 23 more time(s))
+2026-09-28 18:02:30.430  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:02:55.417     (previous error repeated 23 more time(s))
+2026-09-28 18:02:55.418  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:03:20.438     (previous error repeated 23 more time(s))
+2026-09-28 18:03:20.439  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:03:45.425     (previous error repeated 23 more time(s))
+2026-09-28 18:03:45.425  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:04:10.416     (previous error repeated 23 more time(s))
+2026-09-28 18:04:10.417  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:04:35.408     (previous error repeated 23 more time(s))
+2026-09-28 18:04:35.409  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:05:00.414     (previous error repeated 23 more time(s))
+2026-09-28 18:05:00.414  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:05:25.412     (previous error repeated 23 more time(s))
+2026-09-28 18:05:25.412  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:05:50.423     (previous error repeated 23 more time(s))
+2026-09-28 18:05:50.423  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:06:15.412     (previous error repeated 23 more time(s))
+2026-09-28 18:06:15.412  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:06:40.423     (previous error repeated 23 more time(s))
+2026-09-28 18:06:40.423  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:07:05.419     (previous error repeated 23 more time(s))
+2026-09-28 18:07:05.420  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:07:30.417     (previous error repeated 23 more time(s))
+2026-09-28 18:07:30.417  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:07:55.405     (previous error repeated 23 more time(s))
+2026-09-28 18:07:55.406  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:08:20.424     (previous error repeated 23 more time(s))
+2026-09-28 18:08:20.424  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:08:45.413     (previous error repeated 23 more time(s))
+2026-09-28 18:08:45.413  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:09:10.433     (previous error repeated 23 more time(s))
+2026-09-28 18:09:10.436  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:09:35.522     (previous error repeated 23 more time(s))
+2026-09-28 18:09:35.523  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:10:00.578     (previous error repeated 23 more time(s))
+2026-09-28 18:10:00.579  [ERROR] SqlException: Invalid object name 'tblCust_Reminders'.
+   SQL error 208, line 1
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-28 18:11:09.625  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 18:11:36.656  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 5 (background)
+2026-09-28 18:11:47.167  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 21 (background)
+2026-09-28 18:15:28.528  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 18:16:10.374  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 18:16:25.568  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 18:16:50.844  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:16:50.925     (previous error repeated 3 more time(s))
+2026-09-28 18:16:50.926  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:05.612     (previous error repeated 3 more time(s))
+2026-09-28 18:17:05.612  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:05.781     (previous error repeated 3 more time(s))
+2026-09-28 18:17:05.781  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:06.030     (previous error repeated 3 more time(s))
+2026-09-28 18:17:06.031  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:19.669     (previous error repeated 3 more time(s))
+2026-09-28 18:17:19.669  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:19.735     (previous error repeated 3 more time(s))
+2026-09-28 18:17:19.736  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:32.536     (previous error repeated 3 more time(s))
+2026-09-28 18:17:32.536  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:32.690     (previous error repeated 3 more time(s))
+2026-09-28 18:17:32.690  [ERROR] SqlException: Ambiguous column name 'counterID'.  Could not use view or function 'Fnc_SalePOSCounterAdmin' because of binding errors.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:33.606     (previous error repeated 3 more time(s))
+2026-09-28 18:17:33.607  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:37.091     (previous error repeated 3 more time(s))
+2026-09-28 18:17:37.092  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:37.158     (previous error repeated 3 more time(s))
+2026-09-28 18:17:37.159  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:51.568     (previous error repeated 3 more time(s))
+2026-09-28 18:17:51.568  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:17:57.136     (previous error repeated 2 more time(s))
+2026-09-28 18:17:57.136  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:18:01.209     (previous error repeated 2 more time(s))
+2026-09-28 18:18:01.210  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:18:01.832     (previous error repeated 2 more time(s))
+2026-09-28 18:18:01.833  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:18:04.078     (previous error repeated 2 more time(s))
+2026-09-28 18:18:04.078  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:18:05.272     (previous error repeated 5 more time(s))
+2026-09-28 18:18:05.273  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:19:29.499     (previous error repeated 2 more time(s))
+2026-09-28 18:19:29.501  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 8 (background)
+2026-09-28 18:19:41.936  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 23 (background)
+2026-09-28 18:36:40.518  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_purchase.AiOrNaiItemLoad <- frm_purchase.master_load_check <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:36:47.688  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_purchase.AiOrNaiItemLoad <- frm_purchase.master_load_check <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:14.750  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.008  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.014  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.403     (previous error repeated 1 more time(s))
+2026-09-28 18:37:15.403  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'D:\1\ATISH\Debug\InvoicePDF'.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.433  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.463  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.688     (previous error repeated 29 more time(s))
+2026-09-28 18:37:15.689  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.760  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'D:\1\ATISH\Debug\InvoiceTP'.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.797  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.799  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:15.820     (previous error repeated 1 more time(s))
+2026-09-28 18:37:15.820  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:22.644     (previous error repeated 39 more time(s))
+2026-09-28 18:37:22.645  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:23.311     (previous error repeated 3 more time(s))
+2026-09-28 18:37:23.311  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:23.371  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:23.571  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.101     (previous error repeated 2 more time(s))
+2026-09-28 18:37:27.102  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.113  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.183     (previous error repeated 29 more time(s))
+2026-09-28 18:37:27.183  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.291  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.294  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.319     (previous error repeated 1 more time(s))
+2026-09-28 18:37:27.320  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.560     (previous error repeated 39 more time(s))
+2026-09-28 18:37:27.560  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.812     (previous error repeated 3 more time(s))
+2026-09-28 18:37:27.812  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:27.892  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:28.024  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:31.306     (previous error repeated 2 more time(s))
+2026-09-28 18:37:31.306  [ERROR] SqlException: Cannot insert the value NULL into column 'TrnAccount', table 'purnima_bar.dbo.TransactionDetail'; column does not allow nulls. INSERT fails.  The statement has been terminated.
+   SQL error 515, line 1
+   At: cls_conn.insert <- frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:33.301     (previous error repeated 5 more time(s))
+2026-09-28 18:37:33.301  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:33.304     (previous error repeated 1 more time(s))
+2026-09-28 18:37:33.304  [ERROR] InvalidCastException: Conversion from string "" to type 'Double' is not valid.
+   Inner: FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:34.020  [ERROR] SqlException: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_PurchaseTaxDetail_taxdetail". The conflict occurred in database "purnima_bar", table "dbo.taxdetail".  The statement has been terminated.
+   SQL error 547, line 1
+   At: cls_conn.insert <- frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:55.845     (previous error repeated 2 more time(s))
+2026-09-28 18:37:55.846  [ERROR] IOException: D:\1\ATISH\Debug\ExcisePdfImport not found as file or resource.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:37:55.970  [ERROR] IOException: D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice.pdf not found as file or resource.
+   At: frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:38:04.592  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_purchase.AiOrNaiItemLoad <- frm_purchase.master_load_check <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 18:38:24.683  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 24 (background)
+2026-09-28 19:37:42.451  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 19:38:07.644  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 17 (background)
+2026-09-28 19:38:31.914  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 23 (background)
+2026-09-28 19:38:54.481  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 5 (background)
+2026-09-28 20:05:10.241  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:10.541  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:10.548  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:10.909     (previous error repeated 1 more time(s))
+2026-09-28 20:05:10.910  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'D:\1\ATISH\Debug\InvoicePDF'.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:10.983  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:11.019  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:11.308     (previous error repeated 29 more time(s))
+2026-09-28 20:05:11.309  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:11.395  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'D:\1\ATISH\Debug\InvoiceTP'.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:11.431  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:11.434  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:11.457     (previous error repeated 1 more time(s))
+2026-09-28 20:05:11.458  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:14.011     (previous error repeated 39 more time(s))
+2026-09-28 20:05:14.011  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:14.738     (previous error repeated 3 more time(s))
+2026-09-28 20:05:14.738  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:14.817  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:15.055  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.189     (previous error repeated 2 more time(s))
+2026-09-28 20:05:18.189  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.197  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.264     (previous error repeated 29 more time(s))
+2026-09-28 20:05:18.264  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.358  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.360  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.385     (previous error repeated 1 more time(s))
+2026-09-28 20:05:18.386  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.582     (previous error repeated 39 more time(s))
+2026-09-28 20:05:18.582  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.771     (previous error repeated 3 more time(s))
+2026-09-28 20:05:18.772  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.839  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:18.967  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:22.053     (previous error repeated 2 more time(s))
+2026-09-28 20:05:22.053  [ERROR] SqlException: Cannot insert the value NULL into column 'TrnAccount', table 'purnima_bar.dbo.TransactionDetail'; column does not allow nulls. INSERT fails.  The statement has been terminated.
+   SQL error 515, line 1
+   At: cls_conn.insert <- frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:23.984     (previous error repeated 5 more time(s))
+2026-09-28 20:05:23.984  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:23.986     (previous error repeated 1 more time(s))
+2026-09-28 20:05:23.987  [ERROR] InvalidCastException: Conversion from string "" to type 'Double' is not valid.
+   Inner: FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:05:24.715  [ERROR] SqlException: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_PurchaseTaxDetail_taxdetail". The conflict occurred in database "purnima_bar", table "dbo.taxdetail".  The statement has been terminated.
+   SQL error 547, line 1
+   At: cls_conn.insert <- frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:06:26.246     (previous error repeated 2 more time(s))
+2026-09-28 20:06:26.247  [ERROR] IOException: D:\1\ATISH\Debug\ExcisePdfImport not found as file or resource.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:06:26.370  [ERROR] IOException: D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice.pdf not found as file or resource.
+   At: frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:09:12.917  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 32 (background)
+2026-09-28 20:09:34.955  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__413
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 32 (background)
+2026-09-28 20:28:20.685  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 20:55:16.695  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 20:55:47.118  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 5 (background)
+2026-09-28 20:55:54.065  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_purchase.AiOrNaiItemLoad <- frm_purchase.master_load_check <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:22.131  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:22.387  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:22.393  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:22.915     (previous error repeated 1 more time(s))
+2026-09-28 20:56:22.915  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'D:\1\ATISH\Debug\InvoicePDF'.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:22.976  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:23.011  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:23.284     (previous error repeated 29 more time(s))
+2026-09-28 20:56:23.285  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:23.377  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'D:\1\ATISH\Debug\InvoiceTP'.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:23.418  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:23.421  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:23.448     (previous error repeated 1 more time(s))
+2026-09-28 20:56:23.449  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:25.911     (previous error repeated 39 more time(s))
+2026-09-28 20:56:25.911  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:26.654     (previous error repeated 3 more time(s))
+2026-09-28 20:56:26.655  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:26.731  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:26.944  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:30.435     (previous error repeated 2 more time(s))
+2026-09-28 20:56:30.436  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:30.449  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:30.519     (previous error repeated 29 more time(s))
+2026-09-28 20:56:30.520  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:30.627  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:30.629  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:30.654     (previous error repeated 1 more time(s))
+2026-09-28 20:56:30.654  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:30.839     (previous error repeated 39 more time(s))
+2026-09-28 20:56:30.839  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:31.015     (previous error repeated 3 more time(s))
+2026-09-28 20:56:31.016  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:31.084  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:31.200  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:38.448     (previous error repeated 2 more time(s))
+2026-09-28 20:56:38.449  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:38.450     (previous error repeated 1 more time(s))
+2026-09-28 20:56:38.451  [ERROR] InvalidCastException: Conversion from string "" to type 'Double' is not valid.
+   Inner: FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:40.683  [ERROR] IOException: D:\1\ATISH\Debug\ExcisePdfImport not found as file or resource.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:40.802  [ERROR] IOException: D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice.pdf not found as file or resource.
+   At: frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 20:56:43.342  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_purchase.AiOrNaiItemLoad <- frm_purchase.master_load_check <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:01.527  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:01.574  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:01.578  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.ExtractAllTextFromPdf <- frmImportfromPDF.ScanFolderForPendingWbImports <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:01.984     (previous error repeated 1 more time(s))
+2026-09-28 21:04:01.984  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'D:\1\ATISH\Debug\InvoicePDF'.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.048  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.057  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.132     (previous error repeated 29 more time(s))
+2026-09-28 21:04:02.133  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.212  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'D:\1\ATISH\Debug\InvoiceTP'.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.244  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.245  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.266     (previous error repeated 1 more time(s))
+2026-09-28 21:04:02.268  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.444     (previous error repeated 39 more time(s))
+2026-09-28 21:04:02.445  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.627     (previous error repeated 3 more time(s))
+2026-09-28 21:04:02.628  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.693  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:04:02.820  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:43.192     (previous error repeated 2 more time(s))
+2026-09-28 21:05:43.193  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\BEVCOInvoice1.pdf'.
+   At: frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form: frmImportfromPDF () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:43.775  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:43.788  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:43.854     (previous error repeated 29 more time(s))
+2026-09-28 21:05:43.854  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:43.978  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:43.981  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:44.006     (previous error repeated 1 more time(s))
+2026-09-28 21:05:44.007  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:44.212     (previous error repeated 39 more time(s))
+2026-09-28 21:05:44.213  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:44.402     (previous error repeated 3 more time(s))
+2026-09-28 21:05:44.402  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:44.484  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:44.584  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.CheckItemMappingForPair <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:47.347     (previous error repeated 2 more time(s))
+2026-09-28 21:05:47.348  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:47.355  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:47.413     (previous error repeated 29 more time(s))
+2026-09-28 21:05:47.413  [ERROR] InvalidPdfException: xref subsection not found at file pointer 10480
+   At: frmImportfromPDF.getInvoicePDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:47.541  [ERROR] InvalidPdfException: xref subsection not found at file pointer 34727
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:47.543  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:47.561     (previous error repeated 1 more time(s))
+2026-09-28 21:05:47.561  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDF <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:47.770     (previous error repeated 39 more time(s))
+2026-09-28 21:05:47.771  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:47.941     (previous error repeated 3 more time(s))
+2026-09-28 21:05:47.942  [ERROR] FileNotFoundException: Could not find file 'D:\1\ATISH\Debug\ResultInvoice2.xls'.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:48.005  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getInvoicePDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:48.121  [ERROR] NullReferenceException: Object reference not set to an instance of an object.
+   At: frmImportfromPDF.getTPPDFIndv <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:54.930     (previous error repeated 2 more time(s))
+2026-09-28 21:05:54.930  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:54.931     (previous error repeated 1 more time(s))
+2026-09-28 21:05:54.931  [ERROR] InvalidCastException: Conversion from string "" to type 'Double' is not valid.
+   Inner: FormatException: Input string was not in a correct format.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:57.208  [ERROR] IOException: D:\1\ATISH\Debug\ExcisePdfImport not found as file or resource.
+   At: frmImportfromPDF.InsertDataIntoMainTable <- frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:05:57.370  [ERROR] IOException: D:\1\ATISH\Debug\ExcisePdfImport\BEVCOInvoice.pdf not found as file or resource.
+   At: frmImportfromPDF.Button3_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:06:00.436  [ERROR] IndexOutOfRangeException: There is no row at position -1.
+   At: frm_purchase.AiOrNaiItemLoad <- frm_purchase.master_load_check <- frm_Form1.formshow <- frm_Form1.initialise <- frm_Form1.DataGridView1_DoubleClick <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:07:08.133  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 10 (background)
+2026-09-28 21:08:55.973  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 7 (background)
+2026-09-28 21:10:20.638  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 11 (background)
+2026-09-28 21:11:29.932  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 21:11:46.714  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 21:12:00.624  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:00.634     (previous error repeated 3 more time(s))
+2026-09-28 21:12:00.634  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:01.045     (previous error repeated 3 more time(s))
+2026-09-28 21:12:01.046  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:01.061     (previous error repeated 3 more time(s))
+2026-09-28 21:12:01.062  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:01.104     (previous error repeated 3 more time(s))
+2026-09-28 21:12:01.104  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:01.664     (previous error repeated 3 more time(s))
+2026-09-28 21:12:01.664  [ERROR] SqlException: Invalid column name 'userID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:01.667     (previous error repeated 3 more time(s))
+2026-09-28 21:12:01.667  [ERROR] SqlException: Column names in each table must be unique. Column name 'counterID' in table 'TBL_SuspendSummery' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:01.687     (previous error repeated 3 more time(s))
+2026-09-28 21:12:01.687  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:01.924     (previous error repeated 3 more time(s))
+2026-09-28 21:12:01.925  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:02.118     (previous error repeated 3 more time(s))
+2026-09-28 21:12:02.121  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:02.732     (previous error repeated 3 more time(s))
+2026-09-28 21:12:02.736  [ERROR] SqlException: Invalid object name 'DAILY_STOCK_RPT'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:02.741     (previous error repeated 3 more time(s))
+2026-09-28 21:12:02.742  [ERROR] SqlException: Cannot find the object "DAILY_STOCK_RPT" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:02.906     (previous error repeated 3 more time(s))
+2026-09-28 21:12:02.907  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:02.909     (previous error repeated 3 more time(s))
+2026-09-28 21:12:02.910  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:04.311     (previous error repeated 3 more time(s))
+2026-09-28 21:12:04.312  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:04.828     (previous error repeated 2 more time(s))
+2026-09-28 21:12:04.829  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:05.229     (previous error repeated 2 more time(s))
+2026-09-28 21:12:05.230  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:05.311     (previous error repeated 2 more time(s))
+2026-09-28 21:12:05.312  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:05.514     (previous error repeated 2 more time(s))
+2026-09-28 21:12:05.515  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:05.587     (previous error repeated 5 more time(s))
+2026-09-28 21:12:05.587  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:25.729     (previous error repeated 2 more time(s))
+2026-09-28 21:12:25.730  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmDashboardShow.LoadDashboardUI <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:25.731     (previous error repeated 1 more time(s))
+2026-09-28 21:12:25.731  [ERROR] InvalidCastException: Conversion from string "" to type 'Integer' is not valid.
+   Inner: FormatException: Input string was not in a correct format.
+   At: frmDashboardShow.LoadDashboardUI <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:12:33.487  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 14 (background)
+2026-09-28 21:12:48.374  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__381 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:13:01.778  [ERROR] MissingMemberException: Public member 'tsl_Title' on type 'frm_ReportForm' not found.
+   At: mdl_ReportMap.OpenById <- frmDashboardNew(lambda)._Lambda$__381 <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:13:58.497     (previous error repeated 1 more time(s))
+2026-09-28 21:13:58.498  [ERROR] FormatException: Input string was not in a correct format.
+   At: frmDashboardShow.LoadDashboardUI <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- frmDashboardNew.ShowDashboardAfterMinimize <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:13:58.498     (previous error repeated 1 more time(s))
+2026-09-28 21:13:58.499  [ERROR] InvalidCastException: Conversion from string "" to type 'Integer' is not valid.
+   Inner: FormatException: Input string was not in a correct format.
+   At: frmDashboardShow.LoadDashboardUI <- frmDashboardShow.frmDashboardShow_Load <- frmDashboardNew.LoadDashboardShow <- frmDashboardNew.ShowDashboardAfterMinimize <- frmDashboardNew.frmDashboardNew_FormClosing <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-28 21:17:38.103  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 21:18:11.164  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 21:18:25.331  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-28 21:18:41.919  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:18:42.000     (previous error repeated 3 more time(s))
+2026-09-28 21:18:42.001  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:18:50.867     (previous error repeated 3 more time(s))
+2026-09-28 21:18:50.869  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:18:50.985     (previous error repeated 3 more time(s))
+2026-09-28 21:18:50.986  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:18:51.166     (previous error repeated 3 more time(s))
+2026-09-28 21:18:51.167  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:18:58.096     (previous error repeated 3 more time(s))
+2026-09-28 21:18:58.096  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:18:58.165     (previous error repeated 3 more time(s))
+2026-09-28 21:18:58.166  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:02.384     (previous error repeated 3 more time(s))
+2026-09-28 21:19:02.385  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:02.563     (previous error repeated 3 more time(s))
+2026-09-28 21:19:02.564  [ERROR] SqlException: Ambiguous column name 'counterID'.  Could not use view or function 'Fnc_SalePOSCounterAdmin' because of binding errors.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:03.715     (previous error repeated 3 more time(s))
+2026-09-28 21:19:03.716  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:07.207     (previous error repeated 3 more time(s))
+2026-09-28 21:19:07.208  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:07.295     (previous error repeated 3 more time(s))
+2026-09-28 21:19:07.296  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:18.540     (previous error repeated 3 more time(s))
+2026-09-28 21:19:18.541  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:23.468     (previous error repeated 2 more time(s))
+2026-09-28 21:19:23.469  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:26.633     (previous error repeated 2 more time(s))
+2026-09-28 21:19:26.634  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:27.166     (previous error repeated 2 more time(s))
+2026-09-28 21:19:27.167  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:29.126     (previous error repeated 2 more time(s))
+2026-09-28 21:19:29.127  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:29.936     (previous error repeated 5 more time(s))
+2026-09-28 21:19:29.937  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-28 21:19:42.268     (previous error repeated 2 more time(s))
+2026-09-28 21:19:42.269  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 8 (background)

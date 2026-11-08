@@ -1,0 +1,348 @@
+﻿2026-09-29 07:28:05.837  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 07:28:35.656  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 14 (background)
+2026-09-29 07:59:27.681  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 07:59:30.683  [ERROR] SqlException: A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-29 07:59:34.559  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-29 07:59:42.299  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-29 07:59:44.256     (previous error repeated 7 more time(s))
+2026-09-29 07:59:44.272  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-29 08:00:09.338  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 08:00:32.529  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form:  | User:  | Company:  | Counter:  | Thread: 5 (background)
+2026-09-29 08:01:38.460     (previous error repeated 3 more time(s))
+2026-09-29 08:01:38.512  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 13 (background)
+2026-09-29 08:10:40.837  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 08:10:52.600  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 08:11:02.060  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 10:41:48.044  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 10:42:08.888  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 5 (background)
+2026-09-29 10:42:20.762  [ERROR] InvalidOperationException: Service GatewayAgent was not found on computer '.'.
+   Inner: Win32Exception: The specified service does not exist as an installed service
+   At: mdl_GatewayAgent.GetServiceStatus <- frm_agent_manager.RefreshServiceStatus <- frm_agent_manager.RefreshAll <- frm_agent_manager.Form_Load <- frmDashboardShow.InfoCard_Click <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-29 10:57:40.813  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-29 11:14:49.879     (previous error repeated 3 more time(s))
+2026-09-29 11:14:49.881  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-29 13:12:41.222  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 13:13:17.690  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 12 (background)
+2026-09-29 13:34:04.644  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 38 (background)
+2026-09-29 13:34:37.743  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 13:41:20.182  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 13:41:37.932  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 13:41:56.168  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 13:42:09.665  [ERROR] SqlException: Incorrect syntax near '@comp'.  Incorrect syntax near the keyword 'BEGIN'.
+   SQL error 102, line 453, proc SP_RecordCorrection
+   At: cls_conn.executereader <- Form1.sp_recordcorrection <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:10.367     (previous error repeated 3 more time(s))
+2026-09-29 13:42:10.368  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:10.435     (previous error repeated 3 more time(s))
+2026-09-29 13:42:10.436  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:18.646     (previous error repeated 3 more time(s))
+2026-09-29 13:42:18.647  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:18.770     (previous error repeated 3 more time(s))
+2026-09-29 13:42:18.771  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:18.969     (previous error repeated 3 more time(s))
+2026-09-29 13:42:18.972  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:25.660     (previous error repeated 3 more time(s))
+2026-09-29 13:42:25.660  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:25.731     (previous error repeated 3 more time(s))
+2026-09-29 13:42:25.732  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:29.749     (previous error repeated 3 more time(s))
+2026-09-29 13:42:29.750  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:29.898     (previous error repeated 3 more time(s))
+2026-09-29 13:42:29.899  [ERROR] SqlException: Ambiguous column name 'counterID'.  Could not use view or function 'Fnc_SalePOSCounterAdmin' because of binding errors.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:30.878     (previous error repeated 3 more time(s))
+2026-09-29 13:42:30.879  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:32.379     (previous error repeated 3 more time(s))
+2026-09-29 13:42:32.379  [ERROR] SqlException: Invalid object name 'DAILY_STOCK_RPT'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:32.432     (previous error repeated 3 more time(s))
+2026-09-29 13:42:32.433  [ERROR] SqlException: Cannot find the object "DAILY_STOCK_RPT" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:34.043     (previous error repeated 3 more time(s))
+2026-09-29 13:42:34.045  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:34.104     (previous error repeated 3 more time(s))
+2026-09-29 13:42:34.105  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:44.809     (previous error repeated 3 more time(s))
+2026-09-29 13:42:44.810  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:49.007     (previous error repeated 2 more time(s))
+2026-09-29 13:42:49.008  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:52.205     (previous error repeated 2 more time(s))
+2026-09-29 13:42:52.206  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:52.693     (previous error repeated 2 more time(s))
+2026-09-29 13:42:52.693  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:54.608     (previous error repeated 2 more time(s))
+2026-09-29 13:42:54.608  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:42:55.377     (previous error repeated 5 more time(s))
+2026-09-29 13:42:55.377  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:43:09.027     (previous error repeated 2 more time(s))
+2026-09-29 13:43:09.028  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 13 (background)
+2026-09-29 13:55:16.858  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 13:55:33.442  [ERROR] SqlException: Incorrect syntax near '@comp'.  Incorrect syntax near the keyword 'BEGIN'.
+   SQL error 102, line 453, proc SP_RecordCorrection
+   At: cls_conn.executereader <- Form1.sp_recordcorrection <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 13:55:47.650     (previous error repeated 3 more time(s))
+2026-09-29 13:55:49.732  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 5 (background)
+2026-09-29 13:57:30.723  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__423
+   Form:  | User: Admin | Company: 2 | Counter: C00001 | Thread: 13 (background)
+2026-09-29 14:03:54.126  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00001 | Thread: 1
+2026-09-29 14:04:17.746  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 14:04:38.057  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__424
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 5 (background)
+2026-09-29 14:05:14.379  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__424
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00001 | Thread: 11 (background)
+2026-09-29 15:31:51.824  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 15:32:10.385  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 15:33:04.660  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-29 15:33:04.726     (previous error repeated 3 more time(s))
+2026-09-29 15:33:04.727  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-29 15:33:10.987     (previous error repeated 3 more time(s))
+2026-09-29 15:33:10.988  [ERROR] SqlException: Invalid object name 'tbltest'.
+   SQL error 208, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-29 15:33:11.048     (previous error repeated 3 more time(s))
+2026-09-29 15:33:11.049  [ERROR] SqlException: Cannot find the object "tbltest" because it does not exist or you do not have permissions.
+   SQL error 4902, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-29 15:33:26.147     (previous error repeated 3 more time(s))
+2026-09-29 15:33:26.148  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-29 15:33:26.334     (previous error repeated 3 more time(s))
+2026-09-29 15:33:26.335  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-29 15:33:26.509     (previous error repeated 3 more time(s))
+2026-09-29 15:33:26.510  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-09-29 17:16:12.163  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 17:39:45.228  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__424
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 48 (background)
+2026-09-29 17:40:26.270  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-29 17:45:48.526     (previous error repeated 1 more time(s))
+2026-09-29 17:45:48.527  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-29 17:50:15.800  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup\test.txt'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-09-29 17:57:08.639  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__424
+   Form:  | User: Admin | Company: 2 | Counter: C00002 | Thread: 42 (background)
+2026-09-29 20:01:47.561  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 20:02:03.657  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 20:02:20.896  [ERROR] SqlException: Invalid column name 'MRPWiseStock'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:02:20.953     (previous error repeated 3 more time(s))
+2026-09-29 20:02:20.954  [ERROR] SqlException: Column names in each table must be unique. Column name 'MRPWiseStock' in table 'companyparamtr' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:02:53.811     (previous error repeated 3 more time(s))
+2026-09-29 20:02:53.811  [ERROR] SqlException: There is already an object named 'USP_CustomerwiseDetailsalereport' in the database.
+   SQL error 2714, line 1, proc USP_CustomerwiseDetailsalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:02:53.975     (previous error repeated 3 more time(s))
+2026-09-29 20:02:53.975  [ERROR] SqlException: There is already an object named 'USP_Customerwisesalereport' in the database.
+   SQL error 2714, line 1, proc USP_Customerwisesalereport
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:02:54.452     (previous error repeated 3 more time(s))
+2026-09-29 20:02:54.453  [ERROR] SqlException: There is already an object named 'SP_Sales_Add_FL_NEW' in the database.
+   SQL error 2714, line 1, proc SP_Sales_Add_FL_NEW
+   At: cls_conn.executereader <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:03:28.560     (previous error repeated 3 more time(s))
+2026-09-29 20:03:28.561  [ERROR] SqlException: Cannot alter 'stock' because it is not a table.
+   SQL error 4909, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:03:28.626     (previous error repeated 3 more time(s))
+2026-09-29 20:03:28.626  [ERROR] SqlException: The object 'stock' is dependent on column 'itemname'.  ALTER TABLE ALTER COLUMN itemname failed because one or more objects access this column.
+   SQL error 5074, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:03:49.733     (previous error repeated 3 more time(s))
+2026-09-29 20:03:49.733  [ERROR] SqlException: Ambiguous column name 'counterID'.
+   SQL error 209, line 6, proc Fnc_SalePOSCounterAdmin
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:03:51.722     (previous error repeated 3 more time(s))
+2026-09-29 20:03:51.722  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:03:55.883     (previous error repeated 3 more time(s))
+2026-09-29 20:03:55.884  [ERROR] SqlException: Invalid column name 'UserID'.  Invalid column name 'EDate'.  Invalid column name 'CounterID'.
+   SQL error 207, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:03:55.944     (previous error repeated 3 more time(s))
+2026-09-29 20:03:55.945  [ERROR] SqlException: Column names in each table must be unique. Column name 'isNew' in table 'itemratemst' is specified more than once.
+   SQL error 2705, line 1
+   At: cls_conn.executereader <- cls_conn.DatabaseUpdater <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:04:23.358     (previous error repeated 3 more time(s))
+2026-09-29 20:04:23.358  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORsALESdETAILS
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:04:27.639     (previous error repeated 2 more time(s))
+2026-09-29 20:04:27.639  [ERROR] SqlException: There is already an object named 'SP_SaleNew' in the database.
+   SQL error 2714, line 1, proc SP_SaleNew
+   At: cls_conn.insert <- cls_conn.UpdateForUltimate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:04:30.588     (previous error repeated 2 more time(s))
+2026-09-29 20:04:30.589  [ERROR] SqlException: Incorrect syntax near 'userCode'.
+   SQL error 102, line 33, proc sales_statement
+   At: cls_conn.insert <- cls_conn.NaiUpdates <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:04:31.036     (previous error repeated 2 more time(s))
+2026-09-29 20:04:31.036  [ERROR] SqlException: Incorrect syntax near 'serialid'.
+   SQL error 102, line 21, proc SP_SaleNewFORSalesDetails
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:04:32.650     (previous error repeated 2 more time(s))
+2026-09-29 20:04:32.650  [ERROR] SqlException: Column name or number of supplied values does not match table definition.
+   SQL error 213, line 4, proc sp_UpdateOpening
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:04:33.383     (previous error repeated 5 more time(s))
+2026-09-29 20:04:33.384  [ERROR] SqlException: Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.  Ambiguous column name 'purchaseRate'.
+   SQL error 209, line 14, proc sp_plOpeningClosingValue
+   At: cls_conn.insert <- cls_conn.CurrentUpdate <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  | User: Admin | Company: 1 | Counter: C00057 | Thread: 1
+2026-09-29 20:30:46.763  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 20:31:32.856  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 20:31:50.890  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__424
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 5 (background)
+2026-09-29 20:35:12.039  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__424
+   Form:  () | User: Admin | Company: 2 | Counter: C00002 | Thread: 13 (background)
+2026-09-29 20:35:18.304  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-09-29 21:47:59.709  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================

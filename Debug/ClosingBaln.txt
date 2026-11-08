@@ -1,0 +1,39 @@
+       Counter Sale and Summery       
+          REGENT WINES, CL-2          
+        GSTIN: 29AANFR4231P1Z1        
+   SANTOSH GHAR COMPLEX, ALADANGADY   
+  BELTHANGADY TALUK KARNATAKA-574217  
+                PHONE:                 
+             User : Admin             
+         Counter : COUNTER 1          
+-----------------------------------------
+          Date : 2022-07-30          
+-----------------------------------------
+Opening Cash :      0.00
+Deposit Cash :        
+Closing Cash :       735
+-----------------------------------------
+  Cash                           735
+  Return                         
+  Card                           0
+  UPI                            0
+  Party                          0
+  Total                          735
+-----------------------------------------
+  Multi Settlement               0
+-----------------------------------------
+  Note          Qnty          Amount
+-----------------------------------------
+  2000      X      0            0
+  500       X      1            500
+  200       X      1            200
+  100       X      0            0
+  50        X      0            0
+  20        X      0            0
+  10        X      3            30
+  5         X      1            5
+  2         X      0            0
+  1         X      0            0
+-----------------------------------------
+  Total                       735
+-----------------------------------------

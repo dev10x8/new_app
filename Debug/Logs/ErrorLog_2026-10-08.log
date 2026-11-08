@@ -1,0 +1,669 @@
+﻿2026-10-08 11:01:36.202  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:01:38.730  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 11:01:45.453     (previous error repeated 8 more time(s))
+2026-10-08 11:01:45.453  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 11:02:39.653  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:02:42.205  [ERROR] SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - The wait operation timed out.)
+   Inner: Win32Exception: The wait operation timed out
+   SQL error 258, line 0
+   At: Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 11:03:03.672  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:03:44.253  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:05:27.962  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:11:46.063  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:12:06.372  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-08 11:12:06.423  [HANG] Screen did not respond for 8067 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 11:12:07.028     (previous error repeated 4 more time(s))
+2026-10-08 11:12:07.033  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-08 11:12:12.914     (previous error repeated 3 more time(s))
+2026-10-08 11:12:12.914  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:12:12.939     (previous error repeated 4 more time(s))
+2026-10-08 11:12:12.939  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:12:16.433     (previous error repeated 3 more time(s))
+2026-10-08 11:12:16.433  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:12:16.478     (previous error repeated 4 more time(s))
+2026-10-08 11:12:16.480  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:12:24.683  [TIMING] frm_countersales: created 793 ms after Add click, Load took 2644 ms
+2026-10-08 11:12:24.683  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 3438 ms
+2026-10-08 11:12:24.703  [HANG] Screen did not respond for 3275 ms (Not Responding).
+   Stuck at: [InterfaceMarshaler.ConvertToNative] cls_conn.combofill <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 11:12:24.713  [TIMING] frm_countersales: visible 3466 ms after Add click
+2026-10-08 11:12:31.183     (previous error repeated 3 more time(s))
+2026-10-08 11:12:31.183  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-08 11:12:31.203     (previous error repeated 4 more time(s))
+2026-10-08 11:12:31.203  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-08 11:12:34.783  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:12:58.334  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-08 11:12:58.343  [HANG] Screen did not respond for 8896 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 11:12:59.043     (previous error repeated 4 more time(s))
+2026-10-08 11:12:59.043  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-08 11:13:07.453  [TIMING] frmTill Load: window sizing + companyparamtr/machine-name queries done at 113 ms
+2026-10-08 11:13:07.542  [TIMING] frmTill Load: bill number (gettrn) / edit-bill load done at 202 ms
+2026-10-08 11:13:07.628  [TIMING] frmTill Load: rate list / shop list done at 284 ms
+2026-10-08 11:13:07.863  [TIMING] frmTill Load: panel layout + action buttons created at 518 ms
+2026-10-08 11:13:08.078  [TIMING] frmTill Load: category / product buttons (getButton) done at 739 ms
+2026-10-08 11:13:08.113  [TIMING] frmTill Load: end of frmTill_Load at 774 ms
+2026-10-08 11:13:08.113  [TIMING] frmTill: created 830 ms after Add click, Load took 929 ms
+2026-10-08 11:13:08.113  [TIMING] frm_Form1 Add (count 15): formshow() returned after 1759 ms
+2026-10-08 11:13:08.683  [TIMING] frmTill: visible 2320 ms after Add click, state Maximized, bounds {X=0,Y=0,Width=1366,Height=768}, working area {X=0,Y=0,Width=1366,Height=728}
+2026-10-08 11:13:26.889     (previous error repeated 3 more time(s))
+2026-10-08 11:13:26.889  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-08 11:13:26.918     (previous error repeated 4 more time(s))
+2026-10-08 11:13:26.918  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-08 11:13:50.743     (previous error repeated 3 more time(s))
+2026-10-08 11:13:50.743  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:13:50.768     (previous error repeated 4 more time(s))
+2026-10-08 11:13:50.768  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:13:56.354  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:15:00.794  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 11:15:20.623  [HANG-NOW] Screen frozen for 10051 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- Form1.getAllProductWithNAI <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+2026-10-08 11:15:22.069  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:15:22.142  [HANG] Screen did not respond for 11578 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 11:15:22.853     (previous error repeated 4 more time(s))
+2026-10-08 11:15:23.707  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:15:24.021     (previous error repeated 3 more time(s))
+2026-10-08 11:15:25.216  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-08 11:15:25.314     (previous error repeated 4 more time(s))
+2026-10-08 11:15:25.314  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-08 11:15:31.777  [TIMING] frm_countersales: created 801 ms after Add click, Load took 4369 ms
+2026-10-08 11:15:31.777  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 5171 ms
+2026-10-08 11:15:31.799  [HANG] Screen did not respond for 5026 ms (Not Responding).
+   Stuck at: [Monitor.ReliableEnter] cls_conn.RebuildStockIfStale <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 11:15:31.814  [TIMING] frm_countersales: visible 5207 ms after Add click
+2026-10-08 11:15:37.539     (previous error repeated 3 more time(s))
+2026-10-08 11:15:37.554  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-08 11:15:37.570     (previous error repeated 4 more time(s))
+2026-10-08 11:15:37.578  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 12 (background)
+2026-10-08 11:15:48.353     (previous error repeated 3 more time(s))
+2026-10-08 11:15:48.358  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)
+2026-10-08 11:15:48.378     (previous error repeated 4 more time(s))
+2026-10-08 11:15:48.381  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)
+2026-10-08 11:15:52.419     (previous error repeated 3 more time(s))
+2026-10-08 11:15:52.419  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:15:52.434     (previous error repeated 4 more time(s))
+2026-10-08 11:15:52.434  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:15:59.362     (previous error repeated 3 more time(s))
+2026-10-08 11:15:59.543  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)
+2026-10-08 11:15:59.563     (previous error repeated 4 more time(s))
+2026-10-08 11:15:59.563  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 18 (background)
+2026-10-08 11:16:03.702     (previous error repeated 3 more time(s))
+2026-10-08 11:16:03.702  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:16:03.713     (previous error repeated 4 more time(s))
+2026-10-08 11:16:03.723  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 11:17:29.489  [TIMING] frm_countersales: created 449 ms after Add click, Load took 2361 ms
+2026-10-08 11:17:29.489  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 2811 ms
+2026-10-08 11:17:29.489  [HANG] Screen did not respond for 2786 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- frm_countersales.gettrn <- frm_countersales.create_dataset_for_datagrid <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 11:17:29.503  [TIMING] frm_countersales: visible 2825 ms after Add click
+2026-10-08 11:25:48.274  [HANG-NOW] Screen frozen for 10015 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-08 11:25:57.511     (previous error repeated 3 more time(s))
+2026-10-08 11:25:57.511  [ERROR] SqlException: A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.)
+   Inner: Win32Exception: The semaphore timeout period has expired
+   SQL error 121, line 0
+   At: cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 11:25:57.519  [HANG] Screen did not respond for 19262 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 11:26:44.367  [HANG] Screen did not respond for 5777 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 12:09:38.240  [HANG] Screen did not respond for 4543 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 12:09:51.487  [HANG] Screen did not respond for 4880 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 12:13:59.304     (previous error repeated 3 more time(s))
+2026-10-08 12:13:59.304  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 40 (background)
+2026-10-08 12:13:59.456     (previous error repeated 4 more time(s))
+2026-10-08 12:13:59.456  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 40 (background)
+2026-10-08 12:14:03.649     (previous error repeated 3 more time(s))
+2026-10-08 12:14:03.649  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 28 (background)
+2026-10-08 12:14:03.672     (previous error repeated 4 more time(s))
+2026-10-08 12:14:03.672  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 28 (background)
+2026-10-08 12:22:10.118     (previous error repeated 3 more time(s))
+2026-10-08 12:22:10.120  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 31 (background)
+2026-10-08 12:22:10.288     (previous error repeated 4 more time(s))
+2026-10-08 12:22:10.288  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 31 (background)
+2026-10-08 13:10:35.484  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 13:10:59.707  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 13:10:59.793  [HANG] Screen did not respond for 9360 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:11:00.660     (previous error repeated 4 more time(s))
+2026-10-08 13:11:00.661  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 13:11:06.427  [HANG] Screen did not respond for 2309 ms (Not Responding).
+   Stuck at: frm_ReportForm.cmb_filter2_SelectedIndexChanged <- frm_ReportForm.ReportForm_Load <- mdl_ReportMap.OpenById <- _Closure$__58._Lambda$__425 <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Category - Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:11:16.130     (previous error repeated 3 more time(s))
+2026-10-08 13:11:16.131  [ERROR] SqlException: The multi-part identifier "opening_closing_stockPOS.storecode" could not be bound.
+   SQL error 4104, line 1
+   At: frm_ReportForm.stock_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:11:16.189  [HANG] Screen did not respond for 5280 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:11:29.284  [TIMING] frm_ReportForm report 13: data + report load took 18118 ms (database 913 ms, Crystal/report 17205 ms, 08-10-2026 to 08-10-2026)
+2026-10-08 13:11:39.706  [HANG] Screen did not respond for 3425 ms (Not Responding).
+   Stuck at: [GC._SuppressFinalize] frm_ReportForm.cmb_load <- frm_ReportForm.ReportForm_Load <- mdl_ReportMap.OpenById <- _Closure$__58._Lambda$__425 <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Category - Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:11:46.835     (previous error repeated 3 more time(s))
+2026-10-08 13:11:46.836  [ERROR] SqlException: The multi-part identifier "opening_closing_stockPOS.storecode" could not be bound.
+   SQL error 4104, line 1
+   At: frm_ReportForm.stock_load <- frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Category - Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:12:49.035  [TIMING] frm_ReportForm report 13: data + report load took 62383 ms (database 679 ms, Crystal/report 61704 ms, 08-10-2026 to 08-10-2026)
+2026-10-08 13:13:15.363     (previous error repeated 3 more time(s))
+2026-10-08 13:13:15.363  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Category-Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:13:15.363  [TIMING] frm_ReportForm report 33: data + report load took 2185 ms (database 162 ms, Crystal/report 2023 ms, 08-10-2026 to 08-10-2026)
+2026-10-08 13:13:21.124  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Category-Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:13:21.126  [TIMING] frm_ReportForm report 33: data + report load took 2127 ms (database 120 ms, Crystal/report 2007 ms, 06-10-2026 to 06-10-2026)
+2026-10-08 13:13:27.413  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Category-Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:13:27.413  [TIMING] frm_ReportForm report 33: data + report load took 2522 ms (database 172 ms, Crystal/report 2350 ms, 05-10-2026 to 05-10-2026)
+2026-10-08 13:13:37.863  [ERROR] NullReferenceException: Object variable or With block variable not set.
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Sales Report - Category-Brand Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:13:37.865  [TIMING] frm_ReportForm report 33: data + report load took 5469 ms (database 126 ms, Crystal/report 5343 ms, 01-09-2026 to 05-10-2026)
+2026-10-08 13:14:41.052  [ERROR] COMException: Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Brand - Category Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:14:41.060     (previous error repeated 1 more time(s))
+2026-10-08 13:14:41.061  [ERROR] TargetInvocationException: Exception has been thrown by the target of an invocation.
+   Inner: COMException: Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Brand - Category Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:14:41.061  [ERROR] COMException: Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+   At: frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Brand - Category Wise) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:14:41.061  [TIMING] frm_ReportForm report 14: data + report load took 2673 ms (database 709 ms, Crystal/report 1964 ms, 08-10-2026 to 08-10-2026)
+2026-10-08 13:14:46.581  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 31 (background)
+2026-10-08 13:14:46.610     (previous error repeated 4 more time(s))
+2026-10-08 13:14:46.611  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__452
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 31 (background)
+2026-10-08 13:43:58.190  [HANG] Screen did not respond for 2175 ms (Not Responding).
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:46:43.140  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 13:47:29.265  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 13:47:29.266  [HANG] Screen did not respond for 8158 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:47:29.598     (previous error repeated 4 more time(s))
+2026-10-08 13:47:29.599  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 13:47:44.194  [HANG] Screen did not respond for 5263 ms (Not Responding).
+   Stuck at: frm_ReportForm.frm_load <- frm_ReportForm.report_show <- frm_ReportForm.bt_show_Click <- MyApplication.Main
+   Form: frm_ReportForm (Stock Report - Category - Brand Wise   [CHHATINA FL ON SHOP/SUP OFF  |  Year 2026-2027]) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:47:44.900  [TIMING] frm_ReportForm report 13: data + report load took 5946 ms (database 258 ms, Crystal/report 5688 ms, 08-10-2026 to 08-10-2026)
+2026-10-08 13:47:50.651  [TIMING] frm_ReportForm report 13: data + report load took 1371 ms (database 617 ms, Crystal/report 754 ms, 08-10-2026 to 08-10-2026)
+2026-10-08 13:48:40.403     (previous error repeated 3 more time(s))
+2026-10-08 13:48:40.404  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-08 13:48:40.448     (previous error repeated 4 more time(s))
+2026-10-08 13:48:40.449  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 15 (background)
+2026-10-08 13:48:42.915  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 13:50:15.394  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GetExistingTokenInfo <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-08 13:50:15.395  [HANG] Screen did not respond for 9464 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 13:50:16.153     (previous error repeated 4 more time(s))
+2026-10-08 13:50:16.154  [ERROR] WebException: The remote name could not be resolved: 'agentgateway.madhushalasoftware.com'
+   At: mdl_public_variables.CallApi <- mdl_GatewayAgent.GenerateAgentToken <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 14 (background)
+2026-10-08 14:43:35.943  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 17:01:41.409  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 17:02:07.740  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 17:02:51.842  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 17:03:13.053  [HANG] Screen did not respond for 9959 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 17:03:18.908  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 17:03:32.532  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 17:04:31.827  [TIMING] frm_countersales: created 856 ms after Add click, Load took 2692 ms
+2026-10-08 17:04:31.827  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 3549 ms
+2026-10-08 17:04:31.840  [HANG] Screen did not respond for 3563 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 17:04:31.856  [TIMING] frm_countersales: visible 3577 ms after Add click
+2026-10-08 17:06:39.517  [ERROR] DirectoryNotFoundException: Could not find a part of the path 'G:\Dhanbad\Rahul\backup'.
+   At: frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 17:06:41.436  [HANG] Screen did not respond for 3817 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- frm_countersales.saveOffShop <- frm_countersales.billSaveCheck <- frm_countersales.bt_save_Click <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 17:07:19.544  [TIMING] frm_countersales: created 511 ms after Add click, Load took 2621 ms
+2026-10-08 17:07:19.545  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 3132 ms
+2026-10-08 17:07:19.556  [HANG] Screen did not respond for 2966 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.DrawTextExW] frm_countersales.create_dataset_for_datagrid <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 17:07:19.561  [TIMING] frm_countersales: visible 3149 ms after Add click
+2026-10-08 17:07:33.815     (previous error repeated 1 more time(s))
+2026-10-08 17:07:33.817  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 10 (background)
+2026-10-08 17:08:57.527  [TIMING] frm_countersales: created 534 ms after Add click, Load took 2647 ms
+2026-10-08 17:08:57.528  [TIMING] frm_Form1 Add (count 1501): formshow() returned after 3182 ms
+2026-10-08 17:08:57.552  [HANG] Screen did not respond for 2967 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- frm_countersales.gettrn <- frm_countersales.create_dataset_for_datagrid <- frm_countersales.countersales_Load <- frm_countersales.OnLoad <- frm_Form1.formshow <- frm_Form1.bt_add_Click <- frm_Form1._Lambda$__255 <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 17:08:57.556  [TIMING] frm_countersales: visible 3210 ms after Add click
+2026-10-08 17:19:55.796  [HANG] Screen did not respond for 5027 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 17:20:08.289  [HANG-NOW] Screen frozen for 10235 ms so far.
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+2026-10-08 17:20:16.111  [HANG] Screen did not respond for 18058 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- frmDashboardShow.call_Reminder <- frmDashboardShow.Timer1_Tick <- MyApplication.Main
+   Form: frm_countersales ( Counter Sale) | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 17:30:05.310  [HANG] Screen did not respond for 2106 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.IntRestoreDC] MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 18:24:06.356  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00057 | Thread: 33 (background)
+2026-10-08 18:25:17.291  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 9 (background)
+2026-10-08 18:25:19.528  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 18:25:20.889  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.EnsureLoginColumns <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:31.156     (previous error repeated 2 more time(s))
+2026-10-08 18:25:31.163  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.EnsureLoginColumns <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:31.175     (previous error repeated 6 more time(s))
+2026-10-08 18:25:31.176  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.EnsureLoginColumns <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:31.492  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:31.493     (previous error repeated 1 more time(s))
+2026-10-08 18:25:31.493  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:31.706  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: Form1.PatchExciseGlobalTempTablesCore <- Form1(lambda)._Lambda$__29
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 7 (background)
+2026-10-08 18:25:31.997     (previous error repeated 2 more time(s))
+2026-10-08 18:25:31.998  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:31.999     (previous error repeated 1 more time(s))
+2026-10-08 18:25:31.999  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.002  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- mdl_public_variables.getCustomerID <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.681     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.682  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.683     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.684  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.684  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- mdl_public_variables.getAMCDate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.749     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.749  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.750     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.751  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.752  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.753     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.754  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.755  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.756     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.756  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.757  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.758     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.759  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.760  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.761     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.762  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.763  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.763     (previous error repeated 1 more time(s))
+2026-10-08 18:25:32.764  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:32.765  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- mdl_public_variables.EnsureCustomerRegistration <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.762     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.817  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getcompany <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.819     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.819  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getcompany <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.820  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- Form1.getcompany <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.822     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.823  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.824     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.826  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.830  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.831     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.832  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.833     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.833  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.834  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- Form1.FetchUserButtonList <- Form1.StartupWorkProc
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 6 (background)
+2026-10-08 18:25:35.846     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.847  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.848     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.849  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.849  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.850     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.850  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.851     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.852  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.852  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.853     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.854  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.854     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.855  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.856  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.856     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.857  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.857  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.858     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.858  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.859  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.860     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.860  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.861  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.862     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.862  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.864  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.865     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.866  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.executereader <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.867  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.868     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.868  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.869  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.870     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.870  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstringCore <- mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.871     (previous error repeated 1 more time(s))
+2026-10-08 18:25:35.871  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: mdl_public_variables.createconnectionstring <- mdl_public_variables.opencon <- cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:25:35.872  [ERROR] SqlException: Cannot open database "loyality_test" requested by the login. The login failed.  Login failed for user 'ABM-USER'.
+   SQL error 4060, line 65536
+   At: cls_conn.populate <- Form1.getButton <- Form1.StartupBuildUserButtons <- Form1(lambda)._Lambda$__17 <- MyApplication.Main
+   Form: Form1 (Form1) | User:  | Company:  | Counter:  | Thread: 1
+2026-10-08 18:26:15.358  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 18:26:34.136  [HANG] Screen did not respond for 8862 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.executereader <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-08 18:26:41.200  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form: frmDashboardNew (Business Dashboard) | User: Admin | Company: 2 | Counter: C00002 | Thread: 13 (background)
+2026-10-08 18:26:41.558  [HANG] Screen did not respond for 4856 ms (Not Responding).
+   Stuck at: [IntUnsafeNativeMethods.DrawTextExW] frm_companyparameter.InitializeComponent <- frm_companyparameter..ctor <- _Closure$__49._Lambda$__391 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-08 18:26:48.360  [HANG] Screen did not respond for 3946 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.CallWindowProc] _Closure$__49._Lambda$__391 <- MyApplication.Main
+   Form: frm_companyparameter (Company Parameter   [ABEER MALAD  |  Year 2026-2026]) | User: Admin | Company: 2 | Counter: C00002 | Thread: 1
+2026-10-08 18:43:50.877  ==================== Application started  (Madhushala Pro.exe 6.0.0.0, PC DESKTOP-3I2DOO7, Windows user user) ====================
+2026-10-08 18:44:16.445  [HANG] Screen did not respond for 9222 ms (Not Responding).
+   Stuck at: [SNINativeMethodWrapper.SNIReadSyncOverAsync] cls_conn.populate <- cls_conn.FixDiscountDivisionObjects <- Form1.loginall <- Form1.logincheckPOS <- Form1.CButton14_ClickButtonArea <- Form1.TextBox1_KeyDown <- MyApplication.Main
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
+2026-10-08 18:44:20.434  [ERROR] Win32Exception: The operation was canceled by the user
+   At: mdl_GatewayAgent.RunElevatedBatch <- mdl_GatewayAgent.InstallAgent <- mdl_GatewayAgent.AutoSetupAgent <- frmDashboardShow._Lambda$__453
+   Form:  () | User: Admin | Company: 2 | Counter: C00057 | Thread: 13 (background)
+2026-10-08 18:57:18.016  [HANG] Screen did not respond for 2557 ms (Not Responding).
+   Stuck at: [UnsafeNativeMethods.PeekMessage] MyApplication.Main
+   Form:  | User: Admin | Company: 2 | Counter: C00057 | Thread: 1
