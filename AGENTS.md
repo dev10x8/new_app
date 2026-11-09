@@ -40,9 +40,10 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   (counter, customer, area, manufacturer, NAI, scheme/offer, excise item,
   report tagging, transfer sale/receive, notes, on-a/c, a/c replace, BRS, UPI,
   delivery, deleted-bill archive, message log, sync status, audit, PML, version,
-  remote Tally sync). It is applied on every `openDatabase` (idempotent
+  remote Tally sync, **state excise sync**). It is applied on every
+  `openDatabase` (idempotent
   `CREATE TABLE IF NOT EXISTS`; `ALTER ADD COLUMN` re-runs are ignored).
-  Total **82 tables**. Seeds live in `seed.sql` and `seed_ext.sql`.
+  Total **88 tables**. Seeds live in `seed.sql` and `seed_ext.sql`.
 - **Services** (`backend/src/services/`): `auth`, `masters` (generic CRUD; see
   `MASTERS` registry), `sales` (POS), `purchase`, `stock`, `vouchers`,
   `accounting` (double entry), `reports`, `reportCatalog` (113 declarative
@@ -50,14 +51,21 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   `admin` (parameters, new-year carry-forward, excise audit), `tools`
   (calculator, backup, tally, SMS, PML, sync, clean print), `tally`
   (remote Tally Prime twin-agent sync: config, mapping, auto-enqueue, XML
-  envelopes, ack/retry, inbound masters, sync report).
+  envelopes, ack/retry, inbound masters, sync report), `excise`
+  (state excise compliance sync: capture on billing, pluggable per-state
+  adapters with two modes — `api` (WB EODB: token auth + push) and `portal`
+  (Odisha State Excise portal: stage batch + agent confirm) — pre-validation
+  gate, closing-balance push, portal inbound). See
+  `new_code/docs/EXCISE_SYNC_DESIGN.md`.
 - **Report catalog** is one declarative table in `reportCatalog.js`; the
   report menu is generated from `/api/report-groups`, not hard-coded. Counts:
   sales 32, stock 20, purchase 10, accounts 14, MIS 12, breakage 2, transfer 2,
   excise 21.
-- **Tests**: `cd new_code/backend && npm test` (34 tests across
-  `test/services.test.js` and `test/features.test.js`, fresh temp DB each;
-  includes a test that runs every catalog report).
+- **Tests**: `cd new_code/backend && npm test` (50 tests across
+  `test/services.test.js`, `test/features.test.js` and `test/excise.test.js`,
+  fresh temp DB each; includes a test that runs every catalog report, and
+  excise tests that drive a **real local HTTP fake** of the state excise API —
+  no mocks).
 - **Run**: `cd new_code && npm start` (backend + web UI). Login `A00001` / `admin`.
 - **UI**: `web/` is a framework-free SPA (HTML/CSS/JS) served by `web/server.js`
   (static + `/api` proxy). It is also the frontend of the Tauri desktop app

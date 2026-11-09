@@ -419,6 +419,88 @@ CREATE TABLE IF NOT EXISTS [tbl_TallyInbound] (
   [appliedat] TEXT
 );
 
+-- ---- state excise compliance sync (WB EODB + portal) ----
+-- Per-company excise settings: which state adapter, endpoints and credentials.
+CREATE TABLE IF NOT EXISTS [tbl_ExciseConfig] (
+  [companycode] TEXT NOT NULL,
+  [state] TEXT DEFAULT 'WB',
+  [endpointbase] TEXT,
+  [licenseeid] TEXT,
+  [credential] TEXT,
+  [autoupload] INTEGER DEFAULT 0,
+  [lastuploadat] TEXT,
+  [updatedat] TEXT,
+  PRIMARY KEY ([companycode])
+);
+
+-- Outbound sale/return ledger pushed to the state excise API. One row per
+-- (sale line, GTIN, pack size, MRP); quantity is signed (negative on returns).
+CREATE TABLE IF NOT EXISTS [tbl_ExciseQueue] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT NOT NULL,
+  [sourcetable] TEXT,
+  [sourcetrnno] TEXT,
+  [trndate] TEXT,
+  [gtin] TEXT,
+  [packsize] TEXT,
+  [mrp] REAL DEFAULT 0,
+  [quantity] INTEGER DEFAULT 0,
+  [status] TEXT DEFAULT 'PENDING',
+  [attempts] INTEGER DEFAULT 0,
+  [lasterror] TEXT,
+  [createdat] TEXT,
+  [updatedat] TEXT,
+  [ackedat] TEXT,
+  UNIQUE ([companycode], [sourcetable], [sourcetrnno], [gtin], [packsize], [mrp])
+);
+
+-- One row per excise upload attempt (audit / diagnostics).
+CREATE TABLE IF NOT EXISTS [tbl_ExciseLog] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [queueid] INTEGER,
+  [companycode] TEXT,
+  [direction] TEXT,
+  [action] TEXT,
+  [status] TEXT,
+  [message] TEXT,
+  [loggedat] TEXT
+);
+
+-- Daily closing stock pushed back to the state portal.
+CREATE TABLE IF NOT EXISTS [tbl_ExciseClosingBalance] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT NOT NULL,
+  [balancedate] TEXT,
+  [gtin] TEXT,
+  [packsize] TEXT,
+  [mrp] REAL DEFAULT 0,
+  [closingqty] INTEGER DEFAULT 0,
+  [status] TEXT DEFAULT 'PENDING',
+  [attempts] INTEGER DEFAULT 0,
+  [lasterror] TEXT,
+  [createdat] TEXT,
+  [updatedat] TEXT,
+  [ackedat] TEXT,
+  UNIQUE ([companycode], [balancedate], [gtin], [packsize], [mrp])
+);
+
+-- Indents / transport permits pulled from the state portal (the Selenium
+-- "1-click import" output) and pending review before they hit purchases.
+CREATE TABLE IF NOT EXISTS [tbl_ExcisePortalInbound] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [doctype] TEXT,
+  [docno] TEXT,
+  [docdate] TEXT,
+  [tppassno] TEXT,
+  [payload] TEXT,
+  [status] TEXT DEFAULT 'RECEIVED',
+  [receivedat] TEXT,
+  [appliedat] TEXT
+);
+
 -- ---- additive columns on the generated schema (SQLite ALTER ADD COLUMN) ----
 ALTER TABLE [itemmst] ADD COLUMN [manufcode] TEXT;
 ALTER TABLE [itemmst] ADD COLUMN [expirydate] TEXT;

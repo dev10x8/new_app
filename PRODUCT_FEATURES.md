@@ -266,6 +266,31 @@ transactions. Item master defines packing/ML/strength and links to sales rates.
 - Excise upload helper `ExciseSalesUploadOld.exe` downloaded from
   `ftp://13.235.37.46/ExciseUploadExe/`; `frm_exciseform` drives entry/upload.
 
+#### 3.8.1 How the legacy app actually syncs excise (West Bengal)
+Two independent mechanisms, both WB-specific; see
+`new_code/docs/EXCISE_SYNC_DESIGN.md` for the full write-up.
+
+- **Track A — direct state API push (WB EODB).** Each item carries an excise
+  identity: GTIN (`itemmst.barcode`), Pack_Size (`itemmst.ml`), MRP
+  (`itemmst.salesrate`). `InsertExciseRecords` upserts each sale/return line
+  into the local table `tblTempSaleRecordExcise` (returns use negative
+  quantity). `ExciseSalesUpload.exe` then POSTs to
+  `.../EODBPLA/CheckAuthorization` for a `TokenCode` (retries 5× on HTTP 429)
+  and pushes each row to `.../EODBPLA/InsertPosData` with a `Tokencode` header;
+  success deletes the row, failures go to `Frm_FailedExciseRecords`. Credentials
+  come from `companymast` (`LicenseNo` + `/01`, `faxno`).
+- **Track B — Selenium browser automation (WBSBCL / BEVCO portal).** Bundled
+  `chromedriver.exe` + `WebDriver.dll` drive a real Chrome: `login()` opens
+  `.../WBSBCL/Bevco/NIC/UserLogin/Login.aspx`, fills credentials, screenshots
+  the CAPTCHA for a human to type; `RecieveConsignment()` clicks through the
+  portal to import indents / transport permits; `ExcisePdfImport/` ingests
+  BEVCO depot invoice PDFs.
+- **Pre-validation gate.** The upload screen reconciles the queue against
+  `itemmst` on `barcode=GTIN AND ml=Pack_Size AND salesrate=MRP`; non-matches go
+  to an "unmatched data" grid for manual correction.
+- Sync is **operator-triggered** and the payloads are **plain JSON** (not
+  encrypted), despite the marketing page's "automatic encrypted" claim.
+
 ### 3.9 Data sync (multi-branch / central)
 1. `Data Sync` opens `frmDataUploadProgress`; user needs `users.saledatasync`
    and online sync enabled in `companyparamtr`.
@@ -324,3 +349,36 @@ bill numbers render as `FL`/`CS`/`NAI` + `trnno`.
 > Note: credentials and connection strings appear in plaintext in the config and
 > database as shipped; this is a legacy design, documented here for
 > completeness, not as a recommendation.
+
+---
+
+## 6. Rebuild (`new_code`) — excise sync
+
+The rebuild implements the real West Bengal two-track mechanism described in
+§3.8.1 as `backend/src/services/excise.js`, exposed under `/api/excise/*` and
+the web screen **Tools → Excise Sync**. Design: `new_code/docs/EXCISE_SYNC_DESIGN.md`.
+
+- **Capture at billing** (`captureSale`): each sale/return line is queued in
+  `tbl_ExciseQueue` by excise identity (GTIN / pack size / MRP); returns carry a
+  negative quantity. Called best-effort from `sales.createSale` — billing never
+  blocks on the network.
+- **Pluggable state adapter**: `ADAPTERS` registry with two modes. `WB` ships
+  in **api** mode (EODB `CheckAuthorization` → `InsertPosData`, `Tokencode`
+  header, exact legacy payloads); `OD` ships in **portal** mode (Odisha State
+  Excise portal — stage sales/closing batches as `SENT`, shop-side portal agent
+  uploads, then confirm). Other states are added without touching billing.
+- **Upload** (`uploadQueue`): api mode authorizes then pushes each `PENDING`
+  line (success → `ACKED`, kept for audit; failure → `FAILED` + `lasterror`;
+  HTTP 429 retried ×5). Portal mode stages lines as `SENT` and builds the
+  submission batch (`buildPortalBatch`); the agent reports back via
+  `confirmUploaded`. `retryFailed` requeues `FAILED` in either mode.
+- **Pre-validation gate** (`validateQueue`): lines whose GTIN + pack size + MRP
+  no longer match `itemmst` are surfaced (and skipped on upload unless forced).
+- **Closing-balance push** (`buildClosingBalance` / `uploadClosingBalance`):
+  per-GTIN daily closing stock pushed back to the portal (the "closing balance
+  sync" from the marketing page).
+- **Portal inbound** (`receiveInbound` / `applyInbound`): indents / transport
+  permits pulled from the portal are recorded and applied into a purchase
+  (stock + TP pass number), replacing the manual Selenium click-through.
+- Tests: `test/excise.test.js` drives a **real local HTTP fake** of the state
+  API — no mocks.

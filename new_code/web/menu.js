@@ -105,6 +105,7 @@ export const NAV = [
       { title: 'Data Restore', route: 'restore' },
       { title: 'Export To Tally', route: 'tally' },
       { title: 'Remote Tally Sync', route: 'tally-sync' },
+      { title: 'Excise Sync', route: 'excise-sync' },
       { title: 'SMS / WhatsApp', route: 'messages' },
       { title: 'PML Print and Reports', route: 'pml' },
       { title: 'Clean Print Garbage', route: 'clean-print' },

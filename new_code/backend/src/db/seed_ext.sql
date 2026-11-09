@@ -59,3 +59,9 @@ INSERT OR IGNORE INTO Version (id, version, updatedat) VALUES
 
 UPDATE itemmst SET manufcode='M00001', expirydate='2026-12-31' WHERE itemcode IN ('I00001','I00002');
 UPDATE itemmst SET manufcode='M00002', expirydate='2025-06-30' WHERE itemcode='I00003';
+
+-- excise sync: default (disabled) West Bengal config for company 1.
+INSERT OR IGNORE INTO tbl_ExciseConfig
+  (companycode, state, endpointbase, licenseeid, credential, autoupload, updatedat)
+VALUES
+  ('1', 'WB', 'https://excise.wb.gov.in/APIEODB/EODBPLA', '', '', 0, '2024-04-01');

@@ -129,6 +129,26 @@ export const api = {
   deleteTallyMapping: (id) => req('DELETE', `/api/tally/mapping/${id}`),
   tallyInbound: (status) => req('GET', `/api/tally/inbound${status ? `?status=${status}` : ''}`),
   applyTallyInbound: (id) => req('POST', '/api/tally/inbound/apply', { id }),
+
+  exciseAdapters: () => req('GET', '/api/excise/adapters'),
+  exciseConfig: () => req('GET', '/api/excise/config'),
+  saveExciseConfig: (c) => req('PUT', '/api/excise/config', c),
+  exciseQueue: (status) => req('GET', `/api/excise/queue${status ? `?status=${status}` : ''}`),
+  exciseSummary: () => req('GET', '/api/excise/summary'),
+  exciseCapture: (trnno) => req('POST', '/api/excise/capture', trnno ? { trnno } : {}),
+  exciseUpload: (opts = {}) => req('POST', '/api/excise/upload', opts),
+  exciseRetry: () => req('POST', '/api/excise/retry'),
+  excisePortalBatch: () => req('GET', '/api/excise/portal-batch'),
+  confirmExcisePortal: (payload) => req('POST', '/api/excise/portal-confirm', payload),
+  exciseUnmatched: () => req('GET', '/api/excise/unmatched'),
+  exciseClosingBalance: (date) => req('GET', `/api/excise/closing-balance${date ? `?date=${date}` : ''}`),
+  buildExciseClosingBalance: (date) => req('POST', '/api/excise/closing-balance/build', { date }),
+  uploadExciseClosingBalance: (date) => req('POST', '/api/excise/closing-balance/upload', { date }),
+  exciseInbound: (status) => req('GET', `/api/excise/inbound${status ? `?status=${status}` : ''}`),
+  receiveExciseInbound: (doc) => req('POST', '/api/excise/inbound', doc),
+  applyExciseInbound: (id) => req('POST', '/api/excise/inbound/apply', { id }),
+  exciseLogs: () => req('GET', '/api/excise/logs'),
+  exciseReport: () => req('GET', '/api/excise/report'),
 };
 
 export default api;

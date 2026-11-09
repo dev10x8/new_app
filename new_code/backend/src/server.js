@@ -14,6 +14,7 @@ import * as admin from './services/admin.js';
 import * as txn from './services/transactions.js';
 import * as tools from './services/tools.js';
 import * as tally from './services/tally.js';
+import * as excise from './services/excise.js';
 import { nextTrnNo } from './services/helpers.js';
 
 const db = openDatabase(config.dbFile);
@@ -196,6 +197,39 @@ route('POST', '/api/tally/inbound', (b) => {
   tally.touchPush(db, config.company);
   return { received: masters.length };
 });
+
+// ---- state excise compliance sync ----
+route('GET', '/api/excise/adapters', () => excise.listAdapters());
+route('GET', '/api/excise/config', () => excise.getConfig(db, config.company));
+route('PUT', '/api/excise/config', (b) => excise.saveConfig(db, config.company, b));
+route('GET', '/api/excise/queue', (b, p, q) => excise.queue(db, config.company, { status: q.get('status') }));
+route('GET', '/api/excise/summary', () => excise.queueSummary(db, config.company));
+route('POST', '/api/excise/capture', (b) => (b && b.trnno
+  ? { captured: excise.captureSale(db, { company: config.company, year: config.year, trnno: b.trnno }) }
+  : excise.captureAll(db, config.company, config.year)));
+route('POST', '/api/excise/upload', (b) => excise.uploadQueue(db, {
+  company: config.company, state: b && b.state, force: !!(b && b.force),
+}));
+route('POST', '/api/excise/retry', () => excise.retryFailed(db, config.company));
+route('GET', '/api/excise/portal-batch', (b, p, q) => excise.buildPortalBatch(db, config.company, {
+  state: q.get('state'), status: q.get('status') || undefined,
+}));
+route('POST', '/api/excise/portal-confirm', (b) => excise.confirmUploaded(db, config.company, b || {}));
+route('GET', '/api/excise/unmatched', () => excise.validateQueue(db, config.company));
+route('GET', '/api/excise/closing-balance', (b, p, q) => {
+  const date = q.get('date');
+  if (q.get('build') === '1' && date) excise.buildClosingBalance(db, { company: config.company, year: config.year, date });
+  return excise.listClosingBalance(db, config.company, date);
+});
+route('POST', '/api/excise/closing-balance/build', (b) => excise.buildClosingBalance(db,
+  { company: config.company, year: config.year, date: (b && b.date) }));
+route('POST', '/api/excise/closing-balance/upload', (b) => excise.uploadClosingBalance(db,
+  { company: config.company, state: b && b.state, date: b && b.date }));
+route('GET', '/api/excise/inbound', (b, p, q) => excise.listInbound(db, config.company, q.get('status')));
+route('POST', '/api/excise/inbound', (b) => ({ id: excise.receiveInbound(db, config.company, b) }));
+route('POST', '/api/excise/inbound/apply', (b) => excise.applyInbound(db, config.company, b.id));
+route('GET', '/api/excise/logs', () => excise.logs(db, config.company));
+route('GET', '/api/excise/report', () => excise.syncReport(db, config.company));
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);

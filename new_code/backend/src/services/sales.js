@@ -2,6 +2,7 @@ import { all, get, run, tx } from '../db/index.js';
 import { money, nextBillNo, nextTrnId, billPrefix, now } from './helpers.js';
 import { postVoucher } from './accounting.js';
 import { getConfig, enqueueSale } from './tally.js';
+import { captureSale } from './excise.js';
 
 const SALE_TYPES = ['FL', 'CS', 'NAI', 'CASH', 'CREDIT', 'CREDIT CARD', 'CREDIT ACCOUNT', 'RETURN'];
 
@@ -100,6 +101,10 @@ export function createSale(db, sale) {
       try { enqueueSale(db, sale.company, sale.year, trnno); }
       catch { /* never block billing on sync queueing */ }
     }
+
+    // Excise compliance capture (best-effort; never blocks billing).
+    try { captureSale(db, { company: sale.company, year: sale.year, trnno }); }
+    catch { /* excise queueing is non-fatal */ }
 
     return { trnno, trnid, amount, discamount, netamount, prefix: billPrefix(sale.salestype), lines: resolved.length };
   });

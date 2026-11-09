@@ -902,6 +902,174 @@ async function tallySyncScreen(ctx) {
       logTable));
 }
 
+// --------------------------------------------------------------- excise sync
+const EXCISE_STATUS_BADGE = { PENDING: '', SENT: 'warn', ACKED: 'ok', FAILED: 'error' };
+
+async function exciseSyncScreen(ctx) {
+  const [cfg, adapters, summary, queue, unmatched, inbound, report] = await Promise.all([
+    api.exciseConfig(), api.exciseAdapters(), api.exciseSummary(), api.exciseQueue(),
+    api.exciseUnmatched(), api.exciseInbound(), api.exciseReport(),
+  ]);
+
+  // --- configuration ---
+  const stateSel = select('state', adapters.map((a) => ({ value: a.state, label: a.label })), cfg.state || 'WB');
+  const autoupload = h('input', { type: 'checkbox', name: 'autoupload' });
+  autoupload.checked = !!cfg.autoupload;
+  const cfgForm = form([
+    [['State', stateSel], ['Licensee ID', input('licenseeid', cfg.licenseeid || '')]],
+    [['Endpoint base', input('endpointbase', cfg.endpointbase || '')],
+     ['Credential', h('input', { name: 'credential', type: 'password', value: cfg.credential || '' })]],
+    [['Auto-upload when online', autoupload]],
+  ], async (d) => {
+    await api.saveExciseConfig({ ...d, autoupload: autoupload.checked });
+    ctx.toast('Excise settings saved', 'ok');
+    ctx.navigate(ctx.state.route);
+  });
+
+  // --- status + actions ---
+  const stat = (label, value, kind = '') => h('div', { class: 'card stat' },
+    h('div', { class: 'k' }, label), h('div', { class: `v${kind ? ` ${kind}` : ''}` }, String(value)));
+  const stats = h('div', { class: 'grid cols-4' },
+    stat('Pending', summary.PENDING, summary.PENDING ? 'warn' : ''),
+    stat('Sent to portal', summary.SENT, summary.SENT ? 'warn' : ''),
+    stat('Uploaded', summary.ACKED),
+    stat('Failed', summary.FAILED, summary.FAILED ? 'danger' : ''));
+  const stats2 = h('div', { class: 'grid cols-4' },
+    stat('Unmatched', unmatched.length, unmatched.length ? 'danger' : ''),
+    stat('Total', summary.total));
+
+  const act = (label, fn, cls = 'btn') => {
+    const b = h('button', { class: cls }, label);
+    b.onclick = async () => {
+      try { const r = await fn(); ctx.toast(typeof r === 'string' ? r : `${label} done`, 'ok'); ctx.navigate(ctx.state.route); }
+      catch (e) { ctx.toast(e.message, 'error'); }
+    };
+    return b;
+  };
+  const adapter = adapters.find((a) => a.state === cfg.state) || adapters[0] || {};
+  const isPortal = adapter.mode === 'portal';
+  const actions = h('div', { class: 'toolbar' },
+    act('Capture pending bills', async () => { const r = await api.exciseCapture(); return `${r.captured} line(s) captured`; }, 'btn primary'),
+    act(isPortal ? 'Stage for portal agent' : 'Upload to portal', async () => {
+      const r = await api.exciseUpload();
+      return isPortal ? `${r.staged} staged for the portal agent` : `${r.acked} uploaded, ${r.failed} failed, ${r.skipped} skipped`;
+    }),
+    act('Retry failed', async () => { const r = await api.exciseRetry(); return `${r.retried} requeued`; }),
+    act('Refresh', async () => ''));
+
+  // --- portal batch (portal-mode states, e.g. Odisha) ---
+  let portalCard = null;
+  if (isPortal) {
+    const dl = h('button', { class: 'btn' }, 'Export batch (JSON)');
+    dl.onclick = async () => {
+      try {
+        const batch = await api.excisePortalBatch();
+        const blob = new Blob([JSON.stringify(batch, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = h('a', { href: url, download: `excise-portal-${cfg.state}.json` });
+        a.click(); URL.revokeObjectURL(url);
+        ctx.toast(`${batch.count} line(s) exported`, 'ok');
+      } catch (e) { ctx.toast(e.message, 'error'); }
+    };
+    const conf = h('button', { class: 'btn primary' }, 'Confirm all sent as uploaded');
+    conf.onclick = async () => {
+      try {
+        const ids = queue.filter((r) => r.status === 'SENT').map((r) => r.id);
+        if (!ids.length) { ctx.toast('Nothing staged', 'warn'); return; }
+        const r = await api.confirmExcisePortal({ results: ids.map((id) => ({ id, status: 'ACKED' })) });
+        ctx.toast(`${r.acked} confirmed`, 'ok'); ctx.navigate(ctx.state.route);
+      } catch (e) { ctx.toast(e.message, 'error'); }
+    };
+    portalCard = h('div', { class: 'card' },
+      h('h3', {}, `Portal agent — ${adapter.label}`),
+      h('p', { class: 'muted' }, `This state has no direct JSON API. Sales and closing-balance lines are staged (status SENT) and submitted through the state excise portal (${adapter.defaultBase}) by the shop-side agent, which signs in at the login page and uploads the batch. Confirm here once the portal shows the lines accepted.`),
+      h('div', { class: 'toolbar' }, dl, conf));
+  }
+
+  // --- closing balance ---
+  const cbDate = input('date', new Date().toISOString().slice(0, 10), 'date');
+  const cbBtn = h('button', { class: 'btn' }, 'Build closing balance');
+  cbBtn.onclick = async () => {
+    try { const r = await api.buildExciseClosingBalance(cbDate.value); ctx.toast(`${r.lines} closing line(s) built`, 'ok'); ctx.navigate(ctx.state.route); }
+    catch (e) { ctx.toast(e.message, 'error'); }
+  };
+  const cbUpBtn = h('button', { class: 'btn' }, 'Upload closing balance');
+  cbUpBtn.onclick = async () => {
+    try {
+      const r = await api.uploadExciseClosingBalance(cbDate.value);
+      const msg = r.mode === 'portal' ? `${r.staged} line(s) staged for the portal agent` : `${r.acked} uploaded, ${r.failed} failed`;
+      ctx.toast(msg, 'ok'); ctx.navigate(ctx.state.route);
+    }
+    catch (e) { ctx.toast(e.message, 'error'); }
+  };
+
+  // --- tables ---
+  const queueTable = table([
+    { key: 'id', title: '#' }, { key: 'trndate', title: 'Date' }, { key: 'gtin', title: 'GTIN' },
+    { key: 'packsize', title: 'Pack' }, { key: 'mrp', title: 'MRP', money: true },
+    { key: 'quantity', title: 'Qty', num: true }, { key: 'attempts', title: 'Tries', num: true },
+    { key: 'status', title: 'Status', badge: (r) => EXCISE_STATUS_BADGE[r.status] || '' },
+    { key: 'lasterror', title: 'Last error' },
+  ], queue);
+
+  const unmatchedTable = table([
+    { key: 'sourcetrnno', title: 'Bill' }, { key: 'gtin', title: 'GTIN' },
+    { key: 'packsize', title: 'Pack' }, { key: 'mrp', title: 'MRP', money: true },
+    { key: 'quantity', title: 'Qty', num: true },
+  ], unmatched);
+
+  const inboundTable = table([
+    { key: 'doctype', title: 'Type' }, { key: 'docno', title: 'Doc' }, { key: 'docdate', title: 'Date' },
+    { key: 'tppassno', title: 'TP pass' },
+    { key: 'status', title: 'Status', badge: (r) => (r.status === 'APPLIED' ? 'ok' : 'warn') },
+  ], inbound);
+  [...(inboundTable.querySelector('tbody')?.rows || [])].forEach((tr, i) => {
+    const row = inbound[i];
+    tr.append(h('td', {}, row.status === 'APPLIED' ? '—' : h('button', { class: 'btn small', onclick: async () => {
+      try { await api.applyExciseInbound(row.id); ctx.toast('Applied into purchase', 'ok'); ctx.navigate(ctx.state.route); }
+      catch (e) { ctx.toast(e.message, 'error'); }
+    } }, 'Apply')));
+  });
+  if (inbound.length) inboundTable.querySelector('thead tr').append(h('th', {}, ''));
+
+  const logTable = table([
+    { key: 'loggedat', title: 'When' }, { key: 'direction', title: 'Dir' }, { key: 'action', title: 'Action' },
+    { key: 'status', title: 'Status', badge: (r) => EXCISE_STATUS_BADGE[r.status] || '' },
+    { key: 'message', title: 'Message' },
+  ], report.logs);
+
+  return h('div', {},
+    h('div', { class: 'card' },
+      h('h3', {}, 'State Excise Compliance Sync'),
+      h('p', { class: 'muted' }, 'Offline-first excise compliance. Every sale and return line is queued locally by its excise identity (GTIN / pack size / MRP) at billing; pending lines upload to the state EODB API when the connection is available. Daily closing balances are pushed back to the portal, and indents / transport permits pulled from the portal are reviewed and applied here. Billing and printing never depend on the network.')),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Status'),
+      stats,
+      stats2,
+      actions),
+    portalCard,
+    h('div', { class: 'card' },
+      h('h3', {}, 'State settings'),
+      cfgForm,
+      h('p', { class: 'muted' }, `Last upload: ${cfg.lastuploadat || '—'}`)),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Outbound queue'),
+      queueTable),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Pre-validation gate — unmatched lines'),
+      h('p', { class: 'muted' }, 'Lines whose GTIN + pack size + MRP no longer match the item master. These are skipped on upload until corrected.'),
+      unmatchedTable),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Closing balance'),
+      h('div', { class: 'toolbar' }, field('Date', cbDate), cbBtn, cbUpBtn)),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Portal documents received'),
+      inboundTable),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Sync log'),
+      logTable));
+}
+
 // --------------------------------------------------------------- help
 function aboutScreen() {
   return h('div', { class: 'card' }, h('h3', {}, 'About Madhushala Pro'),
@@ -961,6 +1129,7 @@ export async function screens(route, ctx) {
   if (route === 'restore') return restoreScreen(ctx);
   if (route === 'tally') return tallyScreen(ctx);
   if (route === 'tally-sync') return tallySyncScreen(ctx);
+  if (route === 'excise-sync') return exciseSyncScreen(ctx);
   if (route === 'messages') return messagesScreen(ctx);
   if (route === 'pml') return pmlScreen(ctx);
   if (route === 'clean-print') return cleanPrintScreen(ctx);
