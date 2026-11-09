@@ -14,6 +14,7 @@
     "seed-demo": "node scripts/seed_demo.js",
     "reset-admin-pin": "node scripts/reset_admin_pin.js",
     "screenshots": "node scripts/capture_screenshots.js",
+    "guides": "python3 docs/build_user_guide.py",
     "gen-schema": "npm --prefix backend run gen-schema",
     "test": "npm --prefix backend test"
   },

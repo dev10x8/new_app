@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Build the Madhushala Pro user guide PDF (Admin and non-admin flows).
+"""Build the Madhushala Pro user guide PDFs.
+
+Four guides are produced from one content base, each illustrated with real
+screenshots and a per-flow legacy mapping table (WinForms form / SQL Server
+table -> rebuilt screen):
+
+  * Madhushala_Pro_User_Guide.pdf              - all roles (full reference)
+  * Madhushala_Pro_User_Guide_POS_User.pdf     - POS / counter operator
+  * Madhushala_Pro_User_Guide_Accountant.pdf   - accountant / back office
+  * Madhushala_Pro_User_Guide_Admin.pdf        - administrator
 
 Content is written from the application's own sources:
   * new_code/web/menu.js        - navigation tree (mirrors legacy frm_main)
@@ -16,12 +25,14 @@ The screenshots are produced by:
     npm run seed-demo                   # load the demo dataset
     npm run screenshots                 # capture docs/screenshots/*.png (CDP)
 
-Run:  python3 build_user_guide.py   ->  Madhushala_Pro_User_Guide.pdf
+Run:  python3 build_user_guide.py   ->  all four PDFs
+      python3 build_user_guide.py pos   ->  just one profile (all|pos|accountant|admin)
 """
 
 from __future__ import annotations
 
 import os
+import sys
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -52,6 +63,17 @@ SHOTS = os.path.join(HERE, "screenshots")
 
 BUILD_DATE = "8 November 2026"
 VERSION = "2.0"
+
+# Populated per profile by configure(). Kept module-level so the page templates
+# and the story builder can read the active profile.
+PROFILE = None
+
+
+def configure(profile):
+    """Point the module-level OUTPUT and PROFILE at a profile (see PROFILES)."""
+    global PROFILE, OUT
+    PROFILE = profile
+    OUT = os.path.join(HERE, profile["file"])
 
 # --------------------------------------------------------------------------
 # Fonts (DejaVu has the full glyph set we need, incl. the rupee sign).
@@ -144,7 +166,7 @@ class GuideDoc(BaseDocTemplate):
         canvas.setFont("Body", 7.8)
         canvas.setFillColor(MUTED)
         canvas.drawString(self.leftMargin, y + 2.4 * mm, "Madhushala Pro - User Guide")
-        canvas.drawRightString(A4[0] - self.rightMargin, y + 2.4 * mm, "Admin and User Flows")
+        canvas.drawRightString(A4[0] - self.rightMargin, y + 2.4 * mm, PROFILE["header"])
         fy = 11 * mm
         canvas.line(self.leftMargin, fy + 4 * mm, A4[0] - self.rightMargin, fy + 4 * mm)
         canvas.setFont("Body", 7.8)
@@ -986,6 +1008,172 @@ LEGACY_FOR = {
 
 
 # ==========================================================================
+# PROFILES - one guide per audience. Each guide is generated from the same
+# FLOWS list, filtered to the titles relevant to the role and framed with a
+# role-specific cover and introduction. Screenshots and the per-flow legacy
+# mapping table are attached automatically (see SHOTS_FOR / LEGACY_FOR).
+# ==========================================================================
+_ALL_TITLES = [f["title"] for f in FLOWS]
+
+_POS_TITLES = [
+    "Signing in", "Signing out", "Changing your own PIN",
+    "Understanding roles: Admin vs User",
+    "Dashboard (Sales / Stock status)",
+    "Billing a sale at the counter (Sale - POS)", "Viewing the Sales Register",
+    "Day close (refresh the sale summary)",
+    "Counter / transfer sale", "Transfer receive", "Recording breakage", "Excise fine",
+    "Home delivery orders", "QRCode / UPI payment",
+    "Adding an item (Item Master)",
+    "Maintaining other masters (generic add / edit / delete)", "Schemes and offers",
+    "State excise compliance sync",
+    "Calculator", "SMS / WhatsApp messages", "PML print and reports",
+    "Default accounts and sample data", "Getting help",
+]
+
+_BAR_TITLES = [
+    "Signing in", "Signing out", "Changing your own PIN",
+    "Understanding roles: Admin vs User",
+    "Dashboard (Sales / Stock status)",
+    "Billing a sale at the counter (Sale - POS)", "Viewing the Sales Register",
+    "Counter / transfer sale", "Transfer receive", "Recording breakage",
+    "Home delivery orders", "QRCode / UPI payment",
+    "Adding an item (Item Master)",
+    "Maintaining other masters (generic add / edit / delete)",
+    "State excise compliance sync",
+    "Calculator", "PML print and reports", "SMS / WhatsApp messages",
+    "Default accounts and sample data", "Getting help",
+]
+
+_ACCOUNTANT_TITLES = [
+    "Signing in", "Signing out", "Changing your own PIN",
+    "Understanding roles: Admin vs User",
+    "Dashboard (Sales / Stock status)",
+    "Viewing the Sales Register", "Day close (refresh the sale summary)",
+    "Recording a purchase (goods receipt)", "Opening stock", "Stock transfer between stores",
+    "Recording breakage", "Counter / transfer sale", "Transfer receive",
+    "Payment entry", "Receipt entry", "Contra entry (cash / bank)", "Journal entry",
+    "Debit note and Credit note", "On A/C adjustment", "A/C replace (ledger substitution)",
+    "BRS entry (bank reconciliation)", "QRCode / UPI payment", "Excise fine",
+    "Home delivery orders",
+    "Adding an item (Item Master)",
+    "Maintaining other masters (generic add / edit / delete)", "Schemes and offers",
+    "Running a report",
+    "Export to Tally (file export)", "What Remote Tally Sync does", "Reading the sync log",
+    "State excise compliance sync",
+    "Calculator", "PML print and reports",
+    "Default accounts and sample data", "Getting help",
+]
+
+PROFILES = [
+    dict(
+        key="all",
+        file="Madhushala_Pro_User_Guide.pdf",
+        cover_sub="User Guide - Admin and User Flows",
+        header="Admin and User Flows",
+        blurb="Bar and Liquor POS and management system. This guide walks through every "
+              "screen and business flow for both the administrator and the counter / "
+              "back-office user, from signing in and billing a sale to masters, reports, "
+              "administration, state excise compliance and the connectionless Remote "
+              "Tally Sync. Every flow is illustrated with a screenshot of the rebuilt "
+              "application and a map back to the original WinForms form and SQL Server "
+              "table.",
+        audience="shop owners, counter operators and accountants",
+        roles=[
+            "<b>Admin</b> - full menu, including company setup, users, rights and all tools.",
+            "<b>User</b> (non-admin) - counter and back-office work: billing, purchases, stock, vouchers, reports and everyday tools.",
+            "Screens are grouped into Parts A to G; the menu path is shown for each flow.",
+        ],
+        titles=None,
+        forgot_pin=True,
+    ),
+    dict(
+        key="pos",
+        file="Madhushala_Pro_User_Guide_POS_User.pdf",
+        cover_sub="POS / Counter Operator Guide",
+        header="POS / Counter Operator Guide",
+        blurb="A day at the counter, start to finish. Sign in, bill a sale on the POS, take "
+              "UPI / QR payments, handle home delivery, transfers and breakage, look up a "
+              "bill in the Sales Register, and keep every sale line queued for the state "
+              "excise portal. Written for the operator standing at the counter, with a "
+              "screenshot for every step.",
+        audience="counter operators and cashiers",
+        roles=[
+            "<b>Your job</b> - serve customers quickly: bill sales, take payment, and record the counter's daily transactions.",
+            "You sign in with your own <b>User Code</b> and <b>PIN</b>; your menu shows only the screens you are allowed to use.",
+            "Billing and printing never wait for the network - excise lines queue locally and upload later.",
+        ],
+        titles=_POS_TITLES,
+        forgot_pin=False,
+    ),
+    dict(
+        key="bar",
+        file="Madhushala_Pro_User_Guide_Bar_User.pdf",
+        cover_sub="Bar Counter Guide",
+        header="Bar Counter Guide",
+        blurb="Behind the bar. Serve and bill drinks at the bar counter, open and close a "
+              "tab, record transfers and breakage, take UPI / QR payment, and keep the bar's "
+              "stock and excise lines straight. Written for the bar staff, with a screenshot "
+              "for every step.",
+        audience="bar staff and bartenders",
+        roles=[
+            "<b>Your job</b> - serve the bar: open a bill, add drinks, take payment and close the tab.",
+            "You sign in with your own <b>User Code</b> and <b>PIN</b>; your menu shows the bar and counter screens you are allowed to use.",
+            "Record spillage as <b>Breakage</b> and moves between the bar and the store as a <b>Stock Transfer</b>.",
+        ],
+        titles=_BAR_TITLES,
+        forgot_pin=False,
+    ),
+    dict(
+        key="accountant",
+        file="Madhushala_Pro_User_Guide_Accountant.pdf",
+        cover_sub="Accountant / Back Office Guide",
+        header="Accountant / Back Office Guide",
+        blurb="The books, the vouchers and the month-end. Purchases and stock, payment / "
+              "receipt / contra / journal vouchers, debit and credit notes, bank "
+              "reconciliation, Tally export and sync, the excise position and the reports "
+              "that matter. Written for the accountant and the back office, with a "
+              "screenshot for every step and a map back to the legacy form and table.",
+        audience="accountants and back-office staff",
+        roles=[
+            "<b>Your job</b> - keep the books accurate: post purchases and vouchers, reconcile the bank, watch the excise position and run the reports.",
+            "Most screens post to the general ledger; keep the books balanced (a journal must balance).",
+            "Tally export (file) and Remote Tally Sync carry the data to the accounting system.",
+        ],
+        titles=_ACCOUNTANT_TITLES,
+        forgot_pin=False,
+    ),
+    dict(
+        key="admin",
+        file="Madhushala_Pro_User_Guide_Admin.pdf",
+        cover_sub="Administrator Guide",
+        header="Administrator Guide",
+        blurb="The full manual for the administrator: the complete menu. Company setup and "
+              "parameters, the financial year, users and rights, the everyday operations "
+              "you also run, the data and maintenance tools, Remote Tally Sync and state "
+              "excise compliance. Every flow is illustrated with a screenshot and a map "
+              "back to the original WinForms form and SQL Server table.",
+        audience="administrators and system owners",
+        roles=[
+            "<b>Admin</b> - the full menu: company setup, parameters, users, rights, every transaction, every tool and every sync.",
+            "<b>Your job</b> - set the company up, control who can do what, keep the data safe and the sync running.",
+            "This guide covers the whole menu; the POS / Counter Operator and Accountant guides cover those roles in focus.",
+        ],
+        titles=_ALL_TITLES,
+        forgot_pin=True,
+    ),
+]
+
+
+def selected_flows():
+    """The flows for the active profile, in canonical order."""
+    titles = PROFILE["titles"]
+    if titles is None:
+        return list(FLOWS)
+    wanted = set(titles)
+    return [f for f in FLOWS if f["title"] in wanted]
+
+
+# ==========================================================================
 # STORY
 # ==========================================================================
 def cover_story():
@@ -993,17 +1181,9 @@ def cover_story():
         Spacer(1, 62 * mm),
         P("Madhushala Pro", "cover_title"),
         Spacer(1, 3 * mm),
-        P("User Guide - Admin and User Flows", "cover_sub"),
+        P(PROFILE["cover_sub"], "cover_sub"),
         Spacer(1, 8 * mm),
-        Table([[Paragraph(
-            "Bar and Liquor POS and management system. This guide walks through every "
-            "screen and business flow for both the administrator and the counter / "
-            "back-office user, from signing in and billing a sale to masters, reports, "
-            "administration, state excise compliance and the connectionless Remote "
-            "Tally Sync. Every flow is illustrated with a screenshot of the rebuilt "
-            "application and a map back to the original WinForms form and SQL Server "
-            "table.",
-            S["cover_meta"])]], colWidths=[150 * mm],
+        Table([[Paragraph(PROFILE["blurb"], S["cover_meta"])]], colWidths=[150 * mm],
             style=TableStyle([("LEFTPADDING", (0, 0), (-1, -1), 0),
                               ("RIGHTPADDING", (0, 0), (-1, -1), 0),
                               ("TOPPADDING", (0, 0), (-1, -1), 0),
@@ -1011,8 +1191,7 @@ def cover_story():
         Spacer(1, 12 * mm),
         Paragraph(f"Version {VERSION} &nbsp;&bull;&nbsp; {BUILD_DATE}", S["cover_meta"]),
         Spacer(1, 2 * mm),
-        Paragraph("Prepared for: shop owners, counter operators and accountants",
-                  S["cover_meta"]),
+        Paragraph(f"Prepared for: {PROFILE['audience']}", S["cover_meta"]),
     ]
 
 
@@ -1036,11 +1215,8 @@ def build_story(doc):
                    "<b>where</b> it lives in the menu, and <b>what</b> it is for, followed by "
                    "numbered steps and any notes."))
     story.append(Spacer(1, 3 * mm))
-    story.append(callout("Roles in this guide", [
-        "<b>Admin</b> - full menu, including company setup, users, rights and all tools.",
-        "<b>User</b> (non-admin) - counter and back-office work: billing, purchases, stock, vouchers, reports and everyday tools.",
-        "Screens are grouped into Parts A to G; the menu path is shown for each flow.",
-    ], accent=ACCENT, bg=colors.HexColor("#eef2ff")))
+    story.append(callout("Roles in this guide", PROFILE["roles"],
+                         accent=ACCENT, bg=colors.HexColor("#eef2ff")))
     story.append(Spacer(1, 3 * mm))
     story.append(callout("Conventions", [
         "Menu paths use a dash, for example <b>Tools - Change Password</b>.",
@@ -1073,16 +1249,17 @@ def build_story(doc):
         "Remote Tally Sync configured with 10 queued vouchers (9 delivered, 1 failed); state "
         "excise sync configured for West Bengal with 11 captured bills and a closing balance.",
     ]))
-    story.append(Spacer(1, 3 * mm))
-    story.append(callout("Forgot the admin PIN?", [
-        "Reset it in one command against the running database:",
-        "<font face='Mono'>node scripts/reset_admin_pin.js A00001 1234</font>",
-        "See the flow <b>Forgot the admin PIN</b> in Part F for the signed-in and server options.",
-    ], accent=ACCENT, bg=colors.HexColor("#eef2ff")))
+    if PROFILE["forgot_pin"]:
+        story.append(Spacer(1, 3 * mm))
+        story.append(callout("Forgot the admin PIN?", [
+            "Reset it in one command against the running database:",
+            "<font face='Mono'>node scripts/reset_admin_pin.js A00001 1234</font>",
+            "See the flow <b>Forgot the admin PIN</b> in Part F for the signed-in and server options.",
+        ], accent=ACCENT, bg=colors.HexColor("#eef2ff")))
 
     seen_section = None
     seen_group = None
-    for f in FLOWS:
+    for f in selected_flows():
         block = []
         if f["section"] != seen_section:
             seen_section = f["section"]
@@ -1120,11 +1297,23 @@ def build_story(doc):
     return story
 
 
-def main():
+def build_one(profile):
+    configure(profile)
     doc = GuideDoc(OUT)
-    story = build_story(doc)
-    doc.multiBuild(story)
-    print(f"Wrote {OUT}")
+    doc.multiBuild(build_story(doc))
+    print(f"Wrote {os.path.relpath(OUT, HERE)}  ({profile['cover_sub']})")
+
+
+def main():
+    want = sys.argv[1] if len(sys.argv) > 1 else None
+    profiles = PROFILES
+    if want:
+        profiles = [p for p in PROFILES if p["key"] == want]
+        if not profiles:
+            keys = ", ".join(p["key"] for p in PROFILES)
+            raise SystemExit(f"Unknown profile '{want}'. Choose one of: {keys}")
+    for p in profiles:
+        build_one(p)
 
 
 if __name__ == "__main__":
