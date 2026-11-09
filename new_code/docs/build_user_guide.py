@@ -754,7 +754,7 @@ FLOWS = [
          notes=["For the automatic, connectionless exchange with the accountant's Tally Prime, use Remote Tally Sync in Part F instead."]),
 
     # ---------------------------------------------------------- tally sync
-    dict(section="Part F - Remote Tally Sync", group=None, title="What Remote Tally Sync does",
+    dict(section="Part F - Integrations and compliance", group=None, title="What Remote Tally Sync does",
          role="Admin (setup) and User (billing)", route="Tools - Remote Tally Sync",
          purpose="Exchange vouchers and masters with the accountant's Tally Prime without a live connection.",
          steps=[
@@ -764,7 +764,7 @@ FLOWS = [
              "Ledger and stock-item masters flow back the other way, so the counter keeps the accountant's chart of accounts.",
              "Billing and printing never depend on the connection: pending vouchers simply wait in the local queue.",
          ]),
-    dict(section="Part F - Remote Tally Sync", group=None, title="Setting up the sync agent",
+    dict(section="Part F - Integrations and compliance", group=None, title="Setting up the sync agent",
          role="Admin", route="Tools - Remote Tally Sync - Agent settings",
          purpose="Connect this shop to the broker once.",
          steps=[
@@ -774,7 +774,7 @@ FLOWS = [
              "Select <b>Save</b>. The status cards and the <b>Last pull</b> / <b>Last push</b> line update.",
          ],
          notes=["With the feature disabled no vouchers are queued and billing is unaffected."]),
-    dict(section="Part F - Remote Tally Sync", group=None, title="Queueing and delivering vouchers",
+    dict(section="Part F - Integrations and compliance", group=None, title="Queueing and delivering vouchers",
          role="Admin", route="Tools - Remote Tally Sync - Outbound queue",
          purpose="Send saved vouchers to the broker and track delivery.",
          steps=[
@@ -785,7 +785,7 @@ FLOWS = [
              "Select <b>Retry failed</b> to requeue anything that failed.",
          ],
          notes=["Statuses: PENDING (waiting), SENT (handed to the broker), ACKED (delivered), FAILED (needs a retry)."]),
-    dict(section="Part F - Remote Tally Sync", group=None, title="Ledger and tax auto-mapping",
+    dict(section="Part F - Integrations and compliance", group=None, title="Ledger and tax auto-mapping",
          role="Admin", route="Tools - Remote Tally Sync - Ledger / tax auto-mapping",
          purpose="Tell the sync how POS values map to Tally masters.",
          steps=[
@@ -794,7 +794,7 @@ FLOWS = [
              "Select <b>Save</b>. The rule is listed with its priority and active flag.",
              "Select <b>Delete</b> on a rule to remove it.",
          ]),
-    dict(section="Part F - Remote Tally Sync", group=None, title="Applying masters received from Tally",
+    dict(section="Part F - Integrations and compliance", group=None, title="Applying masters received from Tally",
          role="Admin", route="Tools - Remote Tally Sync - Masters received from Tally",
          purpose="Bring the accountant's ledgers and stock items into the counter.",
          steps=[
@@ -802,12 +802,12 @@ FLOWS = [
              "For a row with status <b>PENDING</b>, select <b>Apply</b> to upsert it into the local masters.",
              "The status changes to <b>APPLIED</b> and the <b>Sync log</b> records the action.",
          ]),
-    dict(section="Part F - Remote Tally Sync", group=None, title="Reading the sync log",
+    dict(section="Part F - Integrations and compliance", group=None, title="Reading the sync log",
          role="Admin", route="Tools - Remote Tally Sync - Sync log",
          purpose="Audit what the agent sent and received.",
          steps=["Open <b>Tools - Remote Tally Sync</b> and scroll to <b>Sync log</b>.",
                "Read when, the direction, the action, the status and the message for each entry."]),
-    dict(section="Part F - Remote Tally Sync", group="State excise", title="State excise compliance sync",
+    dict(section="Part F - Integrations and compliance", group="State excise", title="State excise compliance sync",
          role="Admin (setup) and User (billing)",
          route="Tools - Excise Sync",
          purpose="Queue every sale line for the state excise portal by its excise identity, upload when "
@@ -830,7 +830,59 @@ FLOWS = [
              "The pre-validation gate compares GTIN + pack size + MRP against the item master before upload; mismatches are held back as unmatched.",
              "West Bengal uses the <font face='Mono'>api</font> adapter (token auth + push); Odisha uses the <font face='Mono'>portal</font> adapter (stage a batch + agent confirm).",
          ]),
-    dict(section="Part F - Remote Tally Sync", group="Account recovery", title="Forgot the admin PIN",
+    dict(section="Part F - Integrations and compliance", group="GST", title="GST setup and the item rate card",
+         role="Admin", route="Tools - GST / Returns",
+         purpose="Record the company GSTIN and each item's GST rate so GST is computed at billing "
+                 "and printed on the tax invoice.",
+         steps=[
+             "Open <b>Tools - GST / Returns</b>.",
+             "In <b>Company GST settings</b>, fill in the <b>GSTIN</b>, <b>State Code</b>, <b>Legal Name</b> and <b>Trade Name</b>. These print on the tax invoice.",
+             "If you file through a GSP, enter the <b>GSP Endpoint</b>, <b>Client ID</b> and <b>Client Secret</b>, and set <b>Auto-file</b> as required.",
+             "Select <b>Save</b> to store the settings.",
+             "Check the <b>Item GST rate card</b> at the bottom of the screen. It lists every item with its <b>CGST %</b>, <b>SGST %</b>, <b>IGST %</b>, <b>Cess %</b>, total rate and the <b>Type</b>.",
+             "<b>Type</b> is <b>Exclusive</b> when GST is added on top of the line amount and <b>Inclusive</b> when GST is backed out of the amount. Rates come from the item master (alcohol) and the NAI item master (non-alcohol).",
+             "To change a rate, edit the item in <b>Masters - Item Master</b> (or <b>NAI Item Master</b>); the rate card here reflects it immediately.",
+         ],
+         notes=[
+             "Intra-state sales carry CGST + SGST; inter-state sales carry IGST. The split is applied line by line at billing.",
+             "GSTIN prints on the tax invoice alongside the party GSTIN; use <b>View tax invoice</b> on a bill in the Sales Register.",
+         ]),
+    dict(section="Part F - Integrations and compliance", group="GST", title="Generating and filing a GST return (GSTR-1 / GSTR-3B)",
+         role="Admin", route="Tools - GST / Returns",
+         purpose="Build the GSTR-1 (outward supplies) or GSTR-3B (summary + input tax credit) return "
+                 "for a period, inspect the e-filing JSON and record the filing.",
+         steps=[
+             "Open <b>Tools - GST / Returns</b>.",
+             "In <b>Generate a return</b>, pick the <b>Return type</b> (<font face='Mono'>GSTR1</font> or <font face='Mono'>GSTR3B</font>) and the <b>Period</b> (for example <font face='Mono'>2024-04</font>), then select <b>Save</b>.",
+             "The return appears in the <b>Returns</b> table with its status (<font face='Mono'>GENERATED</font>), taxable value, tax and the period.",
+             "Select <b>JSON</b> on the row to inspect the e-filing payload. GSTR-1 is invoice-wise for registered buyers (b2b) and consolidated per rate for the rest (b2cs); GSTR-3B is the summary by rate with the input tax credit and net payable.",
+             "Select <b>File</b> on the row to record the filing. The return status becomes <font face='Mono'>FILED</font> and an <b>ARN</b> is stamped.",
+             "Every generate / file action is appended to the <b>Filing log</b> at the bottom of the screen.",
+         ],
+         notes=[
+             "Returns are stored per period in the GST returns table; re-generating a period rebuilds it from the current bills.",
+             "Filing is an explicit offline step that records the ARN. Connect the GSP endpoint in the settings to file live.",
+             "The tax totals are computed from each bill line's taxable value and GST split, so keep the item rate card correct.",
+         ]),
+    dict(section="Part F - Integrations and compliance", group="GST", title="GST reports",
+         role="Admin and Accountant", route="Reports - GST Reports (and Tools - GST / Returns)",
+         purpose="Review GST position: the legacy rate-slab report, bill-wise detail, the GSTR-1 / "
+                 "GSTR-3B summaries, the purchase input-tax register and the returns filed.",
+         steps=[
+             "Open <b>Reports - GST Reports</b>. The group holds six reports:",
+             "<b>NAI GST Report (rate slab)</b> - taxable value, CGST, SGST, IGST, cess and quantity grouped by GST rate.",
+             "<b>NAI GST Detail (bill-wise)</b> - the same figures shown per bill.",
+             "<b>GSTR-1 (Outward Supplies)</b> - the outward supply rows behind the GSTR-1 return.",
+             "<b>GSTR-3B Summary by Rate</b> - the summary-by-rate rows behind the GSTR-3B return.",
+             "<b>GST Purchase Register (ITC)</b> - purchases with the input tax credit split.",
+             "<b>GST Returns Filed</b> - every return generated or filed, with period and status.",
+             "From <b>Tools - GST / Returns</b> you can also run <b>Rate slab</b>, <b>GSTR-1</b> and <b>GSTR-3B</b> directly for a <b>From</b> / <b>To</b> date range.",
+         ],
+         notes=[
+             "The rate-slab report replaces the legacy <b>NAI GST Report</b> in the Sales group and the <b>Purchase NAI GST Report</b> in the Purchase group.",
+             "Use the date range to reconcile a month against the return you filed for the same period.",
+         ]),
+    dict(section="Part F - Integrations and compliance", group="Account recovery", title="Forgot the admin PIN",
          role="Admin", route="Tools - Change Password, Admin - User, or the API",
          purpose="Regain access when the administrator PIN is lost.",
          steps=[
@@ -936,6 +988,13 @@ SHOTS_FOR = {
     "Applying masters received from Tally": [("tool-tally-sync", "Masters received from Tally.")],
     "Reading the sync log": [("tool-tally-sync", "Sync log.")],
     "Excise compliance sync (state portal)": [("tool-excise-sync", "State excise compliance sync.")],
+    "GST setup and the item rate card": [
+        ("tool-gst", "Tools - GST / Returns: company GST settings, return generation, the item GST rate card and the filing log."),
+    ],
+    "Generating and filing a GST return (GSTR-1 / GSTR-3B)": [
+        ("tool-gst", "Generate a return for a period, inspect the JSON and record the filing."),
+    ],
+    "GST reports": [("reports-gst", "Reports - GST Reports: the six GST reports.")],
     "Forgot the admin PIN": [("tool-change-password", "Change Password, or reset the PIN for any user from Admin - User.")],
     "Getting help": [("help-ask", "Help - Ask for Help."), ("help-about", "Help - About Madhushala Pro.")],
 }
@@ -1002,6 +1061,18 @@ LEGACY_FOR = {
     "Applying masters received from Tally": [("inbound masters", "Remote Tally Sync - Masters received")],
     "Reading the sync log": [("sync log", "Remote Tally Sync - Sync log")],
     "Excise compliance sync (state portal)": [("frm_exciseform / ExciseSalesUpload.exe", "Excise Sync (WB api mode + Odisha portal mode)")],
+    "GST setup and the item rate card": [
+        ("itemmst / naiItemMaster GST rate columns", "Tools - GST / Returns - item rate card"),
+        ("company GST config", "Tools - GST / Returns - Company GST settings"),
+    ],
+    "Generating and filing a GST return (GSTR-1 / GSTR-3B)": [
+        ("NAI GST Report / salesbillmain + salesbilldetail", "Tools - GST / Returns - GSTR-1 / GSTR-3B"),
+        ("new: return filing (legacy had no return build)", "gst.buildReturn / gst.fileReturn, tbl_GstReturn + tbl_GstReturnLog"),
+    ],
+    "GST reports": [
+        ("Sales - NAI GST Report", "Reports - GST - NAI GST Report (rate slab) / Detail"),
+        ("Purchase - Purchase NAI GST Report", "Reports - GST - GST Purchase Register (ITC)"),
+    ],
     "Forgot the admin PIN": [("users.password (plaintext)", "Change Password / Reset PIN / scripts/reset_admin_pin.js")],
     "Getting help": [("frm_ask4help / frm_AboutBox1", "Help menu")],
 }
@@ -1060,6 +1131,8 @@ _ACCOUNTANT_TITLES = [
     "Running a report",
     "Export to Tally (file export)", "What Remote Tally Sync does", "Reading the sync log",
     "State excise compliance sync",
+    "GST setup and the item rate card", "Generating and filing a GST return (GSTR-1 / GSTR-3B)",
+    "GST reports",
     "Calculator", "PML print and reports",
     "Default accounts and sample data", "Getting help",
 ]
@@ -1073,8 +1146,8 @@ PROFILES = [
         blurb="Bar and Liquor POS and management system. This guide walks through every "
               "screen and business flow for both the administrator and the counter / "
               "back-office user, from signing in and billing a sale to masters, reports, "
-              "administration, state excise compliance and the connectionless Remote "
-              "Tally Sync. Every flow is illustrated with a screenshot of the rebuilt "
+              "administration, state excise and GST compliance and the connectionless "
+              "Remote Tally Sync. Every flow is illustrated with a screenshot of the rebuilt "
               "application and a map back to the original WinForms form and SQL Server "
               "table.",
         audience="shop owners, counter operators and accountants",
@@ -1130,12 +1203,12 @@ PROFILES = [
         header="Accountant / Back Office Guide",
         blurb="The books, the vouchers and the month-end. Purchases and stock, payment / "
               "receipt / contra / journal vouchers, debit and credit notes, bank "
-              "reconciliation, Tally export and sync, the excise position and the reports "
-              "that matter. Written for the accountant and the back office, with a "
-              "screenshot for every step and a map back to the legacy form and table.",
+              "reconciliation, Tally export and sync, the excise position, GST returns and "
+              "the reports that matter. Written for the accountant and the back office, with "
+              "a screenshot for every step and a map back to the legacy form and table.",
         audience="accountants and back-office staff",
         roles=[
-            "<b>Your job</b> - keep the books accurate: post purchases and vouchers, reconcile the bank, watch the excise position and run the reports.",
+            "<b>Your job</b> - keep the books accurate: post purchases and vouchers, reconcile the bank, watch the excise and GST position and run the reports.",
             "Most screens post to the general ledger; keep the books balanced (a journal must balance).",
             "Tally export (file) and Remote Tally Sync carry the data to the accounting system.",
         ],
@@ -1150,8 +1223,8 @@ PROFILES = [
         blurb="The full manual for the administrator: the complete menu. Company setup and "
               "parameters, the financial year, users and rights, the everyday operations "
               "you also run, the data and maintenance tools, Remote Tally Sync and state "
-              "excise compliance. Every flow is illustrated with a screenshot and a map "
-              "back to the original WinForms form and SQL Server table.",
+              "excise and GST compliance. Every flow is illustrated with a screenshot and a "
+              "map back to the original WinForms form and SQL Server table.",
         audience="administrators and system owners",
         roles=[
             "<b>Admin</b> - the full menu: company setup, parameters, users, rights, every transaction, every tool and every sync.",
@@ -1248,6 +1321,8 @@ def build_story(doc):
         "delivery order.",
         "Remote Tally Sync configured with 10 queued vouchers (9 delivered, 1 failed); state "
         "excise sync configured for West Bengal with 11 captured bills and a closing balance.",
+        "GST rates on every item (CGST / SGST split), a company GSTIN, and a GSTR-1 return "
+        "for <font face='Mono'>2024-04</font> generated from the demo bills.",
     ]))
     if PROFILE["forgot_pin"]:
         story.append(Spacer(1, 3 * mm))

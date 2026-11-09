@@ -382,3 +382,36 @@ the web screen **Tools → Excise Sync**. Design: `new_code/docs/EXCISE_SYNC_DES
   (stock + TP pass number), replacing the manual Selenium click-through.
 - Tests: `test/excise.test.js` drives a **real local HTTP fake** of the state
   API — no mocks.
+
+---
+
+## 7. Rebuild (`new_code`) — GST
+
+The rebuild adds a full GST layer (the legacy app only had the two GST-named
+reports, `NAI GST Report` in Sales and `Purchase NAI GST Report` in Purchase).
+Implementation: `backend/src/services/gst.js`, exposed under `/api/gst/*` and
+the web screen **Tools → GST / Returns** (route `gst`), plus a dedicated
+**Reports → GST Reports** group.
+
+- **Item rate card**: GST rates live on `itemmst` (alcohol) and `naiItemMaster`
+  (non-alcohol) — `cgst`, `sgst`, `igst`, `cess`, `addcess`, `baseprice`, a
+  `gsttype` flag and the ten input/output tax ledgers, mirroring the legacy NAI
+  item master. `gsttype` keeps the legacy meaning: 0 = exclusive (GST added on
+  top), 1 = inclusive (GST backed out).
+- **Capture at billing**: each sale/purchase line stores `taxable`, `cgst`,
+  `sgst`, `igst`, `cess`, `addcess` and `gstp`; intra-state lines carry
+  CGST+SGST, inter-state lines carry IGST. Purchases also store the input-tax
+  ledger heads (for ITC) and the supplier GSTIN on `purchasemain`.
+- **Tax invoice**: company + party GSTIN print on the invoice
+  (`gst.taxInvoice`, `/api/gst/invoice/:trnno`).
+- **Returns**: built per `YYYY-MM` period into `tbl_GstReturn`
+  (DRAFT → GENERATED → FILED) with an append-only `tbl_GstReturnLog` audit
+  trail. GSTR-1 is invoice-wise outward supplies (b2b) plus a per-rate b2cs
+  summary; GSTR-3B is the summary by rate plus ITC and net payable. "Filing" is
+  an explicit offline step that stamps an ARN; `gst.fileReturn` can be wired to
+  a GSP/GSTN endpoint for live e-filing.
+- **Reports (6)**: `NAI GST Report (rate slab)`, `NAI GST Detail (bill-wise)`,
+  `GSTR-1 (Outward Supplies)`, `GSTR-3B Summary by Rate`,
+  `GST Purchase Register (ITC)`, `GST Returns Filed`.
+- Config lives in `tbl_GstConfig` (GSTIN, state code, legal/trade name, GSP
+  endpoint + credentials, auto-file). Tests: `test/gst.test.js`.

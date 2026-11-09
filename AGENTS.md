@@ -45,7 +45,8 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   `tbl_GstConfig`). It is applied on every
   `openDatabase` (idempotent
   `CREATE TABLE IF NOT EXISTS`; `ALTER ADD COLUMN` re-runs are ignored).
-  Total **91 tables**. Seeds live in `seed.sql` and `seed_ext.sql`.
+  Total **90 tables** (45 + 45; SQLite adds its internal `sqlite_sequence`).
+  Seeds live in `seed.sql` and `seed_ext.sql`.
 - **Services** (`backend/src/services/`): `auth`, `masters` (generic CRUD; see
   `MASTERS` registry), `sales` (POS), `purchase`, `stock`, `vouchers`,
   `accounting` (double entry), `reports`, `reportCatalog` (119 declarative
@@ -81,7 +82,8 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   Pillow) from one content base into five PDFs — a combined `Madhushala_Pro_
   User_Guide.pdf` plus role guides for **POS User**, **Bar User**, **Accountant**
   and **Admin**. Each embeds the screenshots and, per flow, a legacy mapping
-  table (WinForms form / SQL Server table -> rebuilt screen). Rebuild:
+  table (WinForms form / SQL Server table -> rebuilt screen); the GST setup,
+  return-filing and GST reports flows are included. Rebuild:
   `npm run guides` (or `python3 docs/build_user_guide.py [all|pos|bar|accountant|
   admin]`). It needs the screenshots, so run `npm run screenshots` first.
 - **UI**: `web/` is a framework-free SPA (HTML/CSS/JS) served by `web/server.js`

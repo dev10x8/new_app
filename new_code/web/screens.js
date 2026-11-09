@@ -1268,7 +1268,8 @@ function helpScreen() {
 function updatesScreen() {
   return h('div', { class: 'card' }, h('h3', {}, 'List of Updates'),
     h('ul', {}, h('li', {}, 'Web/Tauri frontend replacing the terminal UI'),
-      h('li', {}, '78-table schema, full report catalog (113 reports)'),
+      h('li', {}, '90-table schema, full report catalog (119 reports)'),
+      h('li', {}, 'GST: item rates, per-line capture, GSTR-1 / GSTR-3B returns and filing'),
       h('li', {}, 'Docker Compose for backend + frontend')));
 }
 

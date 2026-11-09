@@ -114,7 +114,9 @@ new_code/
 │   │   └── reset.js          # drop + recreate + reseed the database
 │   └── test/
 │       ├── services.test.js  # core service tests
-│       └── features.test.js  # extended feature + report catalog tests
+│       ├── features.test.js  # extended feature + report catalog tests
+│       ├── excise.test.js    # state excise sync (real local HTTP fake)
+│       └── gst.test.js       # GST rate card, GSTR-1/3B, filing
 ├── web/                      # the UI (frontend of the Tauri desktop app)
 │   ├── index.html            # single page shell
 │   ├── app.js                # shell, router, session
@@ -127,12 +129,18 @@ new_code/
 ├── tauri/                    # desktop shell (Web + Rust)
 │   ├── package.json          # @tauri-apps/cli
 │   └── src-tauri/            # Rust crate + tauri.conf.json + icons
+├── docs/                     # user guides + screenshots
+│   ├── build_user_guide.py   # generates the five role PDFs
+│   ├── screenshots/          # captured by scripts/capture_screenshots.js
+│   └── Madhushala_Pro_User_Guide*.pdf
 ├── data/madhushala.db        # created on first run
 └── scripts/start.js          # backend + web launcher
 ```
 
-The SQLite database ends up with **78 tables**: the 45 from the original DDL
-(`schema.sql`) plus 33 added for the fuller feature set (`schema_ext.sql`).
+The SQLite database ends up with **90 tables**: the 45 from the original DDL
+(`schema.sql`) plus 45 added for the fuller feature set (`schema_ext.sql`,
+including the GST tables `tbl_GstReturn`, `tbl_GstReturnLog` and
+`tbl_GstConfig`).
 
 ## Business flows implemented
 
@@ -145,13 +153,16 @@ The SQLite database ends up with **78 tables**: the 45 from the original DDL
 | Accounts & vouchers (§3.5) | `services/vouchers.js` + `services/accounting.js` (double entry) |
 | Stock (§3.6) | `services/stock.js` (opening stock, transfer, breakage, on-hand) |
 | Day close (§3.7) | `sales.dayClose` + `sales.salesSummary` |
-| Reports (§2.5) | `services/reportCatalog.js` — 113 reports in 8 groups |
+| Reports (§2.5) | `services/reportCatalog.js` — 119 reports in 9 groups |
 | Dash board (§2.7) | `reports.dashboard` + catalog-backed status screens |
 | Transfer sale / receive | `services/transactions.js` |
 | Debit / credit notes, on-a/c, a/c replace | `services/transactions.js` |
 | Excise fine, BRS, QR/UPI, home delivery | `services/transactions.js` |
 | New year carry-forward, parameters, excise audit | `services/admin.js` |
 | Tools (calculator, backup, tally, SMS, PML, sync, clean print) | `services/tools.js` |
+| GST (item rates, per-line capture, GSTR-1/3B, filing) | `services/gst.js` |
+| Remote Tally Sync (§Tally) | `services/tally.js` |
+| State excise compliance sync | `services/excise.js` |
 
 Voucher numbering keeps the legacy format: bills render as `FL` / `CS` / `NAI`
 plus a running number (e.g. `FL00001`).
@@ -342,14 +353,16 @@ The backend exposes a small JSON API (`{ ok, data }` / `{ ok, error }`):
 npm test
 ```
 
-34 tests (two files) cover seeding, login, PIN reset, purchases, POS sales,
+60 tests (four files) cover seeding, login, PIN reset, purchases, POS sales,
 stock movement (transfer, breakage, returns), day close, vouchers, reports and
 master CRUD, plus the extended features: transfer sale/receive, debit/credit
 notes, on-a/c and a/c replace, excise fine, BRS, UPI, delivery, deleted-bill
 archiving, new-year carry-forward, parameters, excise audit, tools (calculator,
 messages, sync, PML, clean print, backup), remote Tally sync (auto-enqueue,
-voucher XML, ack, retry, inbound masters, token guard, sync report), and that
-**all 113 catalog reports execute**. Every test uses a fresh temporary database.
+voucher XML, ack, retry, inbound masters, token guard, sync report), the state
+excise sync (driven against a real local HTTP fake of the portal API), GST
+(item rate card, per-line split, GSTR-1/3B, filing), and that **all 119 catalog
+reports execute**. Every test uses a fresh temporary database.
 
 ## Forgot the admin PIN?
 
@@ -392,6 +405,29 @@ payable. "Filing" is an explicit offline step that stamps an ARN; wire
 | Tax invoice (company + party GSTIN) | `gst.taxInvoice` `/api/gst/invoice/:trnno` |
 | Screen | Tools > GST / Returns (route `gst`) |
 | Reports | Reports > GST Reports (`gst.*` catalog keys) |
+
+## User guides
+
+`docs/` holds five generated PDF guides, one content base rendered per audience.
+They cover the full menu, including the GST / Returns screen and the GST Reports
+group, with a screenshot and a legacy-mapping table for every flow.
+
+| Guide | Audience |
+| --- | --- |
+| `Madhushala_Pro_User_Guide.pdf` | Admin and User flows (combined) |
+| `Madhushala_Pro_User_Guide_POS_User.pdf` | Counter operators / cashiers |
+| `Madhushala_Pro_User_Guide_Bar_User.pdf` | Bar staff / bartenders |
+| `Madhushala_Pro_User_Guide_Accountant.pdf` | Accountants / back office |
+| `Madhushala_Pro_User_Guide_Admin.pdf` | Administrators |
+
+Rebuild them (needs the screenshots first):
+
+```bash
+npm run screenshots     # capture docs/screenshots/*.png (app must be running)
+npm run guides          # or: python3 docs/build_user_guide.py [all|pos|bar|accountant|admin]
+```
+
+`npm run guides` needs `reportlab` and `Pillow` (`pip install reportlab pillow`).
 
 ## Notes & scope
 
