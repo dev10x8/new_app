@@ -85,6 +85,7 @@ export const NAV = [
       { title: 'Breakage Reports', route: 'reports:breakage' },
       { title: 'Stock Transfer Reports', route: 'reports:transfer' },
       { title: 'Excise Reports', route: 'reports:excise' },
+      { title: 'GST Reports', route: 'reports:gst' },
     ],
   },
   {
@@ -106,6 +107,7 @@ export const NAV = [
       { title: 'Export To Tally', route: 'tally' },
       { title: 'Remote Tally Sync', route: 'tally-sync' },
       { title: 'Excise Sync', route: 'excise-sync' },
+      { title: 'GST / Returns', route: 'gst' },
       { title: 'SMS / WhatsApp', route: 'messages' },
       { title: 'PML Print and Reports', route: 'pml' },
       { title: 'Clean Print Garbage', route: 'clean-print' },

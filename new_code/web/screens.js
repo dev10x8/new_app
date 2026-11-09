@@ -385,19 +385,48 @@ const statCard = (k, v) => h('div', { class: 'stat' }, h('div', { class: 'k' }, 
 
 async function salesRegister(ctx) {
   const rows = await api.sales({});
+  const t = table([
+    { key: 'trnno', title: 'Bill No' },
+    { key: 'trndate', title: 'Date' },
+    { key: 'salestype', title: 'Type' },
+    { key: 'storecode', title: 'Store' },
+    { key: 'ledgercode', title: 'Party' },
+    { key: 'amount', title: 'Gross', money: true, num: true },
+    { key: 'netamount', title: 'Net', money: true, num: true },
+  ], rows);
+  const tbody = t.querySelector('tbody');
+  [...(tbody?.rows || [])].forEach((tr, i) => {
+    tr.append(h('td', {}, h('button', {
+      class: 'btn small',
+      onclick: async () => {
+        const inv = await api.gstInvoice(rows[i].trnno);
+        if (!inv) return ctx.toast('Invoice not found', 'error');
+        ctx.openModal(`Tax Invoice ${inv.invoice.trnno}`, h('div', {},
+          h('p', {}, h('b', {}, inv.seller.name), ` — GSTIN ${inv.seller.gstin || '—'}`),
+          h('p', { class: 'muted' }, inv.seller.address || ''),
+          h('p', {}, `Buyer: ${inv.buyer.name || '—'}${inv.buyer.gstin ? ` (GSTIN ${inv.buyer.gstin})` : ''}`),
+          table([
+            { key: 'itemname', title: 'Item' }, { key: 'qnty', title: 'Qty', num: true },
+            { key: 'taxable', title: 'Taxable', money: true, num: true },
+            { key: 'gstp', title: 'Rate', num: true },
+            { key: 'cgst', title: 'CGST', money: true, num: true },
+            { key: 'sgst', title: 'SGST', money: true, num: true },
+            { key: 'igst', title: 'IGST', money: true, num: true },
+            { key: 'cess', title: 'Cess', money: true, num: true },
+          ], inv.lines),
+          h('div', { class: 'grid cols-3' },
+            statCard('Taxable', money(inv.totals.taxable)), statCard('CGST', money(inv.totals.cgst)),
+            statCard('SGST', money(inv.totals.sgst)), statCard('IGST', money(inv.totals.igst)),
+            statCard('Cess', money(inv.totals.cess)), statCard('Bill Net', money(inv.invoice.netamount)))));
+      },
+    }, 'Tax Invoice')));
+  });
+  t.querySelector('thead tr').append(h('th', {}, ''));
   return h('div', {},
     h('div', { class: 'toolbar' },
       h('button', { class: 'btn', onclick: () => ctx.navigate('sale') }, '＋ New Sale'),
       h('span', { class: 'muted small' }, `${rows.length} bill(s)`)),
-    table([
-      { key: 'trnno', title: 'Bill No' },
-      { key: 'trndate', title: 'Date' },
-      { key: 'salestype', title: 'Type' },
-      { key: 'storecode', title: 'Store' },
-      { key: 'ledgercode', title: 'Party' },
-      { key: 'amount', title: 'Gross', money: true, num: true },
-      { key: 'netamount', title: 'Net', money: true, num: true },
-    ], rows));
+    t);
 }
 
 // --------------------------------------------------------------- purchase
@@ -1070,6 +1099,159 @@ async function exciseSyncScreen(ctx) {
       logTable));
 }
 
+// --------------------------------------------------------------- GST
+async function gstScreen(ctx) {
+  const [cfg, rates, returns, logs] = await Promise.all([
+    api.gstConfig(), api.gstRates(), api.gstReturns(), api.gstLogs(),
+  ]);
+
+  const period = new Date().toISOString().slice(0, 7);
+  const pIn = input('period', period, 'month');
+  const fromIn = input('from', '', 'date');
+  const toIn = input('to', '', 'date');
+  const retSel = select('rettype', ['GSTR1', 'GSTR3B'], 'GSTR1');
+
+  const out = h('div', {});
+  const runSlab = async () => {
+    const rows = await api.gstRateSlab({ from: fromIn.value, to: toIn.value });
+    out.replaceChildren(
+      h('div', { class: 'section-title' }, 'GST rate slab (legacy USP_NAIGstReport)'),
+      table([
+        { key: 'rate', title: 'Rate %', num: true },
+        { key: 'qty', title: 'Qty', num: true },
+        { key: 'taxable', title: 'Taxable', money: true, num: true },
+        { key: 'cgst', title: 'CGST', money: true, num: true },
+        { key: 'sgst', title: 'SGST', money: true, num: true },
+        { key: 'igst', title: 'IGST', money: true, num: true },
+        { key: 'cess', title: 'Cess', money: true, num: true },
+        { key: 'addcess', title: 'Add. Cess', money: true, num: true },
+      ], rows));
+  };
+  const runGstr1 = async () => {
+    const g = await api.gstr1({ from: fromIn.value, to: toIn.value });
+    out.replaceChildren(
+      h('div', { class: 'section-title' }, `GSTR-1 outward supplies — ${g.count} line(s)`),
+      h('div', { class: 'grid cols-3' },
+        statCard('Taxable', money(g.totals.taxable)), statCard('CGST', money(g.totals.cgst)),
+        statCard('SGST', money(g.totals.sgst)), statCard('IGST', money(g.totals.igst)),
+        statCard('Cess', money(g.totals.cess))),
+      table([
+        { key: 'invoiceno', title: 'Invoice' }, { key: 'invoicedate', title: 'Date' },
+        { key: 'party', title: 'Party' }, { key: 'partygstin', title: 'GSTIN' },
+        { key: 'itemname', title: 'Item' }, { key: 'qty', title: 'Qty', num: true },
+        { key: 'taxable', title: 'Taxable', money: true, num: true },
+        { key: 'gstp', title: 'Rate', num: true },
+        { key: 'cgst', title: 'CGST', money: true, num: true },
+        { key: 'sgst', title: 'SGST', money: true, num: true },
+        { key: 'igst', title: 'IGST', money: true, num: true },
+      ], g.rows));
+  };
+  const runGstr3b = async () => {
+    const g = await api.gstr3b({ from: fromIn.value, to: toIn.value });
+    out.replaceChildren(
+      h('div', { class: 'section-title' }, 'GSTR-3B summary'),
+      h('div', { class: 'grid cols-3' },
+        statCard('Outward taxable', money(g.outward.taxable)),
+        statCard('Output CGST', money(g.outward.cgst)),
+        statCard('Output SGST', money(g.outward.sgst)),
+        statCard('Output IGST', money(g.outward.igst)),
+        statCard('Input tax credit', money(g.itc.cgst + g.itc.sgst + g.itc.igst)),
+        statCard('Net CGST payable', money(g.netPayable.cgst)),
+        statCard('Net SGST payable', money(g.netPayable.sgst)),
+        statCard('Net IGST payable', money(g.netPayable.igst))),
+      h('div', { class: 'section-title' }, 'Outward supplies by rate'),
+      table([
+        { key: 'gstp', title: 'Rate %', num: true },
+        { key: 'taxable', title: 'Taxable', money: true, num: true },
+        { key: 'cgst', title: 'CGST', money: true, num: true },
+        { key: 'sgst', title: 'SGST', money: true, num: true },
+        { key: 'igst', title: 'IGST', money: true, num: true },
+        { key: 'cess', title: 'Cess', money: true, num: true },
+      ], g.byRate));
+  };
+
+  const cfgForm = form([
+    [['GSTIN', input('gstin', cfg.gstin || '')], ['State Code', input('statecode', cfg.statecode || '')]],
+    [['Legal Name', input('legalname', cfg.legalname || '')], ['Trade Name', input('tradename', cfg.tradename || '')]],
+    [['GSP Endpoint', input('endpointbase', cfg.endpointbase || '')], ['Client ID', input('clientid', cfg.clientid || '')]],
+    [['Client Secret', input('clientsecret', cfg.clientsecret || '')], ['Auto-file', select('autofile', ['No', 'Yes'], cfg.autofile ? 'Yes' : 'No')]],
+  ], async (d) => {
+    try {
+      await api.saveGstConfig({ ...d, autofile: d.autofile === 'Yes' });
+      ctx.toast('GST settings saved', 'ok');
+    } catch (e) { ctx.toast(e.message, 'error'); }
+  });
+
+  const retTable = table([
+    { key: 'rettype', title: 'Return' }, { key: 'period', title: 'Period' },
+    { key: 'status', title: 'Status', badge: (r) => (r.status === 'FILED' ? 'ok' : '') },
+    { key: 'taxable', title: 'Taxable', money: true, num: true },
+    { key: 'taxamount', title: 'Tax', money: true, num: true },
+    { key: 'arn', title: 'ARN' }, { key: 'filedat', title: 'Filed' },
+  ], returns);
+  [...retTable.querySelectorAll('tbody tr')].forEach((tr, i) => {
+    const r = returns[i];
+    tr.append(h('td', {},
+      h('button', {
+        class: 'btn small',
+        onclick: async () => { const j = await api.gstReturnJson(r.id); ctx.openModal(`JSON — ${r.rettype} ${r.period}`,
+          h('pre', { class: 'json' }, JSON.stringify(j.payload, null, 2))); },
+      }, 'JSON'), ' ',
+      r.status === 'FILED' ? '' : h('button', {
+        class: 'btn small primary',
+        onclick: async () => { await api.fileGstReturn(r.id, {}); ctx.toast('Return filed', 'ok'); ctx.navigate('gst'); },
+      }, 'File')));
+  });
+
+  return h('div', {},
+    h('div', { class: 'card' },
+      h('h3', {}, 'GST'),
+      h('p', { class: 'muted' }, 'Item GST rates are captured at billing; GSTIN prints on the tax invoice. Generate GSTR-1 / GSTR-3B for a period, inspect the e-filing JSON and record the filing.')),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Company GST settings'),
+      cfgForm),
+    h('div', { class: 'card' },
+      h('h3', {}, 'GST reports'),
+      h('div', { class: 'row three' },
+        field('From', fromIn), field('To', toIn),
+        h('div', { class: 'actions' },
+          h('button', { class: 'btn', onclick: runSlab }, 'Rate slab'),
+          ' ',
+          h('button', { class: 'btn', onclick: runGstr1 }, 'GSTR-1'),
+          ' ',
+          h('button', { class: 'btn', onclick: runGstr3b }, 'GSTR-3B'))),
+      out),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Generate a return'),
+      form([
+        [['Return type', retSel], ['Period', pIn]],
+      ], async (d) => {
+        try {
+          const r = await api.buildGstReturn({ rettype: d.rettype, period: d.period });
+          ctx.toast(`${r.rettype} ${r.period} generated (tax ₹${money(r.taxamount)})`, 'ok');
+          ctx.navigate('gst');
+        } catch (e) { ctx.toast(e.message, 'error'); }
+      }),
+      h('div', { class: 'section-title' }, 'Returns'),
+      retTable),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Item GST rate card'),
+      table([
+        { key: 'itemcode', title: 'Code' }, { key: 'itemname', title: 'Item' },
+        { key: 'source', title: 'Master' },
+        { key: 'cgst', title: 'CGST %', num: true }, { key: 'sgst', title: 'SGST %', num: true },
+        { key: 'igst', title: 'IGST %', num: true }, { key: 'cess', title: 'Cess %', num: true },
+        { key: 'gstp', title: 'Total %', num: true },
+        { key: 'gsttype', title: 'Type', value: (r) => (r.gsttype ? 'Inclusive' : 'Exclusive'), badge: (r) => (r.gsttype ? 'ok' : '') },
+      ], rates)),
+    h('div', { class: 'card' },
+      h('h3', {}, 'Filing log'),
+      table([
+        { key: 'createdat', title: 'When' }, { key: 'action', title: 'Action' },
+        { key: 'returnid', title: 'Return' }, { key: 'detail', title: 'Detail' },
+      ], logs)));
+}
+
 // --------------------------------------------------------------- help
 function aboutScreen() {
   return h('div', { class: 'card' }, h('h3', {}, 'About Madhushala Pro'),
@@ -1130,6 +1312,7 @@ export async function screens(route, ctx) {
   if (route === 'tally') return tallyScreen(ctx);
   if (route === 'tally-sync') return tallySyncScreen(ctx);
   if (route === 'excise-sync') return exciseSyncScreen(ctx);
+  if (route === 'gst') return gstScreen(ctx);
   if (route === 'messages') return messagesScreen(ctx);
   if (route === 'pml') return pmlScreen(ctx);
   if (route === 'clean-print') return cleanPrintScreen(ctx);

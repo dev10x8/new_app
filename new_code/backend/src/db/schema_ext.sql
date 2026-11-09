@@ -504,3 +504,120 @@ CREATE TABLE IF NOT EXISTS [tbl_ExcisePortalInbound] (
 -- ---- additive columns on the generated schema (SQLite ALTER ADD COLUMN) ----
 ALTER TABLE [itemmst] ADD COLUMN [manufcode] TEXT;
 ALTER TABLE [itemmst] ADD COLUMN [expirydate] TEXT;
+
+-- ---- GST: item-level tax rates, ledgers and input/output tax ledgers ----
+-- Mirrors the legacy naiItemMaster GST columns: cgst/sgst/igst/cess/addcess
+-- rates, the gsttype flag (0 = exclusive/added on top, 1 = inclusive/built in)
+-- and the ten input/output tax ledgers used to post GST in the books.
+ALTER TABLE [itemmst] ADD COLUMN [cgst] REAL;
+ALTER TABLE [itemmst] ADD COLUMN [sgst] REAL;
+ALTER TABLE [itemmst] ADD COLUMN [igst] REAL;
+ALTER TABLE [itemmst] ADD COLUMN [cess] REAL;
+ALTER TABLE [itemmst] ADD COLUMN [addcess] REAL;
+ALTER TABLE [itemmst] ADD COLUMN [gsttype] INTEGER DEFAULT 1;
+ALTER TABLE [itemmst] ADD COLUMN [baseprice] REAL;
+ALTER TABLE [itemmst] ADD COLUMN [CgstInptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [SgstInptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [CessInptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [AdCessInptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [CgstOtptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [SgstOtptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [CessOtptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [AdCessOtptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [IgstInptLdgr] TEXT;
+ALTER TABLE [itemmst] ADD COLUMN [IgstOtptLdgr] TEXT;
+
+ALTER TABLE [naiItemMaster] ADD COLUMN [cgst] REAL;
+ALTER TABLE [naiItemMaster] ADD COLUMN [sgst] REAL;
+ALTER TABLE [naiItemMaster] ADD COLUMN [igst] REAL;
+ALTER TABLE [naiItemMaster] ADD COLUMN [cess] REAL;
+ALTER TABLE [naiItemMaster] ADD COLUMN [addcess] REAL;
+ALTER TABLE [naiItemMaster] ADD COLUMN [gsttype] INTEGER DEFAULT 1;
+ALTER TABLE [naiItemMaster] ADD COLUMN [baseprice] REAL;
+ALTER TABLE [naiItemMaster] ADD COLUMN [CgstInptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [SgstInptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [CessInptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [AdCessInptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [CgstOtptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [SgstOtptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [CessOtptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [AdCessOtptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [IgstInptLdgr] TEXT;
+ALTER TABLE [naiItemMaster] ADD COLUMN [IgstOtptLdgr] TEXT;
+
+-- ---- GST: company GSTIN + purchase GSTIN (printed on the tax invoice) ----
+ALTER TABLE [companymast] ADD COLUMN [gstin] TEXT;
+ALTER TABLE [purchasemain] ADD COLUMN [gstin] TEXT;
+
+-- ---- GST: per-line tax captured at billing / goods receipt ----
+ALTER TABLE [salesbilldetail] ADD COLUMN [taxable] REAL;
+ALTER TABLE [salesbilldetail] ADD COLUMN [cgst] REAL;
+ALTER TABLE [salesbilldetail] ADD COLUMN [sgst] REAL;
+ALTER TABLE [salesbilldetail] ADD COLUMN [igst] REAL;
+ALTER TABLE [salesbilldetail] ADD COLUMN [cess] REAL;
+ALTER TABLE [salesbilldetail] ADD COLUMN [addcess] REAL;
+ALTER TABLE [salesbilldetail] ADD COLUMN [gstp] REAL;
+ALTER TABLE [salesbillmain] ADD COLUMN [igst] REAL;
+
+ALTER TABLE [purchasedetail] ADD COLUMN [taxable] REAL;
+ALTER TABLE [purchasedetail] ADD COLUMN [cgst] REAL;
+ALTER TABLE [purchasedetail] ADD COLUMN [sgst] REAL;
+ALTER TABLE [purchasedetail] ADD COLUMN [igst] REAL;
+ALTER TABLE [purchasedetail] ADD COLUMN [cess] REAL;
+ALTER TABLE [purchasedetail] ADD COLUMN [addcess] REAL;
+ALTER TABLE [purchasedetail] ADD COLUMN [gstp] REAL;
+ALTER TABLE [purchasedetail] ADD COLUMN [CgstInptLdgr] TEXT;
+ALTER TABLE [purchasedetail] ADD COLUMN [SgstInptLdgr] TEXT;
+ALTER TABLE [purchasedetail] ADD COLUMN [CessInptLdgr] TEXT;
+ALTER TABLE [purchasedetail] ADD COLUMN [AdCessInptLdgr] TEXT;
+ALTER TABLE [purchasedetail] ADD COLUMN [IgstInptLdgr] TEXT;
+
+-- ---- GST return filing: GSTR-1 (outward) / GSTR-3B (summary) runs ----
+CREATE TABLE IF NOT EXISTS [tbl_GstReturn] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT NOT NULL,
+  [rettype] TEXT NOT NULL,             -- GSTR1 | GSTR3B
+  [period] TEXT NOT NULL,              -- YYYY-MM
+  [fromdate] TEXT,
+  [todate] TEXT,
+  [status] TEXT DEFAULT 'DRAFT',       -- DRAFT | GENERATED | FILED
+  [gstin] TEXT,
+  [arn] TEXT,                          -- acknowledgement reference (on filing)
+  [taxable] REAL DEFAULT 0,
+  [cgst] REAL DEFAULT 0,
+  [sgst] REAL DEFAULT 0,
+  [igst] REAL DEFAULT 0,
+  [cess] REAL DEFAULT 0,
+  [taxamount] REAL DEFAULT 0,
+  [invoiceno] INTEGER DEFAULT 0,
+  [json] TEXT,
+  [createdat] TEXT,
+  [filedat] TEXT
+);
+
+-- ---- GST return filing: append-only audit trail of every action ----
+CREATE TABLE IF NOT EXISTS [tbl_GstReturnLog] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [returnid] INTEGER,
+  [action] TEXT,
+  [detail] TEXT,
+  [createdat] TEXT
+);
+
+-- ---- GST return filing: portal / GSP connection settings ----
+CREATE TABLE IF NOT EXISTS [tbl_GstConfig] (
+  [companycode] TEXT NOT NULL,
+  [gstin] TEXT,
+  [legalname] TEXT,
+  [tradename] TEXT,
+  [statecode] TEXT,
+  [endpointbase] TEXT,
+  [clientid] TEXT,
+  [clientsecret] TEXT,
+  [autofile] INTEGER DEFAULT 0,
+  [lastfiledat] TEXT,
+  [updatedat] TEXT,
+  PRIMARY KEY ([companycode])
+);

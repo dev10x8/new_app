@@ -21,6 +21,7 @@ import * as txn from '../backend/src/services/transactions.js';
 import * as tools from '../backend/src/services/tools.js';
 import * as tally from '../backend/src/services/tally.js';
 import * as excise from '../backend/src/services/excise.js';
+import * as gst from '../backend/src/services/gst.js';
 import * as auth from '../backend/src/services/auth.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -67,6 +68,16 @@ for (const [groupcode, itemcode, itemname, categorycode, kflcode, packing, stren
   });
   master('itemrate', { companycode: C, ratecode: 'G00001', itemcode, salesrate });
 }
+
+// GST rate card for the demo items (alcohol: 18%/28%, exclusive of tax).
+db.exec(`UPDATE itemmst SET cgst=9, sgst=9, igst=0, gsttype=0,
+  CgstOtptLdgr='L00011', SgstOtptLdgr='L00012', IgstOtptLdgr='L00013',
+  CgstInptLdgr='L00014', SgstInptLdgr='L00015', IgstInptLdgr='L00016'
+  WHERE companycode='${C}' AND itemcode IN ('I00001','I00002','I00005')`);
+db.exec(`UPDATE itemmst SET cgst=14, sgst=14, igst=0, gsttype=0,
+  CgstOtptLdgr='L00011', SgstOtptLdgr='L00012', IgstOtptLdgr='L00013',
+  CgstInptLdgr='L00014', SgstInptLdgr='L00015', IgstInptLdgr='L00016'
+  WHERE companycode='${C}' AND itemcode IN ('I00003','I00004','I00006')`);
 
 // second store / counter for transfer flows
 master('storage', { companycode: C, shopcode: 'BAR1', shopname: 'Main Bar', address: 'Kolkata', ShopType: 'POS' });
@@ -247,6 +258,13 @@ excise.saveConfig(db, C, {
 excise.captureAll(db, C, Y);
 const exQueue = excise.queue(db, C);
 excise.buildClosingBalance(db, { company: C, year: Y, date: '2024-04-09' });
+
+// --- GST: filing settings and a generated GSTR-1 ---------------------------
+gst.saveConfig(db, C, {
+  gstin: '19AABCA1234B1Z5', legalname: 'ABM TECHNOMATRIX (P) LTD.',
+  tradename: 'MADHUSHALA PRO', statecode: '19',
+});
+gst.buildReturn(db, C, Y, { rettype: 'GSTR1', period: '2024-04' });
 
 // --- users and rights ------------------------------------------------------
 auth.createUser(db, { usercode: 'A00003', username: 'Store Manager', accesslevel: 'User', password: 'store' });

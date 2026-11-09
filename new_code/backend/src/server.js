@@ -15,6 +15,7 @@ import * as txn from './services/transactions.js';
 import * as tools from './services/tools.js';
 import * as tally from './services/tally.js';
 import * as excise from './services/excise.js';
+import * as gst from './services/gst.js';
 import { nextTrnNo } from './services/helpers.js';
 
 const db = openDatabase(config.dbFile);
@@ -230,6 +231,24 @@ route('POST', '/api/excise/inbound', (b) => ({ id: excise.receiveInbound(db, con
 route('POST', '/api/excise/inbound/apply', (b) => excise.applyInbound(db, config.company, b.id));
 route('GET', '/api/excise/logs', () => excise.logs(db, config.company));
 route('GET', '/api/excise/report', () => excise.syncReport(db, config.company));
+
+// ---- GST (rates, returns and filing) ----
+route('GET', '/api/gst/config', () => gst.getConfig(db, config.company));
+route('PUT', '/api/gst/config', (b) => gst.saveConfig(db, config.company, b || {}));
+route('GET', '/api/gst/rates', () => gst.listItemRates(db, config.company));
+route('GET', '/api/gst/rate-slab', (b, p, q) => gst.naiGstReport(db, config.company, config.year,
+  { from: q.get('from'), to: q.get('to'), subgroupcode: q.get('subgroup') }));
+route('GET', '/api/gst/gstr1', (b, p, q) => gst.gstr1(db, config.company, config.year,
+  { from: q.get('from'), to: q.get('to') }));
+route('GET', '/api/gst/gstr3b', (b, p, q) => gst.gstr3b(db, config.company, config.year,
+  { from: q.get('from'), to: q.get('to') }));
+route('GET', '/api/gst/returns', () => gst.listReturns(db, config.company));
+route('POST', '/api/gst/returns/build', (b) => gst.buildReturn(db, config.company, config.year,
+  { rettype: (b && b.rettype) || 'GSTR1', period: b && b.period }));
+route('POST', '/api/gst/returns/:id/file', (b, p) => gst.fileReturn(db, config.company, Number(p.id), b || {}));
+route('GET', '/api/gst/returns/:id/json', (b, p) => gst.returnJson(db, config.company, Number(p.id)));
+route('GET', '/api/gst/logs', () => gst.logs(db, config.company));
+route('GET', '/api/gst/invoice/:trnno', (b, p) => gst.taxInvoice(db, config.company, config.year, p.trnno));
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);

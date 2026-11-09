@@ -3,6 +3,7 @@ import { money, nextBillNo, nextTrnId, billPrefix, now } from './helpers.js';
 import { postVoucher } from './accounting.js';
 import { getConfig, enqueueSale } from './tally.js';
 import { captureSale } from './excise.js';
+import { itemTax, lineGst } from './gst.js';
 
 const SALE_TYPES = ['FL', 'CS', 'NAI', 'CASH', 'CREDIT', 'CREDIT CARD', 'CREDIT ACCOUNT', 'RETURN'];
 
@@ -39,6 +40,7 @@ export function createSale(db, sale) {
     const isReturn = String(sale.salestype).toUpperCase() === 'RETURN';
 
     let amount = 0;
+    let gstTotal = 0;
     const resolved = [];
     for (const line of sale.lines) {
       const item = get(db, 'SELECT * FROM itemmst WHERE companycode = ? AND itemcode = ?', [sale.company, line.itemcode]);
@@ -47,7 +49,11 @@ export function createSale(db, sale) {
       const qty = Number(line.qnty) || 0;
       const lineAmount = money(rate * qty);
       amount = money(amount + lineAmount);
-      resolved.push({ item, rate, qty, lineAmount, mrp: money(line.mrp ?? item.salesrate ?? 0), ...line });
+      // GST: split the line into taxable value + tax components (legacy logic).
+      const tax = itemTax(db, sale.company, line.itemcode);
+      const gst = lineGst(lineAmount, tax);
+      gstTotal = money(gstTotal + gst.cgst + gst.sgst + gst.igst + gst.cess + gst.addcess);
+      resolved.push({ item, rate, qty, lineAmount, gst, tax, mrp: money(line.mrp ?? item.salesrate ?? 0), ...line });
     }
 
     const discamount = money(sale.discount || 0);
@@ -57,22 +63,25 @@ export function createSale(db, sale) {
       db,
       `INSERT INTO salesbillmain
          (companycode, trnno, trndate, ledgercode, amount, salestype, ratecode, storecode, yearcode,
-          discamount, netamount, account_head, discount_account_head, trntime, trnid, discount_reason, KFL)
-       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+          discamount, netamount, account_head, discount_account_head, trntime, trnid, discount_reason, KFL, igst)
+       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
       [sale.company, trnno, trndate, ledgercode, amount, sale.salestype, ratecode, sale.storecode, sale.year,
        discamount, netamount, params.SaleAccount_Head || 'L00003', params.discntacc || 'L00005',
-       trndate, trnid, sale.discountReason || null, sale.kfl || 'none'],
+       trndate, trnid, sale.discountReason || null, sale.kfl || 'none', money(gstTotal)],
     );
 
     for (const r of resolved) {
+      const g = r.gst;
       run(
         db,
         `INSERT INTO salesbilldetail
            (companycode, itemcode, tot_box, loose, qnty, itemAmount, trnno, rate, trndate, yearcode,
-            large, small, westage, MRP, batchDate, batchNo)
-         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+            large, small, westage, MRP, batchDate, batchNo,
+            taxable, cgst, sgst, igst, cess, addcess, gstp)
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
         [sale.company, r.itemcode, r.tot_box || 0, r.loose || 0, r.qty, r.lineAmount, trnno, r.rate, trndate, sale.year,
-         r.large || 0, r.small || 0, r.westage || 0, r.mrp, r.batchDate || trndate, r.batchNo || '0'],
+         r.large || 0, r.small || 0, r.westage || 0, r.mrp, r.batchDate || trndate, r.batchNo || '0',
+         g.taxable, g.cgst, g.sgst, g.igst, g.cess, g.addcess, g.gstp],
       );
     }
 
@@ -106,7 +115,8 @@ export function createSale(db, sale) {
     try { captureSale(db, { company: sale.company, year: sale.year, trnno }); }
     catch { /* excise queueing is non-fatal */ }
 
-    return { trnno, trnid, amount, discamount, netamount, prefix: billPrefix(sale.salestype), lines: resolved.length };
+    return { trnno, trnid, amount, discamount, netamount, gst: money(gstTotal),
+      prefix: billPrefix(sale.salestype), lines: resolved.length };
   });
 }
 

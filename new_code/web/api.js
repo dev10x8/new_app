@@ -149,6 +149,19 @@ export const api = {
   applyExciseInbound: (id) => req('POST', '/api/excise/inbound/apply', { id }),
   exciseLogs: () => req('GET', '/api/excise/logs'),
   exciseReport: () => req('GET', '/api/excise/report'),
+
+  gstConfig: () => req('GET', '/api/gst/config'),
+  saveGstConfig: (c) => req('PUT', '/api/gst/config', c),
+  gstRates: () => req('GET', '/api/gst/rates'),
+  gstRateSlab: (q = {}) => req('GET', `/api/gst/rate-slab${qs(q)}`),
+  gstr1: (q = {}) => req('GET', `/api/gst/gstr1${qs(q)}`),
+  gstr3b: (q = {}) => req('GET', `/api/gst/gstr3b${qs(q)}`),
+  gstReturns: () => req('GET', '/api/gst/returns'),
+  buildGstReturn: (r) => req('POST', '/api/gst/returns/build', r),
+  fileGstReturn: (id, r) => req('POST', `/api/gst/returns/${id}/file`, r || {}),
+  gstReturnJson: (id) => req('GET', `/api/gst/returns/${id}/json`),
+  gstLogs: () => req('GET', '/api/gst/logs'),
+  gstInvoice: (trnno) => req('GET', `/api/gst/invoice/${encodeURIComponent(trnno)}`),
 };
 
 export default api;

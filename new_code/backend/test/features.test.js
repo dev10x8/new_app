@@ -249,7 +249,8 @@ test('report catalog covers every legacy group with the expected counts', () => 
   assert.equal(groups.breakage.length, 2);
   assert.equal(groups.transfer.length, 2);
   assert.equal(groups.excise.length, 21);
-  assert.equal(Object.keys(CATALOG).length, 113);
+  assert.equal(groups.gst.length, 6);
+  assert.equal(Object.keys(CATALOG).length, 119);
 });
 
 test('every catalog report executes against a seeded database', () => {

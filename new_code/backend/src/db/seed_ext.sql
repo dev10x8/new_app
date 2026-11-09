@@ -65,3 +65,31 @@ INSERT OR IGNORE INTO tbl_ExciseConfig
   (companycode, state, endpointbase, licenseeid, credential, autoupload, updatedat)
 VALUES
   ('1', 'WB', 'https://excise.wb.gov.in/APIEODB/EODBPLA', '', '', 0, '2024-04-01');
+
+-- ---- GST: tax ledgers, item rates and the company GSTIN ----
+INSERT OR IGNORE INTO ledger (name, accode, ledcode, companycode, type) VALUES
+  ('CGST Output',  'AC0002', 'L00011', '1', 'Duties & Taxes'),
+  ('SGST Output',  'AC0002', 'L00012', '1', 'Duties & Taxes'),
+  ('IGST Output',  'AC0002', 'L00013', '1', 'Duties & Taxes'),
+  ('CGST Input',   'AC0002', 'L00014', '1', 'Duties & Taxes'),
+  ('SGST Input',   'AC0002', 'L00015', '1', 'Duties & Taxes'),
+  ('IGST Input',   'AC0002', 'L00016', '1', 'Duties & Taxes');
+
+-- Item GST rates (exclusive by default; NAI item inclusive to show both modes).
+UPDATE itemmst SET cgst=9,  sgst=9,  igst=0,  cess=0,  addcess=0, gsttype=0,
+  CgstOtptLdgr='L00011', SgstOtptLdgr='L00012', IgstOtptLdgr='L00013',
+  CgstInptLdgr='L00014', SgstInptLdgr='L00015', IgstInptLdgr='L00016'
+ WHERE companycode='1' AND itemcode IN ('I00001','I00002');
+UPDATE itemmst SET cgst=14, sgst=14, igst=0,  cess=0,  addcess=0, gsttype=0,
+  CgstOtptLdgr='L00011', SgstOtptLdgr='L00012', IgstOtptLdgr='L00013',
+  CgstInptLdgr='L00014', SgstInptLdgr='L00015', IgstInptLdgr='L00016'
+ WHERE companycode='1' AND itemcode='I00003';
+UPDATE naiItemMaster SET cgst=14, sgst=14, igst=0, cess=0, addcess=0, gsttype=1,
+  CgstOtptLdgr='L00011', SgstOtptLdgr='L00012', IgstOtptLdgr='L00013',
+  CgstInptLdgr='L00014', SgstInptLdgr='L00015', IgstInptLdgr='L00016'
+ WHERE companycode='1' AND itemcode='N00001';
+
+-- Company GSTIN (printed on the tax invoice) and filing config.
+UPDATE companymast SET gstin='19AABCA1234B1Z5' WHERE companycode='1';
+INSERT OR IGNORE INTO tbl_GstConfig (companycode, gstin, legalname, tradename, statecode)
+VALUES ('1', '19AABCA1234B1Z5', 'ABM TECHNOMATRIX (P) LTD.', 'MADHUSHALA PRO', '19');

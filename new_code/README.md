@@ -247,8 +247,9 @@ menu, or shown as an informational screen).
 | Breakage Reports (2) | Reports > Breakage Reports | `reportCatalog.js` (2 keys) | Full |
 | Stock Transfer Reports (2) | Reports > Stock Transfer Reports | `reportCatalog.js` (2 keys) | Full |
 | Excise Reports (21) | Reports > Excise Reports | `reportCatalog.js` (21 keys) | Full |
+| GST Reports (6) | Reports > GST Reports | `reportCatalog.js` (6 keys) `/api/report-catalog/gst.*` | Full |
 
-The catalog holds **113 reports** and is driven from a single declarative table
+The catalog holds **119 reports** and is driven from a single declarative table
 (`services/reportCatalog.js`), so the report menu is generated from the API
 (`/api/report-groups`) rather than hard-coded.
 
@@ -271,7 +272,8 @@ The catalog holds **113 reports** and is driven from a single declarative table
 | Tools → PML Print and Reports | Tools > PML Print and Reports | `tools.addPml/listPml` `/api/tools/pml` | Full |
 | Tools → Clean Print Garbage | Tools > Clean Print Garbage | `tools.cleanPrintGarbage` `/api/tools/clean-print` | Full |
 | Tools → Data Sync | Tools > Data Sync | `tools.dataSync/syncStatus` `/api/tools/sync` | Full |
-| Tools → Excise form (`frm_exciseform`) | (covered by Excise Reports + Excise Fine) | `reportCatalog` excise group | Partial |
+| Tools → Excise Sync (state portal) | Tools > Excise Sync | `excise.*` `/api/excise/*` | Full |
+| Tools → GST / Returns (rates, GSTR-1/3B, filing) | Tools > GST / Returns | `gst.*` `/api/gst/*` | Full |
 | Help → About Madhushala | Help > About Madhushala | `admin.systemInfo` | Full |
 | Help → Ask for Help | Help > Ask for Help | Help screen | Full |
 | Help → List of Updates | Help > List of Updates | `admin.systemInfo` | Full |
@@ -359,6 +361,37 @@ PIN**) or directly:
 curl -X POST localhost:7100/api/users/A00001/reset-pin \
   -H 'content-type: application/json' -d '{"pin":"1234"}'
 ```
+
+## GST
+
+GST is captured on the item master and applied at billing, then aggregated into
+GSTR-1 / GSTR-3B returns that can be generated, inspected as JSON and filed.
+
+**Item rates** live on both `itemmst` (alcohol) and `naiItemMaster` (non-alcohol),
+mirroring the legacy NAI item master: `cgst`, `sgst`, `igst`, `cess`, `addcess`,
+`baseprice`, a `gsttype` flag and the ten input/output tax ledgers. `gsttype`
+follows the legacy meaning: **0 = exclusive** (GST is added on top of the line
+amount) and **1 = inclusive** (GST is backed out of the amount). Intra-state
+lines carry CGST+SGST, inter-state lines carry IGST.
+
+**At billing** each sale line stores `taxable`, `cgst`, `sgst`, `igst`, `cess`,
+`addcess` and `gstp`; the bill header stores the total GST in `igst`. Purchases
+store the same split plus the input-tax ledger heads (`CgstInptLdgr`, ...) used
+for the input tax credit, and the supplier GSTIN is stored on `purchasemain`.
+
+**Returns** are built per `YYYY-MM` period into `tbl_GstReturn` (status DRAFT →
+GENERATED → FILED) with an append-only `tbl_GstReturnLog` audit trail. GSTR-1 is
+invoice-wise outward supplies; GSTR-3B is the summary by rate plus ITC and net
+payable. "Filing" is an explicit offline step that stamps an ARN; wire
+`gst.fileReturn` to a GSP/GSTN endpoint for a live e-filing.
+
+| Concern | Where |
+| --- | --- |
+| Rate card, line split, returns, filing | `backend/src/services/gst.js` |
+| Per-line capture at billing | `sales.js`, `purchase.js` |
+| Tax invoice (company + party GSTIN) | `gst.taxInvoice` `/api/gst/invoice/:trnno` |
+| Screen | Tools > GST / Returns (route `gst`) |
+| Reports | Reports > GST Reports (`gst.*` catalog keys) |
 
 ## Notes & scope
 

@@ -1,6 +1,7 @@
 import { all } from '../db/index.js';
 import { stockOnHand } from './stock.js';
 import { ledgerBalances, trialBalance } from './accounting.js';
+import * as gst from './gst.js';
 
 // Shared joins for sales-detail reports.
 const SALES_FROM = `
@@ -92,6 +93,7 @@ const M = (title, run) => ({ group: 'MIS', title, run });
 const B = (title, run) => ({ group: 'Breakage', title, run });
 const T = (title, run) => ({ group: 'Transfer', title, run });
 const E = (title, run) => ({ group: 'Excise', title, run });
+const G = (title, run) => ({ group: 'GST', title, run });
 
 export const CATALOG = {
   // ---------------- Sales (32) ----------------
@@ -151,14 +153,7 @@ export const CATALOG = {
        JOIN offermst o ON o.companycode=sm.companycode AND o.itemcode=sd.itemcode AND o.active=1
        LEFT JOIN itemmst i ON i.companycode=sd.companycode AND i.itemcode=sd.itemcode
       WHERE sm.companycode=? AND sm.yearcode=? GROUP BY sd.itemcode, i.itemname, o.offername, o.discountpct`, [o.company, o.year])),
-  'sales.nai_gst': S('NAI GST Report', (db, o) => all(db,
-    `SELECT n.itemcode, n.itemname, n.gstrate, COALESCE(SUM(sd.qnty),0) AS qty,
-            COALESCE(SUM(sd.itemAmount),0) AS amount,
-            COALESCE(SUM(sd.itemAmount),0) * n.gstrate / (100 + n.gstrate) AS gst
-       FROM naiItemMaster n
-       LEFT JOIN salesbilldetail sd ON sd.companycode=n.companycode AND sd.itemcode=n.itemcode
-       LEFT JOIN salesbillmain sm ON sm.companycode=sd.companycode AND sm.yearcode=sd.yearcode AND sm.trnno=sd.trnno
-      WHERE n.companycode=? GROUP BY n.itemcode, n.itemname, n.gstrate`, [o.company])),
+  'sales.nai_gst': S('NAI GST Report', (db, o) => gst.naiGstReport(db, o.company, o.year, { from: o.from, to: o.to }).rows),
   'sales.home_delivery': S('Home Delivery Report', (db, o) => all(db,
     `SELECT orderno, trndate, custcode, address, phone, amount, status FROM delivery_orders
       WHERE companycode=? AND yearcode=? ORDER BY trndate DESC`, [o.company, o.year])),
@@ -295,8 +290,7 @@ export const CATALOG = {
   'purchase.brand': P('Brand Wise', (db, o) => purchaseDim(db, o.company, o.year, 'kfl', o)),
   'purchase.manufacturer': P('Manufacturer Wise', (db, o) => purchaseDim(db, o.company, o.year, 'manufacturer', o)),
   'purchase.supplier_brand': P('Supplier-Brand Wise', (db, o) => purchaseDim(db, o.company, o.year, 'brand', o)),
-  'purchase.nai_gst': P('Purchase NAI GST Report', (db, o) => all(db,
-    `SELECT n.itemcode, n.itemname, n.gstrate FROM naiItemMaster n WHERE n.companycode=?`, [o.company])),
+  'purchase.nai_gst': P('Purchase NAI GST Report', (db, o) => gst.purchaseGst(db, o.company, o.year, { from: o.from, to: o.to })),
 
   // ---------------- Accounts (14) ----------------
   'accounts.daybook': A('Day Book', (db, o) => all(db,
@@ -459,6 +453,14 @@ export const CATALOG = {
       WHERE pm.companycode=? AND pm.yearcode=? GROUP BY pm.trndate, i.kflcode ORDER BY pm.trndate`, [o.company, o.year])),
   'excise.daily_stock_bl': E('Daily Stock BL', (db, o) => exciseStock(db, o, 'day')),
   'excise.daily_stock_bl_iml': E('Daily Stock BL (IML)', (db, o) => exciseStock(db, o, 'day')),
+
+  // ---------------- GST (6) ----------------
+  'gst.nai_rate_slab': G('NAI GST Report (rate slab)', (db, o) => gst.naiGstReport(db, o.company, o.year, { from: o.from, to: o.to }).rows),
+  'gst.nai_detail': G('NAI GST Detail (bill-wise)', (db, o) => gst.naiGstReport(db, o.company, o.year, { from: o.from, to: o.to }).detail),
+  'gst.gstr1': G('GSTR-1 (Outward Supplies)', (db, o) => gst.gstr1(db, o.company, o.year, { from: o.from, to: o.to }).rows),
+  'gst.gstr3b_rate': G('GSTR-3B Summary by Rate', (db, o) => gst.gstr3b(db, o.company, o.year, { from: o.from, to: o.to }).byRate),
+  'gst.purchase_register': G('GST Purchase Register (ITC)', (db, o) => gst.purchaseGst(db, o.company, o.year, { from: o.from, to: o.to })),
+  'gst.returns': G('GST Returns Filed', (db, o) => gst.listReturns(db, o.company)),
 };
 
 function exciseStock(db, o, bucket) {
