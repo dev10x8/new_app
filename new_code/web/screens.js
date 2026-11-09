@@ -173,6 +173,79 @@ async function schemesScreen(ctx) {
     table([{ key: 'offercode', title: 'Code' }, { key: 'offername', title: 'Name' }], offers));
 }
 
+// --------------------------------------------------------------- inventory
+const STOCK_BADGE = { OK: 'ok', LOW: 'warn', OUT: 'error' };
+
+async function inventoryScreen(ctx) {
+  const [summary, low, reqs] = await Promise.all([
+    api.inventorySummary(), api.inventoryLowStock(), api.requisitions(),
+  ]);
+
+  const stat = (label, value, kind = '') => h('div', { class: 'card stat' },
+    h('div', { class: 'k' }, label), h('div', { class: `v${kind ? ` ${kind}` : ''}` }, String(value)));
+  const counters = h('div', { class: 'grid cols-4' },
+    stat('Total Items', summary.totalItems),
+    stat('Low Stock', summary.lowStock, summary.lowStock ? 'warn' : ''),
+    stat('Out of Stock', summary.outOfStock, summary.outOfStock ? 'danger' : ''),
+    stat('In Stock', summary.inStock),
+    stat('Stock Units', summary.stockUnits),
+    stat('Stock Value', money(summary.stockValue), 'money'),
+    stat('Stores', summary.stores),
+    stat('Open Requisitions', summary.openRequisitions, summary.openRequisitions ? 'warn' : ''));
+
+  const addBtn = h('button', { class: 'btn primary' }, '＋ Add Item');
+  addBtn.onclick = () => openMasterForm(ctx, 'item', [], null);
+
+  const genBtn = h('button', { class: 'btn' }, 'Auto-raise requisitions');
+  genBtn.onclick = async () => {
+    try {
+      const r = await api.generateRequisitions();
+      ctx.toast(`${r.created} requisition(s) created, ${r.skipped} already open`, 'ok');
+      ctx.navigate(ctx.state.route);
+    } catch (e) { ctx.toast(e.message, 'error'); }
+  };
+  const refreshBtn = h('button', { class: 'btn' }, 'Refresh');
+  refreshBtn.onclick = () => ctx.navigate(ctx.state.route);
+
+  const lowTable = table([
+    { key: 'itemcode', title: 'Code' }, { key: 'itemname', title: 'Item' },
+    { key: 'categoryname', title: 'Category' }, { key: 'ml', title: 'ML', num: true },
+    { key: 'qty', title: 'On hand', num: true }, { key: 'minlevel', title: 'Min', num: true },
+    { key: 'reorderqty', title: 'Reorder', num: true },
+    { key: 'status', title: 'Status', badge: (r) => STOCK_BADGE[r.status] || '' },
+  ], low);
+
+  const reqTable = table([
+    { key: 'id', title: '#' }, { key: 'itemcode', title: 'Code' }, { key: 'itemname', title: 'Item' },
+    { key: 'currentqty', title: 'On hand', num: true }, { key: 'minlevel', title: 'Min', num: true },
+    { key: 'reorderqty', title: 'Reorder', num: true }, { key: 'rate', title: 'Rate', money: true },
+    { key: 'status', title: 'Status', badge: (r) => ({ DRAFT: 'warn', ORDERED: 'ok', CANCELLED: '' }[r.status] || '') },
+  ], reqs);
+  [...(reqTable.querySelector('tbody')?.rows || [])].forEach((tr, i) => {
+    const row = reqs[i];
+    tr.append(h('td', {}, row.status !== 'DRAFT' ? '—' : h('button', { class: 'btn small', onclick: async () => {
+      try { await api.updateRequisition(row.id, { status: 'ORDERED' }); ctx.toast('Marked as ordered', 'ok'); ctx.navigate(ctx.state.route); }
+      catch (e) { ctx.toast(e.message, 'error'); }
+    } }, 'Mark ordered')));
+  });
+  if (reqs.length) reqTable.querySelector('thead tr').append(h('th', {}, ''));
+
+  return h('div', {},
+    h('div', { class: 'card' },
+      h('h3', {}, 'Inventory'),
+      h('p', { class: 'muted' }, 'Live stock position across every store, with low-stock alerting against each item’s reorder level (itemmst.min_qnty, or the DefaultMinQty parameter).')),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Overview'),
+      counters,
+      h('div', { class: 'toolbar' }, addBtn, genBtn, refreshBtn)),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Low stock / out of stock'),
+      lowTable),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Purchase requisitions'),
+      reqTable));
+}
+
 // --------------------------------------------------------------- admin
 async function paramsScreen(ctx) {
   const p = await api.parameters();
@@ -774,6 +847,147 @@ function cleanPrintScreen(ctx) {
     h('div', { class: 'actions' }, h('button', { class: 'btn danger', onclick: async () => { try { await api.cleanPrint(); ctx.toast('Print garbage cleaned', 'ok'); } catch (e) { ctx.toast(e.message, 'error'); } } }, 'Run Cleanup')));
 }
 
+// --------------------------------------------------------------- data migration
+function migrationResultCard(title, res) {
+  const totals = res.totals || {};
+  const stat = (label, value, kind = '') => h('div', { class: 'card stat' },
+    h('div', { class: 'k' }, label), h('div', { class: `v${kind ? ` ${kind}` : ''}` }, String(value ?? 0)));
+  const t = table([
+    { key: 'table', title: 'Table' },
+    { key: 'sourceRows', title: 'Rows', num: true },
+    { key: 'inserts', title: 'Insert', num: true },
+    { key: 'updates', title: 'Update', num: true },
+    { key: 'failed', title: 'Failed', num: true },
+    { key: 'unknownColumns', title: 'Ignored columns', value: (r) => (r.unknownColumns?.length ? r.unknownColumns.join(', ') : '—') },
+  ], res.tables || []);
+  const problems = (res.tables || []).flatMap((tb) => (tb.samples || []).map((s) => ({ table: tb.table, ...s })));
+  return h('div', { class: 'card' },
+    h('div', { class: 'section-title' }, title),
+    h('div', { class: 'grid cols-4' },
+      stat('Tables', totals.tables),
+      stat('Inserted', res.mode === 'APPLY' ? (totals.inserted ?? totals.inserts) : totals.inserts, 'ok'),
+      stat('Updated', res.mode === 'APPLY' ? (totals.updated ?? totals.updates) : totals.updates, 'warn'),
+      stat('Failed', res.mode === 'APPLY' ? (totals.failed ?? totals.failed) : totals.failed, totals.failed ? 'danger' : '')),
+    (res.skippedTables?.length)
+      ? h('p', { class: 'muted' }, `Skipped tables: ${res.skippedTables.map((s) => `${s.table} (${s.reason})`).join('; ')}`)
+      : null,
+    t,
+    problems.length ? h('div', {}, h('div', { class: 'section-title' }, 'Row errors'),
+      h('pre', { class: 'card', style: 'white-space:pre-wrap;margin:0' }, JSON.stringify(problems.slice(0, 30), null, 2))) : null);
+}
+
+async function migrationScreen(ctx) {
+  const tables = await api.migrationTables().catch(() => []);
+  const history = await api.migrationHistory().catch(() => []);
+
+  const sourceSel = select('source', [
+    { value: 'sql', label: 'SQL dump (.sql, legacy INSERT statements)' },
+    { value: 'json', label: 'JSON bundle (tables -> rows)' },
+    { value: 'csv', label: 'CSV (one table)' },
+    { value: 'legacy', label: 'Server folder (CSV/JSON files per table)' },
+  ], 'sql');
+  const tableInput = input('table', 'itemmst');
+  const pathInput = input('path', '/data/legacy-export');
+  const filenameInput = input('filename', 'legacy_export.sql');
+
+  const textarea = h('textarea', { name: 'content', rows: 10, placeholder: 'Paste the export here, or use “Choose file” below…', style: 'width:100%;font-family:monospace' });
+  const fileInput = h('input', { type: 'file', accept: '.sql,.json,.csv,.txt' });
+  fileInput.addEventListener('change', () => {
+    const f = fileInput.files && fileInput.files[0];
+    if (!f) return;
+    const ext = f.name.toLowerCase().split('.').pop();
+    if (ext === 'json') sourceSel.value = 'json';
+    else if (ext === 'csv') sourceSel.value = 'csv';
+    else sourceSel.value = 'sql';
+    filenameInput.value = f.name;
+    const reader = new FileReader();
+    reader.onload = () => { textarea.value = String(reader.result || ''); };
+    reader.readAsText(f);
+    syncMode();
+  });
+
+  const fileRow = h('div', { class: 'row' }, field('Target table (CSV only)', tableInput), field('File name', filenameInput));
+  const pathRow = h('div', { class: 'row' }, field('Server folder path', pathInput));
+  const contentField = field('Export contents', textarea);
+
+  function syncMode() {
+    const mode = sourceSel.value;
+    fileRow.hidden = mode !== 'csv';
+    pathRow.hidden = mode !== 'legacy';
+    contentField.hidden = mode === 'legacy';
+    fileInput.hidden = mode === 'legacy';
+  }
+  sourceSel.addEventListener('change', syncMode);
+
+  const out = h('div', {});
+  const sourceOpts = () => {
+    const mode = sourceSel.value;
+    return {
+      source: mode,
+      table: mode === 'csv' ? tableInput.value.trim() : undefined,
+      path: mode === 'legacy' ? pathInput.value.trim() : undefined,
+      filename: filenameInput.value.trim() || undefined,
+      content: mode === 'legacy' ? undefined : textarea.value,
+    };
+  };
+  const run = async (which) => {
+    out.replaceChildren(h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Working…'));
+    try {
+      const res = which === 'apply' ? await api.migrationApply(sourceOpts()) : await api.migrationAnalyze(sourceOpts());
+      out.replaceChildren(migrationResultCard(which === 'apply' ? `Applied — batch #${res.batchId}` : `Dry run — batch #${res.batchId}`, res));
+      ctx.toast(which === 'apply' ? 'Migration applied' : 'Dry run complete', 'ok');
+    } catch (e) {
+      out.replaceChildren(h('div', { class: 'card' }, h('p', { class: 'error' }, e.message)));
+      ctx.toast(e.message, 'error');
+    }
+  };
+
+  const analyzeBtn = h('button', { class: 'btn', onclick: () => run('analyze') }, 'Analyze (dry run)');
+  const applyBtn = h('button', { class: 'btn primary', onclick: () => {
+    if (!confirm('Write the analyzed data into this database? Existing rows with the same key are updated; nothing is deleted.')) return;
+    run('apply');
+  } }, 'Apply migration');
+
+  const exportBtn = h('button', { class: 'btn ghost', onclick: async () => {
+    try {
+      const r = await api.migrationExportSql();
+      textarea.value = r.script;
+      sourceSel.value = 'sql';
+      syncMode();
+      ctx.toast('Export helper script loaded', 'ok');
+    } catch (e) { ctx.toast(e.message, 'error'); }
+  } }, 'Load export helper script');
+
+  const histTable = table([
+    { key: 'id', title: '#' },
+    { key: 'mode', title: 'Mode' },
+    { key: 'source', title: 'Source' },
+    { key: 'filename', title: 'File' },
+    { key: 'status', title: 'Status', badge: (r) => ({ APPLIED: 'ok', ANALYZED: 'warn', FAILED: 'danger' }[r.status] || '') },
+    { key: 'inserted', title: 'Ins', num: true },
+    { key: 'updated', title: 'Upd', num: true },
+    { key: 'failed', title: 'Fail', num: true },
+    { key: 'finishedat', title: 'When' },
+  ], history);
+
+  syncMode();
+  return h('div', {},
+    h('div', { class: 'card' },
+      h('h3', {}, 'Data Migration from the Legacy App'),
+      h('p', { class: 'muted' }, 'Import masters and transactions exported from the original Madhushala Pro SQL Server database. Pick a source, load the file, run a dry run to preview, then apply. Rows are inserted, or updated when their primary key already exists — no table is ever deleted or truncated.'),
+      h('div', { class: 'toolbar' }, field('Source', sourceSel), exportBtn),
+      fileRow, pathRow, contentField,
+      h('div', { class: 'row' }, field('Choose file', fileInput)),
+      h('div', { class: 'actions' }, analyzeBtn, applyBtn)),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, `Migratable tables (${tables.length})`),
+      h('p', { class: 'muted small' }, tables.map((t) => t.table + (t.present ? '' : ' (n/a)')).join(' · '))),
+    out,
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Migration history'),
+      histTable));
+}
+
 async function syncScreen(ctx) {
   const status = await api.syncStatus();
   const entitySel = select('entity', ['SALES', 'PURCHASE', 'ITEMS', 'LEDGER'], 'SALES');
@@ -799,6 +1013,8 @@ async function tallySyncScreen(ctx) {
   // --- configuration ---
   const enabled = h('input', { type: 'checkbox', name: 'enabled' });
   enabled.checked = !!cfg.enabled;
+  const tlsinsecure = h('input', { type: 'checkbox', name: 'tlsinsecure' });
+  tlsinsecure.checked = !!cfg.tlsinsecure;
   const cfgForm = form([
     [['Broker URL', input('brokerurl', cfg.brokerurl || 'https://broker.madhushala.cloud')],
      ['Tally company', input('tallycompany', cfg.tallycompany || '')]],
@@ -806,8 +1022,11 @@ async function tallySyncScreen(ctx) {
      ['Company GUID', input('companyguid', cfg.companyguid || '')]],
     [['Agent token', input('agenttoken', cfg.agenttoken || '')],
      ['Enabled', enabled]],
+    [['Tally endpoint (HTTP/XML)', input('tallyurl', cfg.tallyurl || 'http://127.0.0.1:9000')],
+     ['Tally company name', input('tallycompanyname', cfg.tallycompanyname || '')]],
+    [['Accept self-signed TLS', tlsinsecure]],
   ], async (d) => {
-    await api.saveTallyConfig({ ...d, enabled: enabled.checked });
+    await api.saveTallyConfig({ ...d, enabled: enabled.checked, tlsinsecure: tlsinsecure.checked });
     ctx.toast('Sync settings saved', 'ok');
     ctx.navigate(ctx.state.route);
   });
@@ -836,6 +1055,26 @@ async function tallySyncScreen(ctx) {
     act('Queue pending bills', async () => { const r = await api.tallyEnqueue(); return `${r.queued} voucher(s) queued`; }, 'btn primary'),
     act('Retry failed', async () => { const r = await api.tallyRetry(); return `${r.retried} requeued`; }),
     act('Refresh', async () => ''));
+
+  // --- live Tally Prime push ---
+  const testBtn = h('button', { class: 'btn' }, 'Test connection');
+  testBtn.onclick = async () => {
+    try { const r = await api.tallyLiveTest(); ctx.toast(r.ok ? `Tally reachable (HTTP ${r.status})` : `No response (HTTP ${r.status})`, r.ok ? 'ok' : 'warn'); }
+    catch (e) { ctx.toast(e.message, 'error'); }
+  };
+  const pushBtn = h('button', { class: 'btn primary' }, 'Push to Tally Prime');
+  pushBtn.onclick = async () => {
+    try {
+      const r = await api.tallyLivePush({});
+      if (r.failed) ctx.toast(`${r.failed} voucher(s) rejected: ${r.error}`, 'error');
+      else ctx.toast(`${r.acked || 0} voucher(s) imported into Tally Prime`, 'ok');
+      ctx.navigate(ctx.state.route);
+    } catch (e) { ctx.toast(e.message, 'error'); }
+  };
+  const liveCard = h('div', { class: 'card' },
+    h('h3', {}, 'Live Tally Prime push'),
+    h('p', { class: 'muted' }, 'Import the queued vouchers straight into Tally Prime over its HTTP/XML server (enable it in Tally: F1 → Settings → Advanced Configuration → “Enable HTTP/XML”, default port 9000). Nothing is removed from the queue until Tally accepts the envelope; failures are kept for a retry.'),
+    h('div', { class: 'toolbar' }, testBtn, pushBtn));
 
   // --- XML preview ---
   const xmlOut = h('pre', { class: 'card', style: 'white-space:pre-wrap;max-height:340px;overflow:auto;margin:0' }, '');
@@ -907,6 +1146,7 @@ async function tallySyncScreen(ctx) {
       h('div', { class: 'section-title' }, 'Status'),
       stats,
       actions),
+    liveCard,
     h('div', { class: 'card' },
       h('h3', {}, 'Agent settings'),
       cfgForm,
@@ -1099,6 +1339,57 @@ async function exciseSyncScreen(ctx) {
       logTable));
 }
 
+// --------------------------------------------------------------- Form M-22
+async function formM22Screen(ctx) {
+  const docs = await api.formM22();
+  const from = input('from', `${new Date().getFullYear()}-04-01`, 'date');
+  const to = input('to', new Date().toISOString().slice(0, 10), 'date');
+  const buildBtn = h('button', { class: 'btn primary' }, 'Build M-22');
+  buildBtn.onclick = async () => {
+    try {
+      const doc = await api.buildFormM22(from.value, to.value);
+      ctx.toast(`M-22 #${doc.id} built (${doc.details.length} brand(s))`, 'ok');
+      ctx.navigate(ctx.state.route);
+    } catch (e) { ctx.toast(e.message, 'error'); }
+  };
+
+  const preview = h('pre', { class: 'card', style: 'white-space:pre-wrap;max-height:400px;overflow:auto;margin:0' }, 'Select a statement to preview.');
+
+  const docsTable = table([
+    { key: 'id', title: '#' }, { key: 'periodfrom', title: 'From' }, { key: 'periodto', title: 'To' },
+    { key: 'openingqty', title: 'Opening', num: true }, { key: 'receivedqty', title: 'Received', num: true },
+    { key: 'soldqty', title: 'Sold', num: true }, { key: 'breakageqty', title: 'Breakage', num: true },
+    { key: 'closingqty', title: 'Closing', num: true },
+    { key: 'status', title: 'Status', badge: (r) => (r.status === 'FILED' ? 'ok' : 'warn') },
+  ], docs);
+  [...(docsTable.querySelector('tbody')?.rows || [])].forEach((tr, i) => {
+    const row = docs[i];
+    const show = h('button', { class: 'btn small', onclick: async () => {
+      try { const r = await api.printFormM22(row.id); preview.textContent = r.text; } catch (e) { ctx.toast(e.message, 'error'); }
+    } }, 'View');
+    const file = h('button', { class: 'btn small', onclick: async () => {
+      try { await api.fileFormM22(row.id); ctx.toast('Statement marked filed', 'ok'); ctx.navigate(ctx.state.route); }
+      catch (e) { ctx.toast(e.message, 'error'); }
+    } }, 'File');
+    tr.append(h('td', {}, row.status === 'FILED' ? show : h('span', {}, show, ' ', file)));
+  });
+  if (docs.length) docsTable.querySelector('thead tr').append(h('th', {}, ''));
+
+  return h('div', {},
+    h('div', { class: 'card' },
+      h('h3', {}, 'Form M-22 — Brand Register'),
+      h('p', { class: 'muted' }, 'The state excise brand register: brand-wise opening balance, receipts, issues (sales) and breakage, closing with the closing balance, for the selected period. Figures are derived from the same movements as the Daily Stock Book, so the two always reconcile.')),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Build a statement'),
+      h('div', { class: 'toolbar' }, field('From', from), field('To', to), buildBtn)),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Statements'),
+      docsTable),
+    h('div', { class: 'card' },
+      h('div', { class: 'section-title' }, 'Statement preview'),
+      preview));
+}
+
 // --------------------------------------------------------------- GST
 async function gstScreen(ctx) {
   const [cfg, rates, returns, logs] = await Promise.all([
@@ -1285,6 +1576,7 @@ export async function screens(route, ctx) {
   if (route === 'deleted-bills') return deletedBillsScreen(ctx);
   if (route === 'items') return itemsScreen(ctx);
   if (route === 'schemes') return schemesScreen(ctx);
+  if (route === 'inventory') return inventoryScreen(ctx);
   if (route.startsWith('master:')) return masterScreen(ctx, route.slice(7));
   if (route.startsWith('reports:')) return reportsGroup(ctx, route.slice(8));
   if (route === 'sale') return posSale(ctx);
@@ -1313,10 +1605,12 @@ export async function screens(route, ctx) {
   if (route === 'tally') return tallyScreen(ctx);
   if (route === 'tally-sync') return tallySyncScreen(ctx);
   if (route === 'excise-sync') return exciseSyncScreen(ctx);
+  if (route === 'form-m22') return formM22Screen(ctx);
   if (route === 'gst') return gstScreen(ctx);
   if (route === 'messages') return messagesScreen(ctx);
   if (route === 'pml') return pmlScreen(ctx);
   if (route === 'clean-print') return cleanPrintScreen(ctx);
+  if (route === 'migration') return migrationScreen(ctx);
   if (route === 'sync') return syncScreen(ctx);
   if (route === 'about') return aboutScreen();
   if (route === 'help') return helpScreen();

@@ -1,3 +1,5 @@
+import { request as httpRequest } from 'node:http';
+import { request as httpsRequest } from 'node:https';
 import { all, get, run, tx } from '../db/index.js';
 import { money, now } from './helpers.js';
 
@@ -17,24 +19,30 @@ export function getConfig(db, company) {
   return {
     companycode: company, enabled: 0, brokerurl: '', agenttoken: '',
     companyguid: '', tallycompany: '', agentid: '', lastpullat: null, lastpushat: null,
+    tallyurl: '', tallycompanyname: '', tlsinsecure: 0,
   };
 }
 
 export function saveConfig(db, company, cfg) {
+  const cur = get(db, 'SELECT * FROM tbl_TallySyncConfig WHERE companycode=?', [company]);
+  // Merge onto the current config so a partial update never clears other fields.
+  const c = { ...(cur || getConfig(db, company)), ...cfg };
   const at = now();
-  const cur = get(db, 'SELECT 1 FROM tbl_TallySyncConfig WHERE companycode=?', [company]);
   const v = [
-    cfg.enabled ? 1 : 0,
-    cfg.brokerurl || '', cfg.agenttoken || '', cfg.companyguid || '',
-    cfg.tallycompany || '', cfg.agentid || '', at,
+    c.enabled ? 1 : 0,
+    c.brokerurl || '', c.agenttoken || '', c.companyguid || '',
+    c.tallycompany || '', c.agentid || '', c.tallyurl || '',
+    c.tallycompanyname || '', c.tlsinsecure ? 1 : 0, at,
   ];
   if (cur) {
     run(db, `UPDATE tbl_TallySyncConfig SET enabled=?, brokerurl=?, agenttoken=?, companyguid=?,
-             tallycompany=?, agentid=?, updatedat=? WHERE companycode=?`, [...v, company]);
+             tallycompany=?, agentid=?, tallyurl=?, tallycompanyname=?, tlsinsecure=?, updatedat=?
+             WHERE companycode=?`, [...v, company]);
   } else {
     run(db, `INSERT INTO tbl_TallySyncConfig
-             (enabled, brokerurl, agenttoken, companyguid, tallycompany, agentid, updatedat, companycode)
-             VALUES (?,?,?,?,?,?,?,?)`, [...v, company]);
+             (enabled, brokerurl, agenttoken, companyguid, tallycompany, agentid,
+              tallyurl, tallycompanyname, tlsinsecure, updatedat, companycode)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?)`, [...v, company]);
   }
   return getConfig(db, company);
 }
@@ -260,7 +268,7 @@ ${vouchers.map((v) => buildVoucherXml(company, v)).join('\n')}
 }
 
 /** Voucher envelope for the shop agent to submit to the cloud broker. */
-export function buildVoucherXmlBatch(db, company, year, { ids, all: useAll, limit = 100 } = {}) {
+export function buildVoucherXmlBatch(db, company, year, { ids, all: useAll, limit = 100, svc } = {}) {
   const params = [company];
   let sql = "SELECT * FROM tbl_TallySyncQueue WHERE companycode=? AND status IN ('PENDING','SENT')";
   if (ids && ids.length) { sql += ` AND id IN (${ids.map(() => '?').join(',')})`; params.push(...ids); }
@@ -268,6 +276,7 @@ export function buildVoucherXmlBatch(db, company, year, { ids, all: useAll, limi
   params.push(limit);
   const rows = all(db, sql, params);
   const cfg = getConfig(db, company);
+  const svcCompany = svc || cfg.tallycompany || company;
   const vouchers = rows.map((r) => {
     // Rebuild from source so late mapping-rule changes are reflected.
     const src = get(db, `SELECT * FROM ${r.sourcetable} WHERE companycode=? AND yearcode=? AND trnno=?`,
@@ -278,10 +287,10 @@ export function buildVoucherXmlBatch(db, company, year, { ids, all: useAll, limi
     return { ...payload, vouchertype: r.vouchertype === SALES ? 'Sales' : 'Purchase' };
   });
   return {
-    company: cfg.tallycompany || company,
+    company: svcCompany,
     count: vouchers.length,
     ids: rows.map((r) => r.id),
-    xml: envelope(cfg.tallycompany || company, vouchers),
+    xml: envelope(svcCompany, vouchers),
   };
 }
 
@@ -402,6 +411,115 @@ export function applyInbound(db, company, id) {
     log(db, null, company, 'IN', 'APPLY', 'APPLIED', `${row.mtype} ${row.mname}`);
     return { id, applied: true };
   });
+}
+
+// ------------------------------------------------------------- live Tally push
+
+/**
+ * POST a Tally XML envelope to the configured Tally Prime HTTP endpoint.
+ *
+ * Tally Prime (Release 3.0+) exposes an HTTP server (F1 > Settings > Advanced
+ * Configuration > "Enable HTTP/XML") that accepts the standard import envelope
+ * on its port (9000 by default) and answers with an ENVELOPE that carries
+ * <LINEERROR>/<ERRORS> elements. `node:http` is used rather than `fetch` so the
+ * request goes out as `text/xml`, which is what Tally expects.
+ *
+ * @param {string} url      full endpoint, e.g. http://127.0.0.1:9000
+ * @param {string} xml      the envelope to import
+ * @param {object} [opts]   { timeout = 15000, insecure = false }
+ */
+export function postTallyXml(url, xml, { timeout = 15000, insecure = false } = {}) {
+  return new Promise((resolve, reject) => {
+    let target;
+    try { target = new URL(url); } catch { reject(new Error(`Invalid Tally URL "${url}"`)); return; }
+    const isHttps = target.protocol === 'https:';
+    const send = isHttps ? httpsRequest : httpRequest;
+    const req = send({
+      protocol: target.protocol,
+      hostname: target.hostname,
+      port: target.port || (isHttps ? 443 : 80),
+      path: `${target.pathname}${target.search}` || '/',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/xml; charset=utf-8',
+        'Content-Length': Buffer.byteLength(xml),
+      },
+      rejectUnauthorized: isHttps ? !insecure : undefined,
+    }, (res) => {
+      let body = '';
+      res.setEncoding('utf8');
+      res.on('data', (c) => { body += c; });
+      res.on('end', () => resolve({ status: res.statusCode, body }));
+    });
+    req.on('error', reject);
+    req.setTimeout(timeout, () => req.destroy(new Error(`Tally request timed out after ${timeout}ms`)));
+    req.write(xml);
+    req.end();
+  });
+}
+
+const lineErrors = (body) => {
+  const out = [];
+  const re = /<LINEERROR>([\s\S]*?)<\/LINEERROR>/gi;
+  let m = re.exec(body || '');
+  while (m) { out.push(m[1].trim()); m = re.exec(body); }
+  const errs = /<ERRORS>(\d+)<\/ERRORS>/i.exec(body || '');
+  if (Number(errs?.[1]) > 0 && !out.length) out.push('Tally reported errors');
+  return out;
+};
+
+/** A minimal "is Tally listening" probe envelope (exports the company collection). */
+function probeXml() {
+  return `<?xml version="1.0" encoding="utf-8"?>
+<ENVELOPE>
+  <HEADER><TALLYREQUEST>Export Data</TALLYREQUEST><TYPE>Collection</TYPE><ID>Company</ID></HEADER>
+  <BODY><DESC><STATICVARIABLES><SVEXPORTFORMAT>$$SysName:XML</SVEXPORTFORMAT></STATICVARIABLES></DESC></BODY>
+</ENVELOPE>`;
+}
+
+/** Probe the configured Tally endpoint without importing anything. */
+export async function liveTest(db, company) {
+  const cfg = getConfig(db, company);
+  if (!cfg.tallyurl) throw new Error('Tally endpoint URL is not configured');
+  const res = await postTallyXml(cfg.tallyurl, probeXml(), { insecure: !!cfg.tlsinsecure });
+  const ok = res.status === 200;
+  log(db, null, company, 'OUT', 'TEST', ok ? 'OK' : 'FAILED', `Probe ${cfg.tallyurl} -> HTTP ${res.status}`);
+  return { ok, status: res.status, bytes: (res.body || '').length };
+}
+
+/**
+ * Live push: import the pending vouchers straight into Tally Prime over HTTP.
+ * On success the queue rows move to ACKED; failures are recorded with the
+ * LINEERROR text and left for a retry. Billing stays offline - this only moves
+ * the queue.
+ */
+export async function livePush(db, company, year, { limit = 100, ids } = {}) {
+  const cfg = getConfig(db, company);
+  if (!cfg.tallyurl) throw new Error('Tally endpoint URL is not configured');
+  const batch = buildVoucherXmlBatch(db, company, year, { ids, limit });
+  if (!batch.count) return { pushed: 0, acked: 0, failed: 0, message: 'Queue is empty' };
+
+  const res = await postTallyXml(cfg.tallyurl, batch.xml, { insecure: !!cfg.tlsinsecure });
+  const errors = lineErrors(res.body);
+  const at = now();
+
+  if (res.status === 200 && errors.length === 0) {
+    for (const id of batch.ids) {
+      run(db, `UPDATE tbl_TallySyncQueue SET status='ACKED', attempts=attempts+1, ackedat=?, updatedat=?, lasterror=NULL
+               WHERE id=? AND companycode=?`, [at, at, id, company]);
+    }
+    log(db, null, company, 'OUT', 'LIVE', 'ACKED', `${batch.count} voucher(s) imported to Tally Prime`);
+    touchPush(db, company);
+    return { pushed: batch.count, acked: batch.count, failed: 0, status: res.status };
+  }
+
+  const msg = (errors.join('; ') || `HTTP ${res.status}`).slice(0, 500);
+  for (const id of batch.ids) {
+    run(db, `UPDATE tbl_TallySyncQueue SET status='FAILED', attempts=attempts+1, lasterror=?, updatedat=?
+             WHERE id=? AND companycode=?`, [msg, at, id, company]);
+  }
+  log(db, null, company, 'OUT', 'LIVE', 'FAILED', msg);
+  return { pushed: 0, acked: 0, failed: batch.count, status: res.status, error: msg };
 }
 
 // ------------------------------------------------------------- sync report

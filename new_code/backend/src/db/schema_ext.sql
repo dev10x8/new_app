@@ -621,3 +621,90 @@ CREATE TABLE IF NOT EXISTS [tbl_GstConfig] (
   [updatedat] TEXT,
   PRIMARY KEY ([companycode])
 );
+
+-- ---- inventory control: purchase requisitions raised from low-stock alerts ----
+CREATE TABLE IF NOT EXISTS [tbl_Requisition] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT,
+  [itemcode] TEXT NOT NULL,
+  [itemname] TEXT,
+  [currentqty] REAL DEFAULT 0,
+  [minlevel] REAL DEFAULT 0,
+  [reorderqty] REAL DEFAULT 0,
+  [rate] REAL DEFAULT 0,
+  [suppliercode] TEXT,
+  [status] TEXT DEFAULT 'DRAFT',        -- DRAFT | ORDERED | CANCELLED
+  [createdat] TEXT,
+  [updatedat] TEXT
+);
+
+-- ---- live Tally Prime push: per-company HTTP endpoint + TLS settings ----
+ALTER TABLE [tbl_TallySyncConfig] ADD COLUMN [tallyurl] TEXT;
+ALTER TABLE [tbl_TallySyncConfig] ADD COLUMN [tallycompanyname] TEXT;
+ALTER TABLE [tbl_TallySyncConfig] ADD COLUMN [tlsinsecure] INTEGER DEFAULT 0;
+
+-- ---- Form M-22 (West Bengal excise brand register) ----
+CREATE TABLE IF NOT EXISTS [tbl_FormM22] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT,
+  [periodfrom] TEXT,
+  [periodto] TEXT,
+  [openingqty] REAL DEFAULT 0,
+  [receivedqty] REAL DEFAULT 0,
+  [soldqty] REAL DEFAULT 0,
+  [breakageqty] REAL DEFAULT 0,
+  [closingqty] REAL DEFAULT 0,
+  [status] TEXT DEFAULT 'DRAFT',        -- DRAFT | FILED
+  [createdat] TEXT,
+  [filedat] TEXT
+);
+
+-- Brand-wise rows of each M-22 statement.
+CREATE TABLE IF NOT EXISTS [tbl_FormM22Detail] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [m22id] INTEGER,
+  [companycode] TEXT,
+  [brandcode] TEXT,
+  [brandname] TEXT,
+  [openingqty] REAL DEFAULT 0,
+  [receivedqty] REAL DEFAULT 0,
+  [soldqty] REAL DEFAULT 0,
+  [breakageqty] REAL DEFAULT 0,
+  [closingqty] REAL DEFAULT 0
+);
+
+-- ---- legacy data migration: admin-run import from the legacy SQL Server DB ----
+-- One row per migration run (uploaded file / CSV folder), with the summary
+-- counts for the dry-run and the applied import.
+CREATE TABLE IF NOT EXISTS [tbl_MigrationBatch] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT,
+  [source] TEXT,                         -- legacy | json | csv | sql
+  [filename] TEXT,
+  [mode] TEXT,                           -- ANALYZE | APPLY
+  [status] TEXT DEFAULT 'PENDING',       -- PENDING | ANALYZED | APPLIED | FAILED
+  [tables] INTEGER DEFAULT 0,
+  [inserted] INTEGER DEFAULT 0,
+  [updated] INTEGER DEFAULT 0,
+  [skipped] INTEGER DEFAULT 0,
+  [failed] INTEGER DEFAULT 0,
+  [startedat] TEXT,
+  [finishedat] TEXT,
+  [message] TEXT,
+  [detail] TEXT                          -- JSON: per-table counts + errors
+);
+
+-- Per-table (and per-row error) detail for a batch.
+CREATE TABLE IF NOT EXISTS [tbl_MigrationLog] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [batchid] INTEGER,
+  [companycode] TEXT,
+  [tablename] TEXT,
+  [action] TEXT,                         -- INSERT | UPDATE | SKIP | ERROR
+  [refkey] TEXT,
+  [message] TEXT,
+  [loggedat] TEXT
+);

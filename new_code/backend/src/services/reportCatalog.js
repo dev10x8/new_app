@@ -2,6 +2,7 @@ import { all } from '../db/index.js';
 import { stockOnHand } from './stock.js';
 import { ledgerBalances, trialBalance } from './accounting.js';
 import * as gst from './gst.js';
+import * as m22 from './m22.js';
 
 // Shared joins for sales-detail reports.
 const SALES_FROM = `
@@ -453,6 +454,8 @@ export const CATALOG = {
       WHERE pm.companycode=? AND pm.yearcode=? GROUP BY pm.trndate, i.kflcode ORDER BY pm.trndate`, [o.company, o.year])),
   'excise.daily_stock_bl': E('Daily Stock BL', (db, o) => exciseStock(db, o, 'day')),
   'excise.daily_stock_bl_iml': E('Daily Stock BL (IML)', (db, o) => exciseStock(db, o, 'day')),
+  'excise.form_m22': E('Form M-22 (Brand Register)', (db, o) => m22.brandMovements(db,
+    { company: o.company, year: o.year, from: o.from || '0000-01-01', to: o.to || '9999-12-31' })),
 
   // ---------------- GST (6) ----------------
   'gst.nai_rate_slab': G('NAI GST Report (rate slab)', (db, o) => gst.naiGstReport(db, o.company, o.year, { from: o.from, to: o.to }).rows),

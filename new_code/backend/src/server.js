@@ -16,6 +16,9 @@ import * as tools from './services/tools.js';
 import * as tally from './services/tally.js';
 import * as excise from './services/excise.js';
 import * as gst from './services/gst.js';
+import * as inventory from './services/inventory.js';
+import * as m22 from './services/m22.js';
+import * as migration from './services/migration.js';
 import { nextTrnNo } from './services/helpers.js';
 
 const db = openDatabase(config.dbFile);
@@ -73,6 +76,16 @@ route('PUT', '/api/masters/:name', (b, p) => masters.updateMaster(db, p.name, b.
 route('DELETE', '/api/masters/:name', (b, p) => masters.deleteMaster(db, p.name, b.keys));
 route('GET', '/api/items', () => masters.listItemsDetailed(db, config.company));
 route('GET', '/api/items/find', (b, p, q) => masters.findItem(db, config.company, q.get('term') || ''));
+
+// ---- inventory (dashboard, low-stock alerts, requisitions) ----
+route('GET', '/api/inventory/summary', () => inventory.inventorySummary(db, { company: config.company, year: config.year }));
+route('GET', '/api/inventory/stock', () => inventory.listItemStock(db, { company: config.company, year: config.year }));
+route('GET', '/api/inventory/low-stock', () => inventory.lowStock(db, { company: config.company, year: config.year }));
+route('POST', '/api/inventory/items', (b) => inventory.addItem(db, config.company, b));
+route('GET', '/api/inventory/requisitions', (b, p, q) => inventory.requisitions(db, config.company, { status: q.get('status') }));
+route('GET', '/api/inventory/requisitions/summary', () => inventory.requisitionSummary(db, config.company));
+route('POST', '/api/inventory/requisitions/generate', (b) => inventory.generateRequisitions(db, { company: config.company, year: config.year, suppliercode: b && b.suppliercode }));
+route('PUT', '/api/inventory/requisitions/:id', (b, p) => inventory.updateRequisition(db, config.company, Number(p.id), b));
 
 // ---- sales / POS ----
 route('GET', '/api/sales', (b, p, q) => sales.listSales(db, config.company, config.year, { from: q.get('from'), to: q.get('to'), salestype: q.get('salestype') }));
@@ -155,6 +168,14 @@ route('GET', '/api/tools/pml', () => tools.listPml(db, config.company, config.ye
 route('POST', '/api/tools/pml', (b) => tools.addPml(db, { company: config.company, year: config.year, ...b }));
 route('POST', '/api/tools/clean-print', () => tools.cleanPrintGarbage(db, config.company));
 
+// ---- legacy data migration (admin) ----
+route('GET', '/api/migration/tables', () => migration.tablesInfo(db));
+route('GET', '/api/migration/export-sql', () => ({ script: migration.exportSqlScript() }));
+route('GET', '/api/migration/history', () => migration.history(db, config.company));
+route('GET', '/api/migration/batches/:id', (b, p) => migration.batchDetail(db, config.company, Number(p.id)));
+route('POST', '/api/migration/analyze', (b) => migration.analyze(db, { company: config.company, year: config.year, ...b }));
+route('POST', '/api/migration/apply', (b) => migration.apply(db, { company: config.company, year: config.year, ...b }));
+
 // ---- remote Tally sync (connectionless twin-agent) ----
 route('GET', '/api/tally/config', () => tally.getConfig(db, config.company));
 route('PUT', '/api/tally/config', (b) => tally.saveConfig(db, config.company, b));
@@ -169,6 +190,9 @@ route('GET', '/api/tally/xml', (b, p, q) => {
 });
 route('GET', '/api/tally/report', () => tally.syncReport(db, config.company, config.year));
 route('GET', '/api/tally/logs', () => tally.logs(db, config.company));
+// ---- live Tally Prime push (HTTP/XML) ----
+route('POST', '/api/tally/live-test', () => tally.liveTest(db, config.company));
+route('POST', '/api/tally/live-push', (b) => tally.livePush(db, config.company, config.year, { limit: (b && b.limit) || 100, ids: b && b.ids }));
 route('GET', '/api/tally/mapping', (b, p, q) => tally.listMapping(db, config.company, q.get('type')));
 route('POST', '/api/tally/mapping', (b) => tally.addMapping(db, { company: config.company, ...b }));
 route('DELETE', '/api/tally/mapping/:id', (b, p) => ({ deleted: tally.deleteMapping(db, Number(p.id)) }));
@@ -231,6 +255,13 @@ route('POST', '/api/excise/inbound', (b) => ({ id: excise.receiveInbound(db, con
 route('POST', '/api/excise/inbound/apply', (b) => excise.applyInbound(db, config.company, b.id));
 route('GET', '/api/excise/logs', () => excise.logs(db, config.company));
 route('GET', '/api/excise/report', () => excise.syncReport(db, config.company));
+
+// ---- Form M-22 (brand register) ----
+route('GET', '/api/excise/m22', () => m22.listFormM22(db, config.company));
+route('POST', '/api/excise/m22/build', (b) => m22.buildFormM22(db, { company: config.company, year: config.year, from: b && b.from, to: b && b.to }));
+route('GET', '/api/excise/m22/:id', (b, p) => m22.getFormM22(db, config.company, Number(p.id)));
+route('POST', '/api/excise/m22/:id/file', (b, p) => m22.fileFormM22(db, config.company, Number(p.id)));
+route('GET', '/api/excise/m22/:id/print', (b, p) => ({ text: m22.renderFormM22Text(db, config.company, Number(p.id)) }));
 
 // ---- GST (rates, returns and filing) ----
 route('GET', '/api/gst/config', () => gst.getConfig(db, config.company));

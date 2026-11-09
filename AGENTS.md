@@ -40,38 +40,36 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   (counter, customer, area, manufacturer, NAI, scheme/offer, excise item,
   report tagging, transfer sale/receive, notes, on-a/c, a/c replace, BRS, UPI,
   delivery, deleted-bill archive, message log, sync status, audit, PML, version,
-  remote Tally sync, state excise sync, **GST** — item GST rate columns, GST
-  columns on sales/purchase lines, `tbl_GstReturn`/`tbl_GstReturnLog` and
-  `tbl_GstConfig`). It is applied on every
+  remote Tally sync, state excise sync, Form M-22, inventory requisitions,
+  **GST** — item GST rate columns, GST columns on sales/purchase lines,
+  `tbl_GstReturn`/`tbl_GstReturnLog`/`tbl_GstConfig`, and the legacy-migration
+  `tbl_MigrationBatch`/`tbl_MigrationLog`). It is applied on every
   `openDatabase` (idempotent
   `CREATE TABLE IF NOT EXISTS`; `ALTER ADD COLUMN` re-runs are ignored).
-  Total **90 tables** (45 + 45; SQLite adds its internal `sqlite_sequence`).
+  Total **96 tables** (45 + 51; SQLite adds its internal `sqlite_sequence`).
   Seeds live in `seed.sql` and `seed_ext.sql`.
 - **Services** (`backend/src/services/`): `auth`, `masters` (generic CRUD; see
   `MASTERS` registry), `sales` (POS), `purchase`, `stock`, `vouchers`,
-  `accounting` (double entry), `reports`, `reportCatalog` (119 declarative
+  `accounting` (double entry), `reports`, `reportCatalog` (declarative
   reports), `transactions` (transfer/notes/adjustments/fine/BRS/UPI/delivery),
   `admin` (parameters, new-year carry-forward, excise audit), `tools`
   (calculator, backup, tally, SMS, PML, sync, clean print), `tally`
-  (remote Tally Prime twin-agent sync: config, mapping, auto-enqueue, XML
-  envelopes, ack/retry, inbound masters, sync report), `excise`
-  (state excise compliance sync: capture on billing, pluggable per-state
-  adapters with two modes — `api` (WB EODB: token auth + push) and `portal`
-  (Odisha State Excise portal: stage batch + agent confirm) — pre-validation
-  gate, closing-balance push, portal inbound). See
-  `new_code/docs/EXCISE_SYNC_DESIGN.md`), `gst` (GST: item rate card on
-  `itemmst`/`naiItemMaster`, per-line taxable/CGST/SGST/IGST/cess capture at
-  billing, tax invoice with company + party GSTIN, the legacy rate-slab NAI GST
-  report, and GSTR-1/GSTR-3B return generation with JSON payload and an offline
-  filing lifecycle logged to `tbl_GstReturnLog`).
+  (remote Tally Prime twin-agent sync + live HTTP/XML push), `excise`
+  (state excise compliance sync + Form M-22), `inventory` (dashboard,
+  low-stock alerts, auto-requisitions), `m22` (Form M-22 brand register),
+  `gst`, and `migration` (legacy data import — see
+  `new_code/docs/LEGACY_DATA_MIGRATION.md`).
 - **Report catalog** is one declarative table in `reportCatalog.js`; the
   report menu is generated from `/api/report-groups`, not hard-coded. Counts:
   sales 32, stock 20, purchase 10, accounts 14, MIS 12, breakage 2, transfer 2,
-  excise 21, GST 6.
-- **Tests**: `cd new_code/backend && npm test` (60 tests across
-  `test/services.test.js`, `test/features.test.js`, `test/excise.test.js` and `test/gst.test.js`,
-  fresh temp DB each; includes a test that runs every catalog report, and
-  excise tests that drive a **real local HTTP fake** of the state excise API —
+  excise 22, GST 6.
+- **Tests**: `cd new_code/backend && npm test` (94 tests across
+  `test/services.test.js`, `test/features.test.js`, `test/excise.test.js`,
+  `test/gst.test.js`, `test/inventory.test.js`, `test/m22.test.js`,
+  `test/tallylive.test.js` and `test/migration.test.js`,
+  fresh temp DB each; includes a test that runs every catalog report,
+  excise tests that drive a **real local HTTP fake** of the state excise API,
+  and migration tests that parse the repository's own `dev/db/dml.sql` fixture —
   no mocks).
 - **Run**: `cd new_code && npm start` (backend + web UI). Login `A00001` / `admin`.
   Extra scripts: `npm run seed-demo` (reset + load a rich demo dataset for

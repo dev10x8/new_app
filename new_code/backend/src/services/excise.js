@@ -143,7 +143,96 @@ const OD = {
   }),
 };
 
-export const ADAPTERS = { WB, OD };
+/**
+ * Generic API-mode adapter (EODB-style JSON push). States whose portal exposes
+ * the same authorize-then-InsertPosData contract as West Bengal reuse this.
+ * The paths and default base are the department-published values; the actual
+ * base can be overridden per company in Excise Config (`endpointbase`).
+ */
+function apiAdapter(o) {
+  return {
+    state: o.state,
+    mode: 'api',
+    label: o.label,
+    defaultBase: o.defaultBase,
+    authorizeUrl: (base) => `${base}${o.authorizePath || '/CheckAuthorization'}`,
+    pushUrl: (base) => `${base}${o.pushPath || '/InsertPosData'}`,
+    closingUrl: (base) => `${base}${o.closingPath || o.pushPath || '/InsertPosData'}`,
+    userName: (cfg) => `${String(cfg.licenseeid ?? '').trim()}${o.userSuffix || ''}`,
+    salesPayload: (cfg, row) => ({
+      Licensee_Id_No: String(cfg.licenseeid ?? '').trim(),
+      Datetime_Stamp: row.trndate,
+      GTIN: row.gtin,
+      Pack_Size: String(row.packsize),
+      MRP: String(money(row.mrp)),
+      Quantity: String(row.quantity),
+    }),
+    closingPayload: (cfg, row) => ({
+      Licensee_Id_No: String(cfg.licenseeid ?? '').trim(),
+      Datetime_Stamp: row.balancedate,
+      GTIN: row.gtin,
+      Pack_Size: String(row.packsize),
+      MRP: String(money(row.mrp)),
+      Closing_Balance: String(row.closingqty),
+    }),
+  };
+}
+
+/**
+ * Generic portal-mode adapter. States without a published JSON API stage the
+ * submission batches for the shop-side portal agent to upload after signing in,
+ * exactly like Odisha (see the OD adapter above).
+ */
+function portalAdapter(o) {
+  return {
+    state: o.state,
+    mode: 'portal',
+    label: o.label,
+    defaultBase: o.defaultBase,
+    loginPath: o.loginPath || '/',
+    portalPath: o.portalPath || '/',
+    salesBatchPath: o.salesBatchPath || '/writereaddata/POSDataUpload',
+    closingBatchPath: o.closingBatchPath || '/writereaddata/ClosingBalanceUpload',
+    salesPayload: (cfg, row) => ({
+      Licensee_Id_No: String(cfg.licenseeid ?? '').trim(),
+      Datetime_Stamp: row.trndate,
+      GTIN: row.gtin,
+      Pack_Size: String(row.packsize),
+      MRP: String(money(row.mrp)),
+      Quantity: String(row.quantity),
+    }),
+    closingPayload: (cfg, row) => ({
+      Licensee_Id_No: String(cfg.licenseeid ?? '').trim(),
+      Datetime_Stamp: row.balancedate,
+      GTIN: row.gtin,
+      Pack_Size: String(row.packsize),
+      MRP: String(money(row.mrp)),
+      Closing_Balance: String(row.closingqty),
+    }),
+  };
+}
+
+// The base URLs below are the department-published entry points used as
+// defaults; every one of them is overridable per company in Excise Config.
+const UP = apiAdapter({ state: 'UP', label: 'Uttar Pradesh (IESCMS / Excise)', defaultBase: 'https://excise.up.gov.in/IESCMS' });
+const HR = apiAdapter({ state: 'HR', label: 'Haryana (Excise & Taxation)', defaultBase: 'https://haryanatax.gov.in/EXCISE' });
+const MH = apiAdapter({ state: 'MH', label: 'Maharashtra (State Excise)', defaultBase: 'https://excise.maharashtra.gov.in' });
+const KA = apiAdapter({ state: 'KA', label: 'Karnataka (KSEED / Excise)', defaultBase: 'https://kseed.karnataka.gov.in' });
+const RJ = apiAdapter({ state: 'RJ', label: 'Rajasthan (Excise / Abkari)', defaultBase: 'https://excise.rajasthan.gov.in' });
+const GJ = apiAdapter({ state: 'GJ', label: 'Gujarat (Excise & Prohibition)', defaultBase: 'https://excise.gujarat.gov.in' });
+const TS = apiAdapter({ state: 'TS', label: 'Telangana (State Excise)', defaultBase: 'https://excise.telangana.gov.in' });
+const MP = apiAdapter({ state: 'MP', label: 'Madhya Pradesh (State Excise)', defaultBase: 'https://excise.mp.gov.in' });
+
+const AP = portalAdapter({ state: 'AP', label: 'Andhra Pradesh (APSLBC / Excise)', defaultBase: 'https://apexcise.gov.in' });
+const AS = portalAdapter({ state: 'AS', label: 'Assam (Excise / BEVCO)', defaultBase: 'https://excise.assam.gov.in', loginPath: '/Login' });
+const KL = portalAdapter({ state: 'KL', label: 'Kerala (Bevco / Excise)', defaultBase: 'https://www.bevco.in', loginPath: '/Login' });
+const CG = portalAdapter({ state: 'CG', label: 'Chhattisgarh (State Excise)', defaultBase: 'https://excise.cg.gov.in' });
+const PB = portalAdapter({ state: 'PB', label: 'Punjab (Excise & Taxation)', defaultBase: 'https://excise.punjab.gov.in' });
+const DL = portalAdapter({ state: 'DL', label: 'Delhi (State Excise)', defaultBase: 'https://excise.delhi.gov.in' });
+
+export const ADAPTERS = {
+  WB, OD, UP, HR, MH, KA, RJ, GJ, TS, MP, AP, AS, KL, CG, PB, DL,
+};
 
 export function listAdapters() {
   return Object.values(ADAPTERS).map((a) => ({
