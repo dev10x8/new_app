@@ -7,7 +7,14 @@ Content is written from the application's own sources:
   * new_code/web/app.js         - login / logout / session
   * new_code/backend/src/*      - services and API behaviour
   * new_code/backend/src/db/*   - schema and seed data (sample codes)
-  * PRODUCT_FEATURES.md         - business flows
+  * new_code/docs/screenshots/  - real screenshots of every screen
+  * PRODUCT_FEATURES.md         - business flows, legacy form / table mapping
+  * decode/ + dev/db/ddl.sql    - original WinForms forms and SQL Server tables
+
+The screenshots are produced by:
+    cd new_code && npm start            # run the app with the demo dataset
+    npm run seed-demo                   # load the demo dataset
+    npm run screenshots                 # capture docs/screenshots/*.png (CDP)
 
 Run:  python3 build_user_guide.py   ->  Madhushala_Pro_User_Guide.pdf
 """
@@ -25,6 +32,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     BaseDocTemplate,
     Frame,
+    Image,
     KeepTogether,
     NextPageTemplate,
     PageBreak,
@@ -36,11 +44,14 @@ from reportlab.platypus import (
 )
 from reportlab.platypus.tableofcontents import TableOfContents
 
+from PIL import Image as PILImage
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "Madhushala_Pro_User_Guide.pdf")
+SHOTS = os.path.join(HERE, "screenshots")
 
 BUILD_DATE = "8 November 2026"
-VERSION = "1.0"
+VERSION = "2.0"
 
 # --------------------------------------------------------------------------
 # Fonts (DejaVu has the full glyph set we need, incl. the rupee sign).
@@ -93,6 +104,7 @@ S = {
     "cover_meta": st("cover_meta", fontSize=10.5, leading=16, textColor=colors.HexColor("#e2e8f0")),
     "cell": st("cell", fontSize=9.2, leading=13),
     "cellb": st("cellb", fontName="Body-Bold", fontSize=9.2, leading=13),
+    "caption": st("caption", fontSize=8.2, leading=11, textColor=MUTED),
 }
 
 
@@ -214,6 +226,88 @@ def steps_table(items):
         ("TOPPADDING", (0, 0), (-1, -1), 2),
         ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
         ("TEXTCOLOR", (0, 0), (0, -1), BRAND),
+    ]))
+    return t
+
+
+# --------------------------------------------------------------------------
+# Screenshots. Captured by scripts/capture_screenshots.js into docs/screenshots.
+# Very tall screens are split into readable slices so nothing is shrunk to
+# illegibility on the A4 page.
+# --------------------------------------------------------------------------
+CONTENT_W = 170 * mm
+MAX_IMG_H = 232 * mm
+_SLICE_DIR = None
+
+
+def _shot_path(stem):
+    return os.path.join(SHOTS, f"{stem}.png")
+
+
+def _slice_tall(path, stem):
+    """Return a list of image file paths, slicing very tall images."""
+    global _SLICE_DIR
+    with PILImage.open(path) as im:
+        w, h = im.size
+        ratio = h / w
+        max_ratio = (MAX_IMG_H / CONTENT_W)
+        if ratio <= max_ratio:
+            return [(path, w, h)]
+        parts = int(ratio / max_ratio) + 1
+        step = h // parts
+        if _SLICE_DIR is None:
+            import tempfile
+            _SLICE_DIR = tempfile.mkdtemp(prefix="guide-slices-")
+        out = []
+        for i in range(parts):
+            top = i * step
+            bottom = h if i == parts - 1 else min(h, (i + 1) * step)
+            crop = im.crop((0, top, w, bottom))
+            p = os.path.join(_SLICE_DIR, f"{stem}-{i}.png")
+            crop.save(p)
+            out.append((p, w, bottom - top))
+        return out
+
+
+def screenshot(stem, caption=None):
+    """Screenshot flowables (a list) with an optional caption per slice."""
+    path = _shot_path(stem)
+    if not os.path.exists(path):
+        return []
+    out = []
+    parts = _slice_tall(path, stem)
+    for i, (p, w, h) in enumerate(parts, 1):
+        iw = CONTENT_W
+        ih = iw * h / w
+        if ih > MAX_IMG_H:
+            ih = MAX_IMG_H
+            iw = ih * w / h
+        img = Image(p, width=iw, height=ih)
+        img.hAlign = "CENTER"
+        out.append(img)
+        out.append(Spacer(1, 1.5 * mm))
+        if caption:
+            label = caption if len(parts) == 1 else f"{caption} (part {i} of {len(parts)})"
+            out.append(Paragraph(label, S["caption"]))
+    return out
+
+
+def legacy_table(rows):
+    """A small two-column 'legacy mapping' table: legacy form/table -> rebuilt."""
+    data = [[Paragraph("Legacy (WinForms / SQL Server)", S["cellb"]),
+             Paragraph("Rebuilt in Madhushala Pro", S["cellb"])]]
+    for a, b in rows:
+        data.append([Paragraph(a, S["cell"]), Paragraph(b, S["cell"])])
+    t = Table(data, colWidths=[85 * mm, 85 * mm])
+    t.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, 0), PANEL),
+        ("LINEBELOW", (0, 0), (-1, -2), 0.4, LINE),
+        ("BOX", (0, 0), (-1, -1), 0.5, LINE),
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 7),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 7),
+        ("TOPPADDING", (0, 0), (-1, -1), 4),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
     ]))
     return t
 
@@ -691,16 +785,41 @@ FLOWS = [
          purpose="Audit what the agent sent and received.",
          steps=["Open <b>Tools - Remote Tally Sync</b> and scroll to <b>Sync log</b>.",
                "Read when, the direction, the action, the status and the message for each entry."]),
+    dict(section="Part F - Remote Tally Sync", group="State excise", title="State excise compliance sync",
+         role="Admin (setup) and User (billing)",
+         route="Tools - Excise Sync",
+         purpose="Queue every sale line for the state excise portal by its excise identity, upload when "
+                 "online, push the daily closing balance, and apply indents / transport permits received "
+                 "from the portal. Billing never depends on the network.",
+         steps=[
+             "Open <b>Tools - Excise Sync</b>.",
+             "In <b>State settings</b>, pick the <b>State</b> (for example West Bengal, which uses the direct EODB API, or Odisha, which uses the portal agent), then enter the <b>Licensee ID</b>, <b>Endpoint base</b> and <b>Credential</b>, and save.",
+             "The status cards show the queue: <b>Pending</b>, <b>Sent to portal</b>, <b>Uploaded</b>, <b>Failed</b>, plus <b>Unmatched</b> and <b>Total</b>.",
+             "Bills are captured automatically as you post them; to backfill, select <b>Capture pending bills</b>.",
+             "Select <b>Upload to portal</b> (API states) or <b>Stage for portal agent</b> (portal states such as Odisha).",
+             "Fix any <b>Unmatched</b> lines (GTIN + pack size + MRP no longer match the item master) - they are skipped on upload until corrected.",
+             "For the closing balance: pick the <b>Date</b>, select <b>Build closing balance</b>, then <b>Upload closing balance</b>.",
+             "For portal states, export the batch with <b>Export batch (JSON)</b> and confirm with <b>Confirm all sent as uploaded</b> once the portal shows the lines accepted.",
+             "Review <b>Portal documents received</b> (indents / transport permits) and select <b>Apply</b> to post a document into purchase.",
+             "Check the <b>Sync log</b> for what was sent and received.",
+         ],
+         notes=[
+             "Offline-first: every sale and return line is queued locally by excise identity at billing, so printing and billing never wait for the network.",
+             "The pre-validation gate compares GTIN + pack size + MRP against the item master before upload; mismatches are held back as unmatched.",
+             "West Bengal uses the <font face='Mono'>api</font> adapter (token auth + push); Odisha uses the <font face='Mono'>portal</font> adapter (stage a batch + agent confirm).",
+         ]),
     dict(section="Part F - Remote Tally Sync", group="Account recovery", title="Forgot the admin PIN",
          role="Admin", route="Tools - Change Password, Admin - User, or the API",
          purpose="Regain access when the administrator PIN is lost.",
          steps=[
              "If you are already signed in: <b>Tools - Change Password</b> sets a new PIN for your own account.",
              "If another admin is signed in: <b>Admin - User - Reset PIN</b> sets a new PIN for any user.",
-             "If nobody can sign in, reset it on the server with one call:",
+             "If nobody can sign in, reset it on the server with one command (it uses the same database as the app):",
+             "<font face='Mono'>node scripts/reset_admin_pin.js A00001 1234</font>",
          ],
          notes=[
-             "<font face='Mono'>curl -X POST localhost:7100/api/users/A00001/reset-pin -H 'content-type: application/json' -d '{\"pin\":\"1234\"}'</font>",
+             "The script above resets the PIN to <font face='Mono'>1234</font> for user <font face='Mono'>A00001</font>; pass a different user code and PIN if you need to.",
+             "You can also call the API directly: <font face='Mono'>curl -X POST localhost:7100/api/users/A00001/reset-pin -H 'content-type: application/json' -d '{\"pin\":\"1234\"}'</font>",
              "The admin PIN is stored in the <font face='Mono'>users</font> table (plaintext, as in the legacy app), so it can be reset directly if needed.",
          ]),
 
@@ -709,10 +828,10 @@ FLOWS = [
          role="Reference", route="Seeded data",
          purpose="Codes you can use to explore every flow.",
          steps=[
-             "Sign in as <font face='Mono'>A00001</font> / <font face='Mono'>admin</font> (administrator) or <font face='Mono'>A00002</font> / <font face='Mono'>cashier</font> (user).",
-             "Items: <font face='Mono'>I00001</font> Royal Stag 750ml, <font face='Mono'>I00002</font> Blenders Pride 750ml, <font face='Mono'>I00003</font> Kingfisher Beer 650ml.",
+             "Sign in as <font face='Mono'>A00001</font> / <font face='Mono'>admin</font> (administrator) or <font face='Mono'>A00002</font> / <font face='Mono'>cashier</font> (user). If the admin PIN has been changed, use the current PIN or reset it - see <b>Forgot the admin PIN</b>.",
+             "Items: <font face='Mono'>I00001</font> Royal Stag 750ml, <font face='Mono'>I00002</font> Blenders Pride 750ml, <font face='Mono'>I00003</font> Kingfisher Beer 650ml, <font face='Mono'>I00004</font> Absolut Vodka 750ml, <font face='Mono'>I00005</font> Magic Moments 750ml, <font face='Mono'>I00006</font> Budweiser 650ml.",
              "Ledgers: cash <font face='Mono'>L00001</font>, bank <font face='Mono'>L00002</font>, sales <font face='Mono'>L00003</font>, purchase <font face='Mono'>L00004</font>; supplier <font face='Mono'>S00001</font>; walk-in customer <font face='Mono'>C00001</font>.",
-             "Stores: <font face='Mono'>MAIN</font> (main store) and <font face='Mono'>CNT1</font> (counter 1).",
+             "Stores: <font face='Mono'>MAIN</font> (main store), <font face='Mono'>CNT1</font> (counter 1) and <font face='Mono'>BAR1</font> (main bar).",
              "Year: 2024-2025. Company 1.",
          ]),
     dict(section="Part G - Reference", group=None, title="Getting help",
@@ -724,6 +843,146 @@ FLOWS = [
              "Open <b>Help - List of Updates</b> for the recent change list.",
          ]),
 ]
+
+
+# ==========================================================================
+# SCREENSHOT MAP - one entry per flow title, in the order shown.
+#   title -> list of (screenshot stem, caption)
+# Captured by: node scripts/capture_screenshots.js
+# ==========================================================================
+SHOTS_FOR = {
+    "Signing in": [("__login__", "The sign-in screen. Enter your User Code and PIN, then Sign in.")],
+    "Signing out": [("shell-dashboard", "The dashboard shell; Log out sits at the bottom of the sidebar.")],
+    "Changing your own PIN": [("tool-change-password", "Tools - Change Password.")],
+    "Dashboard (Sales / Stock status)": [
+        ("dashboard", "Dashboard: today's sales, purchases, stock value and top items."),
+        ("dash-stock", "Dashboard - Stock status."),
+        ("dash-purchase", "Dashboard - Purchase status."),
+    ],
+    "Billing a sale at the counter (Sale - POS)": [
+        ("sale-pos", "Sale - POS. Pick items on the left; the bill totals update on the right."),
+        ("sales-register", "Sales Register lists every bill you just posted."),
+    ],
+    "Viewing the Sales Register": [("sales-register", "Sales Register.")],
+    "Day close (refresh the sale summary)": [("sales-register", "Day close operates over the bills shown in the register.")],
+    "Recording a purchase (goods receipt)": [("purchase", "Purchase entry (goods receipt).")],
+    "Opening stock": [("opening-stock", "Opening stock for the financial year.")],
+    "Stock transfer between stores": [("stock-transfer", "Stock transfer from one store to another.")],
+    "Recording breakage": [("breakage", "Breakage entry.")],
+    "Counter / transfer sale": [("transfer-sale", "Counter / transfer sale.")],
+    "Transfer receive": [("transfer-receive", "Transfer receive.")],
+    "Payment entry": [("voucher-payment", "Payment entry.")],
+    "Receipt entry": [("voucher-receipt", "Receipt entry.")],
+    "Contra entry (cash / bank)": [("voucher-contra", "Contra entry (cash / bank).")],
+    "Journal entry": [("voucher-journal", "Journal entry.")],
+    "Debit note and Credit note": [("note-debit", "Debit note."), ("note-credit", "Credit note.")],
+    "On A/C adjustment": [("on-account", "On A/C adjustment.")],
+    "A/C replace (ledger substitution)": [("account-replace", "A/C replace.")],
+    "BRS entry (bank reconciliation)": [("brs", "Bank reconciliation statement (BRS).")],
+    "QRCode / UPI payment": [("upi", "QRCode / UPI payment status.")],
+    "Excise fine": [("fine", "Excise fine entry.")],
+    "Home delivery orders": [("delivery", "Home delivery orders.")],
+    "Adding an item (Item Master)": [("items", "Item Master with the demo catalogue.")],
+    "Maintaining other masters (generic add / edit / delete)": [
+        ("master-ledger", "Ledger master."),
+        ("master-category", "Category master."),
+        ("master-customer", "Customer master."),
+    ],
+    "Schemes and offers": [("schemes", "Schemes and offers.")],
+    "Running a report": [
+        ("reports-sales", "Reports - Sales group."),
+        ("reports-stock", "Reports - Stock group."),
+    ],
+    "Company profile": [("master-company", "Company profile.")],
+    "Company parameters": [("admin-parameters", "Company parameters.")],
+    "Creating a new financial year": [("admin-new-year", "Create a new financial year.")],
+    "Adding a user": [("admin-users", "Admin - User.")],
+    "Resetting a user's PIN": [("admin-users", "Reset PIN from Admin - User.")],
+    "Setting user rights": [("admin-user-rights", "User rights per module.")],
+    "Calculator": [("tool-calculator", "Calculator.")],
+    "SMS / WhatsApp messages": [("tool-messages", "SMS / WhatsApp messages.")],
+    "PML print and reports": [("tool-pml", "PML print and reports.")],
+    "Clean print garbage": [("tool-clean-print", "Clean print garbage.")],
+    "Data back-up": [("tool-backup", "Data back-up.")],
+    "Data restore": [("tool-restore", "Data restore.")],
+    "Data sync (multi-branch / central)": [("tool-data-sync", "Data sync.")],
+    "Export to Tally (file export)": [("tool-tally-export", "Export to Tally (file export).")],
+    "What Remote Tally Sync does": [("tool-tally-sync", "Remote Tally Sync - connectionless twin-agent sync.")],
+    "Setting up the sync agent": [("tool-tally-sync", "Agent settings, broker URL and company GUID.")],
+    "Queueing and delivering vouchers": [("tool-tally-sync", "Outbound queue and delivery.")],
+    "Ledger and tax auto-mapping": [("tool-tally-sync", "Ledger and tax auto-mapping.")],
+    "Applying masters received from Tally": [("tool-tally-sync", "Masters received from Tally.")],
+    "Reading the sync log": [("tool-tally-sync", "Sync log.")],
+    "Excise compliance sync (state portal)": [("tool-excise-sync", "State excise compliance sync.")],
+    "Forgot the admin PIN": [("tool-change-password", "Change Password, or reset the PIN for any user from Admin - User.")],
+    "Getting help": [("help-ask", "Help - Ask for Help."), ("help-about", "Help - About Madhushala Pro.")],
+}
+
+# ==========================================================================
+# LEGACY MAPPING - the original WinForms form / SQL Server table behind each
+# flow, and where it lives in the rebuild. Sources: PRODUCT_FEATURES.md,
+# decode/ (decompiled sources) and dev/db/ddl.sql.
+#   title -> list of (legacy, rebuilt)
+# ==========================================================================
+LEGACY_FOR = {
+    "Signing in": [("frm_login / frm_sign_in (users table)", "Login screen -> POST /api/login; users table")],
+    "Signing out": [("frm_main session close", "Sidebar footer - Log out")],
+    "Changing your own PIN": [("frm_userinfo self-edit", "Tools - Change Password")],
+    "Dashboard (Sales / Stock status)": [("frm_main status panels", "Dashboard route; GET /api/dashboard")],
+    "Billing a sale at the counter (Sale - POS)": [
+        ("frm_countersales", "Sale - POS"),
+        ("salesbillmain + salesbilldetail", "sales.createSale() -> salesbillmain / salesbilldetail"),
+    ],
+    "Viewing the Sales Register": [("frm_bedit / sales grid", "Sales Register (GET /api/sales)")],
+    "Day close (refresh the sale summary)": [("frm_manualdayclose", "POST /api/day-close")],
+    "Recording a purchase (goods receipt)": [
+        ("frm_purchase", "Purchase"),
+        ("purchasemain + purchasedetail", "purchase.createPurchase()"),
+    ],
+    "Opening stock": [("openingstockmst", "Opening Stock")],
+    "Stock transfer between stores": [("frm_stocktransfer / stk_transfer_main", "Stock Transfer")],
+    "Recording breakage": [("frm_breakageentry / breakagemain", "Breakage")],
+    "Counter / transfer sale": [("frm_countersalesTransfer / frm_TransferSale", "Counter / Transfer Sale")],
+    "Transfer receive": [("frm_TransferReceive", "Transfer Receive")],
+    "Payment entry": [("frm_conpayrec_vch / payment_main", "Payment Entry")],
+    "Receipt entry": [("frm_receipt_voucher / receipt_main", "Receipt Entry")],
+    "Contra entry (cash / bank)": [("frm_contra_entry", "Contra Entry")],
+    "Journal entry": [("frm_journal_vch / journaldetail", "Journal Entry")],
+    "Debit note and Credit note": [("notes_main / notes_detail", "Debit / Credit Note")],
+    "On A/C adjustment": [("frm_OnAccountAdjustment", "On A/C Adjustment")],
+    "A/C replace (ledger substitution)": [("frm_AccountTransfer", "A/C Replace")],
+    "BRS entry (bank reconciliation)": [("frm_reconciliation / TransactionReconciliation", "BRS Entry")],
+    "QRCode / UPI payment": [("frm_qrorder / tbl_UPIRespose", "QRCode / UPI Payment")],
+    "Excise fine": [("frm_fine / fine_details", "Excise Fine")],
+    "Home delivery orders": [("delivery_orders", "Home Delivery")],
+    "Adding an item (Item Master)": [("frm_itemmstadd / itemmst", "Item Master")],
+    "Maintaining other masters (generic add / edit / delete)": [("frm_masters / frm_ledger / frm_unit / Frm_ManufacturerMaster", "Generic master screens")],
+    "Schemes and offers": [("frm_scheme / tbl_scheme, offermst", "Schemes and offers")],
+    "Running a report": [("frm_ReportForm / frm_ReportsPreview", "Reports (113 declarative reports)")],
+    "Company profile": [("frm_companyinfo / companymast", "Company")],
+    "Company parameters": [("frm_companyparameter / companyparamtr", "Parameters")],
+    "Creating a new financial year": [("frm_yearcreation / yearmst", "New Year")],
+    "Adding a user": [("frm_userinfo / users", "Admin - User")],
+    "Resetting a user's PIN": [("users.password (plaintext)", "Admin - User - Reset PIN / POST /api/users/:code/reset-pin")],
+    "Setting user rights": [("frm_userrights / userrights", "User Rights")],
+    "Calculator": [("tools.calculate", "Calculator")],
+    "SMS / WhatsApp messages": [("frm_message / tbl_MessageLog", "SMS / WhatsApp")],
+    "PML print and reports": [("tbl_PML / tbl_PMLCAL", "PML Print and Reports")],
+    "Clean print garbage": [("legacy print-clean utility", "Clean Print Garbage")],
+    "Data back-up": [("backup_upload company parameter", "Data Back-Up")],
+    "Data restore": [("frm_restore", "Data Restore")],
+    "Data sync (multi-branch / central)": [("AutoDataSync.exe / tbl_UploadDownloadStatus", "Data Sync")],
+    "Export to Tally (file export)": [("frm_tally_export", "Export to Tally")],
+    "What Remote Tally Sync does": [("MadhushalaDataSync.dll", "Remote Tally Sync")],
+    "Setting up the sync agent": [("MadhushalaDataSync.dll config", "Remote Tally Sync - Agent settings")],
+    "Queueing and delivering vouchers": [("tbl_TallySyncQueue", "Remote Tally Sync - Outbound queue")],
+    "Ledger and tax auto-mapping": [("tbl_TallyMapping", "Remote Tally Sync - Ledger / tax auto-mapping")],
+    "Applying masters received from Tally": [("inbound masters", "Remote Tally Sync - Masters received")],
+    "Reading the sync log": [("sync log", "Remote Tally Sync - Sync log")],
+    "Excise compliance sync (state portal)": [("frm_exciseform / ExciseSalesUpload.exe", "Excise Sync (WB api mode + Odisha portal mode)")],
+    "Forgot the admin PIN": [("users.password (plaintext)", "Change Password / Reset PIN / scripts/reset_admin_pin.js")],
+    "Getting help": [("frm_ask4help / frm_AboutBox1", "Help menu")],
+}
 
 
 # ==========================================================================
@@ -740,7 +999,10 @@ def cover_story():
             "Bar and Liquor POS and management system. This guide walks through every "
             "screen and business flow for both the administrator and the counter / "
             "back-office user, from signing in and billing a sale to masters, reports, "
-            "administration and the connectionless Remote Tally Sync.",
+            "administration, state excise compliance and the connectionless Remote "
+            "Tally Sync. Every flow is illustrated with a screenshot of the rebuilt "
+            "application and a map back to the original WinForms form and SQL Server "
+            "table.",
             S["cover_meta"])]], colWidths=[150 * mm],
             style=TableStyle([("LEFTPADDING", (0, 0), (-1, -1), 0),
                               ("RIGHTPADDING", (0, 0), (-1, -1), 0),
@@ -785,6 +1047,38 @@ def build_story(doc):
         "Values you type or pick are shown in monospace, for example <font face='Mono'>CNT1</font>.",
         "Money is shown in rupees.",
     ]))
+    story.append(Spacer(1, 4 * mm))
+    story.append(toc_para("Screenshots and the demo dataset", 0))
+    story.append(rule(BRAND, 1.0, 6))
+    story.append(P("Every flow below is shown with a real screenshot of the rebuilt application, "
+                   "captured from a running copy with the demo dataset loaded. Each flow also "
+                   "carries a small <b>legacy mapping</b> table that names the original WinForms "
+                   "form and SQL Server table it came from, so anyone who knows the old "
+                   "Madhushala Pro product can find their way immediately."))
+    story.append(Spacer(1, 3 * mm))
+    story.append(P("Load the demo dataset before you explore (it resets the database):", "body"))
+    story.append(Paragraph("node scripts/seed_demo.js", S["code"]))
+    story.append(Spacer(1, 2 * mm))
+    story.append(callout("What the demo dataset contains", [
+        "Company <font face='Mono'>1</font>, year <font face='Mono'>2024</font> (2024-2025).",
+        "Users: <font face='Mono'>A00001</font> / <font face='Mono'>admin</font> (Admin), "
+        "<font face='Mono'>A00002</font> / <font face='Mono'>cashier</font> (User), "
+        "<font face='Mono'>A00003</font> / <font face='Mono'>store</font> (User).",
+        "Six items (Royal Stag, Blenders Pride, Kingfisher Beer, Absolut Vodka, Magic Moments, "
+        "Budweiser), three stores (<font face='Mono'>MAIN</font>, <font face='Mono'>CNT1</font>, "
+        "<font face='Mono'>BAR1</font>).",
+        "3 purchases, 7 sales bills (net <font face='Mono'>Rs 39,300</font>), a stock transfer, "
+        "breakage, payment / receipt / contra / journal vouchers, notes, fine, BRS, UPI and a "
+        "delivery order.",
+        "Remote Tally Sync configured with 10 queued vouchers (9 delivered, 1 failed); state "
+        "excise sync configured for West Bengal with 11 captured bills and a closing balance.",
+    ]))
+    story.append(Spacer(1, 3 * mm))
+    story.append(callout("Forgot the admin PIN?", [
+        "Reset it in one command against the running database:",
+        "<font face='Mono'>node scripts/reset_admin_pin.js A00001 1234</font>",
+        "See the flow <b>Forgot the admin PIN</b> in Part F for the signed-in and server options.",
+    ], accent=ACCENT, bg=colors.HexColor("#eef2ff")))
 
     seen_section = None
     seen_group = None
@@ -809,6 +1103,18 @@ def build_story(doc):
         if f.get("notes"):
             block.append(Spacer(1, 2 * mm))
             block.append(callout("Notes", f["notes"]))
+        legacy = f.get("legacy") or LEGACY_FOR.get(f["title"])
+        if legacy:
+            block.append(Spacer(1, 3 * mm))
+            block.append(Paragraph("Where this lives: legacy form / table &rarr; rebuilt screen",
+                                   S["cellb"]))
+            block.append(Spacer(1, 1 * mm))
+            block.append(legacy_table(legacy))
+        shots = SHOTS_FOR.get(f["title"])
+        if shots:
+            for stem, cap in shots:
+                block.append(Spacer(1, 3 * mm))
+                block += screenshot(stem, cap)
         block.append(Spacer(1, 7 * mm))
         story += block
     return story

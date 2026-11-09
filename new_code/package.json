@@ -11,6 +11,9 @@
     "web": "npm --prefix web start",
     "tauri": "npm --prefix tauri run tauri",
     "reset-db": "npm --prefix backend run reset-db",
+    "seed-demo": "node scripts/seed_demo.js",
+    "reset-admin-pin": "node scripts/reset_admin_pin.js",
+    "screenshots": "node scripts/capture_screenshots.js",
     "gen-schema": "npm --prefix backend run gen-schema",
     "test": "npm --prefix backend test"
   },
