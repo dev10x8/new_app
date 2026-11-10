@@ -26,6 +26,7 @@ stack and conventions (Node.js + `node:sqlite` + a framework-free web UI).
 | `web/` | SPA: `menu.js` (routes), `screens.js`, `api.js`, `ui.js`, `app.js`, `styles.css` |
 | `web/downloads/` | Machine-fingerprint helper scripts (PowerShell + shell) |
 | `scripts/` | `start.js`, `seed_demo.js`, `capture_screenshots.js` |
+| `docs/` | User guide PDF, `build_user_guide.py` and `docs/screenshots/` |
 
 ## Run
 
@@ -35,7 +36,20 @@ npm run seed-demo  # reset DB and load a demo dataset
 npm test           # backend test suite
 npm run reset-db
 npm run gen-license-key
+npm run screenshots  # capture docs/screenshots/*.png from the running portal
+npm run guides       # build docs/VanijLiquor_Customer_Portal_User_Guide.pdf
 ```
+
+## Documentation
+
+The user guide — `docs/VanijLiquor_Customer_Portal_User_Guide.pdf` — walks through
+every portal feature with screenshots. It is generated from the app's own sources:
+
+1. `npm start` and (optionally) `npm run seed-demo` to load the demo dataset.
+2. `npm run screenshots` — drives headless Chromium over CDP to capture
+   `docs/screenshots/*.png` (no npm dependencies).
+3. `npm run guides` — builds the PDF with `docs/build_user_guide.py`
+   (needs `reportlab` and `Pillow`).
 
 ## Licensing model
 

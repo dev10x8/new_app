@@ -11,6 +11,7 @@
     "web": "npm --prefix web start",
     "seed-demo": "node scripts/seed_demo.js",
     "screenshots": "node scripts/capture_screenshots.js",
+    "guides": "python3 docs/build_user_guide.py",
     "reset-db": "npm --prefix backend run reset-db",
     "gen-license-key": "npm --prefix backend run gen-license-key",
     "test": "npm --prefix backend test"

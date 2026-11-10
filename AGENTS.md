@@ -101,7 +101,9 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
 - **Run**: `cd new_code_portal && npm start` → backend `127.0.0.1:7200`, web
   `:8081` (served locally at `http://127.0.0.1:8081`). Extra scripts:
   `npm run seed-demo`, `npm test` (33 tests), `npm run reset-db`,
-  `npm run gen-license-key`.
+  `npm run gen-license-key`, `npm run screenshots` (CDP capture into
+  `docs/screenshots/`), `npm run guides` (build the user guide PDF with
+  `docs/build_user_guide.py`; needs reportlab + Pillow).
 - **Routes**: dashboard, businesses, business, licenses, onboard, plans,
   modules, issue, verify, download, key, audit (`web/menu.js` drives the sidebar).
 - **Licensing**: Ed25519-signed `.vlic` files bound to a machine fingerprint
@@ -109,6 +111,9 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   `machine-fingerprint.json`; activation on a different machine is refused
   (`Licence is bound to a different machine`). Set `PORTAL_LICENSE_KEY` for
   production; otherwise a development signing key is used and the UI flags it.
+- **User guide**: `docs/VanijLiquor_Customer_Portal_User_Guide.pdf`, generated
+  by `docs/build_user_guide.py` from the app's own sources and screenshots in
+  `docs/screenshots/` (captured by `scripts/capture_screenshots.js`).
 
 ### Conventions in new_code
 
