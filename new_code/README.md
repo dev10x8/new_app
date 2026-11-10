@@ -115,6 +115,7 @@ new_code/
 │   └── test/
 │       ├── services.test.js  # core service tests
 │       ├── features.test.js  # extended feature + report catalog tests
+│       ├── imports.test.js   # bulk import, state master, landed cost, Parcha
 │       ├── excise.test.js    # state excise sync (real local HTTP fake)
 │       └── gst.test.js       # GST rate card, GSTR-1/3B, filing
 ├── web/                      # the UI (frontend of the Tauri desktop app)
@@ -153,7 +154,7 @@ including the GST tables `tbl_GstReturn`, `tbl_GstReturnLog` and
 | Accounts & vouchers (§3.5) | `services/vouchers.js` + `services/accounting.js` (double entry) |
 | Stock (§3.6) | `services/stock.js` (opening stock, transfer, breakage, on-hand) |
 | Day close (§3.7) | `sales.dayClose` + `sales.salesSummary` |
-| Reports (§2.5) | `services/reportCatalog.js` — 119 reports in 9 groups |
+| Reports (§2.5) | `services/reportCatalog.js` — 122 reports in 9 groups |
 | Dash board (§2.7) | `reports.dashboard` + catalog-backed status screens |
 | Transfer sale / receive | `services/transactions.js` |
 | Debit / credit notes, on-a/c, a/c replace | `services/transactions.js` |
@@ -208,7 +209,10 @@ menu, or shown as an informational screen).
 | Masters → KFL (`kflmst`) | Masters > KFL | `/api/masters/kfl` | Full |
 | Masters → Strength (`strength`) | Masters > Strength | `/api/masters/strength` | Full |
 | Masters → Measure and Packing (`Itemgroupml`) | Masters > Measure and Packing | `/api/masters/itemgroupml` | Full |
+| Masters → Pack Sizes (Quart / Pint / Nip) | Masters > Pack Sizes | `services/statemaster.js` `/api/pack-sizes` | Full |
 | Masters → Item Master → `itemmst` | Masters > Item Master | `masters.listItemsDetailed` `/api/items` | Full |
+| Masters → State Master List (approved brands / sizes / MRPs) | Masters > State Master List | `services/statemaster.js` `/api/state-master` | Full |
+| Masters → Bulk Master Upload (any master / opening stock) | Masters > Bulk Master Upload | `services/bulkimport.js` `/api/bulk` | Full |
 | Masters → Sales Rate → `itemratemst` | Masters > Sales Rate | `/api/masters/rateinfo` | Full |
 | Masters → Store Master → `frm_storage` (`storage`) | Masters > Store Master | `/api/masters/storage` | Full |
 | Masters → Counter Master (`countermst`) | Masters > Counter Master | `/api/masters/counter` | Full |
@@ -229,6 +233,7 @@ menu, or shown as an informational screen).
 | --- | --- | --- | --- |
 | Sale - POS → `frm_countersales` (`salesbillmain`/`detail`) | Transactions > Sale - POS | `services/sales.js` `/api/sales` | Full |
 | Purchase → `frm_purchase` (`purchasemain`/`detail`) | Transactions > Purchase | `services/purchase.js` `/api/purchases` | Full |
+| Purchase → Import from PDF (any state) | Transactions > Parcha Import (Invoice) | `services/parcha.js` `/api/parcha` | Full |
 | Counter Sale / Transfer Sale → `frm_countersales` | Transactions > Counter / Transfer Sale | `transactions.createTransferSale` `/api/transfer-sales` | Full |
 | Transfer Receive | Transactions > Transfer Receive | `transactions.createTransferReceive` `/api/transfer-receives` | Full |
 | Payment Entry → `frm_conpayrec_vch` (`payment_main`) | Transactions > Payment Entry | `vouchers.createPaymentReceipt` `/api/vouchers` | Full |
@@ -252,15 +257,15 @@ menu, or shown as an informational screen).
 | --- | --- | --- | --- |
 | Sales Reports (32) | Reports > Sales Reports | `reportCatalog.js` (32 keys) `/api/report-catalog/:key` | Full |
 | Stock Reports (20) | Reports > Stock Reports | `reportCatalog.js` (20 keys) | Full |
-| Purchase Reports (10) | Reports > Purchase Reports | `reportCatalog.js` (10 keys) | Full |
+| Purchase Reports (12) | Reports > Purchase Reports | `reportCatalog.js` (12 keys, incl. Landed Cost & Margin, Item-wise Margin) | Full |
 | Accounts Reports (14) | Reports > Accounts Reports | `reportCatalog.js` (14 keys) | Full |
 | MIS Reports (12) | Reports > MIS Reports | `reportCatalog.js` (12 keys) | Full |
 | Breakage Reports (2) | Reports > Breakage Reports | `reportCatalog.js` (2 keys) | Full |
 | Stock Transfer Reports (2) | Reports > Stock Transfer Reports | `reportCatalog.js` (2 keys) | Full |
-| Excise Reports (21) | Reports > Excise Reports | `reportCatalog.js` (21 keys) | Full |
+| Excise Reports (22) | Reports > Excise Reports | `reportCatalog.js` (22 keys) | Full |
 | GST Reports (6) | Reports > GST Reports | `reportCatalog.js` (6 keys) `/api/report-catalog/gst.*` | Full |
 
-The catalog holds **119 reports** and is driven from a single declarative table
+The catalog holds **122 reports** and is driven from a single declarative table
 (`services/reportCatalog.js`), so the report menu is generated from the API
 (`/api/report-groups`) rather than hard-coded.
 
@@ -276,6 +281,8 @@ The catalog holds **119 reports** and is driven from a single declarative table
 | Tools → Change Password | Tools > Change Password | `auth.resetPin` `/api/users/:code/reset-pin` | Full |
 | Tools → Data Back-Up (`backup()`) | Tools > Data Back-Up | `tools.backupDatabase` `/api/tools/backup` | Full |
 | Tools → Data Restore | Tools > Data Restore (guided) | copy backup over `data/madhushala.db` | Partial |
+| Tools → Data Migration (legacy SQL / JSON / CSV) | Tools > Data Migration | `services/migration.js` `/api/migration` | Full |
+| Tools → Landed Cost / Margin | Tools > Landed Cost / Margin | `services/landedcost.js` `/api/landedcost` | Full |
 | Tools → Shortcut Panel | Tools > Shortcut Panel | Help screen | Full |
 | Tools → Export To Tally → `frm_tally_export` | Tools > Export To Tally | `tools.tallyExport` `/api/tools/tally` | Full |
 | Tools → Remote Tally Sync (connectionless twin-agent) | Tools > Remote Tally Sync | `tally.*` `/api/tally/*` | Full |
@@ -346,6 +353,14 @@ The backend exposes a small JSON API (`{ ok, data }` / `{ ok, error }`):
 | GET  | `/api/tally/queue`, `/api/tally/summary`, `/api/tally/xml`, `/api/tally/report`, `/api/tally/logs` | remote Tally sync views |
 | GET  | `/api/tally/agent/pull?token=` | shop agent pulls pending voucher XML |
 | POST | `/api/tally/agent/ack`, `/api/tally/inbound` | shop agent acks delivery / receives masters |
+| GET  | `/api/bulk/targets`, `/api/bulk/history` | bulk master upload targets / history |
+| POST | `/api/bulk/analyze`, `/api/bulk/apply` | bulk master / opening-stock import (dry run / apply) |
+| GET  | `/api/state-master/datasets`, `/api/state-master`, `/api/state-master/summary` | state master list |
+| POST | `/api/state-master/load`, `/api/state-master/items/analyze`, `/api/state-master/items/apply` | load a state list / create item masters |
+| GET/POST/DELETE | `/api/pack-sizes` | pack sizes (Quart / Pint / Nip) |
+| GET  | `/api/parcha/history`, `/api/parcha/batches/:id`, `/api/parcha/ocr-config` | parcha import history / OCR settings |
+| POST | `/api/parcha/analyze`, `/api/parcha/apply`, `/api/parcha/ocr` | parcha invoice import (dry run / apply / OCR) |
+| GET/POST | `/api/landedcost/report`, `/api/landedcost/items`, `/api/landedcost/compute`, `/api/landedcost/apply-margin` | landed cost / margin |
 
 ## Tests
 
@@ -353,7 +368,7 @@ The backend exposes a small JSON API (`{ ok, data }` / `{ ok, error }`):
 npm test
 ```
 
-60 tests (four files) cover seeding, login, PIN reset, purchases, POS sales,
+**111 tests** (nine files) cover seeding, login, PIN reset, purchases, POS sales,
 stock movement (transfer, breakage, returns), day close, vouchers, reports and
 master CRUD, plus the extended features: transfer sale/receive, debit/credit
 notes, on-a/c and a/c replace, excise fine, BRS, UPI, delivery, deleted-bill
@@ -361,8 +376,10 @@ archiving, new-year carry-forward, parameters, excise audit, tools (calculator,
 messages, sync, PML, clean print, backup), remote Tally sync (auto-enqueue,
 voucher XML, ack, retry, inbound masters, token guard, sync report), the state
 excise sync (driven against a real local HTTP fake of the portal API), GST
-(item rate card, per-line split, GSTR-1/3B, filing), and that **all 119 catalog
-reports execute**. Every test uses a fresh temporary database.
+(item rate card, per-line split, GSTR-1/3B, filing), the import suite (bulk
+master upload from XLSX/CSV, the state master list, pack sizes, landed cost,
+and the Parcha PDF/CSV/JSON import with fuzzy item matching), and that **all
+122 catalog reports execute**. Every test uses a fresh temporary database.
 
 ## Forgot the admin PIN?
 

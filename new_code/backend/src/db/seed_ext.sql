@@ -93,3 +93,28 @@ UPDATE naiItemMaster SET cgst=14, sgst=14, igst=0, cess=0, addcess=0, gsttype=1,
 UPDATE companymast SET gstin='19AABCA1234B1Z5' WHERE companycode='1';
 INSERT OR IGNORE INTO tbl_GstConfig (companycode, gstin, legalname, tradename, statecode)
 VALUES ('1', '19AABCA1234B1Z5', 'ABM TECHNOMATRIX (P) LTD.', 'MADHUSHALA PRO', '19');
+
+-- ---- government pack-size master (Quart / Pint / Nip and the other standard
+-- Indian liquor pack sizes, keyed to their millilitre figure) ----
+INSERT OR IGNORE INTO tbl_PackSize (companycode, packname, ml, abbr, sortorder) VALUES
+  ('1', 'Nip',      60,  'NIP',  10),
+  ('1', 'Nip',      90,  'NIP',  11),
+  ('1', 'Nip',      100, 'NIP',  12),
+  ('1', 'Nip',      180, 'NIP',  13),
+  ('1', 'Quarter',  180, 'QTR',  20),
+  ('1', 'Half',     375, 'HALF', 30),
+  ('1', 'Pint',     330, 'PINT', 31),
+  ('1', 'Pint',     375, 'PINT', 32),
+  ('1', 'Pint',     500, 'PINT', 33),
+  ('1', 'Quart',    650, 'QRT',  40),
+  ('1', 'Quart',    750, 'QRT',  41),
+  ('1', 'Quart',    1000,'QRT',  42),
+  ('1', 'Bottle',   180, 'BTL',  50),
+  ('1', 'Bottle',   330, 'BTL',  51),
+  ('1', 'Bottle',   650, 'BTL',  52),
+  ('1', 'Bottle',   750, 'BTL',  53);
+
+-- OCR / document-capture settings for the Parcha scan (disabled until a
+-- provider is configured; the built-in 'stub' provider handles pasted text).
+INSERT OR IGNORE INTO tbl_OcrConfig (companycode, provider, lang, enabled, updatedat)
+VALUES ('1', 'stub', 'eng', 0, '2024-04-01');

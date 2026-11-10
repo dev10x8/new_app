@@ -19,6 +19,10 @@ import * as gst from './services/gst.js';
 import * as inventory from './services/inventory.js';
 import * as m22 from './services/m22.js';
 import * as migration from './services/migration.js';
+import * as bulkimport from './services/bulkimport.js';
+import * as statemaster from './services/statemaster.js';
+import * as parcha from './services/parcha.js';
+import * as landedcost from './services/landedcost.js';
 import { nextTrnNo } from './services/helpers.js';
 
 const db = openDatabase(config.dbFile);
@@ -31,11 +35,18 @@ function json(res, code, body) {
 
 function readBody(req) {
   return new Promise((resolve, reject) => {
-    let data = '';
-    req.on('data', (c) => { data += c; });
+    const chunks = [];
+    req.on('data', (c) => { chunks.push(c); });
     req.on('end', () => {
-      if (!data) return resolve({});
-      try { resolve(JSON.parse(data)); } catch (e) { reject(e); }
+      const buf = Buffer.concat(chunks);
+      if (!buf.length) return resolve({});
+      const ct = String(req.headers['content-type'] || '');
+      // Raw binary upload (e.g. an .xlsx dropped on the endpoint): hand the
+      // handler a base64 string it can turn back into a Buffer.
+      if (ct.includes('application/octet-stream') || ct.includes('multipart/form-data')) {
+        return resolve({ filebase64: buf.toString('base64') });
+      }
+      try { resolve(JSON.parse(buf.toString('utf8'))); } catch (e) { reject(e); }
     });
     req.on('error', reject);
   });
@@ -175,6 +186,50 @@ route('GET', '/api/migration/history', () => migration.history(db, config.compan
 route('GET', '/api/migration/batches/:id', (b, p) => migration.batchDetail(db, config.company, Number(p.id)));
 route('POST', '/api/migration/analyze', (b) => migration.analyze(db, { company: config.company, year: config.year, ...b }));
 route('POST', '/api/migration/apply', (b) => migration.apply(db, { company: config.company, year: config.year, ...b }));
+
+// ---- bulk master / opening-stock import (Excel / CSV / JSON) ----
+// A caller may send { content } (text), { filebase64 } (raw upload) or
+// { buffer } is derived from filebase64 here.
+const withFile = (b) => (b && b.filebase64 ? { ...b, buffer: Buffer.from(b.filebase64, 'base64') } : b);
+route('GET', '/api/bulk/targets', () => ({ targets: Object.entries(bulkimport.MASTER_TARGETS).map(([k, v]) => ({ key: k, label: v.label })), templates: bulkimport.templates() }));
+route('GET', '/api/bulk/history', () => bulkimport.history(db, config.company));
+route('POST', '/api/bulk/analyze', (b) => bulkimport.analyze(db, { company: config.company, year: config.year, ...withFile(b) }));
+route('POST', '/api/bulk/apply', (b) => bulkimport.apply(db, { company: config.company, year: config.year, ...withFile(b) }));
+
+// ---- pre-configured state master list (approved brands / sizes / MRPs) ----
+route('GET', '/api/state-master/datasets', () => statemaster.datasets());
+route('GET', '/api/state-master', (b, p, q) => statemaster.listStateMaster(db, { company: config.company, state: q.get('state'), q: q.get('q') }));
+route('GET', '/api/state-master/summary', () => statemaster.stateSummary(db, config.company));
+route('POST', '/api/state-master/load', (b) => statemaster.loadState(db, { company: config.company, ...b }));
+route('POST', '/api/state-master/items/analyze', (b) => statemaster.analyzeItems(db, { company: config.company, year: config.year, ...b }));
+route('POST', '/api/state-master/items/apply', (b) => statemaster.applyItems(db, { company: config.company, year: config.year, ...b }));
+
+// ---- pack sizes (Quart / Pint / Nip / ...) ----
+route('GET', '/api/pack-sizes', () => statemaster.listPackSizes(db, config.company));
+route('POST', '/api/pack-sizes', (b) => statemaster.createPackSize(db, config.company, b));
+route('DELETE', '/api/pack-sizes/:id', (b, p) => statemaster.deletePackSize(db, config.company, p.id));
+
+// ---- Parcha (purchase invoice) import ----
+route('GET', '/api/parcha/history', () => parcha.history(db, config.company));
+route('GET', '/api/parcha/batches/:id', (b, p) => parcha.batchDetail(db, config.company, Number(p.id)));
+route('POST', '/api/parcha/analyze', (b) => parcha.analyze(db, { company: config.company, year: config.year, filename: b.filename, invoice: parcha.loadInvoice(withFile(b)) }));
+route('POST', '/api/parcha/apply', (b) => parcha.apply(db, { company: config.company, year: config.year, filename: b.filename, invoice: parcha.loadInvoice(withFile(b)), createMissing: !!b.createMissing, marginPct: b.marginPct, setOpeningStock: !!b.setOpeningStock, shopcode: b.shopcode }));
+
+// ---- OCR / document capture (Parcha scan) ----
+route('GET', '/api/parcha/ocr-config', () => ({ ...parcha.ocrConfig(db, config.company), tesseractAvailable: parcha.tesseractAvailable() }));
+route('PUT', '/api/parcha/ocr-config', (b) => parcha.saveOcrConfig(db, config.company, b));
+route('POST', '/api/parcha/ocr', async (b) => {
+  const buf = Buffer.from(String((b && b.image) || ''), 'base64');
+  const { provider, text } = await parcha.ocrExtract(db, config.company, { buffer: buf, filename: (b && b.filename) || 'scan.png' });
+  const invoice = parcha.parseInvoiceText(text);
+  return { provider, text, invoice: parcha.normalizeInvoice(invoice) };
+});
+
+// ---- landing cost / margin ----
+route('GET', '/api/landedcost/report', (b, p, q) => landedcost.report(db, { company: config.company, year: config.year, from: q.get('from'), to: q.get('to') }));
+route('GET', '/api/landedcost/items', () => landedcost.itemSummary(db, { company: config.company, year: config.year }));
+route('POST', '/api/landedcost/compute', (b) => landedcost.computePurchase(db, { company: config.company, year: config.year, trnno: b.trnno, otherCharges: b.otherCharges }));
+route('POST', '/api/landedcost/apply-margin', (b) => landedcost.applyMarginToItem(db, { company: config.company, itemcode: b.itemcode, landingcost: b.landingcost, marginPct: b.marginPct, salesrate: b.salesrate }));
 
 // ---- remote Tally sync (connectionless twin-agent) ----
 route('GET', '/api/tally/config', () => tally.getConfig(db, config.company));

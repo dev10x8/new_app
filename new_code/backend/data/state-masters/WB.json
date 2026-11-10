@@ -1,0 +1,32 @@
+{
+  "state": "WB",
+  "label": "West Bengal",
+  "updated": "2024-04-01",
+  "note": "Indicative approved-brand list for bulk loading. MRPs are illustrative and must be refreshed from the current West Bengal excise (EODB / BEVCO) approved price list before billing.",
+  "brands": [
+    { "brandname": "Royal Stag Deluxe Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Pernod Ricard", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 750, "rate": 620 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 390, "rate": 320 }, { "ml": 180, "packname": "Nip", "packing": 48, "mrp": 200, "rate": 165 } ] },
+    { "brandname": "Blenders Pride Rare Premium Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Pernod Ricard", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 980, "rate": 820 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 510, "rate": 425 }, { "ml": 180, "packname": "Nip", "packing": 48, "mrp": 260, "rate": 215 } ] },
+    { "brandname": "Officer's Choice Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Allied Blenders", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 1000, "packname": "Quart", "packing": 9, "mrp": 900, "rate": 740 }, { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 700, "rate": 575 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 370, "rate": 300 } ] },
+    { "brandname": "Old Monk Supreme Rum", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Mohan Meakin", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 720, "rate": 590 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 380, "rate": 310 }, { "ml": 180, "packname": "Nip", "packing": 48, "mrp": 195, "rate": 160 } ] },
+    { "brandname": "McDowell's No.1 Reserve Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "United Spirits", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 640, "rate": 525 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 335, "rate": 275 }, { "ml": 180, "packname": "Nip", "packing": 48, "mrp": 175, "rate": 145 } ] },
+    { "brandname": "Haywards 5000 Strong Beer", "categoryname": "Beer", "kflname": "BEER", "strengthname": "BEER", "manufacturer": "Shaw Wallace", "hsn": "2203", "gstp": 28,
+      "packs": [ { "ml": 650, "packname": "Quart", "packing": 12, "mrp": 180, "rate": 145 }, { "ml": 330, "packname": "Pint", "packing": 24, "mrp": 110, "rate": 88 } ] },
+    { "brandname": "Kingfisher Premium Lager Beer", "categoryname": "Beer", "kflname": "BEER", "strengthname": "BEER", "manufacturer": "United Breweries", "hsn": "2203", "gstp": 28,
+      "packs": [ { "ml": 650, "packname": "Quart", "packing": 12, "mrp": 175, "rate": 140 }, { "ml": 330, "packname": "Pint", "packing": 24, "mrp": 105, "rate": 84 } ] },
+    { "brandname": "Budweiser Magnum Beer", "categoryname": "Beer", "kflname": "BEER", "strengthname": "BEER", "manufacturer": "Anheuser-Busch InBev", "hsn": "2203", "gstp": 28,
+      "packs": [ { "ml": 650, "packname": "Quart", "packing": 12, "mrp": 210, "rate": 170 }, { "ml": 330, "packname": "Pint", "packing": 24, "mrp": 130, "rate": 104 } ] },
+    { "brandname": "Sula Sauvignon Blanc", "categoryname": "Wine", "kflname": "WINE", "strengthname": "FULL", "manufacturer": "Sula Vineyards", "hsn": "2204", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 950, "rate": 760 } ] },
+    { "brandname": "Magic Moments Vodka", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Radico Khaitan", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 700, "rate": 570 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 360, "rate": 295 } ] },
+    { "brandname": "Blue Riband Gin", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Pernod Ricard", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 640, "rate": 520 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 335, "rate": 275 } ] },
+    { "brandname": "Romanov Vodka", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "United Spirits", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 620, "rate": 505 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 325, "rate": 265 } ] }
+  ]
+}

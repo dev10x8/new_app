@@ -1,0 +1,22 @@
+{
+  "state": "ALL",
+  "label": "Generic (all states)",
+  "updated": "2024-04-01",
+  "note": "Generic fallback approved-brand list used when a state has no dedicated dataset. MRPs are illustrative and must be refreshed from the state's current approved price list before billing.",
+  "brands": [
+    { "brandname": "Royal Stag Deluxe Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Pernod Ricard", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 750, "rate": 620 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 390, "rate": 320 }, { "ml": 180, "packname": "Nip", "packing": 48, "mrp": 200, "rate": 165 } ] },
+    { "brandname": "McDowell's No.1 Reserve Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "United Spirits", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 640, "rate": 525 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 335, "rate": 275 }, { "ml": 180, "packname": "Nip", "packing": 48, "mrp": 175, "rate": 145 } ] },
+    { "brandname": "Old Monk Supreme Rum", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Mohan Meakin", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 720, "rate": 590 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 380, "rate": 310 }, { "ml": 180, "packname": "Nip", "packing": 48, "mrp": 195, "rate": 160 } ] },
+    { "brandname": "Kingfisher Premium Lager Beer", "categoryname": "Beer", "kflname": "BEER", "strengthname": "BEER", "manufacturer": "United Breweries", "hsn": "2203", "gstp": 28,
+      "packs": [ { "ml": 650, "packname": "Quart", "packing": 12, "mrp": 175, "rate": 140 }, { "ml": 330, "packname": "Pint", "packing": 24, "mrp": 105, "rate": 84 } ] },
+    { "brandname": "Haywards 5000 Strong Beer", "categoryname": "Beer", "kflname": "BEER", "strengthname": "BEER", "manufacturer": "Shaw Wallace", "hsn": "2203", "gstp": 28,
+      "packs": [ { "ml": 650, "packname": "Quart", "packing": 12, "mrp": 180, "rate": 145 }, { "ml": 330, "packname": "Pint", "packing": 24, "mrp": 110, "rate": 88 } ] },
+    { "brandname": "Magic Moments Vodka", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Radico Khaitan", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 700, "rate": 570 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 360, "rate": 295 } ] },
+    { "brandname": "Sula Sauvignon Blanc", "categoryname": "Wine", "kflname": "WINE", "strengthname": "FULL", "manufacturer": "Sula Vineyards", "hsn": "2204", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 950, "rate": 760 } ] }
+  ]
+}

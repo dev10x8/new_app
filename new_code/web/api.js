@@ -130,6 +130,35 @@ export const api = {
   migrationAnalyze: (src) => req('POST', '/api/migration/analyze', src),
   migrationApply: (src) => req('POST', '/api/migration/apply', src),
 
+  bulkTargets: () => req('GET', '/api/bulk/targets'),
+  bulkHistory: () => req('GET', '/api/bulk/history'),
+  bulkAnalyze: (src) => req('POST', '/api/bulk/analyze', src),
+  bulkApply: (src) => req('POST', '/api/bulk/apply', src),
+
+  stateDatasets: () => req('GET', '/api/state-master/datasets'),
+  stateMaster: (q = {}) => req('GET', `/api/state-master${qs(q)}`),
+  stateSummary: () => req('GET', '/api/state-master/summary'),
+  loadStateMaster: (b) => req('POST', '/api/state-master/load', b),
+  analyzeStateItems: (b) => req('POST', '/api/state-master/items/analyze', b),
+  applyStateItems: (b) => req('POST', '/api/state-master/items/apply', b),
+
+  packSizes: () => req('GET', '/api/pack-sizes'),
+  createPackSize: (p) => req('POST', '/api/pack-sizes', p),
+  deletePackSize: (id) => req('DELETE', `/api/pack-sizes/${id}`),
+
+  parchaHistory: () => req('GET', '/api/parcha/history'),
+  parchaBatch: (id) => req('GET', `/api/parcha/batches/${id}`),
+  parchaAnalyze: (src) => req('POST', '/api/parcha/analyze', src),
+  parchaApply: (src) => req('POST', '/api/parcha/apply', src),
+  ocrConfig: () => req('GET', '/api/parcha/ocr-config'),
+  saveOcrConfig: (c) => req('PUT', '/api/parcha/ocr-config', c),
+  parchaOcr: (image, filename) => req('POST', '/api/parcha/ocr', { image, filename }),
+
+  landedCostReport: (q = {}) => req('GET', `/api/landedcost/report${qs(q)}`),
+  landedCostItems: () => req('GET', '/api/landedcost/items'),
+  computeLandedCost: (trnno, otherCharges) => req('POST', '/api/landedcost/compute', { trnno, otherCharges }),
+  applyMargin: (b) => req('POST', '/api/landedcost/apply-margin', b),
+
   tallyConfig: () => req('GET', '/api/tally/config'),
   saveTallyConfig: (c) => req('PUT', '/api/tally/config', c),
   newTallyToken: () => req('POST', '/api/tally/token'),

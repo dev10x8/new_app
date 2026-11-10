@@ -3,6 +3,7 @@ import { stockOnHand } from './stock.js';
 import { ledgerBalances, trialBalance } from './accounting.js';
 import * as gst from './gst.js';
 import * as m22 from './m22.js';
+import * as landedcost from './landedcost.js';
 
 // Shared joins for sales-detail reports.
 const SALES_FROM = `
@@ -292,6 +293,8 @@ export const CATALOG = {
   'purchase.manufacturer': P('Manufacturer Wise', (db, o) => purchaseDim(db, o.company, o.year, 'manufacturer', o)),
   'purchase.supplier_brand': P('Supplier-Brand Wise', (db, o) => purchaseDim(db, o.company, o.year, 'brand', o)),
   'purchase.nai_gst': P('Purchase NAI GST Report', (db, o) => gst.purchaseGst(db, o.company, o.year, { from: o.from, to: o.to })),
+  'purchase.landing_cost': P('Landed Cost & Margin', (db, o) => landedcost.report(db, { company: o.company, year: o.year, from: o.from, to: o.to })),
+  'purchase.item_margin': P('Item-wise Margin', (db, o) => landedcost.itemSummary(db, { company: o.company, year: o.year })),
 
   // ---------------- Accounts (14) ----------------
   'accounts.daybook': A('Day Book', (db, o) => all(db,

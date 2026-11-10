@@ -708,3 +708,122 @@ CREATE TABLE IF NOT EXISTS [tbl_MigrationLog] (
   [message] TEXT,
   [loggedat] TEXT
 );
+
+-- ---- pack sizes: government pack-size master (Quart / Pint / Nip / ...) ----
+-- A canonical size list keyed to the millilitre figure the excise identity
+-- uses (itemmst.ml), so a bottle's pack size can be named from its ML. Seeded
+-- with the standard sizes and extensible per company/state.
+CREATE TABLE IF NOT EXISTS [tbl_PackSize] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT,
+  [packname] TEXT NOT NULL,              -- Quart | Pint | Nip | Half | Full | ...
+  [ml] INTEGER NOT NULL,
+  [abbr] TEXT,
+  [sortorder] INTEGER DEFAULT 0,
+  [isactive] INTEGER DEFAULT 1
+);
+
+-- ---- pre-configured state master list (approved brands / sizes / MRPs) ----
+-- The catalogue of approved liquor brands a shop can bulk-load for its state.
+-- Seeded from the bundled datasets in backend/data/state-masters/*.json and
+-- refreshable from an uploaded/updated list. companycode is the tenant the row
+-- was loaded into; state is the excise state the list belongs to.
+CREATE TABLE IF NOT EXISTS [tbl_StateMaster] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [state] TEXT NOT NULL,
+  [brandcode] TEXT,
+  [brandname] TEXT NOT NULL,
+  [categoryname] TEXT,                   -- Brand (IMFL) | Beer | Wine | ...
+  [kflname] TEXT,                        -- IMFL | BEER | CS | WINE | ...
+  [strengthname] TEXT,
+  [ml] INTEGER,
+  [packname] TEXT,                       -- Quart | Pint | Nip | ...
+  [packing] INTEGER,
+  [mrp] REAL,                            -- government-mandated MRP
+  [rate] REAL,                           -- approved / reference sale rate
+  [manufacturer] TEXT,
+  [hsn] TEXT,
+  [gstp] REAL,
+  [sourcefile] TEXT,
+  [loadedat] TEXT,
+  UNIQUE ([companycode], [state], [brandname], [ml], [mrp])
+);
+
+-- ---- bulk import: auditable batches for Excel/CSV/JSON master & stock loads ----
+CREATE TABLE IF NOT EXISTS [tbl_BulkImportBatch] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT,
+  [kind] TEXT,                           -- masters | openingstock | statesync
+  [source] TEXT,                         -- xlsx | csv | json | state
+  [filename] TEXT,
+  [mode] TEXT,                           -- ANALYZE | APPLY
+  [status] TEXT DEFAULT 'PENDING',       -- PENDING | ANALYZED | APPLIED | FAILED
+  [tables] INTEGER DEFAULT 0,
+  [inserted] INTEGER DEFAULT 0,
+  [updated] INTEGER DEFAULT 0,
+  [skipped] INTEGER DEFAULT 0,
+  [failed] INTEGER DEFAULT 0,
+  [startedat] TEXT,
+  [finishedat] TEXT,
+  [message] TEXT,
+  [detail] TEXT
+);
+
+-- ---- Parcha (purchase invoice) import: auditable batches ----
+CREATE TABLE IF NOT EXISTS [tbl_ParchaImport] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT,
+  [source] TEXT,                         -- json | csv | pdf | ocr | text
+  [filename] TEXT,
+  [mode] TEXT,                           -- ANALYZE | APPLY
+  [status] TEXT DEFAULT 'PENDING',       -- PENDING | ANALYZED | IMPORTED | FAILED
+  [suppliername] TEXT,
+  [docno] TEXT,
+  [trnno] TEXT,
+  [lines] INTEGER DEFAULT 0,
+  [matched] INTEGER DEFAULT 0,
+  [created_items] INTEGER DEFAULT 0,
+  [landingcost] REAL DEFAULT 0,
+  [marginamt] REAL DEFAULT 0,
+  [marginpct] REAL DEFAULT 0,
+  [startedat] TEXT,
+  [finishedat] TEXT,
+  [message] TEXT,
+  [detail] TEXT
+);
+
+-- ---- landed cost / margin per purchase line (computed on import) ----
+CREATE TABLE IF NOT EXISTS [tbl_LandedCost] (
+  [id] INTEGER PRIMARY KEY AUTOINCREMENT,
+  [companycode] TEXT NOT NULL,
+  [yearcode] TEXT,
+  [trnno] TEXT,
+  [itemcode] TEXT,
+  [batchno] TEXT,
+  [qty] REAL DEFAULT 0,
+  [freeqty] REAL DEFAULT 0,
+  [grossrate] REAL DEFAULT 0,
+  [discount] REAL DEFAULT 0,
+  [othercharges] REAL DEFAULT 0,
+  [taxamount] REAL DEFAULT 0,
+  [landingcost] REAL DEFAULT 0,
+  [salesrate] REAL DEFAULT 0,
+  [marginamt] REAL DEFAULT 0,
+  [marginpct] REAL DEFAULT 0,
+  [computedat] TEXT
+);
+
+-- ---- OCR / document-capture provider settings (Parcha scan) ----
+CREATE TABLE IF NOT EXISTS [tbl_OcrConfig] (
+  [companycode] TEXT NOT NULL,
+  [provider] TEXT DEFAULT 'stub',        -- stub | tessdata | tesseract | external
+  [endpoint] TEXT,
+  [apikey] TEXT,
+  [lang] TEXT DEFAULT 'eng',
+  [enabled] INTEGER DEFAULT 0,
+  [updatedat] TEXT,
+  PRIMARY KEY ([companycode])
+);

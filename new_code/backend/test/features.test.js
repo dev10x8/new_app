@@ -243,14 +243,14 @@ test('report catalog covers every legacy group with the expected counts', () => 
   const groups = reportGroups();
   assert.equal(groups.sales.length, 32);
   assert.equal(groups.stock.length, 20);
-  assert.equal(groups.purchase.length, 10);
+  assert.equal(groups.purchase.length, 12);
   assert.equal(groups.accounts.length, 14);
   assert.equal(groups.mis.length, 12);
   assert.equal(groups.breakage.length, 2);
   assert.equal(groups.transfer.length, 2);
   assert.equal(groups.excise.length, 22);
   assert.equal(groups.gst.length, 6);
-  assert.equal(Object.keys(CATALOG).length, 120);
+  assert.equal(Object.keys(CATALOG).length, 122);
 });
 
 test('every catalog report executes against a seeded database', () => {

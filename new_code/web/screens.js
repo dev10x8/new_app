@@ -1564,7 +1564,359 @@ function updatesScreen() {
       h('li', {}, 'Docker Compose for backend + frontend')));
 }
 
-// --------------------------------------------------------------- router
+// --------------------------------------------------- pack sizes / state master
+
+/** A file input that exposes its bytes as text and base64 for API calls. */
+function filePicker(accept) {
+  const el = h('input', { type: 'file', accept });
+  const state = { name: '', text: '', base64: '' };
+  el.addEventListener('change', () => {
+    const f = el.files && el.files[0];
+    if (!f) return;
+    state.name = f.name;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const buf = new Uint8Array(reader.result);
+      state.text = new TextDecoder().decode(buf);
+      let bin = '';
+      for (let i = 0; i < buf.length; i++) bin += String.fromCharCode(buf[i]);
+      state.base64 = btoa(bin);
+    };
+    reader.readAsArrayBuffer(f);
+  });
+  return { el, state };
+}
+
+const card = (title, ...body) => h('div', { class: 'card' }, title ? h('h3', {}, title) : null, ...body);
+
+async function packSizesScreen(ctx) {
+  const rows = await api.packSizes();
+  const t = table([
+    { key: 'packname', title: 'Pack' },
+    { key: 'ml', title: 'ML', num: true },
+    { key: 'abbr', title: 'Abbr' },
+    { key: 'sortorder', title: 'Order', num: true },
+  ], rows);
+  const tbody = t.querySelector('tbody');
+  if (tbody) [...tbody.rows].forEach((tr, i) => {
+    tr.append(h('td', {}, h('button', {
+      class: 'btn small danger',
+      onclick: async () => {
+        if (!confirm(`Delete pack size ${rows[i].packname} ${rows[i].ml}ml?`)) return;
+        try { await api.deletePackSize(rows[i].id); ctx.toast('Deleted', 'ok'); ctx.navigate('pack-sizes'); }
+        catch (e) { ctx.toast(e.message, 'error'); }
+      },
+    }, 'Del')));
+  });
+
+  const nameI = input('packname', '');
+  const mlI = input('ml', '');
+  const abbrI = input('abbr', '');
+  const add = h('button', { class: 'btn primary' }, '＋ Add pack size');
+  add.onclick = async () => {
+    try { await api.createPackSize({ packname: nameI.value, ml: mlI.value, abbr: abbrI.value }); ctx.toast('Added', 'ok'); ctx.navigate('pack-sizes'); }
+    catch (e) { ctx.toast(e.message, 'error'); }
+  };
+  return h('div', {},
+    card('Government pack sizes (Quart / Pint / Nip)',
+      h('p', { class: 'muted' }, 'The standard Indian liquor pack sizes, keyed to their millilitre figure. Used to name a bottle’s pack size from its ML and to seed the state master list.'),
+      h('div', { class: 'row three' }, field('Pack name', nameI), field('ML', mlI), field('Abbreviation', abbrI)),
+      h('div', { class: 'actions' }, add)),
+    card(null, t));
+}
+
+async function stateMasterScreen(ctx) {
+  const datasets = await api.stateDatasets().catch(() => []);
+  const stateSel = select('state', datasets.map((d) => ({ value: d.state, label: `${d.label} (${d.state}) — ${d.brands} brands` })), datasets[0]?.state);
+  const viewState = input('viewstate', datasets[0]?.state || 'WB');
+
+  const loadedRows = h('div', {});
+  const summaryBox = h('div', {});
+  const loadSummary = async () => {
+    const summary = await api.stateSummary().catch(() => []);
+    summaryBox.replaceChildren(table([
+      { key: 'state', title: 'State' }, { key: 'brands', title: 'Brands', num: true },
+      { key: 'rows', title: 'Rows', num: true }, { key: 'loadedat', title: 'Loaded' },
+    ], summary));
+  };
+  const loadTable = async () => {
+    const rows = await api.stateMaster({ state: viewState.value.trim() }).catch(() => []);
+    loadedRows.replaceChildren(table([
+      { key: 'brandname', title: 'Brand' },
+      { key: 'categoryname', title: 'Category' },
+      { key: 'kflname', title: 'KFL' },
+      { key: 'ml', title: 'ML', num: true },
+      { key: 'packname', title: 'Pack' },
+      { key: 'packing', title: 'Packing', num: true },
+      { key: 'mrp', title: 'MRP', money: true, num: true },
+      { key: 'rate', title: 'Approved rate', money: true, num: true },
+    ], rows));
+  };
+
+  const out = h('div', {});
+  const load = async () => {
+    out.replaceChildren(h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Loading…'));
+    try {
+      const res = await api.loadStateMaster({ state: stateSel.value });
+      out.replaceChildren(card('Loaded', h('p', {}, `Loaded ${res.loaded} rows (${res.inserts} new, ${res.updates} updated) for state ${res.state}.`)));
+      ctx.toast('State list loaded', 'ok');
+      await Promise.all([loadTable(), loadSummary()]);
+    } catch (e) { out.replaceChildren(card('Error', h('p', { class: 'error' }, e.message))); ctx.toast(e.message, 'error'); }
+  };
+
+  const makeItems = (mode) => async () => {
+    out.replaceChildren(h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Working…'));
+    try {
+      const res = mode === 'apply' ? await api.applyStateItems({ state: viewState.value.trim() }) : await api.analyzeStateItems({ state: viewState.value.trim() });
+      out.replaceChildren(card(mode === 'apply' ? 'Items created' : 'Dry run',
+        h('div', { class: 'grid cols-3' },
+          h('div', { class: 'card stat' }, h('div', { class: 'k' }, 'Items'), h('div', { class: 'v' }, num(res.inserts + res.updates))),
+          h('div', { class: 'card stat' }, h('div', { class: 'k' }, 'New'), h('div', { class: 'v ok' }, num(res.inserts))),
+          h('div', { class: 'card stat' }, h('div', { class: 'k' }, 'Updated'), h('div', { class: 'v warn' }, num(res.updates)))),
+        res.samples ? table([
+          { key: 'itemcode', title: 'Code' }, { key: 'itemname', title: 'Name' },
+          { key: 'ml', title: 'ML', num: true }, { key: 'salesrate', title: 'MRP', money: true, num: true },
+          { key: 'purchaseRate', title: 'Rate', money: true, num: true },
+        ], res.samples) : null));
+      ctx.toast(mode === 'apply' ? 'Item masters created' : 'Dry run complete', 'ok');
+    } catch (e) { out.replaceChildren(card('Error', h('p', { class: 'error' }, e.message))); ctx.toast(e.message, 'error'); }
+  };
+
+  await loadTable();
+  await loadSummary();
+  return h('div', {},
+    card('Pre-configured state master list',
+      h('p', { class: 'muted' }, 'Load the state’s approved brand / size / MRP list in one step (the legacy app had no such catalogue — masters were typed by hand). Refresh by uploading a revised list, then create the matching item masters.'),
+      h('div', { class: 'toolbar' }, field('State list', stateSel), h('button', { class: 'btn primary', onclick: load }, 'Load list')),
+      h('div', { class: 'row' }, field('Show state', viewState),
+        h('div', { class: 'actions' },
+          h('button', { class: 'btn ghost', onclick: loadTable }, 'Refresh'),
+          h('button', { class: 'btn', onclick: makeItems('analyze') }, 'Create items (dry run)'),
+          h('button', { class: 'btn primary', onclick: makeItems('apply') }, 'Create item masters')))),
+    out,
+    card('Loaded lists', summaryBox),
+    card('Approved brands', loadedRows));
+}
+
+async function bulkImportScreen(ctx) {
+  const meta = await api.bulkTargets().catch(() => ({ targets: [], templates: [] }));
+  const history = await api.bulkHistory().catch(() => []);
+  const kindSel = select('kind', [
+    { value: 'masters', label: 'Master data (item, category, KFL, …)' },
+    { value: 'openingstock', label: 'Opening stock' },
+  ], 'masters');
+  const targetSel = select('target', meta.targets.map((t) => ({ value: t.key, label: t.label })), 'item');
+  const fp = filePicker('.xlsx,.csv,.json,.txt,.tsv');
+  const textarea = h('textarea', { name: 'content', rows: 8, placeholder: '…or paste CSV / JSON here', style: 'width:100%;font-family:monospace' });
+  const templatePre = h('pre', { class: 'muted small', style: 'white-space:pre-wrap' }, '');
+  const syncTarget = () => {
+    const t = meta.templates.find((x) => x.target === targetSel.value);
+    templatePre.textContent = t ? `Expected columns:\n${t.header}` : '';
+  };
+  targetSel.addEventListener('change', syncTarget); syncTarget();
+  kindSel.addEventListener('change', () => { targetSel.disabled = kindSel.value === 'openingstock'; });
+
+  const out = h('div', {});
+  const payload = () => {
+    const base = { kind: kindSel.value, target: targetSel.value, filename: fp.state.name || undefined };
+    if (fp.state.base64) return { ...base, filebase64: fp.state.base64 };
+    return { ...base, content: textarea.value, source: textarea.value.trim().startsWith('{') ? 'json' : 'csv' };
+  };
+  const run = async (which) => {
+    out.replaceChildren(h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Working…'));
+    try {
+      const res = which === 'apply' ? await api.bulkApply(payload()) : await api.bulkAnalyze(payload());
+      out.replaceChildren(bulkResultCard(which === 'apply' ? `Applied — batch #${res.batchId}` : `Dry run — batch #${res.batchId}`, res));
+      ctx.toast(which === 'apply' ? 'Import applied' : 'Dry run complete', 'ok');
+    } catch (e) { out.replaceChildren(card('Error', h('p', { class: 'error' }, e.message))); ctx.toast(e.message, 'error'); }
+  };
+
+  return h('div', {},
+    card('Bulk Master Upload',
+      h('p', { class: 'muted' }, 'Load many masters (or opening stock) from an Excel / CSV / JSON file in one go — the legacy app could only bulk-load offers and opening stock through a hidden button. Headings are matched loosely, so “Item Code” / “itemcode” both work. Rows are inserted, or updated when their key already exists; nothing is deleted.'),
+      h('div', { class: 'row three' },
+        field('What to load', kindSel), field('Target master', targetSel), field('File (.xlsx / .csv / .json)', fp.el)),
+      textarea, templatePre,
+      h('div', { class: 'actions' },
+        h('button', { class: 'btn', onclick: () => run('analyze') }, 'Analyze (dry run)'),
+        h('button', { class: 'btn primary', onclick: () => { if (confirm('Write the analyzed rows into this database?')) run('apply'); } }, 'Apply import'))),
+    out,
+    card('Import history', table([
+      { key: 'id', title: '#' }, { key: 'kind', title: 'Kind' }, { key: 'filename', title: 'File' },
+      { key: 'status', title: 'Status', badge: (r) => ({ APPLIED: 'ok', ANALYZED: 'warn', FAILED: 'danger' }[r.status] || '') },
+      { key: 'inserted', title: 'Ins', num: true }, { key: 'updated', title: 'Upd', num: true }, { key: 'failed', title: 'Fail', num: true },
+    ], history)));
+}
+
+function bulkResultCard(title, res) {
+  const totals = res.totals || {};
+  const stat = (label, value, kind = '') => h('div', { class: 'card stat' }, h('div', { class: 'k' }, label), h('div', { class: `v${kind ? ` ${kind}` : ''}` }, String(value ?? 0)));
+  return h('div', { class: 'card' },
+    h('div', { class: 'section-title' }, `${title} — ${res.table || ''}`),
+    h('div', { class: 'grid cols-4' },
+      stat('Rows', totals.rows), stat('Inserted', totals.inserts, 'ok'), stat('Updated', totals.updates, 'warn'),
+      stat('Failed', totals.failed, totals.failed ? 'danger' : '')),
+    (res.errors && res.errors.length)
+      ? h('div', {}, h('div', { class: 'section-title' }, 'Row errors'),
+        h('pre', { style: 'white-space:pre-wrap;margin:0' }, JSON.stringify(res.errors.slice(0, 30), null, 2)))
+      : null);
+}
+
+async function parchaImportScreen(ctx) {
+  const history = await api.parchaHistory().catch(() => []);
+  const ocr = await api.ocrConfig().catch(() => ({}));
+  const fp = filePicker('.pdf,.json,.csv,.txt');
+  const textarea = h('textarea', { name: 'content', rows: 8, placeholder: 'Paste the invoice text here (or choose a PDF / JSON / CSV above)', style: 'width:100%;font-family:monospace' });
+  const createMissing = h('input', { type: 'checkbox', name: 'createMissing', checked: true });
+  const setOpeningStock = h('input', { type: 'checkbox', name: 'setOpeningStock' });
+  const marginPct = input('marginPct', '');
+  const shopcode = input('shopcode', 'MAIN');
+
+  const out = h('div', {});
+  const payload = () => {
+    const base = {
+      filename: fp.state.name || undefined,
+      createMissing: createMissing.checked, setOpeningStock: setOpeningStock.checked,
+      marginPct: marginPct.value === '' ? null : Number(marginPct.value), shopcode: shopcode.value || 'MAIN',
+    };
+    if (fp.state.base64) return { ...base, filebase64: fp.state.base64 };
+    const text = textarea.value.trim();
+    return { ...base, content: text, source: text.startsWith('{') || text.startsWith('[') ? 'json' : 'text' };
+  };
+  const run = async (which) => {
+    out.replaceChildren(h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Working…'));
+    try {
+      const res = which === 'apply' ? await api.parchaApply(payload()) : await api.parchaAnalyze(payload());
+      out.replaceChildren(parchaResultCard(which === 'apply' ? `Imported — purchase ${res.trnno || ''}` : `Dry run — batch #${res.batchId}`, res, which === 'apply'));
+      ctx.toast(which === 'apply' ? 'Parcha imported' : 'Dry run complete', 'ok');
+    } catch (e) { out.replaceChildren(card('Error', h('p', { class: 'error' }, e.message))); ctx.toast(e.message, 'error'); }
+  };
+
+  // OCR settings
+  const provSel = select('provider', ['stub', 'tesseract', 'external'], ocr.provider || 'stub');
+  const endpointI = input('endpoint', ocr.endpoint || '');
+  const langI = input('lang', ocr.lang || 'eng');
+  const saveOcr = async () => {
+    try { await api.saveOcrConfig({ provider: provSel.value, endpoint: endpointI.value, lang: langI.value, enabled: provSel.value !== 'stub' ? 1 : 0 }); ctx.toast('OCR settings saved', 'ok'); }
+    catch (e) { ctx.toast(e.message, 'error'); }
+  };
+
+  return h('div', {},
+    card('Parcha Import (wholesale invoice)',
+      h('p', { class: 'muted' }, 'Import a purchase invoice from a PDF, JSON or CSV (or pasted text). Lines are matched to the item master, the purchase is posted, and the landing cost + margin are computed for every line — the gaps the legacy PDF import left. Missing items can be created on the fly, selling prices can be raised from a target margin, and opening stock can be seeded in the same step.'),
+      h('div', { class: 'row' }, field('Invoice file (.pdf / .json / .csv)', fp.el)),
+      textarea,
+      h('div', { class: 'row three' },
+        field('Create missing items', h('label', { class: 'inline' }, createMissing, ' yes')),
+        field('Seed opening stock', h('label', { class: 'inline' }, setOpeningStock, ' yes')),
+        field('Target margin % (optional)', marginPct)),
+      h('div', { class: 'row' }, field('Shop / store for opening stock', shopcode)),
+      h('div', { class: 'actions' },
+        h('button', { class: 'btn', onclick: () => run('analyze') }, 'Analyze (dry run)'),
+        h('button', { class: 'btn primary', onclick: () => { if (confirm('Post this invoice as a purchase?')) run('apply'); } }, 'Import invoice'))),
+    out,
+    card('OCR / document capture',
+      h('p', { class: 'muted small' }, `Provider: stub (paste text), tesseract (local CLI${ocr.tesseractAvailable ? ' — available' : ' — not installed'}), or an external HTTP OCR service.`),
+      h('div', { class: 'row three' }, field('Provider', provSel), field('Endpoint (external)', endpointI), field('Language', langI)),
+      h('div', { class: 'actions' }, h('button', { class: 'btn', onclick: saveOcr }, 'Save OCR settings'))),
+    card('Import history', table([
+      { key: 'id', title: '#' }, { key: 'source', title: 'Source' }, { key: 'suppliername', title: 'Supplier' },
+      { key: 'docno', title: 'Doc' }, { key: 'trnno', title: 'Purchase' }, { key: 'lines', title: 'Lines', num: true },
+      { key: 'matched', title: 'Matched', num: true },
+      { key: 'status', title: 'Status', badge: (r) => ({ IMPORTED: 'ok', ANALYZED: 'warn', FAILED: 'danger' }[r.status] || '') },
+      { key: 'marginpct', title: 'Margin %', num: true },
+    ], history)));
+}
+
+function parchaResultCard(title, res, applied) {
+  const rows = applied
+    ? (res.landedcost || []).map((l) => ({ ...l, itemcode: l.itemcode }))
+    : (res.entries || []).map((e) => ({ itemcode: e.itemcode, itemname: e.itemname, how: e.how, landingcost: e.landingcost, salesrate: e.salesrate, marginamt: e.marginamt, marginpct: e.marginpct, willCreate: e.willCreate }));
+  return h('div', { class: 'card' },
+    h('div', { class: 'section-title' }, title),
+    res.totals ? h('div', { class: 'grid cols-4' },
+      h('div', { class: 'card stat' }, h('div', { class: 'k' }, 'Lines'), h('div', { class: 'v' }, num(res.totals.lines))),
+      h('div', { class: 'card stat' }, h('div', { class: 'k' }, 'Matched'), h('div', { class: 'v ok' }, num(res.totals.matched))),
+      h('div', { class: 'card stat' }, h('div', { class: 'k' }, 'Avg landing'), h('div', { class: 'v' }, money(res.totals.landingcost))),
+      h('div', { class: 'card stat' }, h('div', { class: 'k' }, 'Avg margin %'), h('div', { class: 'v' }, num(res.totals.marginpct)))) : null,
+    table([
+      { key: 'itemcode', title: 'Code' },
+      { key: 'itemname', title: 'Item' },
+      { key: 'how', title: 'Match' },
+      { key: 'willCreate', title: 'New?', value: (r) => (r.willCreate ? 'yes' : '') },
+      { key: 'landingcost', title: 'Landing cost', money: true, num: true },
+      { key: 'salesrate', title: 'Sale rate', money: true, num: true },
+      { key: 'marginamt', title: 'Margin', money: true, num: true },
+      { key: 'marginpct', title: 'Margin %', num: true },
+    ], rows));
+}
+
+async function landedCostScreen(ctx) {
+  const from = input('from', '');
+  const to = input('to', '');
+  const trnnoI = input('trnno', '');
+  const otherI = input('otherCharges', '');
+  const itemI = input('itemcode', '');
+  const landI = input('landingcost', '');
+  const pctI = input('marginPct', '');
+  const out = h('div', {});
+  const itemsOut = h('div', {});
+
+  const loadReport = async () => {
+    out.replaceChildren(h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Loading…'));
+    try {
+      const rows = await api.landedCostReport({ from: from.value, to: to.value });
+      out.replaceChildren(table([
+        { key: 'trndate', title: 'Date' }, { key: 'trnno', title: 'Purchase' }, { key: 'itemname', title: 'Item' },
+        { key: 'qty', title: 'Qty', num: true }, { key: 'freeqty', title: 'Free', num: true },
+        { key: 'grossrate', title: 'Rate', money: true, num: true },
+        { key: 'landingcost', title: 'Landing cost', money: true, num: true },
+        { key: 'salesrate', title: 'Sale rate', money: true, num: true },
+        { key: 'marginamt', title: 'Margin', money: true, num: true },
+        { key: 'marginpct', title: 'Margin %', num: true },
+      ], rows));
+    } catch (e) { out.replaceChildren(card('Error', h('p', { class: 'error' }, e.message))); }
+  };
+  const loadItems = async () => {
+    const rows = await api.landedCostItems().catch(() => []);
+    itemsOut.replaceChildren(table([
+      { key: 'itemname', title: 'Item' }, { key: 'lines', title: 'Lines', num: true }, { key: 'qty', title: 'Qty', num: true },
+      { key: 'avgexcost', title: 'Avg landing', money: true, num: true },
+      { key: 'avgsale', title: 'Avg sale', money: true, num: true },
+      { key: 'avgmargin', title: 'Avg margin', money: true, num: true },
+      { key: 'avgmarginpct', title: 'Avg margin %', num: true },
+    ], rows));
+  };
+
+  const compute = async () => {
+    try {
+      const r = await api.computeLandedCost(trnnoI.value.trim(), otherI.value === '' ? undefined : Number(otherI.value));
+      ctx.toast(`Computed ${r.lines.length} line(s)`, 'ok'); await loadReport();
+    } catch (e) { ctx.toast(e.message, 'error'); }
+  };
+  const applyM = async () => {
+    try {
+      const r = await api.applyMargin({ itemcode: itemI.value.trim(), landingcost: Number(landI.value), marginPct: pctI.value === '' ? null : Number(pctI.value) });
+      ctx.toast(`New sale rate ${money(r.salesrate)}`, 'ok'); await loadItems();
+    } catch (e) { ctx.toast(e.message, 'error'); }
+  };
+
+  await loadReport(); await loadItems();
+  return h('div', {},
+    card('Landed cost & margin',
+      h('p', { class: 'muted' }, 'The true cost of a bottle once discounts, bill charges and free (scheme) bottles are folded in — and the margin against its selling price. Compute it for a posted purchase, or set an item’s selling price from a target margin.'),
+      h('div', { class: 'row three' }, field('From', from), field('To', to),
+        h('div', { class: 'actions' }, h('button', { class: 'btn', onclick: loadReport }, 'Refresh')))),
+    out,
+    card('Compute for a purchase',
+      h('div', { class: 'row three' }, field('Purchase no', trnnoI), field('Bill charges (optional)', otherI),
+        h('div', { class: 'actions' }, h('button', { class: 'btn primary', onclick: compute }, 'Compute landing cost')))),
+    card('Set selling price from a target margin',
+      h('div', { class: 'row three' }, field('Item code', itemI), field('Landing cost', landI), field('Margin %', pctI)),
+      h('div', { class: 'actions' }, h('button', { class: 'btn primary', onclick: applyM }, 'Apply margin'))),
+    card('Item-wise margin summary', itemsOut));
+}
+
 export async function screens(route, ctx) {
   if (route === 'dashboard') return dashboard(ctx);
   if (route === 'sysadmin') return systemAdmin(ctx);
@@ -1577,6 +1929,11 @@ export async function screens(route, ctx) {
   if (route === 'items') return itemsScreen(ctx);
   if (route === 'schemes') return schemesScreen(ctx);
   if (route === 'inventory') return inventoryScreen(ctx);
+  if (route === 'pack-sizes') return packSizesScreen(ctx);
+  if (route === 'state-master') return stateMasterScreen(ctx);
+  if (route === 'bulk-import') return bulkImportScreen(ctx);
+  if (route === 'parcha-import') return parchaImportScreen(ctx);
+  if (route === 'landed-cost') return landedCostScreen(ctx);
   if (route.startsWith('master:')) return masterScreen(ctx, route.slice(7));
   if (route.startsWith('reports:')) return reportsGroup(ctx, route.slice(8));
   if (route === 'sale') return posSale(ctx);

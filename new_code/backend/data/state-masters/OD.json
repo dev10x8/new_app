@@ -1,0 +1,26 @@
+{
+  "state": "OD",
+  "label": "Odisha",
+  "updated": "2024-04-01",
+  "note": "Indicative approved-brand list for Odisha (OSBC / Excise). MRPs are illustrative and must be refreshed from the current Odisha excise approved price list before billing.",
+  "brands": [
+    { "brandname": "Royal Stag Deluxe Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Pernod Ricard", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 760, "rate": 630 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 395, "rate": 325 }, { "ml": 180, "packname": "Nip", "packing": 48, "mrp": 205, "rate": 168 } ] },
+    { "brandname": "Blenders Pride Rare Premium Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Pernod Ricard", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 990, "rate": 830 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 515, "rate": 430 } ] },
+    { "brandname": "Officer's Choice Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Allied Blenders", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 710, "rate": 585 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 375, "rate": 305 } ] },
+    { "brandname": "Kingfisher Premium Lager Beer", "categoryname": "Beer", "kflname": "BEER", "strengthname": "BEER", "manufacturer": "United Breweries", "hsn": "2203", "gstp": 28,
+      "packs": [ { "ml": 650, "packname": "Quart", "packing": 12, "mrp": 185, "rate": 148 }, { "ml": 330, "packname": "Pint", "packing": 24, "mrp": 112, "rate": 90 } ] },
+    { "brandname": "Haywards 5000 Strong Beer", "categoryname": "Beer", "kflname": "BEER", "strengthname": "BEER", "manufacturer": "Shaw Wallace", "hsn": "2203", "gstp": 28,
+      "packs": [ { "ml": 650, "packname": "Quart", "packing": 12, "mrp": 190, "rate": 152 }, { "ml": 330, "packname": "Pint", "packing": 24, "mrp": 115, "rate": 92 } ] },
+    { "brandname": "Old Monk Supreme Rum", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Mohan Meakin", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 730, "rate": 600 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 385, "rate": 315 } ] },
+    { "brandname": "McDowell's No.1 Reserve Whisky", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "United Spirits", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 650, "rate": 535 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 340, "rate": 280 } ] },
+    { "brandname": "Magic Moments Vodka", "categoryname": "Brand", "kflname": "IMFL", "strengthname": "FULL", "manufacturer": "Radico Khaitan", "hsn": "2208", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 710, "rate": 580 }, { "ml": 375, "packname": "Pint", "packing": 24, "mrp": 365, "rate": 300 } ] },
+    { "brandname": "Sula Sauvignon Blanc", "categoryname": "Wine", "kflname": "WINE", "strengthname": "FULL", "manufacturer": "Sula Vineyards", "hsn": "2204", "gstp": 28,
+      "packs": [ { "ml": 750, "packname": "Quart", "packing": 12, "mrp": 960, "rate": 770 } ] }
+  ]
+}
