@@ -1,4 +1,4 @@
-# docker-compose.yml - run the Madhushala Pro rebuild (new_code) in containers.
+# docker-compose.yml - run the VanijLiquor rebuild (new_code) in containers.
 #
 #   backend  : Node.js + SQLite API on http://localhost:7100
 #   frontend : the web UI (the frontend of the Tauri desktop app) on
@@ -11,41 +11,41 @@
 #   then open http://localhost:8080   (login: A00001 / admin)
 #   and  http://localhost:7100/api/health
 #
-# The SQLite database is kept in the named volume `madhushala-data`, so it
+# The SQLite database is kept in the named volume `vanijliquor-data`, so it
 # survives restarts. To wipe and reseed it:
 #
 #   docker compose -f new_code/docker-compose.yml down -v
 #
-# Set MADHUSHALA_PORT / WEB_PORT to change the published host ports.
+# Set VANIJLIQUOR_PORT / WEB_PORT to change the published host ports.
 #
 # The desktop build of the same UI lives in new_code/tauri (Tauri = Web + Rust);
 # it reuses new_code/web unchanged and does not need Docker.
 
-name: madhushala-new
+name: vanijliquor-new
 
 services:
   backend:
     build:
       context: ./backend
-    image: madhushala-backend:latest
-    container_name: madhushala-backend
+    image: vanijliquor-backend:latest
+    container_name: vanijliquor-backend
     environment:
       HOST: "0.0.0.0"
       PORT: "7100"
       COMPANY: "${COMPANY:-1}"
       YEAR: "${YEAR:-2024}"
-      MADHUSHALA_DB: "/data/madhushala.db"
+      VANIJLIQUOR_DB: "/data/vanijliquor.db"
     volumes:
-      - madhushala-data:/data
+      - vanijliquor-data:/data
     ports:
-      - "${MADHUSHALA_PORT:-7100}:7100"
+      - "${VANIJLIQUOR_PORT:-7100}:7100"
     restart: unless-stopped
 
   frontend:
     build:
       context: ./web
-    image: madhushala-web:latest
-    container_name: madhushala-web
+    image: vanijliquor-web:latest
+    container_name: vanijliquor-web
     environment:
       # The web server proxies /api to the backend by its service name.
       API_URL: "http://backend:7100"
@@ -59,4 +59,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  madhushala-data:
+  vanijliquor-data:

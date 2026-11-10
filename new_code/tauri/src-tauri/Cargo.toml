@@ -1,12 +1,12 @@
 [package]
-name = "madhushala-pro"
+name = "vanijliquor"
 version = "1.0.0"
-description = "Madhushala Pro — Bar & Liquor POS (Tauri desktop shell)"
+description = "VanijLiquor — Bar & Liquor POS (Tauri desktop shell)"
 edition = "2021"
 rust-version = "1.77"
 
 [lib]
-name = "madhushala_pro_lib"
+name = "vanijliquor_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]

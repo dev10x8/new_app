@@ -119,7 +119,7 @@ def main():
             tables.append(parsed)
 
     lines = []
-    lines.append("-- SQLite schema for Madhushala Pro (new stack).")
+    lines.append("-- SQLite schema for VanijLiquor (new stack).")
     lines.append("-- Generated from dev/db/ddl.sql by scripts/gen_schema.py - do not edit by hand.")
     lines.append("PRAGMA foreign_keys = ON;")
     lines.append("")

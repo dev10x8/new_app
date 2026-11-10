@@ -1,10 +1,10 @@
-# Madhushala Pro - backend image (Node.js + node:sqlite).
+# VanijLiquor - backend image (Node.js + node:sqlite).
 #
 # There are no third-party runtime dependencies, so the image is just the
 # source tree plus Node. The SQLite file lives in /data (a named volume in
 # docker-compose.yml) and is created + seeded on first start.
 #
-# Build:  docker build -t madhushala-backend new_code/backend
+# Build:  docker build -t vanijliquor-backend new_code/backend
 FROM node:24-slim
 
 ENV NODE_ENV=production \

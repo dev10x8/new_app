@@ -11,7 +11,7 @@ const COMPANY = '1';
 const YEAR = '2024';
 
 function freshDb() {
-  const dir = mkdtempSync(join(tmpdir(), 'madhushala-migration-'));
+  const dir = mkdtempSync(join(tmpdir(), 'vanijliquor-migration-'));
   return { db: openDatabase(join(dir, 'test.db')), dir };
 }
 
@@ -64,7 +64,7 @@ test('parseCsv honours quotes and empty cells', () => {
 });
 
 test('parseDirectory reads per-table CSV files', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'madhushala-csv-'));
+  const dir = mkdtempSync(join(tmpdir(), 'vanijliquor-csv-'));
   try {
     writeFileSync(join(dir, 'categorymst.csv'), 'categorycode,categoryname,companycode\nC00009,Test Cat,1\n');
     const { tables } = migration.parseDirectory(dir);
@@ -155,7 +155,7 @@ test('apply coerces text values into numeric columns', () => {
 
 test('apply imports a CSV folder from disk (legacy directory source)', () => {
   const { db, dir } = freshDb();
-  const folder = mkdtempSync(join(tmpdir(), 'madhushala-legacy-'));
+  const folder = mkdtempSync(join(tmpdir(), 'vanijliquor-legacy-'));
   try {
     writeFileSync(join(folder, 'groupmst.csv'), 'companycode,groupcode,groupname\n1,G00009,Test Group\n');
     const res = migration.apply(db, { source: 'legacy', path: folder, company: COMPANY, year: YEAR });

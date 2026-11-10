@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Capture full-page screenshots of every Madhushala Pro screen for the user
+// Capture full-page screenshots of every VanijLiquor screen for the user
 // guide, by driving headless Chromium over the DevTools Protocol (CDP).
 //
 // No npm dependencies: uses Node's built-in global WebSocket.
@@ -19,7 +19,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = resolve(here, '..', 'docs', 'screenshots');
 const WEB = process.env.WEB_URL || 'http://127.0.0.1:8080';
 const DEBUG_PORT = Number(process.env.CDP_PORT || 9222);
-const PROFILE = '/tmp/madhushala-cdp-profile';
+const PROFILE = '/tmp/vanijliquor-cdp-profile';
 const VIEWPORT = { width: 1440, height: 960 };
 
 // route id -> screenshot file stem. Order is the order the guide presents them.

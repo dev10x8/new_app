@@ -1,4 +1,4 @@
-// Tauri desktop shell for Madhushala Pro.
+// Tauri desktop shell for VanijLiquor.
 //
 // The UI (../web) is ordinary HTML/CSS/JS and talks to the Node.js backend at
 // 127.0.0.1:7100. This crate only provides the native window; all business
@@ -9,5 +9,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    madhushala_pro_lib::run()
+    vanijliquor_lib::run()
 }

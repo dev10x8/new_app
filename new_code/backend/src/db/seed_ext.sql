@@ -92,7 +92,7 @@ UPDATE naiItemMaster SET cgst=14, sgst=14, igst=0, cess=0, addcess=0, gsttype=1,
 -- Company GSTIN (printed on the tax invoice) and filing config.
 UPDATE companymast SET gstin='19AABCA1234B1Z5' WHERE companycode='1';
 INSERT OR IGNORE INTO tbl_GstConfig (companycode, gstin, legalname, tradename, statecode)
-VALUES ('1', '19AABCA1234B1Z5', 'ABM TECHNOMATRIX (P) LTD.', 'MADHUSHALA PRO', '19');
+VALUES ('1', '19AABCA1234B1Z5', 'ABM TECHNOMATRIX (P) LTD.', 'VANIJLIQUOR', '19');
 
 -- ---- government pack-size master (Quart / Pint / Nip and the other standard
 -- Indian liquor pack sizes, keyed to their millilitre figure) ----

@@ -367,7 +367,7 @@ function matchPath(pattern, actual) {
 }
 
 server.listen(config.port, config.host, () => {
-  console.log(`Madhushala Pro backend listening on http://${config.host}:${config.port}`);
+  console.log(`VanijLiquor backend listening on http://${config.host}:${config.port}`);
   console.log(`Database: ${config.dbFile}`);
 });
 

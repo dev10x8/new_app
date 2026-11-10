@@ -1,4 +1,4 @@
--- SQLite schema for Madhushala Pro (new stack).
+-- SQLite schema for VanijLiquor (new stack).
 -- Generated from dev/db/ddl.sql by scripts/gen_schema.py - do not edit by hand.
 PRAGMA foreign_keys = ON;
 

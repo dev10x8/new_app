@@ -423,7 +423,7 @@ export async function ocrExtract(db, company, { buffer, filename = 'scan.png' } 
   const provider = cfg.provider || 'stub';
   if (provider === 'tesseract') {
     if (!tesseractAvailable()) throw new Error('tesseract CLI not installed on the server');
-    const dir = mkdtempSync(join(tmpdir(), 'madhushala-ocr-'));
+    const dir = mkdtempSync(join(tmpdir(), 'vanijliquor-ocr-'));
     try {
       const img = join(dir, filename);
       writeFileSync(img, buffer);

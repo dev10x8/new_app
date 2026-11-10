@@ -1,8 +1,8 @@
-# Madhushala Pro - web frontend (the app UI, also the frontend of the Tauri
+# VanijLiquor - web frontend (the app UI, also the frontend of the Tauri
 # desktop build). A tiny zero-dependency Node server serves the static assets
 # and proxies /api to the backend service.
 #
-# Build:  docker build -t madhushala-web new_code/web
+# Build:  docker build -t vanijliquor-web new_code/web
 FROM node:24-slim
 
 ENV NODE_ENV=production \

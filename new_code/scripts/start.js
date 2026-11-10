@@ -36,7 +36,7 @@ const web = spawn(process.execPath, [join(root, 'web', 'server.js')], {
   env: { ...process.env, PORT: webPort, API_URL: api },
 });
 
-console.log(`\nMadhushala Pro web UI: ${webUrl}  (login A00001 / admin)\n`);
+console.log(`\nVanijLiquor web UI: ${webUrl}  (login A00001 / admin)\n`);
 openBrowser(webUrl);
 
 function openBrowser(url) {

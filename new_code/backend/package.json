@@ -1,9 +1,9 @@
 {
-  "name": "madhushala-backend",
+  "name": "vanijliquor-backend",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Madhushala Pro backend (Node.js + SQLite)",
+  "description": "VanijLiquor backend (Node.js + SQLite)",
   "engines": { "node": ">=22.5.0" },
   "scripts": {
     "start": "node src/server.js",

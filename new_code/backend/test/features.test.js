@@ -18,7 +18,7 @@ const COMPANY = '1';
 const YEAR = '2024';
 
 function freshDb() {
-  const dir = mkdtempSync(join(tmpdir(), 'madhushala-ext-'));
+  const dir = mkdtempSync(join(tmpdir(), 'vanijliquor-ext-'));
   return { db: openDatabase(join(dir, 'test.db')), dir };
 }
 
@@ -273,9 +273,9 @@ test('tally sync: config, auto-enqueue on sale, xml, ack, retry', () => {
     });
     assert.equal(tally.queue(db, COMPANY).length, 0, 'no queueing while disabled');
 
-    const cfg = tally.saveConfig(db, COMPANY, { enabled: true, tallycompany: 'Madhushala Co', agenttoken: 'TOK1' });
+    const cfg = tally.saveConfig(db, COMPANY, { enabled: true, tallycompany: 'VanijLiquor Co', agenttoken: 'TOK1' });
     assert.equal(cfg.enabled, 1);
-    assert.equal(cfg.tallycompany, 'Madhushala Co');
+    assert.equal(cfg.tallycompany, 'VanijLiquor Co');
 
     // a sale made while enabled is queued automatically
     sales.createSale(db, {

@@ -3,7 +3,7 @@
 //
 // Run on a FRESH database (this script resets it first):
 //   node scripts/seed_demo.js
-//   MADHUSHALA_DB=/tmp/demo.db node scripts/seed_demo.js
+//   VANIJLIQUOR_DB=/tmp/demo.db node scripts/seed_demo.js
 //
 // It writes through the same service layer the app uses, so every number the
 // guide shows (stock, ledger, reports) is internally consistent.
@@ -25,7 +25,7 @@ import * as gst from '../backend/src/services/gst.js';
 import * as auth from '../backend/src/services/auth.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const DB_FILE = process.env.MADHUSHALA_DB || resolve(here, '..', 'data', 'madhushala.db');
+const DB_FILE = process.env.VANIJLIQUOR_DB || resolve(here, '..', 'data', 'vanijliquor.db');
 const C = '1';
 const Y = '2024';
 
@@ -262,7 +262,7 @@ excise.buildClosingBalance(db, { company: C, year: Y, date: '2024-04-09' });
 // --- GST: filing settings and a generated GSTR-1 ---------------------------
 gst.saveConfig(db, C, {
   gstin: '19AABCA1234B1Z5', legalname: 'ABM TECHNOMATRIX (P) LTD.',
-  tradename: 'MADHUSHALA PRO', statecode: '19',
+  tradename: 'VANIJLIQUOR', statecode: '19',
 });
 gst.buildReturn(db, C, Y, { rettype: 'GSTR1', period: '2024-04' });
 

@@ -60,7 +60,7 @@ let renderToken = 0;
 async function renderRoute() {
   const route = state.route;
   const token = ++renderToken;
-  el('page-title').textContent = ROUTE_TITLES[route] || 'Madhushala Pro';
+  el('page-title').textContent = ROUTE_TITLES[route] || 'VanijLiquor';
   setPage(h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Loading…'));
   try {
     const node = await screens(route, ctx);

@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Madhushala Pro",
+  "productName": "VanijLiquor",
   "version": "1.0.0",
-  "identifier": "com.madhushala.pro",
+  "identifier": "com.vanijliquor.pro",
   "build": {
     "frontendDist": "../../web/dist",
     "beforeDevCommand": "npm --prefix ../web run start",
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "Madhushala Pro — Bar & Liquor POS",
+        "title": "VanijLiquor — Bar & Liquor POS",
         "width": 1360,
         "height": 860,
         "minWidth": 1024,
@@ -35,6 +35,6 @@
     ],
     "category": "Business",
     "shortDescription": "Bar & Liquor POS",
-    "longDescription": "Madhushala Pro — point of sale for bars and liquor retail, built on Tauri (Web + Rust)."
+    "longDescription": "VanijLiquor — point of sale for bars and liquor retail, built on Tauri (Web + Rust)."
   }
 }

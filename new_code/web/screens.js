@@ -810,7 +810,7 @@ function backupScreen(ctx) {
 function restoreScreen(ctx) {
   return h('div', { class: 'card' }, h('h3', {}, 'Data Restore'),
     h('p', { class: 'muted' }, 'Restore reads a backup of the SQLite file from the server. Place the file on the server and give its path.'),
-    form([[['Backup file path', input('src', '/data/backup/madhushala.db')]]], async () => {
+    form([[['Backup file path', input('src', '/data/backup/vanijliquor.db')]]], async () => {
       ctx.toast('Restore is performed server-side; not enabled in this build', 'error');
     }));
 }
@@ -1016,7 +1016,7 @@ async function tallySyncScreen(ctx) {
   const tlsinsecure = h('input', { type: 'checkbox', name: 'tlsinsecure' });
   tlsinsecure.checked = !!cfg.tlsinsecure;
   const cfgForm = form([
-    [['Broker URL', input('brokerurl', cfg.brokerurl || 'https://broker.madhushala.cloud')],
+    [['Broker URL', input('brokerurl', cfg.brokerurl || 'https://broker.vanijliquor.cloud')],
      ['Tally company', input('tallycompany', cfg.tallycompany || '')]],
     [['Agent ID', input('agentid', cfg.agentid || '')],
      ['Company GUID', input('companyguid', cfg.companyguid || '')]],
@@ -1545,7 +1545,7 @@ async function gstScreen(ctx) {
 
 // --------------------------------------------------------------- help
 function aboutScreen() {
-  return h('div', { class: 'card' }, h('h3', {}, 'About Madhushala Pro'),
+  return h('div', { class: 'card' }, h('h3', {}, 'About VanijLiquor'),
     h('p', {}, 'Bar & Liquor POS — modern rebuild.'),
     h('p', { class: 'muted' }, 'Frontend: Tauri (Web + Rust). Backend: Node.js + SQLite. All business flows from the legacy Windows app are covered.'));
 }
@@ -1559,7 +1559,7 @@ function helpScreen() {
 function updatesScreen() {
   return h('div', { class: 'card' }, h('h3', {}, 'List of Updates'),
     h('ul', {}, h('li', {}, 'Web/Tauri frontend replacing the terminal UI'),
-      h('li', {}, '90-table schema, full report catalog (119 reports)'),
+      h('li', {}, '101-table schema, full report catalog (122 reports)'),
       h('li', {}, 'GST: item rates, per-line capture, GSTR-1 / GSTR-3B returns and filing'),
       h('li', {}, 'Docker Compose for backend + frontend')));
 }

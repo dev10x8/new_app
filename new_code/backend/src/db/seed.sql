@@ -1,4 +1,4 @@
--- Seed data for Madhushala Pro (new stack).
+-- Seed data for VanijLiquor (new stack).
 -- The first block mirrors the rows shipped in the original barmanager DB.
 -- The rest is a small bootstrap dataset so every business flow is runnable.
 

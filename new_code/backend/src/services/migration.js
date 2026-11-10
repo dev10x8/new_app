@@ -502,7 +502,7 @@ export function tablesInfo(db) {
  */
 export function exportSqlScript() {
   const tables = MIGRATABLE.map((t) => `'${t}'`).join(', ');
-  return `-- Madhushala Pro legacy export
+  return `-- VanijLiquor legacy export
 -- Run on the legacy SQL Server (barmanager) to produce a portable .sql dump
 -- that the new app imports via Tools > Data Migration > SQL dump.
 --

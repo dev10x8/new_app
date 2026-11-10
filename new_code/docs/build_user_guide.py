@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Build the Madhushala Pro user guide PDFs.
+"""Build the VanijLiquor user guide PDFs.
 
 Four guides are produced from one content base, each illustrated with real
 screenshots and a per-flow legacy mapping table (WinForms form / SQL Server
 table -> rebuilt screen):
 
-  * Madhushala_Pro_User_Guide.pdf              - all roles (full reference)
-  * Madhushala_Pro_User_Guide_POS_User.pdf     - POS / counter operator
-  * Madhushala_Pro_User_Guide_Accountant.pdf   - accountant / back office
-  * Madhushala_Pro_User_Guide_Admin.pdf        - administrator
+  * VanijLiquor_User_Guide.pdf              - all roles (full reference)
+  * VanijLiquor_User_Guide_POS_User.pdf     - POS / counter operator
+  * VanijLiquor_User_Guide_Accountant.pdf   - accountant / back office
+  * VanijLiquor_User_Guide_Admin.pdf        - administrator
 
 Content is written from the application's own sources:
   * new_code/web/menu.js        - navigation tree (mirrors legacy frm_main)
@@ -58,7 +58,7 @@ from reportlab.platypus.tableofcontents import TableOfContents
 from PIL import Image as PILImage
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "Madhushala_Pro_User_Guide.pdf")
+OUT = os.path.join(HERE, "VanijLiquor_User_Guide.pdf")
 SHOTS = os.path.join(HERE, "screenshots")
 
 BUILD_DATE = "8 November 2026"
@@ -138,8 +138,8 @@ class GuideDoc(BaseDocTemplate):
         super().__init__(filename, pagesize=A4,
                          leftMargin=20 * mm, rightMargin=18 * mm,
                          topMargin=20 * mm, bottomMargin=18 * mm,
-                         title="Madhushala Pro - User Guide",
-                         author="Madhushala Pro", **kw)
+                         title="VanijLiquor - User Guide",
+                         author="VanijLiquor", **kw)
         frame_cover = Frame(self.leftMargin, self.bottomMargin, self.width, self.height, id="cover")
         frame_body = Frame(self.leftMargin, self.bottomMargin, self.width, self.height, id="body")
         self.addPageTemplates([
@@ -165,7 +165,7 @@ class GuideDoc(BaseDocTemplate):
         canvas.line(self.leftMargin, y, A4[0] - self.rightMargin, y)
         canvas.setFont("Body", 7.8)
         canvas.setFillColor(MUTED)
-        canvas.drawString(self.leftMargin, y + 2.4 * mm, "Madhushala Pro - User Guide")
+        canvas.drawString(self.leftMargin, y + 2.4 * mm, "VanijLiquor - User Guide")
         canvas.drawRightString(A4[0] - self.rightMargin, y + 2.4 * mm, PROFILE["header"])
         fy = 11 * mm
         canvas.line(self.leftMargin, fy + 4 * mm, A4[0] - self.rightMargin, fy + 4 * mm)
@@ -317,7 +317,7 @@ def screenshot(stem, caption=None):
 def legacy_table(rows):
     """A small two-column 'legacy mapping' table: legacy form/table -> rebuilt."""
     data = [[Paragraph("Legacy (WinForms / SQL Server)", S["cellb"]),
-             Paragraph("Rebuilt in Madhushala Pro", S["cellb"])]]
+             Paragraph("Rebuilt in VanijLiquor", S["cellb"])]]
     for a, b in rows:
         data.append([Paragraph(a, S["cell"]), Paragraph(b, S["cell"])])
     t = Table(data, colWidths=[85 * mm, 85 * mm])
@@ -913,7 +913,7 @@ FLOWS = [
          purpose="Where to look for help inside the app.",
          steps=[
              "Open <b>Help - Ask for Help</b> for the key flow pointers.",
-             "Open <b>Help - About Madhushala</b> for the product and stack summary.",
+             "Open <b>Help - About VanijLiquor</b> for the product and stack summary.",
              "Open <b>Help - List of Updates</b> for the recent change list.",
          ]),
 ]
@@ -996,7 +996,7 @@ SHOTS_FOR = {
     ],
     "GST reports": [("reports-gst", "Reports - GST Reports: the six GST reports.")],
     "Forgot the admin PIN": [("tool-change-password", "Change Password, or reset the PIN for any user from Admin - User.")],
-    "Getting help": [("help-ask", "Help - Ask for Help."), ("help-about", "Help - About Madhushala Pro.")],
+    "Getting help": [("help-ask", "Help - Ask for Help."), ("help-about", "Help - About VanijLiquor.")],
 }
 
 # ==========================================================================
@@ -1140,7 +1140,7 @@ _ACCOUNTANT_TITLES = [
 PROFILES = [
     dict(
         key="all",
-        file="Madhushala_Pro_User_Guide.pdf",
+        file="VanijLiquor_User_Guide.pdf",
         cover_sub="User Guide - Admin and User Flows",
         header="Admin and User Flows",
         blurb="Bar and Liquor POS and management system. This guide walks through every "
@@ -1161,7 +1161,7 @@ PROFILES = [
     ),
     dict(
         key="pos",
-        file="Madhushala_Pro_User_Guide_POS_User.pdf",
+        file="VanijLiquor_User_Guide_POS_User.pdf",
         cover_sub="POS / Counter Operator Guide",
         header="POS / Counter Operator Guide",
         blurb="A day at the counter, start to finish. Sign in, bill a sale on the POS, take "
@@ -1180,7 +1180,7 @@ PROFILES = [
     ),
     dict(
         key="bar",
-        file="Madhushala_Pro_User_Guide_Bar_User.pdf",
+        file="VanijLiquor_User_Guide_Bar_User.pdf",
         cover_sub="Bar Counter Guide",
         header="Bar Counter Guide",
         blurb="Behind the bar. Serve and bill drinks at the bar counter, open and close a "
@@ -1198,7 +1198,7 @@ PROFILES = [
     ),
     dict(
         key="accountant",
-        file="Madhushala_Pro_User_Guide_Accountant.pdf",
+        file="VanijLiquor_User_Guide_Accountant.pdf",
         cover_sub="Accountant / Back Office Guide",
         header="Accountant / Back Office Guide",
         blurb="The books, the vouchers and the month-end. Purchases and stock, payment / "
@@ -1217,7 +1217,7 @@ PROFILES = [
     ),
     dict(
         key="admin",
-        file="Madhushala_Pro_User_Guide_Admin.pdf",
+        file="VanijLiquor_User_Guide_Admin.pdf",
         cover_sub="Administrator Guide",
         header="Administrator Guide",
         blurb="The full manual for the administrator: the complete menu. Company setup and "
@@ -1252,7 +1252,7 @@ def selected_flows():
 def cover_story():
     return [
         Spacer(1, 62 * mm),
-        P("Madhushala Pro", "cover_title"),
+        P("VanijLiquor", "cover_title"),
         Spacer(1, 3 * mm),
         P(PROFILE["cover_sub"], "cover_sub"),
         Spacer(1, 8 * mm),
@@ -1303,7 +1303,7 @@ def build_story(doc):
                    "captured from a running copy with the demo dataset loaded. Each flow also "
                    "carries a small <b>legacy mapping</b> table that names the original WinForms "
                    "form and SQL Server table it came from, so anyone who knows the old "
-                   "Madhushala Pro product can find their way immediately."))
+                   "VanijLiquor product can find their way immediately."))
     story.append(Spacer(1, 3 * mm))
     story.append(P("Load the demo dataset before you explore (it resets the database):", "body"))
     story.append(Paragraph("node scripts/seed_demo.js", S["code"]))

@@ -1,4 +1,4 @@
-# Madhushala Pro — desktop shell (Tauri: Web + Rust)
+# VanijLiquor — desktop shell (Tauri: Web + Rust)
 
 This folder turns the web UI in [`../web`](../web) into a native desktop
 application using [Tauri](https://tauri.app) v2. The UI is ordinary
@@ -10,7 +10,7 @@ on `http://127.0.0.1:7100` that the browser build uses.
 tauri/
   package.json              # @tauri-apps/cli
   src-tauri/
-    Cargo.toml              # Rust crate (madhushala-pro)
+    Cargo.toml              # Rust crate (vanijliquor)
     build.rs
     tauri.conf.json         # window, bundle, frontendDist = ../web/dist
     capabilities/default.json

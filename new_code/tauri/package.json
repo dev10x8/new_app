@@ -1,8 +1,8 @@
 {
-  "name": "madhushala-tauri",
+  "name": "vanijliquor-tauri",
   "version": "1.0.0",
   "private": true,
-  "description": "Tauri (Web + Rust) desktop shell for Madhushala Pro",
+  "description": "Tauri (Web + Rust) desktop shell for VanijLiquor",
   "scripts": {
     "dev": "tauri dev",
     "build": "tauri build",

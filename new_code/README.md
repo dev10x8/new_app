@@ -1,13 +1,13 @@
-# Madhushala Pro — new stack
+# VanijLiquor — new stack
 
-A from-scratch rebuild of the Madhushala Pro bar / liquor POS & management
+A from-scratch rebuild of the VanijLiquor bar / liquor POS & management
 system on a modern, dependency-light stack:
 
 | Layer    | Old stack (this repo)                    | New stack (`new_code/`)                 |
 | -------- | ---------------------------------------- | --------------------------------------- |
 | Frontend | VB.NET WinForms (MDI, TreeView menu)     | Tauri desktop app — Web UI + Rust shell |
 | Backend  | VB.NET business logic + stored procedures| Node.js HTTP API, service modules       |
-| Database | Microsoft SQL Server (`barmanager.mdf`)  | SQLite (`data/madhushala.db`)           |
+| Database | Microsoft SQL Server (`barmanager.mdf`)  | SQLite (`data/vanijliquor.db`)           |
 
 The rebuild keeps the same business flows and features described in
 `../PRODUCT_FEATURES.md` and the same data model as `../dev/db/ddl.sql`.
@@ -71,7 +71,7 @@ with `A00001` / `admin`. The API is on **http://localhost:7100**
 (`/api/health`, `/api/report-groups`, ...). The web server proxies `/api` to the
 backend, so there is no CORS to configure.
 
-The SQLite file lives in the named volume `madhushala-data`, so data survives
+The SQLite file lives in the named volume `vanijliquor-data`, so data survives
 `down`/`up`. To wipe and reseed:
 
 ```bash
@@ -81,7 +81,7 @@ docker compose -f new_code/docker-compose.yml down -v
 Change the published ports with environment variables:
 
 ```bash
-MADHUSHALA_PORT=8000 WEB_PORT=8001 \
+VANIJLIQUOR_PORT=8000 WEB_PORT=8001 \
   docker compose -f new_code/docker-compose.yml up --build
 ```
 
@@ -91,7 +91,7 @@ small and fast. The backend image is also useful on its own if you only want the
 API:
 
 ```bash
-docker run --rm -p 7100:7100 madhushala-backend:latest
+docker run --rm -p 7100:7100 vanijliquor-backend:latest
 ```
 
 ## Project layout
@@ -133,13 +133,13 @@ new_code/
 ├── docs/                     # user guides + screenshots
 │   ├── build_user_guide.py   # generates the five role PDFs
 │   ├── screenshots/          # captured by scripts/capture_screenshots.js
-│   └── Madhushala_Pro_User_Guide*.pdf
-├── data/madhushala.db        # created on first run
+│   └── VanijLiquor_User_Guide*.pdf
+├── data/vanijliquor.db        # created on first run
 └── scripts/start.js          # backend + web launcher
 ```
 
-The SQLite database ends up with **90 tables**: the 45 from the original DDL
-(`schema.sql`) plus 45 added for the fuller feature set (`schema_ext.sql`,
+The SQLite database ends up with **101 tables**: the 45 from the original DDL
+(`schema.sql`) plus 56 added for the fuller feature set (`schema_ext.sql`,
 including the GST tables `tbl_GstReturn`, `tbl_GstReturnLog` and
 `tbl_GstConfig`).
 
@@ -280,7 +280,7 @@ The catalog holds **122 reports** and is driven from a single declarative table
 | Tools → Calculator | Tools > Calculator | `tools.calculate` `/api/tools/calc` | Full |
 | Tools → Change Password | Tools > Change Password | `auth.resetPin` `/api/users/:code/reset-pin` | Full |
 | Tools → Data Back-Up (`backup()`) | Tools > Data Back-Up | `tools.backupDatabase` `/api/tools/backup` | Full |
-| Tools → Data Restore | Tools > Data Restore (guided) | copy backup over `data/madhushala.db` | Partial |
+| Tools → Data Restore | Tools > Data Restore (guided) | copy backup over `data/vanijliquor.db` | Partial |
 | Tools → Data Migration (legacy SQL / JSON / CSV) | Tools > Data Migration | `services/migration.js` `/api/migration` | Full |
 | Tools → Landed Cost / Margin | Tools > Landed Cost / Margin | `services/landedcost.js` `/api/landedcost` | Full |
 | Tools → Shortcut Panel | Tools > Shortcut Panel | Help screen | Full |
@@ -292,7 +292,7 @@ The catalog holds **122 reports** and is driven from a single declarative table
 | Tools → Data Sync | Tools > Data Sync | `tools.dataSync/syncStatus` `/api/tools/sync` | Full |
 | Tools → Excise Sync (state portal) | Tools > Excise Sync | `excise.*` `/api/excise/*` | Full |
 | Tools → GST / Returns (rates, GSTR-1/3B, filing) | Tools > GST / Returns | `gst.*` `/api/gst/*` | Full |
-| Help → About Madhushala | Help > About Madhushala | `admin.systemInfo` | Full |
+| Help → About VanijLiquor | Help > About VanijLiquor | `admin.systemInfo` | Full |
 | Help → Ask for Help | Help > Ask for Help | Help screen | Full |
 | Help → List of Updates | Help > List of Updates | `admin.systemInfo` | Full |
 
@@ -311,7 +311,7 @@ Reset (drop, recreate, reseed) the database at any time:
 npm run reset-db
 ```
 
-Data lives in `data/madhushala.db`. Delete the file to start fresh; the next
+Data lives in `data/vanijliquor.db`. Delete the file to start fresh; the next
 backend start recreates and seeds it.
 
 ## API
@@ -431,11 +431,11 @@ group, with a screenshot and a legacy-mapping table for every flow.
 
 | Guide | Audience |
 | --- | --- |
-| `Madhushala_Pro_User_Guide.pdf` | Admin and User flows (combined) |
-| `Madhushala_Pro_User_Guide_POS_User.pdf` | Counter operators / cashiers |
-| `Madhushala_Pro_User_Guide_Bar_User.pdf` | Bar staff / bartenders |
-| `Madhushala_Pro_User_Guide_Accountant.pdf` | Accountants / back office |
-| `Madhushala_Pro_User_Guide_Admin.pdf` | Administrators |
+| `VanijLiquor_User_Guide.pdf` | Admin and User flows (combined) |
+| `VanijLiquor_User_Guide_POS_User.pdf` | Counter operators / cashiers |
+| `VanijLiquor_User_Guide_Bar_User.pdf` | Bar staff / bartenders |
+| `VanijLiquor_User_Guide_Accountant.pdf` | Accountants / back office |
+| `VanijLiquor_User_Guide_Admin.pdf` | Administrators |
 
 Rebuild them (needs the screenshots first):
 

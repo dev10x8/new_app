@@ -13,7 +13,7 @@ const COMPANY = '1';
 const YEAR = '2024';
 
 function freshDb() {
-  const dir = mkdtempSync(join(tmpdir(), 'madhushala-tallylive-'));
+  const dir = mkdtempSync(join(tmpdir(), 'vanijliquor-tallylive-'));
   return { db: openDatabase(join(dir, 'test.db')), dir };
 }
 
@@ -49,7 +49,7 @@ function seedAndQueue(db) {
     company: COMPANY, year: YEAR, trndate: '2024-04-06', storecode: 'CNT1',
     salestype: 'FL', ledgercode: 'C00001', lines: [{ itemcode: 'I00001', qnty: 10, rate: 250 }],
   });
-  tally.saveConfig(db, COMPANY, { enabled: true, tallycompany: 'MADHUSHALA' });
+  tally.saveConfig(db, COMPANY, { enabled: true, tallycompany: 'VANIJLIQUOR' });
   tally.enqueueAll(db, COMPANY, YEAR);
 }
 
@@ -75,7 +75,7 @@ test('live push imports queued vouchers into Tally over HTTP/XML', async () => {
     assert.equal(received[0].method, 'POST');
     assert.match(received[0].contentType, /text\/xml/);
     assert.match(received[0].body, /TALLYREQUEST>Import Data/);
-    assert.match(received[0].body, /MADHUSHALA/);
+    assert.match(received[0].body, /VANIJLIQUOR/);
   } finally { server.close(); db.close(); rmSync(dir, { recursive: true, force: true }); }
 });
 
@@ -121,11 +121,11 @@ test('live test probes the endpoint and records a log entry', async () => {
 test('saveConfig merges partial updates and preserves the live endpoint fields', () => {
   const { db, dir } = freshDb();
   try {
-    tally.saveConfig(db, COMPANY, { tallyurl: 'http://127.0.0.1:9000', tallycompanyname: 'MADHUSHALA PRO', tlsinsecure: true });
+    tally.saveConfig(db, COMPANY, { tallyurl: 'http://127.0.0.1:9000', tallycompanyname: 'VANIJLIQUOR', tlsinsecure: true });
     tally.saveConfig(db, COMPANY, { brokerurl: 'https://broker.example' }); // partial update
     const cfg = tally.getConfig(db, COMPANY);
     assert.equal(cfg.tallyurl, 'http://127.0.0.1:9000');
-    assert.equal(cfg.tallycompanyname, 'MADHUSHALA PRO');
+    assert.equal(cfg.tallycompanyname, 'VANIJLIQUOR');
     assert.equal(cfg.tlsinsecure, 1);
     assert.equal(cfg.brokerurl, 'https://broker.example');
   } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }

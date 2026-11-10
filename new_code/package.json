@@ -1,8 +1,8 @@
 {
-  "name": "madhushala-pro-new-code",
+  "name": "vanijliquor",
   "version": "1.0.0",
   "private": true,
-  "description": "Madhushala Pro rebuilt on Node.js + SQLite with a Tauri (Web + Rust) frontend",
+  "description": "VanijLiquor - bar / liquor POS & management, rebuilt on Node.js + SQLite with a Tauri (Web + Rust) frontend",
   "type": "module",
   "workspaces": ["backend", "web"],
   "scripts": {

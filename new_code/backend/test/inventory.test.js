@@ -12,7 +12,7 @@ const COMPANY = '1';
 const YEAR = '2024';
 
 function freshDb() {
-  const dir = mkdtempSync(join(tmpdir(), 'madhushala-inv-'));
+  const dir = mkdtempSync(join(tmpdir(), 'vanijliquor-inv-'));
   const file = join(dir, 'test.db');
   return { db: openDatabase(file), file, dir };
 }
