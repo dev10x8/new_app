@@ -1,0 +1,11 @@
+{
+  "name": "vanijliquor-portal-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "VanijLiquor Customer Portal web frontend",
+  "engines": { "node": ">=20.0.0" },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

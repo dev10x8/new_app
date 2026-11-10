@@ -1,0 +1,15 @@
+{
+  "name": "vanijliquor-portal-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "VanijLiquor Customer Portal backend (Node.js + SQLite)",
+  "engines": { "node": ">=22.5.0" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "reset-db": "node scripts/reset.js",
+    "gen-license-key": "node scripts/gen_license_key.js",
+    "test": "node --test"
+  }
+}

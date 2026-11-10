@@ -17,6 +17,7 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
 | `dev/` | Developer guide, decompile scripts, Docker toolchain, DB scripts |
 | `dev/db/` | Authoritative DDL/DML/model generated from `barmanager.mdf` |
 | `new_code/` | **Rebuild** on Node.js + SQLite with a Tauri (Web + Rust) frontend |
+| `new_code_portal/` | **Customer Portal** web app (Node.js + SQLite): onboarding, plans/modules, machine-bound licence issuance |
 
 ## Key facts
 
@@ -91,6 +92,23 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   backend (port 7100) and the web UI (port 8080); DB in the `madhushala-data`
   volume. Ports overridable with `MADHUSHALA_PORT` / `WEB_PORT`. No third-party
   runtime deps, so the images are just Node + source.
+
+## new_code_portal (the customer portal)
+
+- **What it is**: a separate **web app** (branded "VanijLiquor Customer Portal")
+  for self-service customer onboarding and licensing. Node.js + `node:sqlite` +
+  a framework-free web UI; same conventions as `new_code`, but no desktop shell.
+- **Run**: `cd new_code_portal && npm start` → backend `127.0.0.1:7200`, web
+  `:8081` (served locally at `http://127.0.0.1:8081`). Extra scripts:
+  `npm run seed-demo`, `npm test` (33 tests), `npm run reset-db`,
+  `npm run gen-license-key`.
+- **Routes**: dashboard, businesses, business, licenses, onboard, plans,
+  modules, issue, verify, download, key, audit (`web/menu.js` drives the sidebar).
+- **Licensing**: Ed25519-signed `.vlic` files bound to a machine fingerprint
+  (MAC, CPU id, disk serial, hostname). Issue a licence from a pasted
+  `machine-fingerprint.json`; activation on a different machine is refused
+  (`Licence is bound to a different machine`). Set `PORTAL_LICENSE_KEY` for
+  production; otherwise a development signing key is used and the UI flags it.
 
 ### Conventions in new_code
 

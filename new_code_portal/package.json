@@ -1,0 +1,19 @@
+{
+  "name": "vanijliquor-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VanijLiquor Customer Portal - self-service onboarding, plan & module selection, machine-bound licence issuance",
+  "type": "module",
+  "workspaces": ["backend", "web"],
+  "scripts": {
+    "start": "node scripts/start.js",
+    "backend": "npm --prefix backend start",
+    "web": "npm --prefix web start",
+    "seed-demo": "node scripts/seed_demo.js",
+    "screenshots": "node scripts/capture_screenshots.js",
+    "reset-db": "npm --prefix backend run reset-db",
+    "gen-license-key": "npm --prefix backend run gen-license-key",
+    "test": "npm --prefix backend test"
+  },
+  "engines": { "node": ">=22.5.0" }
+}

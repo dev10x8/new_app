@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VanijLiquor — Customer Portal</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- App shell -->
+  <div id="app-view" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-mark small">VL</div>
+        <div class="sidebar-title">VanijLiquor<br /><span class="muted small">Customer Portal</span></div>
+      </div>
+      <nav id="sidebar-nav"></nav>
+      <div class="sidebar-foot">
+        <div class="who">Onboarding &amp; Licensing</div>
+      </div>
+    </aside>
+
+    <div class="content">
+      <header class="topbar">
+        <button class="btn ghost icon" id="menu-toggle" title="Menu">☰</button>
+        <h2 id="page-title">Dashboard</h2>
+        <div class="topbar-right">
+          <span class="pill">Plans: Basic · Standard · Premium</span>
+        </div>
+      </header>
+
+      <main id="page"></main>
+
+      <div id="toast" class="toast" hidden></div>
+      <div id="modal" class="modal" hidden>
+        <div class="modal-card">
+          <div class="modal-head">
+            <h3 id="modal-title"></h3>
+            <button class="btn ghost icon" id="modal-close">✕</button>
+          </div>
+          <div id="modal-body" class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
