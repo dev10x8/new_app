@@ -34,7 +34,9 @@ async function dashboard(ctx) {
         h('button', { onclick: () => ctx.navigate('download') }, '⭳ Download the app'))),
       card('Licence health', h('div', { class: 'stat-list' },
         row('Issued', l.issued), row('Active', l.active), row('Revoked', l.revoked),
+        row('In grace', l.inGrace ?? 0),
         row('Expiring ≤ 30 days', l.expiringSoon),
+        row('Seats in use', l.seatsUsed ?? 0),
         row('Signing key', l.usingProductionKey ? 'production' : 'development')))),
     h('div', { class: 'section-title' }, 'Businesses by plan'),
     planBars(b.byPlan),
@@ -152,16 +154,17 @@ async function licenses(ctx) {
       { title: 'Business', key: 'business_code' },
       { title: 'Plan', key: 'plan_code' },
       { title: 'Status', value: (r) => r.status, badge: (r) => statusKind(r.status) },
+      { title: 'State', value: (r) => r.state, badge: (r) => statusKind(r.state) },
       { title: 'Machine', value: (r) => `${r.machine_hash.slice(0, 12)}…` },
       { title: 'Valid until', value: (r) => date(r.valid_until) },
-      { title: 'Activations', value: (r) => r.activations.length, num: true },
+      { title: 'Seats', value: (r) => `${r.activations.filter((a) => !a.released_at).length}/${r.seat_limit}` },
     ], rows),
     detailList(ctx, rows));
 }
 
 function detailList(ctx, list) {
   return h('div', { class: 'lic-cards' }, ...list.map((r) => h('div', { class: 'card lic' },
-    h('div', { class: 'lic-head' }, h('strong', {}, r.license_id), statusBadge(r.status)),
+    h('div', { class: 'lic-head' }, h('strong', {}, r.license_id), statusBadge(r.state)),
     h('div', { class: 'muted small' }, `${r.business_code} · ${r.plan_code} · until ${date(r.valid_until)}`),
     h('div', { class: 'actions' },
       h('button', { class: 'btn small', onclick: () => openLicence(ctx, r.license_id) }, 'View'),
@@ -488,16 +491,54 @@ function fingerprintForm(initial = {}) {
 }
 
 function licenceView(ctx, lic) {
+  const seatsUsed = lic.activations.filter((a) => !a.released_at).length;
+  const stateLine = {
+    valid: 'Valid', grace: `In grace — ${lic.grace_remaining} day(s) left before expiry`,
+    expired: 'Expired', revoked: 'Revoked',
+  }[lic.state] || lic.state;
+
+  const surrender = h('button', { class: 'btn' }, '↺ Surrender');
+  surrender.addEventListener('click', async () => {
+    if (!window.confirm(`Surrender ${lic.license_id}? Every machine binding is released so the licence can be activated on a new machine.`)) return;
+    surrender.disabled = true;
+    try {
+      await api.surrender(lic.license_id, 'surrender from portal');
+      ctx.toast('Licence surrendered — ready to re-activate on a new machine', 'ok');
+      ctx.closeModal?.();
+      ctx.navigate('licenses');
+    } catch (err) { ctx.toast(err.message, 'error'); surrender.disabled = false; }
+  });
+
   return h('div', {},
     h('div', { class: 'stat-list' },
       row('Licence', lic.license_id), row('Business', lic.business_code),
-      row('Plan', lic.plan_code), row('Valid', `${date(lic.valid_from)} → ${date(lic.valid_until)}`),
+      row('Plan', lic.plan_code),
+      h('div', { class: 'kv' }, h('span', { class: 'k' }, 'State'), statusBadge(lic.state)),
+      row('State detail', stateLine),
+      row('Valid', `${date(lic.valid_from)} → ${date(lic.valid_until)}`),
+      row('Grace after expiry', `${lic.grace_days} days`),
+      row('Offline limit', `${lic.offline_limit_days} days (then educational mode)`),
+      row('Seats', `${seatsUsed} of ${lic.seat_limit} in use`),
+      row('Bound machine', lic.bound_machine_hash ? `${lic.bound_machine_hash.slice(0, 16)}…` : 'unbound (surrendered)'),
       row('Machine hash', lic.machine_hash)),
     h('div', { class: 'section-title' }, 'Entitlements'),
     h('div', { class: 'chips' }, ...lic.entitlements.map((c) => h('span', { class: 'chip' }, c))),
+    h('div', { class: 'section-title' }, 'Activations'),
+    activationsTable(lic.activations),
     h('div', { class: 'actions' },
       h('a', { class: 'btn primary', href: api.licenseFileUrl(lic.license_id), download: `${lic.license_id}.vlic` }, '⭳ Download licence file'),
-      h('button', { class: 'btn', onclick: () => { downloadJson(`${lic.license_id}.vlic`, lic.payload); } }, 'Download payload only')));
+      h('button', { class: 'btn', onclick: () => { downloadJson(`${lic.license_id}.vlic`, lic.payload); } }, 'Download payload only'),
+      surrender));
+}
+
+function activationsTable(rows) {
+  if (!rows.length) return h('div', { class: 'empty' }, 'Not yet activated.');
+  return table([
+    { title: 'Machine', value: (r) => `${r.machine_hash.slice(0, 16)}…` },
+    { title: 'Activated', value: (r) => r.activated_at },
+    { title: 'Released', value: (r) => (r.released_at ? r.released_at : '—') },
+    { title: 'IP', value: (r) => r.ip || '—' },
+  ], rows);
 }
 
 // ---------------------------------------------------------------- verify / activate
@@ -505,22 +546,26 @@ async function verify(ctx) {
   const fp = fingerprintForm();
   const resultBox = h('div', {});
   const idInput = h('input', { placeholder: 'VL-LIC-XXXXXX' });
+  const offlineInput = h('input', { name: 'offline', placeholder: '0', inputmode: 'numeric' });
 
   async function run(action) {
     const id = idInput.value.trim();
     if (!id) { ctx.toast('Enter a licence id', 'error'); return; }
+    const days = Number(offlineInput.value) || 0;
     resultBox.replaceChildren(loading());
     try {
       const r = action === 'activate'
         ? await api.activate(id, fp.get())
-        : await api.verifyLicense(id, fp.get());
+        : await api.verifyLicense(id, fp.get(), days);
       resultBox.replaceChildren(action === 'activate' ? activateView(r) : verifyView(r));
     } catch (err) { resultBox.replaceChildren(h('div', { class: 'card' }, h('p', { class: 'error' }, err.message))); }
   }
 
   return h('div', {},
     card('Activate or verify a licence', h('div', { class: 'form' },
-      h('label', { class: 'field' }, 'Licence id', idInput),
+      h('div', { class: 'row' },
+        h('label', { class: 'field' }, 'Licence id', idInput),
+        h('label', { class: 'field' }, 'Days since last check-in (offline test)', offlineInput)),
       h('div', { class: 'section-title' }, 'This machine'),
       fp.node,
       h('div', { class: 'actions' },
@@ -532,22 +577,34 @@ async function verify(ctx) {
 
 function verifyView(r) {
   if (!r.ok && r.reason === 'not-found') return h('div', { class: 'card' }, h('p', { class: 'error' }, 'Licence not found.'));
+  const verdictClass = r.severity === 'hard' ? 'bad' : (r.severity === 'warn' ? 'warn' : 'ok');
+  const verdictText = r.ok
+    ? (r.state === 'grace' ? '⚠ Licence in grace period' : (r.offline_state === 'educational' ? '⚠ Limited (educational) mode' : '✓ Licence valid'))
+    : '✗ Licence not valid';
   return h('div', { class: 'card' },
-    h('div', { class: 'verdict ' + (r.ok ? 'ok' : 'bad') }, r.ok ? '✓ Licence valid' : '✗ Licence not valid'),
+    h('div', { class: 'verdict ' + verdictClass }, verdictText),
     h('div', { class: 'stat-list' },
       row('Licence', r.license_id), row('Business', r.business_code), row('Plan', r.plan),
-      row('Status', r.status), row('Signature', r.signature_ok ? 'valid' : 'INVALID'),
-      row('Expired', r.expired ? 'yes' : 'no'), row('Days remaining', r.days_remaining),
+      row('Status', r.status),
+      h('div', { class: 'kv' }, h('span', { class: 'k' }, 'State'), statusBadge(r.state)),
+      row('Signature', r.signature_ok ? 'valid' : 'INVALID'),
+      row('Days remaining', r.days_remaining),
+      row('Grace remaining', `${r.grace_remaining} of ${r.grace_days} days`),
+      row('Offline limit', `${r.offline_limit_days} days`),
+      h('div', { class: 'kv' }, h('span', { class: 'k' }, 'Offline state'), statusBadge(r.offline_state)),
+      row('Seats', r.seats),
       row('Machine match', r.machine_ok == null ? 'not checked' : (r.machine_ok ? 'yes' : 'NO'))),
     h('div', { class: 'chips' }, ...r.entitlements.map((c) => h('span', { class: 'chip' }, c))));
 }
 
 function activateView(lic) {
+  const seatsUsed = lic.activations.filter((a) => !a.released_at).length;
   return h('div', { class: 'card' },
     h('div', { class: 'verdict ok' }, '✓ Activated on this machine'),
     h('div', { class: 'stat-list' },
       row('Licence', lic.license_id), row('Business', lic.business_code), row('Status', lic.status),
-      row('Valid until', date(lic.valid_until)), row('Activations', lic.activations.length)));
+      row('Valid until', date(lic.valid_until)),
+      row('Seats', `${seatsUsed} of ${lic.seat_limit} in use`)));
 }
 
 // ---------------------------------------------------------------- download

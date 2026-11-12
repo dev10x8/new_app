@@ -285,6 +285,7 @@ a.btn { text-decoration: none; display: inline-block; }
 /* verdict banner */
 .verdict { font-size: 15px; font-weight: 750; padding: 12px 14px; border-radius: 10px; margin-bottom: 12px; }
 .verdict.ok { background: #dcfce7; color: #166534; }
+.verdict.warn { background: #fef3c7; color: #92400e; }
 .verdict.bad { background: #fee2e2; color: #991b1b; }
 
 /* quote card */

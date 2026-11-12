@@ -17,6 +17,16 @@ export const config = {
   issuer: process.env.PORTAL_ISSUER || 'VanijLiquor Licensing Authority',
   // How long a generated licence stays valid (months) when a plan has no term.
   defaultTermMonths: Number(process.env.PORTAL_TERM_MONTHS || 12),
+  // After valid_until the licence still verifies but reports "grace" for this
+  // many days before it hard-expires — so a renewal that lands a few days late
+  // does not stop a paying customer's shop.
+  graceDays: Number(process.env.PORTAL_GRACE_DAYS || 15),
+  // How many days the desktop may run without a check-in before it drops to
+  // limited "educational" mode (Tally-style). Baked into the signed payload so
+  // the client can enforce it offline.
+  offlineLimitDays: Number(process.env.PORTAL_OFFLINE_LIMIT_DAYS || 30),
+  // How many distinct machines one licence may bind (seats).
+  seatLimit: Number(process.env.PORTAL_SEAT_LIMIT || 1),
 };
 
 export default config;

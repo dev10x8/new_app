@@ -94,6 +94,7 @@ export function statusBadge(status) {
   const kind = {
     active: 'ok', issued: 'warn', onboarding: 'warn', draft: '',
     suspended: 'danger', revoked: 'danger', expired: 'danger', off: '',
+    valid: 'ok', grace: 'warn', educational: 'warn', online: 'ok',
   }[status] ?? '';
   return h('span', { class: `badge ${kind}`.trim() }, status || '—');
 }

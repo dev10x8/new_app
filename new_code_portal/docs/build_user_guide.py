@@ -449,13 +449,20 @@ FEATURES = [
                  "licence file.",
          steps=[
              "Open <b>Overview - Licences</b>.",
-             "Read the table: Licence id, Business, Plan, Status, Machine (first 12 hex digits of "
-             "the machine hash), Valid until and Activations.",
+             "Read the table: Licence id, Business, Plan, Status, State, Machine (first 12 hex "
+             "digits of the machine hash), Valid until and Seats.",
              "Each licence also appears as a card below with <b>View</b> (opens the licence "
              "detail) and <b>Download</b> (saves the <font face='Mono'>.vlic</font> file).",
              "Use <b>＋ Issue licence</b> or <b>✓ Activate / verify</b> to jump to those screens.",
          ],
-         notes=["Statuses are <b>issued</b> (minted, not yet activated), <b>active</b> (activated on its machine) and <b>revoked</b> (withdrawn)."],
+         notes=[
+             "<b>Status</b> is the record's lifecycle: <b>issued</b> (minted, not yet activated), "
+             "<b>active</b> (activated on its machine) and <b>revoked</b> (withdrawn).",
+             "<b>State</b> is the health from the term and the offline windows: <b>valid</b>, "
+             "<b>grace</b> (past its term but still inside the grace window) or <b>expired</b>.",
+             "<b>Seats</b> shows how many of the licence's machine bindings are in use, for example "
+             "<font face='Mono'>2/3</font>.",
+         ],
          api=[("List licences", "GET /api/licenses"),
               ("Licence detail", "GET /api/licenses/:id"),
               ("Download .vlic", "GET /api/licenses/:id/file")],
@@ -591,7 +598,65 @@ FEATURES = [
              ("verify", "Activate / Verify: enter the licence id and this machine's fingerprint."),
              ("verify-success", "Verify only: a valid licence on the correct machine."),
              ("verify-denied", "Activation refused on a different machine (anti-clone)."),
+             ("verify-grace", "A licence past its term: in grace, and limited offline (educational) mode."),
          ]),
+
+    dict(section="Part D - Licensing", group=None, title="Grace window and offline (educational) mode",
+         who="Everyone", where="Licensing - Activate / Verify",
+         purpose="Explain the two soft-enforcement windows every licence carries, so a paying shop "
+                 "is never stopped by a late renewal or a dropped internet link.",
+         steps=[
+             "Every licence is signed with a <b>grace window</b> (default 15 days) and an "
+             "<b>offline limit</b> (default 30 days).",
+             "<b>Grace window:</b> after <i>valid until</i> passes, the licence keeps working for "
+             "the grace period. The portal shows the state <b>grace</b> and the POS app shows a "
+             "renewal warning instead of stopping.",
+             "<b>Offline (educational) mode:</b> if the POS app has not checked in for longer than "
+             "the offline limit, it drops to a limited mode rather than refusing to run.",
+             "To preview it, open <b>Activate / Verify</b>, enter a licence id, set "
+             "<b>Days since last check-in</b> to a value past the limit (for example 45), and "
+             "select <b>Verify only</b>.",
+         ],
+         notes=[
+             "The grace window and the offline limit are baked into the signed payload, so the "
+             "POS app can enforce both with no network at all.",
+             "A licence past the grace window is <b>expired</b> and refused; a revoked one is "
+             "refused immediately.",
+             "Tune the defaults with <font face='Mono'>PORTAL_GRACE_DAYS</font> and "
+             "<font face='Mono'>PORTAL_OFFLINE_LIMIT_DAYS</font>, or per licence when you issue it.",
+         ],
+         api=[("Licence state + offline contract", "GET /api/licenses/:id/status?days_since_checkin=N"),
+              ("Verify with an offline test", "POST /api/licenses/:id/verify  { machine, days_since_checkin }")],
+         shots=[("verify-grace", "Grace window: in grace, and flagged as limited offline (educational) mode.")]),
+
+    dict(section="Part D - Licensing", group=None, title="Seats and surrender (moving a licence)",
+         who="Administrator", where="Licensing - Licences",
+         purpose="Explain how many machines a licence may bind, and how to move it to a new "
+                 "machine when a counter PC is replaced.",
+         steps=[
+             "A licence carries a <b>seat limit</b> (default 1). It binds to the machine it was "
+             "issued for, plus any extra seats you activate up to the limit.",
+             "Open a licence from <b>Licensing - Licences</b> (<b>View</b>) to see its state, how "
+             "many <b>seats</b> are in use, and the activations list.",
+             "To move a licence to a new machine, select <b>↺ Surrender</b>. This releases every "
+             "machine binding so the licence is free to activate elsewhere.",
+             "On the new machine, activate the same licence as usual — it re-binds there and "
+             "returns to <b>active</b>.",
+         ],
+         notes=[
+             "<b>Surrender is deliberate and audited</b> (action "
+             "<font face='Mono'>license.surrender</font>): a move is a recorded event, not a "
+             "silent re-bind. This is how Tally-style products let a customer replace hardware.",
+             "A single-seat licence on a second machine without surrender is refused with "
+             "<i>Licence is bound to a different machine</i>. A multi-seat licence that has used "
+             "every seat is refused with <i>Seat limit reached</i>.",
+             "Set the default with <font face='Mono'>PORTAL_SEAT_LIMIT</font>, or pass "
+             "<font face='Mono'>seat_limit</font> when you issue a licence.",
+         ],
+         api=[("Surrender (release bindings)", "POST /api/licenses/:id/surrender  { note }"),
+              ("Seats + state", "GET /api/licenses/:id/status"),
+              ("Activation history", "GET /api/licenses/:id/activations")],
+         shots=[("licence-modal", "Licence detail: state, grace, offline limit, seats, activations and Surrender.")]),
 
     dict(section="Part D - Licensing", group=None, title="Download the App",
          who="Everyone", where="Resources - Download App",

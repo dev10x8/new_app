@@ -120,7 +120,18 @@ CREATE TABLE IF NOT EXISTS licenses (
   issued_at       TEXT NOT NULL DEFAULT (datetime('now')),
   payload         TEXT NOT NULL,              -- canonical JSON that was signed
   signature       TEXT NOT NULL,              -- Ed25519 signature (base64)
-  public_key      TEXT NOT NULL DEFAULT ''    -- Ed25519 public key (base64) for offline verify
+  public_key      TEXT NOT NULL DEFAULT '',   -- Ed25519 public key (base64) for offline verify
+  -- Grace window after expiry, and the offline (no check-in) tolerance before the
+  -- client drops to limited "educational" mode. Both are baked into the signed
+  -- payload so the desktop can enforce them with no network.
+  grace_days         INTEGER NOT NULL DEFAULT 0,
+  offline_limit_days INTEGER NOT NULL DEFAULT 0,
+  -- Seats: how many distinct machines this licence may bind. The first
+  -- activation pins the machine (bound_machine_hash); moving it is an explicit
+  -- surrender + reactivate, not a silent re-bind.
+  seat_limit         INTEGER NOT NULL DEFAULT 1,
+  bound_machine_hash TEXT NOT NULL DEFAULT '',
+  surrendered_at     TEXT NOT NULL DEFAULT ''
 );
 
 CREATE TABLE IF NOT EXISTS activations (
@@ -128,6 +139,7 @@ CREATE TABLE IF NOT EXISTS activations (
   license_id   TEXT NOT NULL,
   machine_hash TEXT NOT NULL,
   activated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  released_at  TEXT NOT NULL DEFAULT '',      -- set when the licence is surrendered
   ip           TEXT NOT NULL DEFAULT '',
   detail       TEXT NOT NULL DEFAULT ''
 );

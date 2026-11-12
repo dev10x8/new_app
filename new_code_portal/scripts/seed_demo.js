@@ -37,6 +37,34 @@ for (const d of demo) {
   console.log(`seeded ${b.business_code}  ${lic.license_id}  (${biz.plan_code})`);
 }
 
+// A fourth business that illustrates the grace window: its term ended a few days
+// ago, so it still runs but reports "grace" with a renewal nudge.
+const graceBiz = onboarding.create(db, {
+  legalname: 'Krishna Wines', tradename: 'Krishna', ownername: 'M. Iyer', email: 'krishna@wines.example',
+  city: 'Nashik', state: 'Maharashtra', statecode: '27', businesstype: 'retail',
+  plan_code: 'standard', period_code: 'monthly',
+}, 'seed');
+const graceMachine = { mac: 'D4:BE:D9:77:88:99', cpu: 'BFEBFBFF000306C3', disk: 'SSD-GRACE01', hostname: 'krishna-pc' };
+const graceLic = licensing.issue(db, { business_id: graceBiz.id, machine: graceMachine, months: 1 }, 'seed');
+licensing.activate(db, graceLic.license_id, graceMachine, { ip: '127.0.0.1' }, 'seed');
+// A monthly term that ended 3 days ago: backdate both ends so the range reads
+// sensibly (a licence issued ~1 month ago, now just past its term).
+db.prepare("UPDATE licenses SET valid_from=date('now','-33 day'), valid_until=date('now','-3 day') WHERE license_id=?").run(graceLic.license_id);
+console.log(`seeded ${graceBiz.business_code}  ${graceLic.license_id}  (grace window demo)`);
+
+// A fifth business on a 3-seat licence with two machines bound, to show seats.
+const multiBiz = onboarding.create(db, {
+  legalname: 'Sunrise Wine Chain', tradename: 'Sunrise', ownername: 'A. Bose', email: 'sunrise@chain.example',
+  city: 'Nagpur', state: 'Maharashtra', statecode: '27', businesstype: 'wholesale',
+  plan_code: 'premium', period_code: 'oneYear',
+}, 'seed');
+const seatA = { mac: '00:11:22:33:44:55', cpu: 'BFEBFBFF000806EA', disk: 'NVME-SEAT01', hostname: 'sunrise-hq' };
+const seatB = { mac: '66:77:88:99:AA:BB', cpu: 'BFEBFBFF000806EA', disk: 'NVME-SEAT02', hostname: 'sunrise-branch' };
+const multiLic = licensing.issue(db, { business_id: multiBiz.id, machine: seatA, seat_limit: 3 }, 'seed');
+licensing.activate(db, multiLic.license_id, seatA, { ip: '127.0.0.1' }, 'seed');
+licensing.activate(db, multiLic.license_id, seatB, { ip: '127.0.0.1' }, 'seed');
+console.log(`seeded ${multiBiz.business_code}  ${multiLic.license_id}  (3 seats, 2 bound)`);
+
 const stats = onboarding.stats(db);
 console.log(`\nDone: ${stats.total} businesses, ${stats.licenses} licences, MRR ₹${stats.mrr}`);
 db.close();

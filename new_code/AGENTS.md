@@ -87,6 +87,14 @@ Docker: `docker compose -f new_code/docker-compose.yml up --build`.
   sales 32, stock 20, purchase 12, accounts 14, MIS 12, breakage 2, transfer 2,
   excise 22, GST 6 — **122 total** across 9 groups.
 - **Bill numbers** render as `FL` / `CS` / `NAI` + running number (e.g. `FL00001`).
+- **Licensing is owned by the separate customer portal** (`../new_code_portal`),
+  not this app. It mints an Ed25519-signed `.vlic` bound to a machine
+  fingerprint. Licences carry three soft-enforcement tolerances baked into the
+  signed payload — a **grace window** after expiry, an **offline limit** before
+  the client drops to limited *educational* mode, and a **seat limit** — plus an
+  audited **surrender** to move a licence to a new machine. The desktop app pins
+  the vendor public key and verifies offline; it must never trust a key carried
+  inside the licence file. See `../new_code_portal/README.md`.
 
 ## Conventions
 

@@ -85,10 +85,26 @@ route('GET', '/api/licenses/:id', (b, p) => {
 // Download the standalone, offline-verifiable licence file (the .vlic the app imports).
 route('GET', '/api/licenses/:id/file', (b, p, q) => licensing.getLicense(db, p.id) && licenseFile(db, p.id));
 route('POST', '/api/licenses/:id/activate', (b, p) => licensing.activate(db, p.id, b.machine, { ip: b.ip, detail: b.detail }, 'desktop'));
-route('POST', '/api/licenses/:id/verify', (b, p) => licensing.verifyLicense(db, p.id, b.machine));
+route('POST', '/api/licenses/:id/verify', (b, p) => licensing.verifyLicense(db, p.id, b.machine, { daysSinceCheckin: b.days_since_checkin || 0 }));
+route('POST', '/api/licenses/:id/surrender', (b, p) => licensing.surrender(db, p.id, 'portal', b.note || ''));
 route('POST', '/api/licenses/:id/revoke', (b, p) => licensing.revoke(db, p.id, 'portal'));
 route('POST', '/api/licenses/:id/resign', (b, p) => licensing.resign(db, p.id, 'portal'));
 route('GET', '/api/licenses/:id/activations', (b, p) => licensing.getLicense(db, p.id).activations);
+// The offline behaviour contract the desktop enforces: what state a licence is
+// in now, and how to behave after N days without a check-in.
+route('GET', '/api/licenses/:id/status', (b, p, q) => {
+  const lic = licensing.getLicense(db, p.id);
+  if (!lic) throw Object.assign(new Error('Licence not found'), { status: 404 });
+  return {
+    license_id: lic.license_id,
+    state: lic.state, severity: lic.severity,
+    days_remaining: lic.days_remaining, grace_days: lic.grace_days, grace_remaining: lic.grace_remaining,
+    offline_limit_days: lic.offline_limit_days,
+    offline: licensing.offlineState(lic, q.get('days_since_checkin') || 0),
+    seats: lic.seat_limit, seats_used: licensing.getLicense(db, p.id).activations.filter((a) => !a.released_at).length,
+    entitlements: lic.entitlements,
+  };
+});
 route('GET', '/api/license-key', () => ({ public_key: license.publicKeyBase64(), production: license.usingProductionKey() }));
 
 // ---- dashboard + audit ----
@@ -124,18 +140,24 @@ function licenseFile(db, licenseId) {
   const lic = licensing.getLicense(db, licenseId);
   return {
     format: 'vanijliquor-license',
-    version: 1,
+    version: 2,
     license_id: lic.license_id,
     business: { code: lic.business_code, legalname: lic.legalname, plan: lic.plan_code, period: lic.period_code },
     machine_hash: lic.machine_hash,
     machine_detail: lic.machine_detail,
     entitlements: lic.entitlements,
+    seats: lic.seat_limit,
     valid_from: lic.valid_from,
     valid_until: lic.valid_until,
+    // Offline contract: the desktop runs in limited "educational" mode once it
+    // has gone this many days without a check-in, and keeps working for
+    // `grace_days` after expiry before refusing.
+    offline_limit_days: lic.offline_limit_days,
+    grace_days: lic.grace_days,
     payload: lic.payload,
     signature: lic.signature,
     public_key: lic.public_key,
-    verify: 'Ed25519 over canonical JSON of payload; SHA-256 machine fingerprint must match.',
+    verify: 'Ed25519 over canonical JSON of payload; verify with the PINNED vendor key. SHA-256 machine fingerprint must match.',
   };
 }
 

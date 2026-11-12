@@ -19,9 +19,29 @@ export function openDatabase(dbFile) {
   db.exec('PRAGMA foreign_keys = ON;');
   db.exec('PRAGMA journal_mode = WAL;');
   db.exec(readFileSync(schemaPath, 'utf8'));
+  migrate(db);
   if (fresh) db.exec(readFileSync(seedPath, 'utf8'));
   else seedIfEmpty(db);
   return db;
+}
+
+/**
+ * Add columns introduced after the first release to databases created before
+ * them. `CREATE TABLE IF NOT EXISTS` in schema.sql does not alter an existing
+ * table, so upgrades are applied here. Each entry is added only when missing,
+ * which keeps this safe to run on every open.
+ */
+function migrate(db) {
+  const addColumn = (table, column, ddl) => {
+    const cols = db.prepare(`PRAGMA table_info(${table})`).all().map((c) => c.name);
+    if (!cols.includes(column)) db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${ddl}`);
+  };
+  addColumn('licenses', 'grace_days', 'INTEGER NOT NULL DEFAULT 0');
+  addColumn('licenses', 'offline_limit_days', 'INTEGER NOT NULL DEFAULT 0');
+  addColumn('licenses', 'seat_limit', 'INTEGER NOT NULL DEFAULT 1');
+  addColumn('licenses', 'bound_machine_hash', "TEXT NOT NULL DEFAULT ''");
+  addColumn('licenses', 'surrendered_at', "TEXT NOT NULL DEFAULT ''");
+  addColumn('activations', 'released_at', "TEXT NOT NULL DEFAULT ''");
 }
 
 /** Keep an existing database supplied with catalogue rows (idempotent). */

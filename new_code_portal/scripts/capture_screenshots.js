@@ -250,6 +250,51 @@ async function main() {
     } catch (e) { console.error('FAILED verify', e.message); }
   }
 
+  // ---- grace window + offline (educational) mode -----------------------
+  if (!want || want.has('verify-grace')) {
+    try {
+      const rows = listFrom(await httpJson(`${API}/api/licenses`));
+      const grace = rows.find((r) => r.state === 'grace');
+      if (!grace) throw new Error('no grace-window licence (run npm run seed-demo)');
+      const md = grace.machine_detail || {};
+      await goRoute('verify');
+      await evaluate(`(() => {
+        const idEl = document.querySelector('.form input');
+        if (idEl) { idEl.value = ${JSON.stringify(grace.license_id)}; idEl.dispatchEvent(new Event('input', { bubbles: true })); }
+        const off = document.querySelector('input[name="offline"]');
+        if (off) { off.value = '45'; off.dispatchEvent(new Event('input', { bubbles: true })); }
+        return true;
+      })()`);
+      await fillFingerprint({ mac: md.mac, cpu: md.cpu, disk: md.disk, hostname: md.hostname, os: md.os });
+      await clickText('Verify only'); await sleep(900);
+      if (!want || want.has('verify-grace')) { await screenshot('verify-grace'); record('verify-grace'); }
+    } catch (e) { console.error('FAILED verify-grace', e.message); }
+  }
+
+  // ---- licence detail modal: state, seats and the surrender action -----
+  if (!want || want.has('licence-modal')) {
+    try {
+      const rows = listFrom(await httpJson(`${API}/api/licenses`));
+      const target = rows.find((r) => r.state === 'grace') || rows[0];
+      await goRoute('licenses');
+      await sleep(600);
+      const opened = await evaluate(`(() => {
+        const cards = [...document.querySelectorAll('.lic-cards .card.lic')];
+        const card = cards.find((c) => (c.querySelector('strong')?.textContent || '').trim() === ${JSON.stringify(target.license_id)});
+        if (!card) return false;
+        const b = [...card.querySelectorAll('button')].find((x) => x.textContent.trim() === 'View');
+        if (b) { b.click(); return true; }
+        return false;
+      })()`);
+      if (opened) {
+        await sleep(800);
+        if (!want || want.has('licence-modal')) { await screenshot('licence-modal', { full: false }); record('licence-modal'); }
+        await evaluate(`document.getElementById('modal-close')?.click(); true;`);
+        await sleep(300);
+      }
+    } catch (e) { console.error('FAILED licence-modal', e.message); }
+  }
+
   ws.close();
   cleanup();
   console.log(`\n${saved.length} screenshots -> ${OUT_DIR}`);
