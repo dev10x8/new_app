@@ -2,5 +2,11 @@
 src-tauri/target/
 src-tauri/gen/schemas/
 
+# Staged desktop runtime (node binary + backend copy), built by scripts/stage_runtime.mjs
+src-tauri/runtime/
+
+# Canonical installer copies staged by the packaging workflow
+dist/
+
 # Node
 node_modules/

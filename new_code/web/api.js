@@ -6,8 +6,12 @@
 //  - Served over HTTP (docker compose): the web server proxies /api, so a
 //    same-origin (empty) base is used and there is no CORS to worry about.
 //  - Overridable with window.__API_BASE__ if needed.
+//
+// Tauri serves the webview from `tauri://localhost` on macOS/Linux and from
+// `http://tauri.localhost` on Windows, so detect both.
 const isDesktop = typeof location !== 'undefined'
-  && (location.protocol === 'tauri:' || location.protocol === 'file:');
+  && (location.protocol === 'tauri:' || location.protocol === 'file:'
+    || location.hostname === 'tauri.localhost');
 const BASE = (typeof window !== 'undefined' && window.__API_BASE__)
   || (isDesktop ? 'http://127.0.0.1:7100' : '');
 

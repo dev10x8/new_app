@@ -27,6 +27,22 @@ export const config = {
   offlineLimitDays: Number(process.env.PORTAL_OFFLINE_LIMIT_DAYS || 30),
   // How many distinct machines one licence may bind (seats).
   seatLimit: Number(process.env.PORTAL_SEAT_LIMIT || 1),
+  // ---- distribution (downloads + licence server links) ----
+  // Version of the desktop app the portal advertises and links to.
+  appVersion: process.env.PORTAL_APP_VERSION || '1.0.0',
+  // GitHub repository that hosts the signed Windows installers as release assets.
+  releaseRepo: process.env.PORTAL_RELEASE_REPO || 'dev10x8/new_app',
+  // Release tag to link to (e.g. 'v1.0.0'). Empty links to the "latest" release.
+  releaseTag: process.env.PORTAL_RELEASE_TAG || '',
+  // Explicit base URL for installer downloads. When set it wins over the
+  // GitHub release URL, so installers can be served from a CDN or object store.
+  downloadBaseUrl: process.env.PORTAL_DOWNLOAD_BASE_URL || '',
+  // Absolute base URL of this portal (its licensing/activation server). Set in
+  // production so issued instructions carry a reachable URL; when empty the UI
+  // falls back to the browser's current origin.
+  publicUrl: process.env.PORTAL_PUBLIC_URL || '',
+  // URL the desktop app uses to reach the licence server. Defaults to publicUrl.
+  licenseServerUrl: process.env.PORTAL_LICENSE_SERVER_URL || '',
 };
 
 export default config;

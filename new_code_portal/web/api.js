@@ -60,6 +60,7 @@ export const api = {
 
   dashboard: () => req('GET', '/api/dashboard'),
   audit: (limit = 100) => req('GET', `/api/audit${qs({ limit })}`),
+  downloads: () => req('GET', `/api/downloads${qs({ origin: (typeof location !== 'undefined' ? location.origin : '') })}`),
 };
 
 export default api;

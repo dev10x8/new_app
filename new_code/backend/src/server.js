@@ -30,7 +30,16 @@ const db = openDatabase(config.dbFile);
 
 function json(res, code, body) {
   const text = JSON.stringify(body);
-  res.writeHead(code, { 'content-type': 'application/json', 'content-length': Buffer.byteLength(text) });
+  res.writeHead(code, {
+    'content-type': 'application/json',
+    'content-length': Buffer.byteLength(text),
+    // The Tauri desktop webview loads from tauri://localhost (http://tauri.localhost
+    // on Windows) while the backend listens on 127.0.0.1:7100, so API calls are
+    // cross-origin and need CORS. The server is loopback-only, so '*' is safe here.
+    'access-control-allow-origin': '*',
+    'access-control-allow-headers': '*',
+    'access-control-allow-methods': '*',
+  });
   res.end(text);
 }
 
@@ -350,6 +359,15 @@ route('GET', '/api/gst/logs', () => gst.logs(db, config.company));
 route('GET', '/api/gst/invoice/:trnno', (b, p) => gst.taxInvoice(db, config.company, config.year, p.trnno));
 
 const server = http.createServer(async (req, res) => {
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204, {
+      'access-control-allow-origin': '*',
+      'access-control-allow-headers': '*',
+      'access-control-allow-methods': '*',
+    });
+    res.end();
+    return;
+  }
   const url = new URL(req.url, `http://${req.headers.host}`);
   const path = url.pathname;
   for (const r of routes) {

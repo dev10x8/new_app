@@ -21,8 +21,8 @@ stack and conventions (Node.js + `node:sqlite` + a framework-free web UI).
 | --- | --- |
 | `backend/src/server.js` | HTTP server and routes |
 | `backend/src/db/` | `schema.sql`, `seed.sql` (plans, modules, add-ons) |
-| `backend/src/services/` | `onboarding`, `catalogue`, `licensing`, `license` (Ed25519 signing), `fingerprint`, `audit` |
-| `backend/test/` | Test suite (41 tests) |
+| `backend/src/services/` | `onboarding`, `catalogue`, `licensing`, `license` (Ed25519 signing), `fingerprint`, `audit`, `downloads` (installer + licence-server links) |
+| `backend/test/` | Test suite (47 tests) |
 | `web/` | SPA: `menu.js` (routes), `screens.js`, `api.js`, `ui.js`, `app.js`, `styles.css` |
 | `web/downloads/` | Machine-fingerprint helper scripts (PowerShell + shell) |
 | `scripts/` | `start.js`, `seed_demo.js`, `capture_screenshots.js` |
@@ -107,4 +107,29 @@ Licensing: `POST /api/licenses`, `GET /api/licenses`, `GET /api/licenses/:id`,
 `POST /api/licenses/:id/resign`, `GET /api/licenses/:id/activations`,
 `GET /api/license-key`.
 
-Portal: `GET /api/dashboard`, `GET /api/audit`.
+Portal: `GET /api/dashboard`, `GET /api/audit`, `GET /api/downloads`.
+
+### Downloads & licence-server links
+
+The portal's **Download the app** screen (`route 'download'`) lists the Windows
+installer and the licence-server links a customer needs. It is driven by
+`GET /api/downloads`, which returns installer URLs, the licence-server URL and
+its endpoints, the fingerprint helpers, and onboarding steps.
+
+The installers are not hosted by the portal — they are built by the
+`Package Windows app` GitHub workflow in `../new_code` and attached to a GitHub
+release. Configure the links with:
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `PORTAL_APP_VERSION` | `1.0.0` | Version in the installer filenames. |
+| `PORTAL_RELEASE_REPO` | `dev10x8/new_app` | Repository hosting the release assets. |
+| `PORTAL_RELEASE_TAG` | _(empty → latest)_ | Release tag to link to, e.g. `v1.0.0`. |
+| `PORTAL_DOWNLOAD_BASE_URL` | _(empty)_ | Overrides the GitHub URL (CDN / object store). |
+| `PORTAL_PUBLIC_URL` | _(empty)_ | This portal's public base URL. |
+| `PORTAL_LICENSE_SERVER_URL` | _(falls back to public URL, then the browser origin)_ | URL the desktop app uses to reach the licence server. |
+
+With the defaults, the portal links to
+`https://github.com/dev10x8/new_app/releases/latest/download/VanijLiquor_1.0.0_x64-setup.exe`.
+Set `PORTAL_APP_VERSION` and `PORTAL_RELEASE_TAG` to the released version so the
+filenames resolve.

@@ -7,6 +7,7 @@ import * as onboarding from './services/onboarding.js';
 import * as licensing from './services/licensing.js';
 import * as audit from './services/audit.js';
 import * as license from './services/license.js';
+import * as downloads from './services/downloads.js';
 
 const db = openDatabase(config.dbFile);
 
@@ -106,6 +107,9 @@ route('GET', '/api/licenses/:id/status', (b, p, q) => {
   };
 });
 route('GET', '/api/license-key', () => ({ public_key: license.publicKeyBase64(), production: license.usingProductionKey() }));
+
+// ---- distribution: installer + licence-server links for the download page ----
+route('GET', '/api/downloads', (b, p, q) => downloads.distribution(q.get('origin') || ''));
 
 // ---- dashboard + audit ----
 route('GET', '/api/dashboard', () => ({

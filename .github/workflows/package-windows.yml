@@ -1,0 +1,118 @@
+name: Package Windows app
+
+# Builds the VanijLiquor desktop app into Windows installers (NSIS .exe and WiX
+# .msi) and publishes them as GitHub release assets, which the customer portal
+# links to from its "Download the app" screen.
+#
+# Run it by pushing a tag (e.g. `git tag v1.0.0 && git push origin v1.0.0`) or
+# from the Actions tab (workflow_dispatch). The tag must be `v<version>` where
+# <version> matches `new_code/tauri/src-tauri/tauri.conf.json`; the portal's
+# PORTAL_APP_VERSION / PORTAL_RELEASE_TAG must match to link the right asset.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to create (e.g. v1.0.0). Leave blank to only build artifacts.'
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: new_code/tauri
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Cache Rust build
+        uses: swatinem/rust-cache@v2
+        with:
+          workspaces: new_code/tauri/src-tauri
+
+      - name: Install Tauri CLI
+        run: npm install
+
+      - name: Verify tag matches app version
+        if: startsWith(github.ref, 'refs/tags/')
+        shell: pwsh
+        run: |
+          $conf = Get-Content src-tauri/tauri.conf.json | ConvertFrom-Json
+          $expected = "v$($conf.version)"
+          if ("${{ github.ref_name }}" -ne $expected) {
+            throw "Tag ${{ github.ref_name }} does not match app version ($expected). Update tauri.conf.json or retag."
+          }
+
+      # beforeBuildCommand stages the Node runtime + backend copy and builds the web dist.
+      - name: Build installers (.exe + .msi)
+        run: npm run build -- --target x86_64-pc-windows-msvc
+
+      - name: List bundles
+        shell: pwsh
+        run: Get-ChildItem -Recurse src-tauri/target/x86_64-pc-windows-msvc/release/bundle | Select-Object FullName
+
+      # Copy the bundles to canonical names the customer portal links to
+      # (services/downloads.js): VanijLiquor_<version>_x64-setup.exe / _en-US.msi.
+      - name: Stage installers with canonical names
+        shell: pwsh
+        run: |
+          $conf = Get-Content src-tauri/tauri.conf.json | ConvertFrom-Json
+          $v = $conf.version
+          $bundle = "src-tauri/target/x86_64-pc-windows-msvc/release/bundle"
+          New-Item -ItemType Directory -Force -Path dist | Out-Null
+          $exe = Get-ChildItem -Path "$bundle/nsis" -Filter *.exe | Select-Object -First 1
+          $msi = Get-ChildItem -Path "$bundle/msi" -Filter *.msi | Select-Object -First 1
+          if (-not $exe) { throw "No NSIS .exe produced" }
+          if (-not $msi) { throw "No MSI produced" }
+          Copy-Item $exe.FullName "dist/VanijLiquor_${v}_x64-setup.exe"
+          Copy-Item $msi.FullName "dist/VanijLiquor_${v}_x64_en-US.msi"
+          Get-ChildItem dist
+
+      - name: Upload installers as workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: vanijliquor-windows-installers
+          path: new_code/tauri/dist/*
+          if-no-files-found: error
+
+      - name: Resolve release tag
+        id: rel
+        shell: pwsh
+        run: |
+          $tag = "${{ github.event.inputs.tag }}"
+          if (-not $tag -and "${{ github.ref }}" -like "refs/tags/*") { $tag = "${{ github.ref_name }}" }
+          "tag=$tag" >> $env:GITHUB_OUTPUT
+
+      - name: Publish release assets
+        if: steps.rel.outputs.tag != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.rel.outputs.tag }}
+          name: VanijLiquor ${{ steps.rel.outputs.tag }}
+          body: |
+            Windows installers for VanijLiquor.
+
+            - `VanijLiquor_*_x64-setup.exe` — NSIS installer (recommended).
+            - `VanijLiquor_*_x64_en-US.msi` — MSI for managed deployment.
+
+            After installing, open the app and paste its machine fingerprint into
+            the customer portal to issue a licence.
+          draft: false
+          files: new_code/tauri/dist/*
+

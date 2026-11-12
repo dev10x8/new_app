@@ -6,7 +6,7 @@
   "build": {
     "frontendDist": "../../web/dist",
     "beforeDevCommand": "npm --prefix ../web run start",
-    "beforeBuildCommand": "npm --prefix ../web run build",
+    "beforeBuildCommand": "node scripts/stage_runtime.mjs && npm --prefix ../web run build",
     "devUrl": "http://localhost:8080"
   },
   "app": {
@@ -33,8 +33,11 @@
       "icons/128x128.png",
       "icons/icon.png"
     ],
+    "resources": {
+      "runtime/": "runtime/"
+    },
     "category": "Business",
     "shortDescription": "Bar & Liquor POS",
-    "longDescription": "VanijLiquor — point of sale for bars and liquor retail, built on Tauri (Web + Rust)."
+    "longDescription": "VanijLiquor — point of sale for bars and liquor retail, built on Tauri (Web + Rust). Bundles its own Node.js runtime and SQLite backend."
   }
 }

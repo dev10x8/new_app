@@ -64,12 +64,14 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   report menu is generated from `/api/report-groups`, not hard-coded. Counts:
   sales 32, stock 20, purchase 10, accounts 14, MIS 12, breakage 2, transfer 2,
   excise 22, GST 6.
-- **Tests**: `cd new_code/backend && npm test` (94 tests across
+- **Tests**: `cd new_code/backend && npm test` (125 tests across
   `test/services.test.js`, `test/features.test.js`, `test/excise.test.js`,
   `test/gst.test.js`, `test/inventory.test.js`, `test/m22.test.js`,
-  `test/tallylive.test.js` and `test/migration.test.js`,
+  `test/tallylive.test.js`, `test/migration.test.js`, `test/clock.test.js`,
+  `test/imports.test.js` and `test/cors.test.js`,
   fresh temp DB each; includes a test that runs every catalog report,
   excise tests that drive a **real local HTTP fake** of the state excise API,
+  a CORS test that boots the real server and drives it with `fetch()`,
   and migration tests that parse the repository's own `dev/db/dml.sql` fixture —
   no mocks).
 - **Run**: `cd new_code && npm start` (backend + web UI). Login `A00001` / `admin`.
@@ -88,6 +90,20 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
 - **UI**: `web/` is a framework-free SPA (HTML/CSS/JS) served by `web/server.js`
   (static + `/api` proxy). It is also the frontend of the Tauri desktop app
   (`tauri/`), which reuses `web/` unchanged and only adds a Rust window.
+  `web/api.js` points at `http://127.0.0.1:7100` when it detects the Tauri
+  webview (`tauri:`/`file:` protocol or `tauri.localhost` host); the backend
+  sends CORS headers so the cross-origin webview can call it.
+- **Desktop packaging** (`tauri/`): the packaged app is self-contained. The
+  `beforeBuildCommand` runs `tauri/scripts/stage_runtime.mjs`, which copies the
+  running Node binary and the backend source into `src-tauri/runtime/`
+  (git-ignored); `tauri.conf.json` bundles that as a resource. On launch the Rust
+  shell (`src-tauri/src/lib.rs`) spawns `runtime/node runtime/backend/src/server.js`,
+  waits for `127.0.0.1:7100`, and kills the child on exit. The DB lives in the
+  per-user app-data dir. Windows installers (NSIS `.exe`, WiX `.msi`) are built
+  by `.github/workflows/package-windows.yml` on a `v*` tag, renamed to
+  `VanijLiquor_<version>_x64-setup.exe` / `_en-US.msi`, and attached to a GitHub
+  release. The version must match `tauri.conf.json` and the portal's
+  `PORTAL_APP_VERSION` / `PORTAL_RELEASE_TAG`.
 - **Docker**: `docker compose -f new_code/docker-compose.yml up --build` runs the
   backend (port 7100) and the web UI (port 8080); DB in the `madhushala-data`
   volume. Ports overridable with `MADHUSHALA_PORT` / `WEB_PORT`. No third-party
@@ -100,7 +116,7 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   a framework-free web UI; same conventions as `new_code`, but no desktop shell.
 - **Run**: `cd new_code_portal && npm start` → backend `127.0.0.1:7200`, web
   `:8081` (served locally at `http://127.0.0.1:8081`). Extra scripts:
-  `npm run seed-demo`, `npm test` (33 tests), `npm run reset-db`,
+  `npm run seed-demo`, `npm test` (47 tests), `npm run reset-db`,
   `npm run gen-license-key`, `npm run screenshots` (CDP capture into
   `docs/screenshots/`), `npm run guides` (build the user guide PDF with
   `docs/build_user_guide.py`; needs reportlab + Pillow).
@@ -111,6 +127,12 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   `machine-fingerprint.json`; activation on a different machine is refused
   (`Licence is bound to a different machine`). Set `PORTAL_LICENSE_KEY` for
   production; otherwise a development signing key is used and the UI flags it.
+- **Downloads**: the "Download App" screen is driven by `GET /api/downloads`
+  (`backend/src/services/downloads.js`). It links to the Windows installers on a
+  GitHub release (`PORTAL_APP_VERSION`, `PORTAL_RELEASE_REPO`,
+  `PORTAL_RELEASE_TAG`, or `PORTAL_DOWNLOAD_BASE_URL` for a CDN) and to the
+  licence-server endpoints (`PORTAL_LICENSE_SERVER_URL` / `PORTAL_PUBLIC_URL`).
+  The installer filenames must match what `package-windows.yml` publishes.
 - **User guide**: `docs/VanijLiquor_Customer_Portal_User_Guide.pdf`, generated
   by `docs/build_user_guide.py` from the app's own sources and screenshots in
   `docs/screenshots/` (captured by `scripts/capture_screenshots.js`).

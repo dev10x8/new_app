@@ -608,25 +608,43 @@ function activateView(lic) {
 }
 
 // ---------------------------------------------------------------- download
-function download(ctx) {
-  const links = h('div', { class: 'list-menu' },
-    h('a', { class: 'btn primary', href: './downloads/VanijLiquorSetup.exe', download: true }, '⭳ Windows installer (.exe)'),
-    h('a', { class: 'btn', href: './downloads/VanijLiquorSetup.msi', download: true }, '⭳ Windows installer (.msi)'),
-    h('a', { class: 'btn', href: './machine-fingerprint.ps1', download: true }, '⭳ Fingerprint helper (PowerShell)'),
-    h('a', { class: 'btn', href: './machine-fingerprint.sh', download: true }, '⭳ Fingerprint helper (shell)'));
+async function download(ctx) {
+  const d = await api.downloads();
 
-  const steps = h('ol', { class: 'steps-list' },
-    h('li', {}, 'Create the business and pick plan + modules (Onboard).'),
-    h('li', {}, 'On the counter PC run the app; it shows a machine fingerprint (or run the helper script).'),
-    h('li', {}, 'Paste the fingerprint under “Issue Licence” and download the .vlic licence file.'),
-    h('li', {}, 'Import the .vlic in the app — it verifies offline and unlocks the modules.'));
+  const installerLinks = h('div', { class: 'list-menu' },
+    ...d.installers.map((it, i) => h('a', {
+      class: i === 0 ? 'btn primary' : 'btn', href: it.url, download: it.filename,
+    }, `⭳ ${it.label}`)));
+
+  const serverUrl = d.license_server.url || location.origin;
+  const serverLinks = h('div', { class: 'list-menu' },
+    h('a', { class: 'btn', href: serverUrl, target: '_blank', rel: 'noopener' }, '↗ Open licence server'),
+    h('a', { class: 'btn', href: d.license_server.endpoints.license_key, target: '_blank', rel: 'noopener' }, '↗ Licence signing key'),
+    h('a', { class: 'btn', href: d.license_server.endpoints.health, target: '_blank', rel: 'noopener' }, '↗ Server health'));
+
+  const steps = h('ol', { class: 'steps-list' }, ...d.steps.map((s) => h('li', {}, s)));
+
+  const meta = h('div', { class: 'stat-list' },
+    row('App version', d.app_version),
+    row('Release', d.release.tag || 'latest'),
+    row('Repository', d.release.repo),
+    row('Licence server', serverUrl || '—'));
 
   return h('div', {},
-    card('Download VanijLiquor', h('div', {},
-      h('p', { class: 'muted' }, 'Download and run the installer on the counter PC. The installer writes a machine-fingerprint.json you paste here to issue a licence.'),
-      links,
-      h('p', { class: 'muted small' }, 'Files are placeholders in this build — drop the signed installers into web/downloads/ to serve them.'))),
-    card('How onboarding works', steps));
+    card('Download VanijLiquor for Windows', h('div', {},
+      h('p', { class: 'muted' }, 'Download and run the installer on the counter PC. The app writes a machine-fingerprint.json you paste here to issue a licence.'),
+      installerLinks,
+      h('p', { class: 'muted small' }, `Installer links point at the ${d.release.tag ? `release ${d.release.tag}` : 'latest release'} of ${d.release.repo}.`))),
+    card('Licence server', h('div', {},
+      h('p', { class: 'muted' }, 'The desktop app activates and verifies licences against this portal. Share these links with the customer if they install on another PC.'),
+      h('div', { class: 'kv' }, h('span', { class: 'k' }, 'Server URL'), h('span', { class: 'v' }, serverUrl || '—')),
+      serverLinks)),
+    card('Fingerprint helpers', h('div', {},
+      h('p', { class: 'muted small' }, 'Optional — run on the counter PC if the app is not yet installed.'),
+      h('div', { class: 'list-menu' },
+        ...d.helpers.map((hp) => h('a', { class: 'btn', href: hp.url, download: hp.filename }, `⭳ ${hp.label}`))))),
+    card('How onboarding works', steps),
+    card('Package details', meta));
 }
 
 // ---------------------------------------------------------------- licence key
