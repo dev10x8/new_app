@@ -1,10 +1,12 @@
 import { all, get, run, tx } from '../db/index.js';
 import { money } from './helpers.js';
+import { assertPostableDate } from './clock.js';
 import { postVoucher } from './accounting.js';
 
 /** Payment / Receipt voucher. type: 'PAYMENT' | 'RECEIPT'. */
 export function createPaymentReceipt(db, v) {
   return tx(db, () => {
+    v = { ...v, vchdate: assertPostableDate(db, { company: v.company, year: v.year, date: v.vchdate }).date };
     const isPay = v.type === 'PAYMENT';
     const table = isPay ? 'payment_main' : 'receipt_main';
     const detailTable = isPay ? 'payment_detail' : 'receipt_detail';
@@ -49,6 +51,7 @@ export function createPaymentReceipt(db, v) {
 /** Contra entry: move money between two ledgers (cash <-> bank). */
 export function createContra(db, v) {
   return tx(db, () => {
+    v = { ...v, vchdate: assertPostableDate(db, { company: v.company, year: v.year, date: v.vchdate }).date };
     const amount = money(v.amount || 0);
     postVoucher(db, {
       company: v.company, year: v.year, trnno: v.trnno || `CTR${Date.now()}`, trndate: v.vchdate,
@@ -65,6 +68,7 @@ export function createContra(db, v) {
 /** Journal entry: multi-line manual voucher. */
 export function createJournal(db, v) {
   return tx(db, () => {
+    v = { ...v, vchdate: assertPostableDate(db, { company: v.company, year: v.year, date: v.vchdate }).date };
     const trnno = v.trnno || `JRN${Date.now()}`;
     postVoucher(db, {
       company: v.company, year: v.year, trnno, trndate: v.vchdate, type: 'JOURNAL',

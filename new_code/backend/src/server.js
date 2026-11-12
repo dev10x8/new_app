@@ -1,6 +1,6 @@
 import http from 'node:http';
 import { URL } from 'node:url';
-import { openDatabase } from './db/index.js';
+import { openDatabase, get } from './db/index.js';
 import { config } from './config.js';
 import * as auth from './services/auth.js';
 import * as masters from './services/masters.js';
@@ -24,6 +24,7 @@ import * as statemaster from './services/statemaster.js';
 import * as parcha from './services/parcha.js';
 import * as landedcost from './services/landedcost.js';
 import { nextTrnNo } from './services/helpers.js';
+import * as clock from './services/clock.js';
 
 const db = openDatabase(config.dbFile);
 
@@ -57,14 +58,26 @@ function route(method, path, handler) { routes.push({ method, path, handler }); 
 
 // ---- meta ----
 route('GET', '/api/health', () => ({ ok: true, company: config.company, year: config.year }));
-route('GET', '/api/meta', () => ({
-  company: config.company,
-  year: config.year,
-  masters: Object.keys(masters.MASTERS),
-  saleTypes: sales.listSaleTypes(),
-  reports: reports.REPORTS,
-  reportGroups: catalog.reportGroups(),
-}));
+route('GET', '/api/now', () => clock.businessDate(db, config.company));
+route('GET', '/api/meta', () => {
+  const guard = clock.businessDate(db, config.company);
+  const today = guard.date;
+  const fy = get(db, 'SELECT stdate, enddate FROM yearmst WHERE companycode = ? AND yearcode = ?',
+    [config.company, config.year]) || {};
+  return {
+    company: config.company,
+    year: config.year,
+    today,
+    yearStart: fy.stdate || `${today.slice(0, 4)}-04-01`,
+    yearEnd: fy.enddate || `${Number(today.slice(0, 4)) + 1}-03-31`,
+    clockRolledBack: guard.rolledBack,
+    clockSkewSeconds: guard.skewSeconds,
+    masters: Object.keys(masters.MASTERS),
+    saleTypes: sales.listSaleTypes(),
+    reports: reports.REPORTS,
+    reportGroups: catalog.reportGroups(),
+  };
+});
 route('GET', '/api/system-info', () => admin.systemInfo(db, config.company));
 
 // ---- auth ----

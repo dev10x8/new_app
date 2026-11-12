@@ -1,5 +1,17 @@
 // Small DOM + formatting helpers used by the screens.
 
+// The server owns "today". The client never reads its own clock for business
+// dates, so an altered system date on the till cannot shift defaults. The value
+// is set at boot from GET /api/meta (falling back to the local clock only if the
+// server is unreachable, so the UI still renders).
+let serverToday = null;
+export function setServerToday(date) {
+  if (date) serverToday = date;
+}
+export function today() {
+  return serverToday || new Date().toISOString().slice(0, 10);
+}
+
 export function h(tag, props = {}, ...children) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(props || {})) {

@@ -1,5 +1,5 @@
 import { api } from './api.js';
-import { h, table, form, field, input, select, money, num } from './ui.js';
+import { h, table, form, field, input, select, money, num, today } from './ui.js';
 
 // Primary-key columns per master (mirrors backend/src/services/masters.js).
 const MASTER_PK = {
@@ -327,9 +327,12 @@ async function rightsFor(ctx, user) {
 
 async function newYearScreen(ctx) {
   const years = await api.years();
+  // Next financial year (Apr 1 - Mar 31) derived from the server date.
+  const [y, m] = today().split('-').map(Number);
+  const startYear = (m >= 4 ? y : y - 1) + 1;
   const f = form([
-    [['Year Range', input('yearrange', '2025-2026')], ['Start Date', input('startdate', '2025-04-01', 'date')]],
-    [['End Date', input('enddate', '2026-03-31', 'date')], ['Year Code', input('yearcode', '2025')]],
+    [['Year Range', input('yearrange', `${startYear}-${startYear + 1}`)], ['Start Date', input('startdate', `${startYear}-04-01`, 'date')]],
+    [['End Date', input('enddate', `${startYear + 1}-03-31`, 'date')], ['Year Code', input('yearcode', String(startYear))]],
   ], async (d) => {
     try { await api.createNewYear(d); ctx.toast('New year created', 'ok'); ctx.navigate(ctx.state.route); }
     catch (e) { ctx.toast(e.message, 'error'); }
@@ -430,7 +433,7 @@ async function posSale(ctx) {
       field('Sale Type', select('salestype', saleTypes, 'FL')),
       field('Party Ledger', input('ledgercode', 'C00001'))),
     h('div', { class: 'row three' },
-      field('Date', input('trndate', '2024-04-06', 'date')),
+      field('Date', input('trndate', today(), 'date')),
       field('Bill Discount', input('discount', '0', 'number')),
       h('div', {})),
     h('div', { class: 'section-title' }, 'Items'),
@@ -445,9 +448,11 @@ async function posSale(ctx) {
     if (!lines.length) return ctx.toast('Add at least one item', 'error');
     try {
       const r = await api.createSale({ ...data, discount: Number(data.discount) || 0, lines, userId: ctx.state.user.usercode });
+      if (r.clock_rolled_back) ctx.toast('Warning: system clock appears to be set back', 'error');
       ctx.openModal('Sale Saved', h('div', { class: 'grid cols-2' },
         statCard('Bill No', r.trnno), statCard('Gross', money(r.amount)),
-        statCard('Discount', money(r.discamount)), statCard('Net', money(r.netamount))));
+        statCard('Discount', money(r.discamount)), statCard('Net', money(r.netamount)),
+        r.date_warning ? statCard('Date', r.date_warning) : null));
       ctx.toast('Sale saved', 'ok');
     } catch (ex) { ctx.toast(ex.message, 'error'); }
   });
@@ -514,7 +519,7 @@ async function purchaseScreen(ctx) {
   ], [{ itemquantity: '1' }]);
   const f = h('form', { class: 'form' },
     h('div', { class: 'row three' },
-      field('Date', input('trndate', '2024-04-05', 'date')),
+      field('Date', input('trndate', today(), 'date')),
       field('Supplier Ledger', input('suppliercode', 'S00001')),
       field('Supplier Invoice No', input('docno', 'INV-001'))),
     h('div', { class: 'section-title' }, 'Items'),
@@ -550,7 +555,7 @@ async function voucherScreen(ctx, type) {
       { name: 'credit', label: 'Credit', type: 'number', value: '0' },
     ], [{ debit: '0', credit: '0' }]);
     f = h('form', { class: 'form' },
-      field('Date', input('vchdate', '2024-04-07', 'date')),
+      field('Date', input('vchdate', today(), 'date')),
       h('div', { class: 'section-title' }, 'Lines'),
       lineEd.node,
       h('div', { class: 'actions' }, h('button', { class: 'btn primary', type: 'submit' }, 'Post Journal')));
@@ -563,13 +568,13 @@ async function voucherScreen(ctx, type) {
     });
   } else if (isContra) {
     f = form([
-      [['Date', input('vchdate', '2024-04-07', 'date')]],
+      [['Date', input('vchdate', today(), 'date')]],
       [['From Ledger', input('from_ledger', 'L00001')], ['To Ledger', input('to_ledger', 'L00002')]],
       [['Amount', input('amount', '0', 'number')]],
     ], async (d) => { try { await api.createVoucher({ type, ...d, amount: Number(d.amount) || 0 }); ctx.toast('Contra posted', 'ok'); } catch (e) { ctx.toast(e.message, 'error'); } });
   } else {
     f = form([
-      [['Date', input('vchdate', '2024-04-07', 'date')]],
+      [['Date', input('vchdate', today(), 'date')]],
       [['Head Account', input('head_account', 'L00002')], ['Client Account', input('client_account', type === 'PAYMENT' ? 'S00001' : 'C00001')]],
       [['Amount', input('amount_paid', '0', 'number')], ['Narration', input('narration', `${type} entry`)]],
     ], async (d) => { try { const r = await api.createVoucher({ type, ...d, amount_paid: Number(d.amount_paid) || 0 }); ctx.toast(`Voucher ${r.vchno} saved`, 'ok'); } catch (e) { ctx.toast(e.message, 'error'); } });
@@ -583,7 +588,7 @@ async function voucherScreen(ctx, type) {
 
 async function noteScreen(ctx, type) {
   const f = form([
-    [['Date', input('trndate', '2024-04-07', 'date')], ['Party Ledger', input('ledcode', 'C00001')]],
+    [['Date', input('trndate', today(), 'date')], ['Party Ledger', input('ledcode', 'C00001')]],
     [['Amount', input('amount', '0', 'number')], ['Narration', input('narration', `${humanize(type)} note`)]],
   ], async (d) => { try { await api.createNote({ type, ...d, amount: Number(d.amount) || 0 }); ctx.toast('Note saved', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } });
   const rows = await api.notes(type);
@@ -597,7 +602,7 @@ async function noteScreen(ctx, type) {
 async function openingStock(ctx) {
   const f = form([
     [['Store', input('shopcode', 'MAIN')], ['Item Code', input('itemcode', '')]],
-    [['Quantity', input('qnty', '0', 'number')], ['Date', input('trndate', '2024-04-01', 'date')]],
+    [['Quantity', input('qnty', '0', 'number')], ['Date', input('trndate', today(), 'date')]],
   ], async (d) => { try { await api.addOpeningStock({ ...d, qnty: Number(d.qnty) || 0 }); ctx.toast('Opening stock saved', 'ok'); } catch (e) { ctx.toast(e.message, 'error'); } });
   return h('div', { class: 'card' }, h('h3', {}, 'Opening Stock'), f);
 }
@@ -608,7 +613,7 @@ async function stockTransferScreen(ctx) {
     { name: 'qnty', label: 'Qty', type: 'number', value: '1' },
   ], [{ qnty: '1' }]);
   const f = h('form', { class: 'form' },
-    h('div', { class: 'row three' }, field('From', input('from', 'MAIN')), field('To', input('to', 'CNT1')), field('Date', input('trndate', '2024-04-08', 'date'))),
+    h('div', { class: 'row three' }, field('From', input('from', 'MAIN')), field('To', input('to', 'CNT1')), field('Date', input('trndate', today(), 'date'))),
     h('div', { class: 'section-title' }, 'Items'), lineEd.node,
     h('div', { class: 'actions' }, h('button', { class: 'btn primary', type: 'submit' }, 'Save Transfer')));
   f.addEventListener('submit', async (e) => {
@@ -626,7 +631,7 @@ async function breakageScreen(ctx) {
     { name: 'quantity', label: 'Qty', type: 'number', value: '1' },
   ], [{ quantity: '1' }]);
   const f = h('form', { class: 'form' },
-    h('div', { class: 'row' }, field('Store', input('shopcode', 'MAIN')), field('Date', input('trndate', '2024-04-08', 'date'))),
+    h('div', { class: 'row' }, field('Store', input('shopcode', 'MAIN')), field('Date', input('trndate', today(), 'date'))),
     h('div', { class: 'section-title' }, 'Items'), lineEd.node,
     h('div', { class: 'actions' }, h('button', { class: 'btn primary', type: 'submit' }, 'Save Breakage')));
   f.addEventListener('submit', async (e) => {
@@ -644,7 +649,7 @@ async function transferSaleScreen(ctx) {
     { name: 'qnty', label: 'Qty', type: 'number', value: '1' },
   ], [{ qnty: '1' }]);
   const f = h('form', { class: 'form' },
-    h('div', { class: 'row three' }, field('From', input('from', 'MAIN')), field('To', input('to', 'CNT1')), field('Date', input('trndate', '2024-04-06', 'date'))),
+    h('div', { class: 'row three' }, field('From', input('from', 'MAIN')), field('To', input('to', 'CNT1')), field('Date', input('trndate', today(), 'date'))),
     h('div', { class: 'section-title' }, 'Items'), lineEd.node,
     h('div', { class: 'actions' }, h('button', { class: 'btn primary', type: 'submit' }, 'Save')));
   f.addEventListener('submit', async (e) => {
@@ -662,7 +667,7 @@ async function transferSaleScreen(ctx) {
 async function transferReceiveScreen(ctx) {
   const f = form([
     [['From', input('from', 'MAIN')], ['To', input('to', 'CNT1')]],
-    [['Date', input('trndate', '2024-04-06', 'date')], ['Transfer No', input('trnno', '')]],
+    [['Date', input('trndate', today(), 'date')], ['Transfer No', input('trnno', '')]],
     [['Amount', input('amount', '0', 'number')]],
   ], async (d) => { try { await api.createTransferReceive({ ...d, amount: Number(d.amount) || 0 }); ctx.toast('Transfer receive saved', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } });
   const rows = await api.transferReceives();
@@ -673,7 +678,7 @@ async function transferReceiveScreen(ctx) {
 
 async function onAccountScreen(ctx) {
   const f = form([
-    [['Date', input('trndate', '2024-04-06', 'date')], ['Ledger', input('ledcode', 'C00001')]],
+    [['Date', input('trndate', today(), 'date')], ['Ledger', input('ledcode', 'C00001')]],
     [['Amount', input('amount', '0', 'number')], ['Narration', input('narration', 'On A/C adjustment')]],
   ], async (d) => { try { await api.onAccount({ ...d, amount: Number(d.amount) || 0 }); ctx.toast('Adjustment saved', 'ok'); } catch (e) { ctx.toast(e.message, 'error'); } });
   return h('div', { class: 'card' }, h('h3', {}, 'On A/C Adjustment'), f);
@@ -681,7 +686,7 @@ async function onAccountScreen(ctx) {
 
 async function accountReplaceScreen(ctx) {
   const f = form([
-    [['Date', input('trndate', '2024-04-06', 'date')]],
+    [['Date', input('trndate', today(), 'date')]],
     [['From Ledger', input('from_ledcode', 'C00001')], ['To Ledger', input('to_ledcode', 'C00002')]],
     [['Amount', input('amount', '0', 'number')]],
   ], async (d) => { try { await api.accountReplace({ ...d, amount: Number(d.amount) || 0 }); ctx.toast('Replace saved', 'ok'); } catch (e) { ctx.toast(e.message, 'error'); } });
@@ -690,7 +695,7 @@ async function accountReplaceScreen(ctx) {
 
 async function fineScreen(ctx) {
   const f = form([
-    [['Date', input('trndate', '2024-04-06', 'date')], ['Shop', input('shopcode', 'MAIN')]],
+    [['Date', input('trndate', today(), 'date')], ['Shop', input('shopcode', 'MAIN')]],
     [['Amount', input('amount', '0', 'number')], ['Reason', input('reason', 'Excise fine')]],
   ], async (d) => { try { await api.createFine({ ...d, amount: Number(d.amount) || 0 }); ctx.toast('Fine saved', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } });
   const rows = await api.fines();
@@ -703,7 +708,7 @@ async function brsScreen(ctx) {
   const [rows, upiRows] = await Promise.all([api.reconciliation(''), api.upi()]);
   const f = form([
     [['Ledger', input('ledcode', 'L00002')], ['Amount', input('amount', '0', 'number')]],
-    [['Date', input('trndate', '2024-04-06', 'date')], ['Reference', input('reference', '')]],
+    [['Date', input('trndate', today(), 'date')], ['Reference', input('reference', '')]],
   ], async (d) => { try { await api.addReconciliation({ ...d, amount: Number(d.amount) || 0 }); ctx.toast('BRS entry saved', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } });
   const t = table([
     { key: 'slno', title: 'Sl' }, { key: 'ledcode', title: 'Ledger' }, { key: 'amount', title: 'Amount', money: true, num: true },
@@ -711,7 +716,7 @@ async function brsScreen(ctx) {
   ], rows);
   [...t.querySelector('tbody').rows].forEach((tr, i) => {
     tr.append(h('td', {}, rows[i].cleareddate ? '—' : h('button', {
-      class: 'btn small', onclick: async () => { try { await api.clearReconciliation(rows[i].slno, '2024-04-30'); ctx.toast('Cleared', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } },
+      class: 'btn small', onclick: async () => { try { await api.clearReconciliation(rows[i].slno, today()); ctx.toast('Cleared', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } },
     }, 'Clear')));
   });
   t.querySelector('thead tr').append(h('th', {}, ''));
@@ -725,7 +730,7 @@ async function brsScreen(ctx) {
 
 async function upiScreen(ctx) {
   const f = form([
-    [['Date', input('trndate', '2024-04-06', 'date')], ['Amount', input('amount', '0', 'number')]],
+    [['Date', input('trndate', today(), 'date')], ['Amount', input('amount', '0', 'number')]],
     [['UPI Ref', input('refno', '')], ['Party', input('ledcode', 'C00001')]],
   ], async (d) => { try { await api.recordUpi({ ...d, amount: Number(d.amount) || 0 }); ctx.toast('UPI recorded', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } });
   const rows = await api.upi();
@@ -736,7 +741,7 @@ async function upiScreen(ctx) {
 
 async function deliveryScreen(ctx) {
   const f = form([
-    [['Date', input('trndate', '2024-04-06', 'date')], ['Customer', input('custcode', 'CUST1')]],
+    [['Date', input('trndate', today(), 'date')], ['Customer', input('custcode', 'CUST1')]],
     [['Address', input('address', '')], ['Amount', input('amount', '0', 'number')]],
   ], async (d) => { try { await api.createDelivery({ ...d, amount: Number(d.amount) || 0 }); ctx.toast('Delivery order saved', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } });
   const rows = await api.deliveries();
@@ -835,7 +840,7 @@ async function messagesScreen(ctx) {
 
 async function pmlScreen(ctx) {
   const rows = await api.pml();
-  const f = form([[['Date', input('trndate', '2024-04-06', 'date')], ['Bottles', input('bottles', '0', 'number')]], [['ML', input('ml', '0', 'number')], ['Remarks', input('remarks', '')]]],
+  const f = form([[['Date', input('trndate', today(), 'date')], ['Bottles', input('bottles', '0', 'number')]], [['ML', input('ml', '0', 'number')], ['Remarks', input('remarks', '')]]],
     async (d) => { try { await api.addPml(d); ctx.toast('PML entry saved', 'ok'); ctx.navigate(ctx.state.route); } catch (e) { ctx.toast(e.message, 'error'); } });
   return h('div', {}, h('div', { class: 'card' }, h('h3', {}, 'PML Print and Reports'), f),
     h('div', { class: 'section-title' }, 'Entries'), table([{ key: 'slno', title: 'Sl' }, { key: 'trndate', title: 'Date' }, { key: 'bottles', title: 'Bottles', num: true }, { key: 'ml', title: 'ML', num: true }, { key: 'remarks', title: 'Remarks' }], rows));
@@ -1256,7 +1261,7 @@ async function exciseSyncScreen(ctx) {
   }
 
   // --- closing balance ---
-  const cbDate = input('date', new Date().toISOString().slice(0, 10), 'date');
+  const cbDate = input('date', today(), 'date');
   const cbBtn = h('button', { class: 'btn' }, 'Build closing balance');
   cbBtn.onclick = async () => {
     try { const r = await api.buildExciseClosingBalance(cbDate.value); ctx.toast(`${r.lines} closing line(s) built`, 'ok'); ctx.navigate(ctx.state.route); }
@@ -1342,8 +1347,8 @@ async function exciseSyncScreen(ctx) {
 // --------------------------------------------------------------- Form M-22
 async function formM22Screen(ctx) {
   const docs = await api.formM22();
-  const from = input('from', `${new Date().getFullYear()}-04-01`, 'date');
-  const to = input('to', new Date().toISOString().slice(0, 10), 'date');
+  const from = input('from', ctx.state.meta?.yearStart || `${today().slice(0, 4)}-04-01`, 'date');
+  const to = input('to', today(), 'date');
   const buildBtn = h('button', { class: 'btn primary' }, 'Build M-22');
   buildBtn.onclick = async () => {
     try {
@@ -1396,7 +1401,7 @@ async function gstScreen(ctx) {
     api.gstConfig(), api.gstRates(), api.gstReturns(), api.gstLogs(),
   ]);
 
-  const period = new Date().toISOString().slice(0, 7);
+  const period = today().slice(0, 7);
   const pIn = input('period', period, 'month');
   const fromIn = input('from', '', 'date');
   const toIn = input('to', '', 'date');

@@ -1,20 +1,13 @@
 import { get } from '../db/index.js';
+import { now, today } from './clock.js';
+
+// The process clock is read only in clock.js; re-exported here so the rest of
+// the codebase keeps importing its date helpers from one place.
+export { now, today };
 
 /** Round money to 2 decimals. */
 export function money(n) {
   return Math.round((Number(n) + Number.EPSILON) * 100) / 100;
-}
-
-/** Current timestamp as 'YYYY-MM-DD HH:MM:SS'. */
-export function now() {
-  const d = new Date();
-  const p = (x) => String(x).padStart(2, '0');
-  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
-}
-
-/** Today as 'YYYY-MM-DD'. */
-export function today() {
-  return now().slice(0, 10);
 }
 
 /** Pad a code to width (codes are fixed-length varchar in the legacy DB). */

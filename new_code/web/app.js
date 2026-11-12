@@ -1,6 +1,6 @@
 import { api } from './api.js';
 import { NAV, ROUTE_TITLES } from './menu.js';
-import { h } from './ui.js';
+import { h, setServerToday } from './ui.js';
 import { screens } from './screens.js';
 
 const state = { user: null, meta: null, route: 'dashboard' };
@@ -111,8 +111,10 @@ async function boot() {
   el('app-view').hidden = false;
   el('who').textContent = `${state.user.username} · ${state.user.accesslevel}`;
   try { state.meta = await api.meta(); } catch { state.meta = null; }
+  setServerToday(state.meta?.today);
   el('company-pill').textContent = `Company ${state.meta?.company ?? 1}`;
   el('year-pill').textContent = `Year ${state.meta?.year ?? 2024}`;
+  el('clock-warning').hidden = !state.meta?.clockRolledBack;
   reloadNav();
   state.route = 'dashboard';
   await renderRoute();

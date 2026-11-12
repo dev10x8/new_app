@@ -1,5 +1,6 @@
 import { all, get, run } from '../db/index.js';
 import { money } from './helpers.js';
+import { assertPostableDate } from './clock.js';
 
 /**
  * Current stock for an item in a store, computed from the movement tables:
@@ -87,6 +88,7 @@ export function stockOnHand(db, { company, year, storecode = null, itemcode = nu
 
 /** Opening stock entry (per store / batch / item). */
 export function addOpeningStock(db, o) {
+  o = { ...o, trndate: assertPostableDate(db, { company: o.company, year: o.year, date: o.trndate }).date };
   run(
     db,
     `INSERT INTO openingstockmst (shopcode, companycode, itemcode, loose, box, qnty, yearcode, trndate)
@@ -100,6 +102,7 @@ export function addOpeningStock(db, o) {
 
 /** Stock transfer between stores. */
 export function stockTransfer(db, t) {
+  t = { ...t, trndate: assertPostableDate(db, { company: t.company, year: t.year, date: t.trndate }).date };
   run(
     db,
     `INSERT INTO stk_transfer_main (CompanyCode, YearCode, TrnNo, TrnDate, shopname_from, shopname_to, shopcode_frm, shopcode_to, trnid)
@@ -120,6 +123,7 @@ export function stockTransfer(db, t) {
 
 /** Breakage entry. */
 export function addBreakage(db, b) {
+  b = { ...b, trndate: assertPostableDate(db, { company: b.company, year: b.year, date: b.trndate }).date };
   run(
     db,
     `INSERT INTO breakagemain (CompanyCode, YearCode, TrnNo, Narration, shopcode, trndate, ledgercode, billno, TP_pass_no, trnid)

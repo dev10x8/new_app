@@ -827,3 +827,11 @@ CREATE TABLE IF NOT EXISTS [tbl_OcrConfig] (
   [updatedat] TEXT,
   PRIMARY KEY ([companycode])
 );
+
+-- ---- clock guard: high-water mark of the newest system time seen ----
+CREATE TABLE IF NOT EXISTS [tbl_ClockGuard] (
+  [companycode] TEXT NOT NULL,
+  [lastseen] TEXT,                       -- newest 'YYYY-MM-DD HH:MM:SS' observed
+  [updatedat] TEXT,
+  PRIMARY KEY ([companycode])
+);

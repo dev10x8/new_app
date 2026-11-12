@@ -204,6 +204,12 @@ label.field { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px
 .toast.ok { background: #14532d; }
 .toast.error { background: #7f1d1d; }
 
+.clock-warning {
+  margin: 0 0 16px; padding: 10px 14px; border-radius: 10px;
+  background: #fef3c7; border: 1px solid #fcd34d; color: #78350f;
+  font-size: 13.5px;
+}
+
 .modal { position: fixed; inset: 0; background: rgba(15,23,42,.45); display: grid; place-items: center; z-index: 40; padding: 20px; }
 .modal-card { background: var(--panel); border-radius: 14px; width: min(680px, 100%); max-height: 88vh; display: flex; flex-direction: column; box-shadow: var(--shadow); }
 .modal-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--line); }

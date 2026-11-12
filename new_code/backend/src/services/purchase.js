@@ -1,5 +1,6 @@
 import { all, get, run, tx } from '../db/index.js';
 import { money, nextTrnNo, nextTrnId } from './helpers.js';
+import { assertPostableDate } from './clock.js';
 import { postVoucher } from './accounting.js';
 import { getConfig, enqueuePurchase } from './tally.js';
 import { itemTax, lineGst } from './gst.js';
@@ -13,6 +14,8 @@ import { itemTax, lineGst } from './gst.js';
 export function createPurchase(db, p) {
   return tx(db, () => {
     if (!p.lines || p.lines.length === 0) throw new Error('Purchase has no lines');
+    const dateCheck = assertPostableDate(db, { company: p.company, year: p.year, date: p.trndate });
+    p = { ...p, trndate: dateCheck.date };
     const trnno = p.trnno || nextTrnNo(db, 'purchasemain', p.company, p.year, 'trnno');
     const trnid = nextTrnId(db, p.company, p.year, 'PURCHASE');
     const ptype = p.ptype || 'PURCHASE';

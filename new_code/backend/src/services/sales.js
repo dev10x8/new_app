@@ -1,5 +1,6 @@
 import { all, get, run, tx } from '../db/index.js';
 import { money, nextBillNo, nextTrnId, billPrefix, now } from './helpers.js';
+import { assertPostableDate } from './clock.js';
 import { postVoucher } from './accounting.js';
 import { getConfig, enqueueSale } from './tally.js';
 import { captureSale } from './excise.js';
@@ -30,7 +31,12 @@ export function createSale(db, sale) {
   return tx(db, () => {
     if (!sale.lines || sale.lines.length === 0) throw new Error('Sale has no lines');
 
-    const trndate = sale.trndate;
+    // The date is server-owned and validated: no future dates, no posting into
+    // a closed day, back-dating beyond tolerance is allowed but flagged.
+    const dateCheck = assertPostableDate(db, {
+      company: sale.company, year: sale.year, date: sale.trndate, lockTable: 'salesbillmain',
+    });
+    const trndate = dateCheck.date;
     const trnno = nextBillNo(db, sale.company, sale.year, sale.salestype);
     const trnid = nextTrnId(db, sale.company, sale.year, 'SALE');
 
@@ -116,7 +122,9 @@ export function createSale(db, sale) {
     catch { /* excise queueing is non-fatal */ }
 
     return { trnno, trnid, amount, discamount, netamount, gst: money(gstTotal),
-      prefix: billPrefix(sale.salestype), lines: resolved.length };
+      prefix: billPrefix(sale.salestype), lines: resolved.length,
+      date: trndate, date_warning: dateCheck.backdated ? `back-dated by ${dateCheck.backdated_days} day(s)` : null,
+      clock_rolled_back: dateCheck.clock_rolled_back };
   });
 }
 

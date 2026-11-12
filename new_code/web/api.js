@@ -33,6 +33,7 @@ const qs = (o = {}) => {
 export const api = {
   base: BASE,
   health: () => req('GET', '/api/health'),
+  now: () => req('GET', '/api/now'),
   meta: () => req('GET', '/api/meta'),
   systemInfo: () => req('GET', '/api/system-info'),
   login: (usercode, password) => req('POST', '/api/login', { usercode, password }),

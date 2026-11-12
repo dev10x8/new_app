@@ -1,5 +1,6 @@
 import { all, get, run, tx } from '../db/index.js';
 import { money, now } from './helpers.js';
+import { businessDate } from './clock.js';
 
 /** Read company parameters. */
 export function getParameters(db, company) {
@@ -76,6 +77,7 @@ export function systemInfo(db, company) {
   const version = get(db, 'SELECT version, updatedat FROM Version ORDER BY id DESC LIMIT 1');
   const params = get(db, 'SELECT * FROM companyparamtr WHERE companycode=?', [company]) || {};
   const company1 = get(db, 'SELECT * FROM companymast WHERE companycode=?', [company]) || {};
+  const clockInfo = businessDate(db, company);
   return {
     version: version?.version || 'unknown',
     updatedat: version?.updatedat || null,
@@ -87,6 +89,10 @@ export function systemInfo(db, company) {
     smsOn: params.sms_on === 1,
     dataSync: params.backup_upload === 1,
     now: now(),
+    serverDate: clockInfo.date,
+    clockRolledBack: clockInfo.rolledBack,
+    clockSkewSeconds: clockInfo.skewSeconds,
+    lastSeen: clockInfo.lastseen,
   };
 }
 

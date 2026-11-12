@@ -80,13 +80,27 @@ Docker: `docker compose -f new_code/docker-compose.yml up --build`.
   `transactions`, `admin`, `tools`, `tally` (remote Tally Prime twin-agent sync),
   `excise` (state excise sync + Form M-22), `inventory`, `m22`, `gst`,
   `migration` (legacy import), plus the newer `parcha` (wholesale-invoice / OCR
-  import), `bulkimport` (any master Excel/CSV/JSON), `statemaster` and
-  `landedcost`.
+  import), `bulkimport` (any master Excel/CSV/JSON), `statemaster`, `landedcost`
+  and `clock` (date integrity).
 - **Report catalog** is one declarative table in `reportCatalog.js`; the report
   menu is generated from `GET /api/report-groups`, not hard-coded. Counts:
   sales 32, stock 20, purchase 12, accounts 14, MIS 12, breakage 2, transfer 2,
   excise 22, GST 6 — **122 total** across 9 groups.
 - **Bill numbers** render as `FL` / `CS` / `NAI` + running number (e.g. `FL00001`).
+- **Date integrity**: the process clock is read **only** in
+  `backend/src/services/clock.js` (`now()` / `today()`, re-exported from
+  `helpers.js`). `businessDate()` compares the clock with a high-water mark in
+  `tbl_ClockGuard`; a clock set back beyond `CLOCK_SKEW_TOLERANCE_SECONDS`
+  (default 120) is flagged `rolledBack`, the business date falls back to the
+  mark (never moves backwards), and the event is written to `TBL_Audit` as
+  `CLOCK_ROLLBACK`. Posting goes through `assertPostableDate()`, which defaults a
+  missing date to the server date, rejects future dates beyond
+  `FUTURE_DATE_TOLERANCE_DAYS` (default 0) and dates inside a closed day
+  (`PERIOD_CLOSED`), and flags back-dating beyond `BACKDATE_TOLERANCE_DAYS`
+  (default 1). The web UI never reads its own clock for business dates: it calls
+  `GET /api/meta` at boot and uses `ui.js` `today()` (fed by `setServerToday`);
+  the header shows a warning banner when `clockRolledBack` is true. `GET /api/now`
+  exposes the server date and verdict.
 - **Licensing is owned by the separate customer portal** (`../new_code_portal`),
   not this app. It mints an Ed25519-signed `.vlic` bound to a machine
   fingerprint. Licences carry three soft-enforcement tolerances baked into the

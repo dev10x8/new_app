@@ -1,11 +1,13 @@
 import { all, get, run, tx } from '../db/index.js';
 import { money, nextTrnNo } from './helpers.js';
+import { assertPostableDate } from './clock.js';
 import { postVoucher } from './accounting.js';
 
 // ---------------------------------------------------------------- transfer sale
 /** Counter / shop transfer sale: moves goods from one shop to another with value. */
 export function createTransferSale(db, t) {
   return tx(db, () => {
+    t = { ...t, trndate: assertPostableDate(db, { company: t.company, year: t.year, date: t.trndate }).date };
     const trnno = t.trnno || nextTrnNo(db, 'transfer_sale_main', t.company, t.year, 'trnno');
     let amount = 0;
     for (const l of t.lines) {
@@ -36,6 +38,7 @@ export function listTransferSales(db, company, year) {
 /** Transfer receive: records goods received from another shop. */
 export function createTransferReceive(db, t) {
   return tx(db, () => {
+    t = { ...t, trndate: assertPostableDate(db, { company: t.company, year: t.year, date: t.trndate }).date };
     const trnno = t.trnno || nextTrnNo(db, 'transfer_receive_main', t.company, t.year, 'trnno');
     run(db,
       `INSERT INTO transfer_receive_main (companycode, yearcode, trnno, trndate, shopcode_from, shopcode_to, narration)
@@ -58,6 +61,7 @@ export function listTransferReceives(db, company, year) {
 /** Debit / credit note. type: 'DEBIT' | 'CREDIT'. */
 export function createNote(db, n) {
   return tx(db, () => {
+    n = { ...n, trndate: assertPostableDate(db, { company: n.company, year: n.year, date: n.trndate }).date };
     const noteno = n.noteno || `${n.type === 'DEBIT' ? 'DN' : 'CN'}${String(nextTrnNo(db, 'notes_main', n.company, n.year, 'noteno')).padStart(5, '0')}`;
     const amount = money(n.amount || 0);
     run(db,
@@ -95,6 +99,7 @@ export function listNotes(db, company, year, type) {
 // ---------------------------------------------------------------- adjustments
 export function createOnAccountAdjustment(db, a) {
   return tx(db, () => {
+    a = { ...a, trndate: assertPostableDate(db, { company: a.company, year: a.year, date: a.trndate }).date };
     const trnno = a.trnno || nextTrnNo(db, 'onaccount_adjustment', a.company, a.year, 'trnno');
     const amount = money(a.amount || 0);
     run(db,
@@ -114,6 +119,7 @@ export function createOnAccountAdjustment(db, a) {
 
 export function createAccountReplace(db, a) {
   return tx(db, () => {
+    a = { ...a, trndate: assertPostableDate(db, { company: a.company, year: a.year, date: a.trndate }).date };
     const trnno = a.trnno || nextTrnNo(db, 'account_replace', a.company, a.year, 'trnno');
     const amount = money(a.amount || 0);
     run(db,
@@ -134,6 +140,7 @@ export function createAccountReplace(db, a) {
 // ---------------------------------------------------------------- excise fine
 export function createFine(db, f) {
   return tx(db, () => {
+    f = { ...f, trndate: assertPostableDate(db, { company: f.company, year: f.year, date: f.trndate }).date };
     const trnno = f.trnno || nextTrnNo(db, 'fine_details', f.company, f.year, 'trnno');
     const amount = money(f.amount || 0);
     run(db,
@@ -157,6 +164,7 @@ export function listFines(db, company, year) {
 
 // ---------------------------------------------------------------- BRS
 export function addReconciliation(db, r) {
+  r = { ...r, trndate: assertPostableDate(db, { company: r.company, year: r.year, date: r.trndate }).date };
   const row = get(db, 'SELECT COALESCE(MAX(slno),0) AS n FROM TransactionReconciliation WHERE companycode=? AND yearcode=?', [r.company, r.year]);
   const slno = (row?.n || 0) + 1;
   run(db,
@@ -196,6 +204,7 @@ export function listUpi(db, company) {
 
 // ---------------------------------------------------------------- delivery
 export function createDelivery(db, d) {
+  d = { ...d, trndate: assertPostableDate(db, { company: d.company, year: d.year, date: d.trndate }).date };
   const orderno = d.orderno || `DLV${String(nextTrnNo(db, 'delivery_orders', d.company, d.year, 'orderno')).padStart(5, '0')}`;
   run(db,
     `INSERT INTO delivery_orders (companycode, yearcode, orderno, trndate, custcode, address, phone, amount, status, narration)
