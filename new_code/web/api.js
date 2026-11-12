@@ -34,10 +34,11 @@ async function req(method, path, body) {
     res = await fetch(BASE + path, opts);
   } catch (err) {
     // On the desktop the bundled backend is spawned alongside the window and
-    // can take a moment to accept connections on a cold first launch, so wait
-    // and retry before surfacing a network error.
+    // can take a while to accept connections on a cold first launch (antivirus
+    // scanning the bundled Node binary), so wait and retry before surfacing a
+    // network error.
     if (isDesktop) {
-      for (let i = 0; i < 30 && !res; i++) {
+      for (let i = 0; i < 90 && !res; i++) {
         await sleep(500);
         try { res = await fetch(BASE + path, opts); } catch { /* still starting */ }
       }
