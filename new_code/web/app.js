@@ -121,6 +121,22 @@ async function boot() {
 }
 
 // -------------------------------------------------------------- wiring
+/** Ask the desktop shell where it put the DB and for the start-up log tail. */
+async function shellDiagnostics() {
+  const invoke = window.__TAURI__?.core?.invoke || window.__TAURI__?.invoke;
+  if (!invoke) return null;
+  try { return await invoke('backend_diagnostics'); } catch { return null; }
+}
+
+function showDiagnostics(text) {
+  document.querySelectorAll('.diag').forEach((n) => n.remove());
+  if (!text) return;
+  const pre = document.createElement('pre');
+  pre.className = 'diag';
+  pre.textContent = text;
+  el('login-form').appendChild(pre);
+}
+
 function init() {
   el('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -129,10 +145,12 @@ function init() {
     try {
       await doLogin(el('login-usercode').value.trim() || 'A00001', el('login-password').value || 'admin');
     } catch (ex) {
-      err.textContent = /fetch/i.test(ex.message)
+      const unreachable = /fetch/i.test(ex.message);
+      err.textContent = unreachable
         ? `Cannot reach the local server at ${api.base}. It may still be starting — wait a moment and try again.`
         : ex.message;
       err.hidden = false;
+      if (unreachable) showDiagnostics(await shellDiagnostics());
     }
   });
   el('logout-btn').addEventListener('click', logout);

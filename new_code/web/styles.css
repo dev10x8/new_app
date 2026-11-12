@@ -83,6 +83,10 @@ code { font-family: var(--mono); background: #eef2f7; padding: 1px 5px; border-r
   gap: 14px;
 }
 .login-card h1 { font-size: 22px; }
+.login-card .diag {
+  margin-top: 10px; padding: 10px; border-radius: 8px; max-height: 220px; overflow: auto;
+  background: #0b1220; color: #cbd5e1; font-size: 11px; line-height: 1.45; white-space: pre-wrap; word-break: break-all;
+}
 .login-card label { display: flex; flex-direction: column; gap: 6px; font-weight: 550; font-size: 13px; color: var(--ink-2); }
 .brand { display: flex; gap: 12px; align-items: center; margin-bottom: 4px; }
 .brand-mark {

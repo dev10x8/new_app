@@ -29,7 +29,7 @@ export const config = {
   seatLimit: Number(process.env.PORTAL_SEAT_LIMIT || 1),
   // ---- distribution (downloads + licence server links) ----
   // Version of the desktop app the portal advertises and links to.
-  appVersion: process.env.PORTAL_APP_VERSION || '1.0.1',
+  appVersion: process.env.PORTAL_APP_VERSION || '1.0.2',
   // GitHub repository that hosts the signed Windows installers as release assets.
   releaseRepo: process.env.PORTAL_RELEASE_REPO || 'dev10x8/new_app',
   // Release tag to link to (e.g. 'v1.0.0'). Empty links to the "latest" release.

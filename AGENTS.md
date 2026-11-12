@@ -102,10 +102,13 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   running Node binary and the backend source into `src-tauri/runtime/`
   (git-ignored); `tauri.conf.json` bundles that as a resource. On launch the Rust
   shell (`src-tauri/src/lib.rs`) spawns `runtime/node runtime/backend/src/server.js`,
-  waits for `127.0.0.1:7100`, and kills the child on exit. The DB lives in the
-  per-user app-data dir, and the shell tees the backend's stdout/stderr to
-  `backend.log` there — the only way to diagnose a failed start on a user's
-  machine (a packaged window has no console). Windows installers (NSIS `.exe`,
+  waits for `127.0.0.1:7100`, and kills the child on exit. The DB lives in a
+  local (non-roaming) per-user data dir — `%LOCALAPPDATA%` first, since SQLite
+  on a roaming/network `%APPDATA%` can hang — and the shell tees the backend's
+  stdout/stderr to `backend.log` there (also next to the exe and in `%TEMP%`),
+  since a packaged window has no console. The `backend_diagnostics` command
+  returns the data-dir path and log tail, which the login screen shows when the
+  backend is unreachable. Windows installers (NSIS `.exe`,
   WiX `.msi`) are built by `.github/workflows/package-windows.yml` on a `v*` tag,
   renamed to `VanijLiquor_<version>_x64-setup.exe` / `_en-US.msi`, and attached to
   a GitHub release. The version must match `tauri.conf.json` and the portal's
