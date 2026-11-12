@@ -129,7 +129,9 @@ function init() {
     try {
       await doLogin(el('login-usercode').value.trim() || 'A00001', el('login-password').value || 'admin');
     } catch (ex) {
-      err.textContent = ex.message;
+      err.textContent = /fetch/i.test(ex.message)
+        ? `Cannot reach the local server at ${api.base}. It may still be starting — wait a moment and try again.`
+        : ex.message;
       err.hidden = false;
     }
   });

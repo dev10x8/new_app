@@ -8,12 +8,20 @@
 //  - Overridable with window.__API_BASE__ if needed.
 //
 // Tauri serves the webview from `tauri://localhost` on macOS/Linux and from
-// `http://tauri.localhost` on Windows, so detect both.
-const isDesktop = typeof location !== 'undefined'
-  && (location.protocol === 'tauri:' || location.protocol === 'file:'
-    || location.hostname === 'tauri.localhost');
+// `http://tauri.localhost` on Windows, so detect both. Tauri also injects
+// `__TAURI_INTERNALS__` into the page, which is the most reliable signal and
+// covers any future origin change.
+const isDesktop = typeof window !== 'undefined' && (
+  typeof window.__TAURI_INTERNALS__ !== 'undefined'
+  || typeof window.__TAURI__ !== 'undefined'
+  || location.protocol === 'tauri:'
+  || location.protocol === 'file:'
+  || location.hostname === 'tauri.localhost'
+);
 const BASE = (typeof window !== 'undefined' && window.__API_BASE__)
   || (isDesktop ? 'http://127.0.0.1:7100' : '');
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function req(method, path, body) {
   const opts = { method, headers: {} };
@@ -21,7 +29,21 @@ async function req(method, path, body) {
     opts.headers['content-type'] = 'application/json';
     opts.body = JSON.stringify(body);
   }
-  const res = await fetch(BASE + path, opts);
+  let res;
+  try {
+    res = await fetch(BASE + path, opts);
+  } catch (err) {
+    // On the desktop the bundled backend is spawned alongside the window and
+    // can take a moment to accept connections on a cold first launch, so wait
+    // and retry before surfacing a network error.
+    if (isDesktop) {
+      for (let i = 0; i < 30 && !res; i++) {
+        await sleep(500);
+        try { res = await fetch(BASE + path, opts); } catch { /* still starting */ }
+      }
+    }
+    if (!res) throw err;
+  }
   const json = await res.json().catch(() => ({ ok: false, error: 'Invalid JSON from server' }));
   if (!json.ok) throw new Error(json.error || `HTTP ${res.status}`);
   return json.data;

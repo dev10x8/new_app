@@ -23,12 +23,38 @@ test('CORS preflight is answered for the desktop webview', async () => {
   assert.equal(res.status, 204);
   assert.equal(res.headers.get('access-control-allow-origin'), '*');
   assert.equal(res.headers.get('access-control-allow-methods'), '*');
+  assert.equal(res.headers.get('access-control-allow-private-network'), 'true');
 });
 
 test('API responses carry the CORS origin header', async () => {
   const res = await fetch(`${base}/api/health`);
   assert.equal(res.status, 200);
   assert.equal(res.headers.get('access-control-allow-origin'), '*');
+  assert.equal(res.headers.get('access-control-allow-private-network'), 'true');
   const body = await res.json();
   assert.equal(body.ok, true);
+});
+
+// The exact desktop flow: the webview preflights the JSON POST, then sends it
+// with the tauri.localhost origin. This is what "Failed to fetch" on the login
+// screen pointed at.
+test('login succeeds cross-origin from the desktop webview', async () => {
+  const origin = 'http://tauri.localhost';
+  const pre = await fetch(`${base}/api/login`, {
+    method: 'OPTIONS',
+    headers: { origin, 'access-control-request-method': 'POST', 'access-control-request-headers': 'content-type' },
+  });
+  assert.equal(pre.status, 204);
+  assert.equal(pre.headers.get('access-control-allow-origin'), '*');
+
+  const res = await fetch(`${base}/api/login`, {
+    method: 'POST',
+    headers: { origin, 'content-type': 'application/json' },
+    body: JSON.stringify({ usercode: 'A00001', password: 'admin' }),
+  });
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get('access-control-allow-origin'), '*');
+  const body = await res.json();
+  assert.equal(body.ok, true);
+  assert.equal(body.data.user.usercode, 'A00001');
 });

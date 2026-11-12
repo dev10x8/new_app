@@ -64,7 +64,7 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   report menu is generated from `/api/report-groups`, not hard-coded. Counts:
   sales 32, stock 20, purchase 10, accounts 14, MIS 12, breakage 2, transfer 2,
   excise 22, GST 6.
-- **Tests**: `cd new_code/backend && npm test` (125 tests across
+- **Tests**: `cd new_code/backend && npm test` (126 tests across
   `test/services.test.js`, `test/features.test.js`, `test/excise.test.js`,
   `test/gst.test.js`, `test/inventory.test.js`, `test/m22.test.js`,
   `test/tallylive.test.js`, `test/migration.test.js`, `test/clock.test.js`,
@@ -91,18 +91,24 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   (static + `/api` proxy). It is also the frontend of the Tauri desktop app
   (`tauri/`), which reuses `web/` unchanged and only adds a Rust window.
   `web/api.js` points at `http://127.0.0.1:7100` when it detects the Tauri
-  webview (`tauri:`/`file:` protocol or `tauri.localhost` host); the backend
-  sends CORS headers so the cross-origin webview can call it.
+  webview (`__TAURI_INTERNALS__`/`__TAURI__`, or the `tauri:`/`file:` protocol,
+  or a `tauri.localhost` host); it also retries the first request while the
+  bundled backend finishes starting. The backend sends CORS headers (including
+  `access-control-allow-private-network`, which Chromium's Private Network
+  Access check requires for the `tauri.localhost` -> loopback call) so the
+  cross-origin webview can reach it.
 - **Desktop packaging** (`tauri/`): the packaged app is self-contained. The
   `beforeBuildCommand` runs `tauri/scripts/stage_runtime.mjs`, which copies the
   running Node binary and the backend source into `src-tauri/runtime/`
   (git-ignored); `tauri.conf.json` bundles that as a resource. On launch the Rust
   shell (`src-tauri/src/lib.rs`) spawns `runtime/node runtime/backend/src/server.js`,
   waits for `127.0.0.1:7100`, and kills the child on exit. The DB lives in the
-  per-user app-data dir. Windows installers (NSIS `.exe`, WiX `.msi`) are built
-  by `.github/workflows/package-windows.yml` on a `v*` tag, renamed to
-  `VanijLiquor_<version>_x64-setup.exe` / `_en-US.msi`, and attached to a GitHub
-  release. The version must match `tauri.conf.json` and the portal's
+  per-user app-data dir, and the shell tees the backend's stdout/stderr to
+  `backend.log` there — the only way to diagnose a failed start on a user's
+  machine (a packaged window has no console). Windows installers (NSIS `.exe`,
+  WiX `.msi`) are built by `.github/workflows/package-windows.yml` on a `v*` tag,
+  renamed to `VanijLiquor_<version>_x64-setup.exe` / `_en-US.msi`, and attached to
+  a GitHub release. The version must match `tauri.conf.json` and the portal's
   `PORTAL_APP_VERSION` / `PORTAL_RELEASE_TAG`.
 - **Docker**: `docker compose -f new_code/docker-compose.yml up --build` runs the
   backend (port 7100) and the web UI (port 8080); DB in the `madhushala-data`
