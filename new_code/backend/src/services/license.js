@@ -1,13 +1,13 @@
 import { createPublicKey, verify as cryptoVerify, createHash } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { networkInterfaces, hostname, platform, release } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { get, run } from '../db/index.js';
 import { machineHash, machineDetail, normaliseMacs } from './fingerprint.js';
 import { seal } from './seal.js';
 import { VENDOR_PUBLIC_KEY, DEMO_DAYS } from '../license/vendor.js';
+import { resourcesDir } from '../paths.js';
 
 /**
  * Desktop licence enforcement.
@@ -28,7 +28,7 @@ import { VENDOR_PUBLIC_KEY, DEMO_DAYS } from '../license/vendor.js';
  * key, so editing the row cannot extend a term.
  */
 
-const here = dirname(fileURLToPath(import.meta.url));
+
 
 // ------------------------------------------------------------ canonical json
 export function canonicalJson(value) {
@@ -150,7 +150,7 @@ function trialInfo(startedAt, used) {
 
 /** Load and decode the demo licence bundled with the app. */
 export function demoLicence() {
-  const file = join(here, '..', 'license', 'demo.vlic');
+  const file = join(resourcesDir, 'license', 'demo.vlic');
   return JSON.parse(readFileSync(file, 'utf8'));
 }
 

@@ -105,11 +105,26 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   Access check requires for the `tauri.localhost` -> loopback call) so the
   cross-origin webview can reach it.
 - **Desktop packaging** (`tauri/`): the packaged app is self-contained. The
-  `beforeBuildCommand` runs `tauri/scripts/stage_runtime.mjs`, which copies the
-  running Node binary and the backend source into `src-tauri/runtime/`
-  (git-ignored); `tauri.conf.json` bundles that as a resource. On launch the Rust
-  shell (`src-tauri/src/lib.rs`) spawns `runtime/node runtime/backend/src/server.js`,
-  waits for `127.0.0.1:7100`, and kills the child on exit. The DB lives in a
+  `beforeBuildCommand` runs `tauri/scripts/stage_runtime.mjs`, which stages the
+  runtime into `src-tauri/runtime/` (git-ignored); `tauri.conf.json` bundles that
+  as a resource. On **Windows release builds** the runtime is a single
+  self-contained executable: `scripts/build_backend.mjs` esbuilds
+  `backend/src/bundle_entry.js` (all our modules, no third-party deps) into one
+  minified CommonJS file, Node's SEA turns it into a blob, and postject injects
+  the blob into a copy of the Node binary → `runtime/backend/backend.exe`. The
+  install therefore ships **no readable backend JavaScript** — only the exe plus
+  read-only data (`resources/db/*.sql`, `resources/license/demo.vlic`,
+  `resources/data/state-masters/*.json`), located via `VANIJLIQUOR_RESOURCES` /
+  `VANIJLIQUOR_DATA` (set by the shell, else auto-discovered beside the exe).
+  The exe doubles as the recovery tool: `backend.exe reset-pin [user] [pin]` /
+  `reset-db` (see `src/recovery.js`), so the shipped app has no loose scripts.
+  On other platforms, or if the exe build fails, it falls back to the source
+  layout (`runtime/node` + `runtime/backend/src`). This is **obfuscation, not
+  encryption**: SEA embeds the bundle verbatim and minify only hides it, so a
+  determined reverse-engineer can still recover the logic.
+  On launch the Rust shell (`src-tauri/src/lib.rs`) spawns the backend exe (or
+  `runtime/node runtime/backend/src/server.js` in dev), waits for
+  `127.0.0.1:7100`, and kills the child on exit. The DB lives in a
   local (non-roaming) per-user data dir — `%LOCALAPPDATA%` first, since SQLite
   on a roaming/network `%APPDATA%` can hang — and the shell tees the backend's
   stdout/stderr to `backend.log` there (also next to the exe and in `%TEMP%`),

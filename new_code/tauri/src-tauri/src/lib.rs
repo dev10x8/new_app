@@ -173,29 +173,48 @@ fn plain(path: PathBuf) -> PathBuf {
 
 /// Start the bundled backend. Returns `None` when the staged runtime is absent
 /// (e.g. running in development against a separately started backend).
+///
+/// Prefers the single-executable backend (`runtime/backend/backend.exe`) so the
+/// install ships no readable JavaScript; falls back to the source layout
+/// (`runtime/node[.exe]` + `runtime/backend/src/server.js`) used in development.
 fn spawn_backend(app: &tauri::AppHandle, log: &Log) -> Option<Child> {
-    let node = plain(resource(app, log, &["runtime/node.exe", "runtime/node"])?);
-    let server = plain(resource(app, log, &["runtime/backend/src/server.js"])?);
-
     let dir = data_dir(app);
     let db_file = plain(dir.join("vanijliquor.db"));
     log.line(&format!("data dir: {} (exists={})", dir.display(), dir.exists()));
-    log.line(&format!("node: {}", node.display()));
-    log.line(&format!("server: {}", server.display()));
 
     let (host, port) = BACKEND_ADDR.split_once(':').unwrap_or(("127.0.0.1", "7100"));
 
-    // Run from the resource dir so any relative path the backend resolves lands
-    // inside the install, not wherever the shortcut started us.
-    let work_dir = server
-        .parent()
-        .and_then(|p| p.parent())
-        .and_then(|p| p.parent())
-        .map(Path::to_path_buf);
+    let mut cmd;
+    if let Some(exe) = resource(app, log, &["runtime/backend/backend.exe", "runtime/backend/backend"]) {
+        let exe = plain(exe);
+        log.line(&format!("backend exe: {}", exe.display()));
+        cmd = Command::new(&exe);
+        // Read-only data the exe loads at runtime (SQL, demo licence, datasets).
+        if let Some(res) = resource(app, log, &["runtime/backend/resources"]) {
+            let res = plain(res);
+            cmd.env("VANIJLIQUOR_RESOURCES", &res)
+                .env("VANIJLIQUOR_DATA", res.join("data"));
+            log.line(&format!("resources: {}", res.display()));
+        }
+        if let Some(parent) = exe.parent() {
+            cmd.current_dir(parent);
+        }
+    } else {
+        let node = plain(resource(app, log, &["runtime/node.exe", "runtime/node"])?);
+        let server = plain(resource(app, log, &["runtime/backend/src/server.js"])?);
+        log.line(&format!("node: {}", node.display()));
+        log.line(&format!("server: {}", server.display()));
+        cmd = Command::new(&node);
+        cmd.arg(&server);
+        // Run from the resource dir so any relative path the backend resolves
+        // lands inside the install, not wherever the shortcut started us.
+        if let Some(work) = server.parent().and_then(|p| p.parent()).and_then(|p| p.parent()) {
+            log.line(&format!("working dir: {}", work.display()));
+            cmd.current_dir(work);
+        }
+    }
 
-    let mut cmd = Command::new(&node);
-    cmd.arg(&server)
-        .env("VANIJLIQUOR_DB", &db_file)
+    cmd.env("VANIJLIQUOR_DB", &db_file)
         .env("HOST", host)
         .env("PORT", port)
         .stdin(Stdio::null())
@@ -203,10 +222,6 @@ fn spawn_backend(app: &tauri::AppHandle, log: &Log) -> Option<Child> {
         .stderr(log.child_output());
     #[cfg(windows)]
     cmd.creation_flags(CREATE_NO_WINDOW);
-    if let Some(work) = &work_dir {
-        log.line(&format!("working dir: {}", work.display()));
-        cmd.current_dir(work);
-    }
 
     match cmd.spawn() {
         Ok(child) => {

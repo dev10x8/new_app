@@ -1,8 +1,8 @@
 import { all, get, run, tx } from '../db/index.js';
 import { money, now } from './helpers.js';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { dirname, join, basename } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, basename } from 'node:path';
+import { dataDir } from '../paths.js';
 
 /**
  * Pre-configured state master list.
@@ -19,8 +19,7 @@ import { fileURLToPath } from 'node:url';
  * the state revises them.
  */
 
-const here = dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = join(here, '..', '..', 'data', 'state-masters');
+const DATA_DIR = join(dataDir, 'state-masters');
 
 /** Read one dataset file into { state, label, updated, brands }. */
 function readDataset(file) {

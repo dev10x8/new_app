@@ -1,13 +1,12 @@
 import { DatabaseSync } from 'node:sqlite';
 import { readFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resourcesDir } from '../paths.js';
 
-const here = dirname(fileURLToPath(import.meta.url));
-const schemaPath = join(here, 'schema.sql');
-const schemaExtPath = join(here, 'schema_ext.sql');
-const seedPath = join(here, 'seed.sql');
-const seedExtPath = join(here, 'seed_ext.sql');
+const schemaPath = join(resourcesDir, 'db', 'schema.sql');
+const schemaExtPath = join(resourcesDir, 'db', 'schema_ext.sql');
+const seedPath = join(resourcesDir, 'db', 'seed.sql');
+const seedExtPath = join(resourcesDir, 'db', 'seed_ext.sql');
 
 /**
  * Open (and on first run create + seed) the SQLite database.

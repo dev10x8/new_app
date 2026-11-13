@@ -1,19 +1,22 @@
 #!/usr/bin/env node
 // Stage the runtime the packaged desktop app launches at startup.
 //
-// The Tauri shell has no business logic: on launch it spawns a Node process
-// running the bundled backend (`src/server.js`), which serves the API on
-// 127.0.0.1:7100. This script copies that Node binary and the backend source
-// into `src-tauri/runtime/`, which `tauri.conf.json` bundles as a resource.
+// The Tauri shell has no business logic: on launch it spawns the backend, which
+// serves the API on 127.0.0.1:7100. This script prepares `src-tauri/runtime/`,
+// which `tauri.conf.json` bundles as a resource.
 //
 //   node scripts/stage_runtime.mjs
 //
-// The Node binary comes from the running interpreter (a real binary, which is
-// what CI's setup-node provides). The backend has no external dependencies
-// (`node:sqlite` is built in), so its source is copied verbatim.
+// Two layouts:
+//   * Windows release build - `backend/backend.exe`, a single self-contained
+//     executable (scripts/build_backend.mjs: esbuild + Node SEA). The install
+//     ships NO readable JavaScript for the backend, only SQL/JSON data files.
+//   * Anywhere else (macOS/Linux dev, or when the exe cannot be built) - the
+//     backend source plus the Node binary, as before.
 import { cp, mkdir, rm, access, chmod } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildBackend } from './build_backend.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const tauriDir = resolve(here, '..');
@@ -33,19 +36,29 @@ if (process.execPath.includes('node_modules')) {
 
 await mkdir(runtimeDir, { recursive: true });
 
-await rm(runtimeBackend, { recursive: true, force: true });
-await mkdir(runtimeBackend, { recursive: true });
-await cp(join(backendSrc, 'src'), join(runtimeBackend, 'src'), { recursive: true });
-// scripts/ ships so an installed app can recover a forgotten PIN
-// (`node scripts/reset-pin.js`) and rebuild schema without a source checkout.
-await cp(join(backendSrc, 'scripts'), join(runtimeBackend, 'scripts'), { recursive: true });
-await cp(join(backendSrc, 'package.json'), join(runtimeBackend, 'package.json'));
-
-if (!(await exists(nodeDest))) {
-  await cp(process.execPath, nodeDest);
-  await chmod(nodeDest, 0o755);
+async function stageFromSource() {
+  await rm(runtimeBackend, { recursive: true, force: true });
+  await mkdir(runtimeBackend, { recursive: true });
+  await cp(join(backendSrc, 'src'), join(runtimeBackend, 'src'), { recursive: true });
+  await cp(join(backendSrc, 'scripts'), join(runtimeBackend, 'scripts'), { recursive: true });
+  await cp(join(backendSrc, 'package.json'), join(runtimeBackend, 'package.json'));
+  if (!(await exists(nodeDest))) {
+    await cp(process.execPath, nodeDest);
+    await chmod(nodeDest, 0o755);
+  }
+  console.log(`runtime ready at ${runtimeDir} (source layout)`);
+  console.log(`  ${nodeName}  <- ${process.execPath}`);
+  console.log(`  backend/  <- ${join(backendSrc, 'src')}`);
 }
 
-console.log(`runtime ready at ${runtimeDir}`);
-console.log(`  ${nodeName}  <- ${process.execPath}`);
-console.log(`  backend/  <- ${join(backendSrc, 'src')}`);
+if (process.platform === 'win32') {
+  try {
+    await buildBackend();
+    console.log(`runtime ready at ${runtimeDir} (bundled executable)`);
+  } catch (err) {
+    console.error(`backend exe build failed (${err.message}); falling back to source layout.`);
+    await stageFromSource();
+  }
+} else {
+  await stageFromSource();
+}
