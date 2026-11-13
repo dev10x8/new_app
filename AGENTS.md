@@ -108,7 +108,11 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   stdout/stderr to `backend.log` there (also next to the exe and in `%TEMP%`),
   since a packaged window has no console. The `backend_diagnostics` command
   returns the data-dir path and log tail, which the login screen shows when the
-  backend is unreachable. Windows installers (NSIS `.exe`,
+  backend is unreachable. Note: Tauri resolves resources to a verbatim
+  (`\\?\C:\...`) path; Node's CJS loader cannot parse that prefix (it truncates
+  the entry script to `C:` and dies with `EISDIR: lstat 'C:'`), so the shell
+  strips `\\?\` / `\\?\UNC\` from the node, server and DB paths before spawning.
+  Windows installers (NSIS `.exe`,
   WiX `.msi`) are built by `.github/workflows/package-windows.yml` on a `v*` tag,
   renamed to `VanijLiquor_<version>_x64-setup.exe` / `_en-US.msi`, and attached to
   a GitHub release. The version must match `tauri.conf.json` and the portal's
