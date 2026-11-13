@@ -36,6 +36,9 @@ await mkdir(runtimeDir, { recursive: true });
 await rm(runtimeBackend, { recursive: true, force: true });
 await mkdir(runtimeBackend, { recursive: true });
 await cp(join(backendSrc, 'src'), join(runtimeBackend, 'src'), { recursive: true });
+// scripts/ ships so an installed app can recover a forgotten PIN
+// (`node scripts/reset-pin.js`) and rebuild schema without a source checkout.
+await cp(join(backendSrc, 'scripts'), join(runtimeBackend, 'scripts'), { recursive: true });
 await cp(join(backendSrc, 'package.json'), join(runtimeBackend, 'package.json'));
 
 if (!(await exists(nodeDest))) {

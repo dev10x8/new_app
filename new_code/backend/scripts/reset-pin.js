@@ -11,9 +11,26 @@
 // The database defaults to config.dbFile (override with VANIJLIQUOR_DB). Unlike
 // `npm run reset-db` this is NOT destructive: it only updates users.password.
 import { parseArgs } from 'node:util';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { config } from '../src/config.js';
 import { openDatabase } from '../src/db/index.js';
 import { listUsers, resetPin } from '../src/services/auth.js';
+
+// The packaged desktop app keeps its DB under the Tauri identifier
+// (com.vanijliquor.pro) in %LOCALAPPDATA%, not next to the source. When run
+// from an installed app without VANIJLIQUOR_DB, find that file.
+function resolveDbFile() {
+  if (process.env.VANIJLIQUOR_DB) return config.dbFile;
+  if (existsSync(config.dbFile)) return config.dbFile;
+  const local = process.env.LOCALAPPDATA || process.env.APPDATA;
+  if (local) {
+    const packaged = join(local, 'com.vanijliquor.pro', 'vanijliquor.db');
+    if (existsSync(packaged)) return packaged;
+  }
+  return config.dbFile;
+}
+const dbFile = resolveDbFile();
 
 const { values, positionals } = parseArgs({
   options: {
@@ -37,11 +54,11 @@ if (values.help) {
   --pin,  -p <pin>                   new PIN/password
   --list, -l                         list users and exit
 
-Database: ${config.dbFile} (override with VANIJLIQUOR_DB)`);
+Database: ${dbFile} (override with VANIJLIQUOR_DB)`);
   process.exit(0);
 }
 
-const db = openDatabase(config.dbFile);
+const db = openDatabase(dbFile);
 
 if (values.list) {
   for (const u of listUsers(db)) console.log(`${u.usercode}\t${u.username}\t${u.accesslevel}`);
