@@ -2,6 +2,8 @@ import { all, get } from '../db/index.js';
 import { money } from './helpers.js';
 import { stockOnHand } from './stock.js';
 import { ledgerBalances, trialBalance } from './accounting.js';
+import { today as clockToday } from './clock.js';
+import { lowStock } from './inventory.js';
 
 /**
  * Report catalogue. Keys mirror the groups in PRODUCT_FEATURES.md; each report
@@ -163,5 +165,59 @@ export function dashboard(db, company, year) {
   const items = get(db, 'SELECT COUNT(*) AS n FROM itemmst WHERE companycode=?', [company]);
   const stock = stockOnHand(db, { company, year });
   const stockValue = money(stock.reduce((s, r) => s + (r.value || 0), 0));
-  return { sales, purchase, items: items.n, stockValue, stockLines: stock.length };
+  return {
+    sales, purchase, items: items.n, stockValue, stockLines: stock.length,
+    ...dashboardExtras(db, company, year),
+  };
+}
+
+/** Per-day sales for the trailing `days` window ending at the business date. */
+function salesSeries(db, company, year, endDate, days) {
+  const start = new Date(Date.parse(`${endDate}T00:00:00`) - (days - 1) * 86400000)
+    .toISOString().slice(0, 10);
+  const rows = all(db,
+    `SELECT trndate, COUNT(*) AS bills, COALESCE(SUM(netamount),0) AS net
+       FROM salesbillmain
+      WHERE companycode=? AND yearcode=? AND trndate BETWEEN ? AND ?
+      GROUP BY trndate`,
+    [company, year, start, endDate]);
+  const byDate = new Map(rows.map((r) => [r.trndate, r]));
+  const out = [];
+  for (let i = 0; i < days; i++) {
+    const d = new Date(Date.parse(`${start}T00:00:00`) + i * 86400000).toISOString().slice(0, 10);
+    const r = byDate.get(d);
+    out.push({ date: d, bills: r ? r.bills : 0, net: money(r ? r.net : 0) });
+  }
+  return out;
+}
+
+function daySales(db, company, year, date) {
+  const r = get(db,
+    `SELECT COUNT(*) AS bills, COALESCE(SUM(netamount),0) AS net
+       FROM salesbillmain WHERE companycode=? AND yearcode=? AND trndate=?`,
+    [company, year, date]) || {};
+  return { bills: r.bills || 0, net: money(r.net || 0) };
+}
+
+/** The figures the dashboard screen adds on top of the totals. */
+function dashboardExtras(db, company, year) {
+  const today = clockToday();
+  const yesterday = new Date(Date.parse(`${today}T00:00:00`) - 86400000).toISOString().slice(0, 10);
+  return {
+    today,
+    todaySales: daySales(db, company, year, today),
+    yesterdaySales: daySales(db, company, year, yesterday),
+    salesSeries: salesSeries(db, company, year, today, 7),
+    lowStock: lowStock(db, { company, year }).slice(0, 8)
+      .map((i) => ({ itemcode: i.itemcode, itemname: i.itemname, qty: i.qty, minlevel: i.minlevel, status: i.status })),
+    recentBills: all(db,
+      `SELECT s.trnno, s.trndate, s.trntime, COALESCE(l.name, s.ledgercode) AS party,
+              COALESCE(s.netamount,0) AS netamount
+         FROM salesbillmain s
+         LEFT JOIN ledger l ON l.companycode=s.companycode AND l.ledcode=s.ledgercode
+        WHERE s.companycode=? AND s.yearcode=?
+        ORDER BY s.trndate DESC, s.trnno DESC
+        LIMIT 6`,
+      [company, year]).map((r) => ({ ...r, netamount: money(r.netamount) })),
+  };
 }

@@ -39,6 +39,55 @@ function append(node, children) {
 export const money = (n) => (Number(n) || 0).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 export const num = (n) => (n == null ? '' : Number(n).toLocaleString('en-IN'));
 
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+/** Inline sparkline for a series of numbers (no chart dependency). */
+export function sparkline(values, { width = 100, height = 30 } = {}) {
+  const nums = (values || []).map((v) => Number(v) || 0);
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('class', 'spark');
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  svg.setAttribute('preserveAspectRatio', 'none');
+  svg.setAttribute('aria-hidden', 'true');
+  if (nums.length >= 2) {
+    const max = Math.max(...nums, 1);
+    const min = Math.min(...nums, 0);
+    const span = max - min || 1;
+    const pad = 3;
+    const x = (i) => (i / (nums.length - 1)) * width;
+    const y = (v) => pad + (1 - (v - min) / span) * (height - pad * 2);
+    const line = nums.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+    const area = document.createElementNS(SVG_NS, 'polygon');
+    area.setAttribute('points', `${x(0)},${height} ${line} ${x(nums.length - 1)},${height}`);
+    area.setAttribute('fill', 'currentColor');
+    area.setAttribute('opacity', '.12');
+    const poly = document.createElementNS(SVG_NS, 'polyline');
+    poly.setAttribute('points', line);
+    poly.setAttribute('fill', 'none');
+    poly.setAttribute('stroke', 'currentColor');
+    poly.setAttribute('stroke-width', '2');
+    poly.setAttribute('stroke-linejoin', 'round');
+    poly.setAttribute('stroke-linecap', 'round');
+    svg.append(area, poly);
+  }
+  return svg;
+}
+
+/** Trend label ("+12.5%" / "-20%" / "no change") from two figures. */
+export function delta(prev, next) {
+  const p = Number(prev) || 0;
+  const n = Number(next) || 0;
+  if (p === 0 && n === 0) return { text: 'no change', cls: 'flat', dir: 0 };
+  if (p === 0) return { text: 'new', cls: '', dir: 1 };
+  const pct = ((n - p) / Math.abs(p)) * 100;
+  if (Math.abs(pct) < 0.05) return { text: '0.0%', cls: 'flat', dir: 0 };
+  return {
+    text: `${pct > 0 ? '+' : ''}${pct.toFixed(1)}%`,
+    cls: pct > 0 ? '' : 'down',
+    dir: pct > 0 ? 1 : -1,
+  };
+}
+
 export function table(columns, rows) {
   if (!rows || !rows.length) return h('div', { class: 'table-wrap' }, h('div', { class: 'empty' }, 'No records found.'));
   const thead = h('thead', {}, h('tr', {}, ...columns.map((c) => h('th', { class: c.num ? 'num' : '' }, c.title))));
@@ -91,4 +140,15 @@ export function form(fields, onSubmit) {
 
 export function loading() {
   return h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Loading…');
+}
+
+/** A KPI card: label, value, an optional trend pill and an optional sparkline. */
+export function kpi({ label, value, money: isMoney = false, trend, series }) {
+  const card = h('div', { class: 'card stat' },
+    h('div', { class: 'k' },
+      h('span', {}, label),
+      trend ? h('span', { class: `delta ${trend.cls}`.trim() }, trend.text) : null),
+    h('div', { class: `v${isMoney ? ' money' : ''}` }, isMoney ? money(value) : num(value)));
+  if (series && series.length >= 2) card.append(sparkline(series));
+  return card;
 }

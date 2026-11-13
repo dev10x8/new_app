@@ -104,6 +104,11 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   `access-control-allow-private-network`, which Chromium's Private Network
   Access check requires for the `tauri.localhost` -> loopback call) so the
   cross-origin webview can reach it.
+  The look is a dark, zinc-surfaced theme (light theme available via the top-bar
+  toggle, persisted in `localStorage`); tokens live at the top of `web/styles.css`
+  and the design is in `new_code/docs/UI_POLISH_DESIGN.md`. Icons are inline SVG
+  (`web/icons.js`, no icon font); the dashboard KPI cards use `kpi()`/`sparkline()`
+  from `web/ui.js` over real data from `GET /api/dashboard`.
 - **Desktop packaging** (`tauri/`): the packaged app is self-contained. The
   `beforeBuildCommand` runs `tauri/scripts/stage_runtime.mjs`, which stages the
   runtime into `src-tauri/runtime/` (git-ignored); `tauri.conf.json` bundles that

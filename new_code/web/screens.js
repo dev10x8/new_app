@@ -1,5 +1,5 @@
 import { api } from './api.js';
-import { h, table, form, field, input, select, money, num, today } from './ui.js';
+import { h, table, form, field, input, select, money, num, today, kpi, delta } from './ui.js';
 
 // Primary-key columns per master (mirrors backend/src/services/masters.js).
 const MASTER_PK = {
@@ -47,26 +47,41 @@ const formValues = (f) => Object.fromEntries(
 // --------------------------------------------------------------- login/dash
 async function dashboard(ctx) {
   const d = await api.dashboard();
-  const stat = (k, v, isMoney) => h('div', { class: 'card stat' },
-    h('div', { class: 'k' }, k),
-    h('div', { class: `v${isMoney ? ' money' : ''}` }, isMoney ? money(v) : num(v)));
+  const series = (d.salesSeries || []).map((r) => r.net);
+  const trend = delta(d.yesterdaySales?.net, d.todaySales?.net);
+
+  const quick = h('div', { class: 'card' }, h('h3', {}, 'Quick actions'),
+    h('div', { class: 'list-menu' },
+      h('button', { onclick: () => ctx.navigate('sale') }, '＋ New Sale'),
+      h('button', { onclick: () => ctx.navigate('reports:sales') }, 'Sales Reports'),
+      h('button', { onclick: () => ctx.navigate('items') }, 'Item Master')));
+
   return h('div', {},
     h('div', { class: 'grid cols-4' },
-      stat('Sales Bills', d.sales.bills),
-      stat('Sales Net', d.sales.net, true),
-      stat('Purchase Bills', d.purchase.bills),
-      stat('Purchase Net', d.purchase.net, true)),
-    h('div', { class: 'section-title' }, 'Stock'),
+      kpi({ label: "Today's Sales", value: d.todaySales?.net, money: true, trend, series }),
+      kpi({ label: 'Bills Today', value: d.todaySales?.bills }),
+      kpi({ label: 'Stock Value', value: d.stockValue, money: true }),
+      kpi({ label: 'Low Stock', value: (d.lowStock || []).length })),
+    h('div', { class: 'section-title' }, 'Sales — last 7 days'),
     h('div', { class: 'grid cols-4' },
-      stat('Items', d.items),
-      stat('Stock Lines', d.stockLines),
-      stat('Stock Value', d.stockValue, true),
-      h('div', { class: 'card' }, h('h3', {}, 'Quick actions'),
-        h('div', { class: 'list-menu' },
-          h('button', { onclick: () => ctx.navigate('sale') }, '＋ New Sale'),
-          h('button', { onclick: () => ctx.navigate('reports:sales') }, 'Sales Reports'),
-          h('button', { onclick: () => ctx.navigate('items') }, 'Item Master'))))
-  );
+      kpi({ label: 'Sales Net (YTD)', value: d.sales.net, money: true }),
+      kpi({ label: 'Sales Bills (YTD)', value: d.sales.bills }),
+      kpi({ label: 'Purchase Net (YTD)', value: d.purchase.net, money: true }),
+      kpi({ label: 'Stock Lines', value: d.stockLines })),
+    h('div', { class: 'grid cols-2' }, quick, h('div', { class: 'card' },
+      h('h3', {}, 'Low stock'),
+      table([
+        { key: 'itemname', title: 'Item' },
+        { key: 'qty', title: 'Qty', num: true },
+        { key: 'status', title: 'Status', badge: (r) => (r.status === 'OUT' ? 'danger' : 'warn') },
+      ], d.lowStock || []))),
+    h('div', { class: 'section-title' }, 'Recent bills'),
+    table([
+      { key: 'trnno', title: 'Bill' },
+      { key: 'trndate', title: 'Date' },
+      { key: 'party', title: 'Party' },
+      { key: 'netamount', title: 'Net', num: true },
+    ], d.recentBills || []));
 }
 
 async function systemAdmin(ctx) {

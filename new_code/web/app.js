@@ -1,6 +1,8 @@
 import { api } from './api.js';
 import { NAV, ROUTE_TITLES } from './menu.js';
 import { h, setServerToday } from './ui.js';
+import { navIcon, svgIcon } from './icons.js';
+import { getTheme, applyTheme, toggleTheme } from './theme.js';
 import { screens } from './screens.js';
 
 const state = { user: null, meta: null, route: 'dashboard', license: null };
@@ -87,7 +89,7 @@ function reloadNav() {
       class: `nav-item${it.route === state.route ? ' active' : ''}`,
       dataset: { route: it.route },
       onclick: () => navigate(it.route),
-    }, it.title)))));
+    }, navIcon(it.route, g.title), h('span', {}, it.title))))));
 }
 
 // -------------------------------------------------------------- auth
@@ -132,6 +134,7 @@ async function boot() {
     }
   } catch { state.license = null; }
   renderLicenseBanner();
+  renderLicencePill();
   state.route = firstRun ? 'license' : 'dashboard';
   await renderRoute();
 }
@@ -157,6 +160,19 @@ function renderLicenseBanner() {
   b.hidden = false;
 }
 
+/** Compact licence state in the top bar (hidden when the licence is healthy). */
+function renderLicencePill() {
+  const p = el('licence-pill');
+  const lic = state.license;
+  if (!lic || lic.severity === 'ok') { p.hidden = true; return; }
+  const text = lic.state === 'none'
+    ? (lic.trial_started ? `Demo · ${lic.trial_days_remaining}d left` : 'No licence')
+    : lic.state === 'grace' ? `Grace · ${lic.grace_remaining}d left`
+      : lic.state === 'invalid' ? 'Licence invalid' : 'Licence expired';
+  p.textContent = text;
+  p.hidden = false;
+}
+
 // -------------------------------------------------------------- wiring
 /** Ask the desktop shell where it put the DB and for the start-up log tail. */
 async function shellDiagnostics() {
@@ -175,6 +191,12 @@ function showDiagnostics(text) {
 }
 
 function init() {
+  applyTheme(getTheme());
+  const themeBtn = el('theme-toggle');
+  const paintThemeBtn = () => themeBtn.replaceChildren(svgIcon(getTheme() === 'dark' ? 'sun' : 'moon', 16));
+  paintThemeBtn();
+  themeBtn.addEventListener('click', () => { toggleTheme(); paintThemeBtn(); });
+
   el('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const err = el('login-error');

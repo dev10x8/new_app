@@ -209,6 +209,12 @@ test('reports return rows for sales, purchase, stock and accounts', () => {
     assert.ok(reports.runReport(db, 'mis.profit', opts).length >= 1);
     const dash = reports.dashboard(db, COMPANY, YEAR);
     assert.equal(dash.sales.bills, 1);
+    assert.equal(dash.salesSeries.length, 7);
+    assert.ok(dash.salesSeries.every((r) => /^\d{4}-\d{2}-\d{2}$/.test(r.date) && typeof r.net === 'number'));
+    assert.equal(typeof dash.todaySales.net, 'number');
+    assert.equal(dash.recentBills.length, 1);
+    assert.equal(dash.recentBills[0].party, 'Walk-in Customer'); // joined from the ledger master
+    assert.ok(Array.isArray(dash.lowStock));
   } finally {
     db.close(); rmSync(dir, { recursive: true, force: true });
   }
