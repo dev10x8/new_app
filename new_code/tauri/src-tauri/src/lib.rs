@@ -147,14 +147,29 @@ fn resource(app: &tauri::AppHandle, log: &Log, names: &[&str]) -> Option<PathBuf
     None
 }
 
+/// Tauri resolves resources to a verbatim (extended-length) Windows path
+/// (`\\?\C:\...`). Node's module loader cannot parse that prefix — it truncates
+/// the entry script to `C:` and dies with `EISDIR: lstat 'C:'` — so strip it
+/// before handing paths to the child process.
+fn plain(path: PathBuf) -> PathBuf {
+    let s = path.to_string_lossy();
+    if let Some(rest) = s.strip_prefix(r"\\?\UNC\") {
+        return PathBuf::from(format!(r"\\{rest}"));
+    }
+    if let Some(rest) = s.strip_prefix(r"\\?\") {
+        return PathBuf::from(rest);
+    }
+    path
+}
+
 /// Start the bundled backend. Returns `None` when the staged runtime is absent
 /// (e.g. running in development against a separately started backend).
 fn spawn_backend(app: &tauri::AppHandle, log: &Log) -> Option<Child> {
-    let node = resource(app, log, &["runtime/node.exe", "runtime/node"])?;
-    let server = resource(app, log, &["runtime/backend/src/server.js"])?;
+    let node = plain(resource(app, log, &["runtime/node.exe", "runtime/node"])?);
+    let server = plain(resource(app, log, &["runtime/backend/src/server.js"])?);
 
     let dir = data_dir(app);
-    let db_file = dir.join("vanijliquor.db");
+    let db_file = plain(dir.join("vanijliquor.db"));
     log.line(&format!("data dir: {} (exists={})", dir.display(), dir.exists()));
     log.line(&format!("node: {}", node.display()));
     log.line(&format!("server: {}", server.display()));
@@ -163,9 +178,11 @@ fn spawn_backend(app: &tauri::AppHandle, log: &Log) -> Option<Child> {
 
     // Run from the resource dir so any relative path the backend resolves lands
     // inside the install, not wherever the shortcut started us.
-    if let Some(work) = server.parent().and_then(|p| p.parent()).and_then(|p| p.parent()) {
-        log.line(&format!("working dir: {}", work.display()));
-    }
+    let work_dir = server
+        .parent()
+        .and_then(|p| p.parent())
+        .and_then(|p| p.parent())
+        .map(Path::to_path_buf);
 
     let mut cmd = Command::new(&node);
     cmd.arg(&server)
@@ -175,7 +192,8 @@ fn spawn_backend(app: &tauri::AppHandle, log: &Log) -> Option<Child> {
         .stdin(Stdio::null())
         .stdout(log.child_output())
         .stderr(log.child_output());
-    if let Some(work) = server.parent().and_then(|p| p.parent()).and_then(|p| p.parent()) {
+    if let Some(work) = &work_dir {
+        log.line(&format!("working dir: {}", work.display()));
         cmd.current_dir(work);
     }
 
