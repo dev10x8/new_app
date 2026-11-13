@@ -63,6 +63,33 @@ jobs:
       - name: Build installers (.exe + .msi)
         run: npm run build -- --target x86_64-pc-windows-msvc
 
+      # The backend is a single executable; make sure it actually runs on Windows
+      # (SEA + postject injection) before we ship it.
+      - name: Smoke-test the bundled backend exe
+        shell: pwsh
+        run: |
+          $exe = "src-tauri/runtime/backend/backend.exe"
+          if (-not (Test-Path $exe)) { throw "backend.exe was not staged" }
+          $env:VANIJLIQUOR_DB = Join-Path $env:TEMP "vl-smoke.db"
+          Remove-Item "$env:VANIJLIQUOR_DB*" -ErrorAction SilentlyContinue
+          & $exe reset-db
+          if ($LASTEXITCODE -ne 0) { throw "backend.exe reset-db failed" }
+          $env:PORT = "7199"
+          $proc = Start-Process -FilePath $exe -PassThru -WindowStyle Hidden
+          try {
+            $ok = $false
+            for ($i = 0; $i -lt 40; $i++) {
+              try {
+                $r = Invoke-RestMethod -Uri "http://127.0.0.1:7199/api/license" -TimeoutSec 2
+                if ($r.ok) { $ok = $true; break }
+              } catch { Start-Sleep -Milliseconds 500 }
+            }
+            if (-not $ok) { throw "backend.exe did not serve the API" }
+            Write-Host "backend.exe OK (licence state: $($r.data.state))"
+          } finally {
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+          }
+
       - name: List bundles
         shell: pwsh
         run: Get-ChildItem -Recurse src-tauri/target/x86_64-pc-windows-msvc/release/bundle | Select-Object FullName
