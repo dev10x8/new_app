@@ -1,11 +1,11 @@
 import { api } from './api.js';
-import { NAV, ROUTE_TITLES } from './menu.js';
+import { NAV, ROUTE_TITLES, ROUTE_GROUP } from './menu.js';
 import { h, setServerToday } from './ui.js';
-import { navIcon, svgIcon } from './icons.js';
+import { navIcon, groupIcon, svgIcon } from './icons.js';
 import { getTheme, applyTheme, toggleTheme } from './theme.js';
 import { screens } from './screens.js';
 
-const state = { user: null, meta: null, route: 'dashboard', license: null };
+const state = { user: null, meta: null, route: 'dashboard', license: null, open: null };
 
 const el = (id) => document.getElementById(id);
 
@@ -37,17 +37,17 @@ const ctx = {
   closeModal,
   navigate,
   setPage,
-  reloadNav,
+  renderNav,
 };
 
 // -------------------------------------------------------------- routing
 export function navigate(route) {
   state.route = route;
+  // Keep the owning group open so the active item is visible, then re-render
+  // the sidebar (single source of truth for the open group + active item).
+  state.open = ROUTE_GROUP[route] || null;
+  renderNav();
   void renderRoute();
-  // reflect in the mobile sidebar
-  document.querySelectorAll('.nav-item').forEach((b) => {
-    b.classList.toggle('active', b.dataset.route === route);
-  });
   document.querySelector('.sidebar')?.classList.remove('open');
 }
 
@@ -78,18 +78,33 @@ async function renderRoute() {
 }
 
 // -------------------------------------------------------------- sidebar
-function reloadNav() {
+// The sidebar shows group headers only. Clicking a header toggles its items
+// inline (one open at a time); the group owning the current route opens on
+// navigation so the active item is always visible.
+function renderNav() {
   const nav = el('sidebar-nav');
-  const groups = state.user
-    ? NAV.filter((g) => !(g.title === 'Main'))
-    : [];
-  nav.replaceChildren(...groups.map((g) => h('div', { class: 'nav-group' },
-    h('div', { class: 'nav-group-title' }, g.title),
-    ...g.items.map((it) => h('button', {
-      class: `nav-item${it.route === state.route ? ' active' : ''}`,
-      dataset: { route: it.route },
-      onclick: () => navigate(it.route),
-    }, navIcon(it.route, g.title), h('span', {}, it.title))))));
+  if (!state.user) { nav.replaceChildren(); return; }
+  const activeGroup = ROUTE_GROUP[state.route] || null;
+
+  nav.replaceChildren(...NAV.map((g) => {
+    const open = state.open === g.title;
+    const active = g.title === activeGroup;
+    const items = h('div', { class: 'nav-items' },
+      h('div', { class: 'nav-items-inner' },
+        ...g.items.map((it) => h('button', {
+          class: `nav-item${it.route === state.route ? ' active' : ''}`,
+          dataset: { route: it.route },
+          onclick: () => navigate(it.route),
+        }, navIcon(it.route, g.title), h('span', {}, it.title)))));
+    return h('div', { class: `nav-group${open ? ' open' : ''}${active ? ' active' : ''}` },
+      h('button', {
+        class: 'nav-group-head',
+        'aria-expanded': String(open),
+        onclick: () => { state.open = open ? null : g.title; renderNav(); },
+      }, groupIcon(g.title), h('span', { class: 'nav-group-title' }, g.title),
+        h('span', { class: 'nav-chevron' }, svgIcon('chevron', 14))),
+      items);
+  }));
 }
 
 // -------------------------------------------------------------- auth
@@ -117,7 +132,8 @@ async function boot() {
   el('company-pill').textContent = `Company ${state.meta?.company ?? 1}`;
   el('year-pill').textContent = `Year ${state.meta?.year ?? 2024}`;
   el('clock-warning').hidden = !state.meta?.clockRolledBack;
-  reloadNav();
+  state.open = ROUTE_GROUP[state.route] || null;
+  renderNav();
   // First run: activate the bundled 90-day demo (bound to this machine) and show
   // the licence screen so the customer sees the term and can import a real
   // licence or read the fingerprint. The demo is one-time per machine, so a

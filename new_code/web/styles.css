@@ -157,15 +157,41 @@ input:focus, select:focus, textarea:focus { outline: 2px solid color-mix(in srgb
 .sidebar-brand { display: flex; gap: 10px; align-items: center; padding: 16px 16px 10px; }
 .sidebar-title { color: var(--ink); font-weight: 650; font-size: 15px; }
 #sidebar-nav { overflow-y: auto; padding: 6px 8px 16px; flex: 1; }
-.nav-group { margin-top: 10px; }
-.nav-group > .nav-group-title {
-  font-size: 11px; text-transform: uppercase; letter-spacing: .09em;
-  color: var(--muted); padding: 6px 10px 4px; font-weight: 700;
+
+/* Collapsible groups: the sidebar shows group headers only; the items of the
+   clicked group expand below it (one group at a time). */
+.nav-group { margin-top: 4px; }
+.nav-group-head {
+  display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
+  background: transparent; border: 0; color: var(--ink); font: inherit;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .09em; font-weight: 700;
+  padding: 8px 10px; border-radius: 8px; cursor: pointer;
+  transition: background .12s ease, color .12s ease;
 }
+.nav-group-head:hover { background: var(--sidebar-hover); }
+.nav-group-head > svg { width: 16px; height: 16px; flex: none; opacity: .7; }
+.nav-group-head .nav-group-title { flex: 1; }
+.nav-group-head .nav-chevron {
+  display: inline-flex; flex: none; color: var(--muted);
+  transition: transform .18s ease;
+}
+.nav-group.open > .nav-group-head { color: var(--ink); }
+.nav-group.open > .nav-group-head .nav-chevron { transform: rotate(180deg); }
+.nav-group.active > .nav-group-head { color: var(--brand); }
+
+/* The gap between the header and its items, animated open/closed. */
+.nav-items {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .2s ease;
+}
+.nav-group.open > .nav-items { grid-template-rows: 1fr; }
+.nav-items-inner { overflow: hidden; visibility: hidden; transition: visibility .2s; }
+.nav-group.open > .nav-items > .nav-items-inner { padding: 6px 0 4px; visibility: visible; }
+
 .nav-item {
   display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
   background: transparent; border: 0; color: var(--sidebar-ink);
-  padding: 7px 10px; border-radius: 8px; cursor: pointer; font: inherit;
+  padding: 7px 10px 7px 12px; border-radius: 8px; cursor: pointer; font: inherit;
   transition: background .12s ease, color .12s ease;
 }
 .nav-item svg { width: 16px; height: 16px; flex: none; opacity: .8; }

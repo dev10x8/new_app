@@ -2043,6 +2043,7 @@ async function landedCostScreen(ctx) {
 
 export async function screens(route, ctx) {
   if (route === 'dashboard') return dashboard(ctx);
+  if (route === 'dash:sales') return dashboard(ctx);
   if (route === 'sysadmin') return systemAdmin(ctx);
   if (route === 'params') return paramsScreen(ctx);
   if (route === 'users') return usersScreen(ctx);

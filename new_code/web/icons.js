@@ -30,6 +30,7 @@ const PATHS = {
   moon: 'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z',
   sun: 'M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4',
   search: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.3-4.3',
+  chevron: 'M6 9l6 6 6-6',
   plus: 'M12 5v14M5 12h14',
   menu: 'M4 6h16M4 12h16M4 18h16',
   close: 'M6 6l12 12M18 6 6 18',
@@ -39,6 +40,7 @@ const PATHS = {
 /** Routes with a bespoke icon; everything else falls back to its group. */
 const ROUTE_ICON = {
   dashboard: 'dashboard',
+  'dash:sales': 'dashboard',
   sysadmin: 'sliders',
   params: 'sliders',
   users: 'users',
@@ -123,4 +125,9 @@ export function svgIcon(name, size = 16) {
 /** The icon for a nav entry, resolved from its route then its group. */
 export function navIcon(route, group) {
   return svgIcon(ROUTE_ICON[route] || GROUP_ICON[group] || 'dot');
+}
+
+/** The icon for a nav group header. */
+export function groupIcon(group) {
+  return svgIcon(GROUP_ICON[group] || 'dot');
 }

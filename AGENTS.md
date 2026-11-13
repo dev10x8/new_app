@@ -213,3 +213,6 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   materialised stock table.
 - The web UI is framework-free: one route table (`web/menu.js`) drives the
   sidebar; screens live in `web/screens.js`; there are no build-time deps.
+  The sidebar shows group headers only; clicking one expands its items below it
+  (one group at a time). `ROUTE_GROUP` maps a route to its group so the active
+  group opens and highlights; a route must not be shared by two menu items.

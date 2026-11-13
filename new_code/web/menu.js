@@ -4,22 +4,9 @@
 export const NAV = [
   {
     title: 'Main',
-    icon: '⌂',
     items: [
       { title: 'Dashboard', route: 'dashboard' },
       { title: 'System Admin', route: 'sysadmin' },
-    ],
-  },
-  {
-    title: 'Admin',
-    items: [
-      { title: 'Company', route: 'master:company' },
-      { title: 'Parameters', route: 'params' },
-      { title: 'User', route: 'users' },
-      { title: 'User Rights', route: 'rights' },
-      { title: 'New Year', route: 'new-year' },
-      { title: 'Excise Audit', route: 'excise-audit' },
-      { title: 'Deleted Bill', route: 'deleted-bills' },
     ],
   },
   {
@@ -96,7 +83,7 @@ export const NAV = [
   {
     title: 'Dash Board',
     items: [
-      { title: 'Sales Status', route: 'dashboard' },
+      { title: 'Sales Status', route: 'dash:sales' },
       { title: 'Stock Status', route: 'dash:stock' },
       { title: 'Purchase Status', route: 'dash:purchase' },
       { title: 'Scheme / Spirit-Beer / CS', route: 'dash:scheme' },
@@ -131,11 +118,30 @@ export const NAV = [
       { title: 'List of Updates', route: 'updates' },
     ],
   },
+  {
+    title: 'Admin',
+    items: [
+      { title: 'Company', route: 'master:company' },
+      { title: 'Parameters', route: 'params' },
+      { title: 'User', route: 'users' },
+      { title: 'User Rights', route: 'rights' },
+      { title: 'New Year', route: 'new-year' },
+      { title: 'Excise Audit', route: 'excise-audit' },
+      { title: 'Deleted Bill', route: 'deleted-bills' },
+    ],
+  },
 ];
 
 // Flat route -> title map for page titles.
 export const ROUTE_TITLES = (() => {
-  const m = { dashboard: 'Dashboard' };
+  const m = {};
   for (const g of NAV) for (const it of g.items) m[it.route] = it.title;
+  return m;
+})();
+
+// Flat route -> owning group title, so a screen can highlight its menu entry.
+export const ROUTE_GROUP = (() => {
+  const m = {};
+  for (const g of NAV) for (const it of g.items) m[it.route] = g.title;
   return m;
 })();
