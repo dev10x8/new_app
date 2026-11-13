@@ -125,6 +125,7 @@ export const NAV = [
   {
     title: 'Help',
     items: [
+      { title: 'Licence', route: 'license' },
       { title: 'About VanijLiquor', route: 'about' },
       { title: 'Ask for Help', route: 'help' },
       { title: 'List of Updates', route: 'updates' },

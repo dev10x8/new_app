@@ -65,6 +65,12 @@ export const api = {
   systemInfo: () => req('GET', '/api/system-info'),
   login: (usercode, password) => req('POST', '/api/login', { usercode, password }),
 
+  license: () => req('GET', '/api/license'),
+  licenseFingerprint: () => req('GET', '/api/license/fingerprint'),
+  activateDemo: () => req('POST', '/api/license/demo'),
+  importLicense: (file) => req('POST', '/api/license/import', { file }),
+  clearLicense: () => req('DELETE', '/api/license'),
+
   users: () => req('GET', '/api/users'),
   createUser: (u) => req('POST', '/api/users', u),
   updateUser: (usercode, u) => req('PUT', `/api/users/${usercode}`, u),

@@ -23,6 +23,7 @@ import * as bulkimport from './services/bulkimport.js';
 import * as statemaster from './services/statemaster.js';
 import * as parcha from './services/parcha.js';
 import * as landedcost from './services/landedcost.js';
+import * as license from './services/license.js';
 import { nextTrnNo } from './services/helpers.js';
 import * as clock from './services/clock.js';
 
@@ -75,6 +76,17 @@ function route(method, path, handler) { routes.push({ method, path, handler }); 
 // ---- meta ----
 route('GET', '/api/health', () => ({ ok: true, company: config.company, year: config.year }));
 route('GET', '/api/now', () => clock.businessDate(db, config.company));
+
+// ---- licence ----
+// The desktop app verifies its licence offline against the pinned vendor key.
+// These endpoints expose the verdict, the machine fingerprint (to paste into the
+// portal), and the two ways to activate: the bundled 90-day demo, or a
+// portal-issued .vlic.
+route('GET', '/api/license', () => license.status(db));
+route('GET', '/api/license/fingerprint', () => license.fingerprint());
+route('POST', '/api/license/demo', () => license.activateDemo(db));
+route('POST', '/api/license/import', (b) => license.importLicence(db, b.file || b));
+route('DELETE', '/api/license', () => { license.clear(db); return license.status(db); });
 route('GET', '/api/meta', () => {
   const guard = clock.businessDate(db, config.company);
   const today = guard.date;
@@ -373,6 +385,16 @@ const server = http.createServer(async (req, res) => {
   }
   const url = new URL(req.url, `http://${req.headers.host}`);
   const path = url.pathname;
+  // Licence gate. The app is usable read-only without a valid licence so a shop
+  // can still see its data, but posting (billing, stock, masters) is refused
+  // once the licence is missing, tampered with, or past its grace window. The
+  // meta and licence endpoints stay open so the UI can render and activate.
+  const isWrite = ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method);
+  const gateOpen = path.startsWith('/api/license') || path === '/api/health'
+    || path === '/api/now' || path === '/api/meta' || path === '/api/login' || !isWrite;
+  if (!gateOpen && license.isBlocked(db)) {
+    return json(res, 402, { ok: false, error: 'Licence required', license: license.status(db) });
+  }
   for (const r of routes) {
     const params = matchPath(r.path, path);
     if (r.method === req.method && params) {

@@ -12,6 +12,10 @@ export const config = {
   // development key is derived so a fresh checkout works out of the box. In
   // production set PORTAL_LICENSE_KEY to a secret seed kept on the server only.
   licenseKey: process.env.PORTAL_LICENSE_KEY || '',
+  // RSA private key (base64 PKCS#8) that SEALS licences at rest. The desktop app
+  // stores an encrypted copy it cannot itself read; only this key (on the
+  // portal) can unseal it. When unset, a development key is used.
+  sealKey: process.env.PORTAL_SEAL_KEY || '',
   // Human-readable vendor identity embedded in issued licences.
   vendor: process.env.PORTAL_VENDOR || 'VanijLiquor',
   issuer: process.env.PORTAL_ISSUER || 'VanijLiquor Licensing Authority',
@@ -29,7 +33,7 @@ export const config = {
   seatLimit: Number(process.env.PORTAL_SEAT_LIMIT || 1),
   // ---- distribution (downloads + licence server links) ----
   // Version of the desktop app the portal advertises and links to.
-  appVersion: process.env.PORTAL_APP_VERSION || '1.0.3',
+  appVersion: process.env.PORTAL_APP_VERSION || '1.0.4',
   // GitHub repository that hosts the signed Windows installers as release assets.
   releaseRepo: process.env.PORTAL_RELEASE_REPO || 'dev10x8/new_app',
   // Release tag to link to (e.g. 'v1.0.0'). Empty links to the "latest" release.

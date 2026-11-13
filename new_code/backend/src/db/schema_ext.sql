@@ -835,3 +835,21 @@ CREATE TABLE IF NOT EXISTS [tbl_ClockGuard] (
   [updatedat] TEXT,
   PRIMARY KEY ([companycode])
 );
+
+-- ---- desktop licence: the single active licence (demo or portal-issued) ----
+-- One row (id=1). `payload` is the canonical JSON the vendor signed and
+-- `signature` is the Ed25519 signature; both are re-verified against the
+-- pinned vendor key on every read, so editing this row cannot forge a licence.
+CREATE TABLE IF NOT EXISTS [tbl_License] (
+  [id]           INTEGER PRIMARY KEY,
+  [kind]         TEXT NOT NULL DEFAULT 'demo',   -- demo | issued
+  [license_id]   TEXT NOT NULL DEFAULT '',
+  [machine_hash] TEXT NOT NULL DEFAULT '',
+  [payload]      TEXT NOT NULL DEFAULT '',
+  [signature]    TEXT NOT NULL DEFAULT '',
+  [sealed]       TEXT NOT NULL DEFAULT '',
+  [valid_from]   TEXT NOT NULL DEFAULT '',
+  [valid_until]  TEXT NOT NULL DEFAULT '',
+  [activated_at] TEXT NOT NULL DEFAULT '',
+  [updatedat]    TEXT NOT NULL DEFAULT ''
+);

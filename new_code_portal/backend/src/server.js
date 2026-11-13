@@ -7,6 +7,7 @@ import * as onboarding from './services/onboarding.js';
 import * as licensing from './services/licensing.js';
 import * as audit from './services/audit.js';
 import * as license from './services/license.js';
+import * as seal from './services/seal.js';
 import * as downloads from './services/downloads.js';
 
 const db = openDatabase(config.dbFile);
@@ -107,6 +108,16 @@ route('GET', '/api/licenses/:id/status', (b, p, q) => {
   };
 });
 route('GET', '/api/license-key', () => ({ public_key: license.publicKeyBase64(), production: license.usingProductionKey() }));
+
+// ---- sealing: the public key the desktop encrypts its stored licence with ----
+// The app never sends the sealed blob anywhere by default; it stores it locally
+// so only the portal (holding the private key) can ever read that record back.
+route('GET', '/api/seal-key', () => ({ public_key: seal.sealPublicKey(), production: seal.usingProductionKey() }));
+// Recovery/audit: unseal a blob produced by the desktop. Portal-side only.
+route('POST', '/api/seal/unseal', (b) => {
+  if (!b || !b.sealed) throw Object.assign(new Error('sealed blob required'), { status: 400 });
+  return seal.unseal(b.sealed);
+});
 
 // ---- distribution: installer + licence-server links for the download page ----
 route('GET', '/api/downloads', (b, p, q) => downloads.distribution(q.get('origin') || ''));

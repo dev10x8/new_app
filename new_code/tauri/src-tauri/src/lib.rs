@@ -17,10 +17,19 @@ use std::process::{Child, Command, Stdio};
 use std::sync::Mutex;
 use std::time::Duration;
 
+#[cfg(windows)]
+use std::os::windows::process::CommandExt;
+
 use tauri::path::BaseDirectory;
 use tauri::{Manager, RunEvent};
 
 const BACKEND_ADDR: &str = "127.0.0.1:7100";
+
+/// Windows `CREATE_NO_WINDOW`: start the child without a console window. The
+/// bundled `node.exe` is a console binary, so without this a black command
+/// prompt flashes up (and stays) next to the app.
+#[cfg(windows)]
+const CREATE_NO_WINDOW: u32 = 0x0800_0000;
 
 struct BackendProcess(Mutex<Option<Child>>);
 
@@ -192,6 +201,8 @@ fn spawn_backend(app: &tauri::AppHandle, log: &Log) -> Option<Child> {
         .stdin(Stdio::null())
         .stdout(log.child_output())
         .stderr(log.child_output());
+    #[cfg(windows)]
+    cmd.creation_flags(CREATE_NO_WINDOW);
     if let Some(work) = &work_dir {
         log.line(&format!("working dir: {}", work.display()));
         cmd.current_dir(work);

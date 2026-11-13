@@ -40,7 +40,7 @@ test('distribution exposes exe + msi installers, a licence server and helpers', 
 });
 
 test('installer URLs default to the repository latest-release path', () => {
-  const d = withEnv({}, `
+  const d = withEnv({ PORTAL_APP_VERSION: '1.0.0' }, `
     import { distribution } from './src/services/downloads.js';
     console.log(JSON.stringify(distribution('')));
   `);
@@ -60,7 +60,7 @@ test('PORTAL_RELEASE_TAG pins installer links to a tagged release', () => {
 });
 
 test('PORTAL_DOWNLOAD_BASE_URL overrides the GitHub release URL', () => {
-  const d = withEnv({ PORTAL_DOWNLOAD_BASE_URL: 'https://cdn.example.com/vl/' }, `
+  const d = withEnv({ PORTAL_DOWNLOAD_BASE_URL: 'https://cdn.example.com/vl/', PORTAL_APP_VERSION: '1.0.0' }, `
     import { distribution } from './src/services/downloads.js';
     console.log(JSON.stringify(distribution('')));
   `);

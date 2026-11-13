@@ -214,6 +214,20 @@ label.field { display: flex; flex-direction: column; gap: 6px; font-size: 12.5px
   font-size: 13.5px;
 }
 
+.license-banner {
+  margin: 0 0 16px; padding: 10px 14px; border-radius: 10px;
+  background: #fee2e2; border: 1px solid #fca5a5; color: #7f1d1d;
+  font-size: 13.5px; display: flex; gap: 12px; align-items: center; justify-content: space-between;
+}
+.license-banner.warn { background: #fef3c7; border-color: #fcd34d; color: #78350f; }
+.license-banner .btn { flex: none; }
+
+.licence-status { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+.kv { display: grid; gap: 6px; margin: 10px 0; }
+.kv-row { display: flex; gap: 10px; font-size: 13.5px; }
+.kv-row .k { color: var(--muted); min-width: 130px; }
+.kv-row .v { font-weight: 600; word-break: break-all; }
+
 .modal { position: fixed; inset: 0; background: rgba(15,23,42,.45); display: grid; place-items: center; z-index: 40; padding: 20px; }
 .modal-card { background: var(--panel); border-radius: 14px; width: min(680px, 100%); max-height: 88vh; display: flex; flex-direction: column; box-shadow: var(--shadow); }
 .modal-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--line); }

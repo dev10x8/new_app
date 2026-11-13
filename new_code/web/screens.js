@@ -1554,6 +1554,98 @@ function aboutScreen() {
     h('p', {}, 'Bar & Liquor POS — modern rebuild.'),
     h('p', { class: 'muted' }, 'Frontend: Tauri (Web + Rust). Backend: Node.js + SQLite. All business flows from the legacy Windows app are covered.'));
 }
+
+// --------------------------------------------------------------- licence
+const LICENCE_STATE_LABEL = {
+  none: 'No licence', valid: 'Licensed', grace: 'In grace period',
+  expired: 'Expired', invalid: 'Invalid licence',
+};
+
+/** Licence status, machine fingerprint (to paste in the portal) and activation. */
+async function licenseScreen(ctx) {
+  const st = await api.license();
+  const fp = await api.licenseFingerprint();
+
+  const statusCard = card('Licence status',
+    h('div', { class: 'licence-status' },
+      h('span', { class: `badge ${st.severity === 'ok' ? 'ok' : st.severity === 'warn' ? 'warn' : 'bad'}` },
+        LICENCE_STATE_LABEL[st.state] || st.state),
+      st.present && st.kind === 'demo' ? h('span', { class: 'pill' }, 'Demo') : null),
+    st.present ? h('div', { class: 'kv' },
+      kv('Licence ID', st.license_id),
+      kv('Plan', st.plan || '—'),
+      kv('Valid from', st.valid_from || '—'),
+      kv('Valid until', st.valid_until || '—'),
+      kv('Days remaining', st.state === 'valid' ? String(st.days_remaining) : (st.state === 'grace' ? `${st.grace_remaining} (grace)` : '0')),
+      kv('Signature', st.signature_ok ? 'verified' : 'INVALID'),
+      kv('Encrypted at rest', st.sealed ? 'yes (vendor-readable only)' : 'no'),
+      kv('Machine', st.machine_ok ? 'matches' : 'different machine')) : null,
+    st.state === 'none'
+      ? h('p', { class: 'muted' }, 'No licence is active. Start the 90-day demo below, or import a licence issued by the customer portal.')
+      : null,
+    st.severity !== 'ok'
+      ? h('p', { class: 'error' }, st.state === 'expired'
+        ? 'This licence has expired. Import a renewed licence to continue posting.'
+        : st.state === 'grace'
+          ? 'This licence is past its term and running in the grace window. Renew soon.'
+          : st.state === 'invalid'
+            ? 'This licence failed verification (tampered or issued by another vendor).'
+            : 'A valid licence is required to post transactions.')
+      : null);
+
+  // Demo activation.
+  const demoCard = card('Start the 90-day demo',
+    h('p', { class: 'muted' }, 'The bundled demo unlocks every module for 90 days on this machine. No portal needed.'),
+    h('div', { class: 'actions' }, h('button', {
+      class: 'btn primary',
+      onclick: async (e) => {
+        e.target.disabled = true;
+        try { await api.activateDemo(); ctx.toast('Demo licence activated', 'ok'); await ctx.navigate('license'); }
+        catch (err) { ctx.toast(err.message, 'bad'); e.target.disabled = false; }
+      },
+    }, st.state === 'none' ? 'Activate demo' : 'Restart demo')));
+
+  // Import a portal-issued licence.
+  const picker = filePicker('.vlic,.json,application/json');
+  const importCard = card('Import a licence file',
+    h('p', { class: 'muted' }, 'Paste or choose the .vlic file the customer portal issued for this machine.'),
+    h('label', { class: 'field' }, 'Licence file (.vlic)',
+      picker.el),
+    h('div', { class: 'actions' }, h('button', {
+      class: 'btn',
+      onclick: async (e) => {
+        const raw = picker.state.text;
+        if (!raw) { ctx.toast('Choose a licence file first', 'bad'); return; }
+        e.target.disabled = true;
+        try {
+          let doc; try { doc = JSON.parse(raw); } catch { throw new Error('That file is not valid JSON'); }
+          await api.importLicense(doc);
+          ctx.toast('Licence imported', 'ok');
+          await ctx.navigate('license');
+        } catch (err) { ctx.toast(err.message, 'bad'); e.target.disabled = false; }
+      },
+    }, 'Import licence')));
+
+  // Fingerprint to paste into the portal.
+  const fpCard = card('Machine fingerprint',
+    h('p', { class: 'muted' }, 'Paste this into the portal under “Issue Licence” so the licence binds to this PC.'),
+    h('div', { class: 'kv' },
+      kv('Machine hash', fp.machine_hash),
+      kv('MAC', (fp.macs || []).join(', ') || '—'),
+      kv('CPU', fp.cpu || '—'),
+      kv('Disk', fp.disk || '—'),
+      kv('Host', fp.hostname || '—'),
+      kv('OS', fp.os || '—')),
+    h('div', { class: 'actions' }, h('button', {
+      class: 'btn ghost small',
+      onclick: () => navigator.clipboard?.writeText(JSON.stringify(fp, null, 2)).then(() => ctx.toast('Copied fingerprint', 'ok'), () => {}),
+    }, 'Copy JSON')));
+
+  return h('div', {}, statusCard, demoCard, importCard, fpCard);
+}
+
+const kv = (k, v) => h('div', { class: 'kv-row' }, h('span', { class: 'k' }, k), h('span', { class: 'v' }, String(v == null ? '—' : v)));
+
 function helpScreen() {
   return h('div', { class: 'card' }, h('h3', {}, 'Ask for Help'),
     h('p', {}, 'Use the sidebar to reach every screen. Key flows:'),
@@ -1975,6 +2067,7 @@ export async function screens(route, ctx) {
   if (route === 'migration') return migrationScreen(ctx);
   if (route === 'sync') return syncScreen(ctx);
   if (route === 'about') return aboutScreen();
+  if (route === 'license') return licenseScreen(ctx);
   if (route === 'help') return helpScreen();
   if (route === 'updates') return updatesScreen();
   return h('div', { class: 'card' }, h('h3', {}, 'Not found'), h('p', { class: 'muted' }, `No screen for route "${route}".`));
