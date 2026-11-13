@@ -1581,7 +1581,11 @@ async function licenseScreen(ctx) {
       kv('Encrypted at rest', st.sealed ? 'yes (vendor-readable only)' : 'no'),
       kv('Machine', st.machine_ok ? 'matches' : 'different machine')) : null,
     st.state === 'none'
-      ? h('p', { class: 'muted' }, 'No licence is active. Start the 90-day demo below, or import a licence issued by the customer portal.')
+      ? h('p', { class: 'muted' }, st.trial_started
+        ? (st.trial_expired
+          ? 'No licence is active and the 90-day demo has already been used on this machine. Import a licence issued by the customer portal to continue.'
+          : `No licence is active. The demo is already running on this machine (${st.trial_days_remaining} day(s) left), or import a licence issued by the customer portal.`)
+        : 'No licence is active. Start the 90-day demo below, or import a licence issued by the customer portal.')
       : null,
     st.severity !== 'ok'
       ? h('p', { class: 'error' }, st.state === 'expired'
@@ -1593,17 +1597,25 @@ async function licenseScreen(ctx) {
             : 'A valid licence is required to post transactions.')
       : null);
 
-  // Demo activation.
-  const demoCard = card('Start the 90-day demo',
-    h('p', { class: 'muted' }, 'The bundled demo unlocks every module for 90 days on this machine. No portal needed.'),
+  // Demo activation (one-time per machine).
+  const used = st.trial_started;
+  const left = st.trial_days_remaining;
+  const demoBody = used
+    ? (st.trial_expired
+      ? h('p', { class: 'error' }, 'The 90-day demo has already been used on this machine and has ended. Import a licence to keep posting.')
+      : h('p', { class: 'muted' }, `The demo has already been used on this machine — ${left} day(s) remaining of the original 90-day trial. Reinstalling or deleting the database will not restart it.`))
+    : h('p', { class: 'muted' }, 'The bundled demo unlocks every module for 90 days. It can be started once per machine and cannot be restarted.');
+  const demoCard = card('90-day demo',
+    demoBody,
     h('div', { class: 'actions' }, h('button', {
       class: 'btn primary',
+      disabled: used,
       onclick: async (e) => {
         e.target.disabled = true;
         try { await api.activateDemo(); ctx.toast('Demo licence activated', 'ok'); await ctx.navigate('license'); }
         catch (err) { ctx.toast(err.message, 'bad'); e.target.disabled = false; }
       },
-    }, st.state === 'none' ? 'Activate demo' : 'Restart demo')));
+    }, used ? (st.trial_expired ? 'Demo used up' : 'Demo already used') : 'Start the 90-day demo')));
 
   // Import a portal-issued licence.
   const picker = filePicker('.vlic,.json,application/json');

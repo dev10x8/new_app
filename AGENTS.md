@@ -136,9 +136,15 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   the **seal** gives confidentiality. Because the app must enforce offline, it
   has to keep the *signed* payload readable locally; the seal is a separate
   vendor-readable copy, not the enforced one. On first run the app activates the
-  bundled 90-day demo (relative term, so it always has 90 days from activation)
-  and opens the Licence screen; writes are gated with HTTP 402 until a valid
-  licence is present (`services/license.js` → `isBlocked`).
+  bundled 90-day demo and opens the Licence screen; writes are gated with HTTP
+  402 until a valid licence is present (`services/license.js` → `isBlocked`).
+  The demo is **one-time per machine**: `tbl_License.trial_started_at` plus a
+  hidden `.vl-trial` marker beside the database (read via `db.location()`) record
+  the first activation, and every later `activateDemo` (or import of the bundled
+  demo file) resumes the remaining days instead of granting a fresh 90 — so
+  "Restart demo" cannot be used to extend the trial. This is anti-casual, not
+  tamper-proof: an admin can delete the marker and re-install; a real term must
+  be anchored to a portal-issued licence.
 - **Docker**: `docker compose -f new_code/docker-compose.yml up --build` runs the
   backend (port 7100) and the web UI (port 8080); DB in the `madhushala-data`
   volume. Ports overridable with `MADHUSHALA_PORT` / `WEB_PORT`. No third-party
@@ -151,7 +157,7 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   a framework-free web UI; same conventions as `new_code`, but no desktop shell.
 - **Run**: `cd new_code_portal && npm start` → backend `127.0.0.1:7200`, web
   `:8081` (served locally at `http://127.0.0.1:8081`). Extra scripts:
-  `npm run seed-demo`, `npm test` (50 tests), `npm run reset-db`,
+  `npm run seed-demo`, `npm test` (135 tests), `npm run reset-db`,
   `npm run gen-license-key`, `npm run screenshots` (CDP capture into
   `docs/screenshots/`), `npm run guides` (build the user guide PDF with
   `docs/build_user_guide.py`; needs reportlab + Pillow).

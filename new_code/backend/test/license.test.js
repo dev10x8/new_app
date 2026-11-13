@@ -1,11 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, rmSync } from 'node:fs';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { openDatabase } from '../src/db/index.js';
 import * as license from '../src/services/license.js';
 import { seal } from '../src/services/seal.js';
+
+const daysAgo = (n) => new Date(Date.now() - n * 86400000).toISOString().slice(0, 10);
 
 function freshDb() {
   const dir = mkdtempSync(join(tmpdir(), 'vanijliquor-license-'));
@@ -79,6 +81,50 @@ test('importing a licence signed for another key is refused', () => {
       signature: Buffer.from('not a real signature').toString('base64'),
     };
     assert.throws(() => license.importLicence(db, forged), /not valid|another vendor|tampered/i);
+  } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('the demo is one-time: reactivating keeps the original term', () => {
+  const { db, dir } = freshDb();
+  try {
+    license.activateDemo(db);
+    // Simulate 30 days having passed since the trial first started.
+    db.prepare('UPDATE tbl_License SET trial_started_at=? WHERE id=1').run(daysAgo(30));
+    const s = license.activateDemo(db); // user clicks "start demo" again
+    assert.equal(s.state, 'valid');
+    assert.equal(s.trial_started, true);
+    assert.ok(s.days_remaining <= 61 && s.days_remaining >= 59, `days=${s.days_remaining}`);
+  } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('deleting the database does not restart the demo', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'vanijliquor-trial-'));
+  const file = join(dir, 'test.db');
+  try {
+    let db = openDatabase(file);
+    license.activateDemo(db);
+    // Backdate the on-disk marker by 45 days, then delete the DB as a user would.
+    const marker = join(dir, '.vl-trial');
+    writeFileSync(marker, daysAgo(45));
+    db.close();
+    for (const s of ['', '-wal', '-shm']) rmSync(file + s, { force: true });
+
+    db = openDatabase(file); // fresh, reseeded
+    const fresh = license.status(db);
+    assert.equal(fresh.present, false, 'no licence row after deletion');
+    assert.equal(fresh.trial_started, true, 'marker remembers the trial');
+    const s = license.activateDemo(db);
+    assert.ok(s.days_remaining <= 46 && s.days_remaining >= 44, `days=${s.days_remaining}`);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('importing the bundled demo file cannot restart the trial', () => {
+  const { db, dir } = freshDb();
+  try {
+    license.activateDemo(db);
+    db.prepare('UPDATE tbl_License SET trial_started_at=? WHERE id=1').run(daysAgo(45));
+    const s = license.importLicence(db, license.demoLicence());
+    assert.ok(s.days_remaining <= 46 && s.days_remaining >= 44, `days=${s.days_remaining}`);
   } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
 });
 

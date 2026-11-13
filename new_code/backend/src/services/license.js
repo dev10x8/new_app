@@ -1,5 +1,5 @@
 import { createPublicKey, verify as cryptoVerify, createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { networkInterfaces, hostname, platform, release } from 'node:os';
@@ -110,32 +110,80 @@ function loadRow(db) {
   return get(db, 'SELECT * FROM tbl_License WHERE id=1');
 }
 
+// ------------------------------------------------------ demo (one-time trial)
+// A hidden marker beside the database records that the trial has been used, so
+// deleting the DB (or clearing the licence) and re-installing does not restart
+// the 90 days. This is anti-casual, not tamper-proof: a determined user with
+// admin rights can delete the file and re-install. Genuine protection needs the
+// term anchored to something the customer cannot reset (e.g. a portal-issued
+// licence), which is what the paid path already does.
+const MARKER = '.vl-trial';
+
+function markerPath(db) {
+  try {
+    const loc = typeof db.location === 'function' ? db.location() : '';
+    return loc ? join(dirname(String(loc)), MARKER) : '';
+  } catch { return ''; }
+}
+
+function readMarker(db) {
+  const p = markerPath(db);
+  if (!p) return '';
+  try { return readFileSync(p, 'utf8').trim(); } catch { return ''; }
+}
+
+function writeMarker(db, value) {
+  const p = markerPath(db);
+  if (!p) return;
+  try { writeFileSync(p, value); } catch { /* best effort */ }
+}
+
+/** Summary of the one-time demo for the UI: has it run, and how long is left. */
+function trialInfo(startedAt, used) {
+  if (!used || !startedAt) {
+    return { trial_started: false, trial_started_at: '', trial_days_remaining: DEMO_DAYS, trial_expired: false };
+  }
+  const until = addDays(startedAt, DEMO_DAYS);
+  const remaining = Math.max(0, daysBetween(today(), until));
+  return { trial_started: true, trial_started_at: startedAt, trial_days_remaining: remaining, trial_expired: remaining <= 0 };
+}
+
 /** Load and decode the demo licence bundled with the app. */
 export function demoLicence() {
   const file = join(here, '..', 'license', 'demo.vlic');
   return JSON.parse(readFileSync(file, 'utf8'));
 }
 
-/** Activate the bundled demo on this machine: bind it and start its clock. */
+/**
+ * Start the bundled demo. The 90-day term is one-time per machine: the earliest
+ * of the DB row and the on-disk marker is the permanent trial start, so a repeat
+ * call resumes the remaining days instead of granting a fresh 90.
+ */
 export function activateDemo(db, actor = 'desktop') {
   const demo = demoLicence();
   if (!verify(demo.payload, demo.signature)) {
     throw Object.assign(new Error('The bundled demo licence failed verification'), { status: 500 });
   }
-  const fp = fingerprint();
-  const from = today();
+  const row = loadRow(db);
+  const prior = (row && row.kind === 'demo' && row.trial_started_at) ? row.trial_started_at : '';
+  const candidates = [prior, readMarker(db)].filter(Boolean).sort();
+  const from = candidates[0] || today();
   const until = addDays(from, Number(demo.demo_days) || DEMO_DAYS);
   store(db, {
     kind: 'demo',
     license_id: demo.license_id,
     payload: demo.payload,
     signature: demo.signature,
-    machine_hash: fp.machine_hash,
+    machine_hash: fingerprint().machine_hash,
     valid_from: from,
     valid_until: until,
+    trial_started_at: from,
+    trial_used: 1,
   }, actor);
+  writeMarker(db, from);
   return status(db);
 }
+
 
 /**
  * Import a portal-issued `.vlic`. The signature must verify against the pinned
@@ -156,15 +204,29 @@ export function importLicence(db, file, actor = 'desktop') {
   if (bound && bound !== fp.machine_hash) {
     throw Object.assign(new Error('This licence is bound to a different machine'), { status: 403 });
   }
+  // A demo file (bundled or imported) still obeys the one-time trial: the clock
+  // is the earliest known trial start, never a fresh term from today.
+  const isDemo = payload.kind === 'demo';
+  const row = loadRow(db);
+  const prior = (row && row.kind === 'demo' && row.trial_started_at) ? row.trial_started_at : '';
+  const from = isDemo
+    ? ([prior, readMarker(db)].filter(Boolean).sort()[0] || today())
+    : (payload.valid_from || today());
+  const until = isDemo
+    ? addDays(from, Number(payload.demo_days) || DEMO_DAYS)
+    : (payload.valid_until || addDays(today(), Number(payload.demo_days) || DEMO_DAYS));
   store(db, {
-    kind: payload.kind === 'demo' ? 'demo' : 'issued',
+    kind: isDemo ? 'demo' : 'issued',
     license_id: payload.license_id,
     payload,
     signature: doc.signature,
     machine_hash: bound || fp.machine_hash,
-    valid_from: payload.valid_from || today(),
-    valid_until: payload.valid_until || addDays(today(), Number(payload.demo_days) || DEMO_DAYS),
+    valid_from: from,
+    valid_until: until,
+    trial_started_at: isDemo ? from : (row && row.trial_started_at) || '',
+    trial_used: isDemo ? 1 : (row && row.trial_used) || 0,
   }, actor);
+  if (isDemo) writeMarker(db, from);
   return status(db);
 }
 
@@ -176,15 +238,17 @@ function store(db, l, actor) {
   const sealed = seal({ payload: l.payload, signature: l.signature, machine_hash: l.machine_hash,
     kind: l.kind, valid_from: l.valid_from, valid_until: l.valid_until });
   run(db, `INSERT INTO tbl_License
-    (id, kind, license_id, machine_hash, payload, signature, sealed, valid_from, valid_until, activated_at, updatedat)
-    VALUES (1,?,?,?,?,?,?,?,?,?,?)
+    (id, kind, license_id, machine_hash, payload, signature, sealed, valid_from, valid_until, activated_at, updatedat, trial_started_at, trial_used)
+    VALUES (1,?,?,?,?,?,?,?,?,?,?,?,?)
     ON CONFLICT(id) DO UPDATE SET
       kind=excluded.kind, license_id=excluded.license_id, machine_hash=excluded.machine_hash,
       payload=excluded.payload, signature=excluded.signature, sealed=excluded.sealed,
       valid_from=excluded.valid_from, valid_until=excluded.valid_until,
-      activated_at=excluded.activated_at, updatedat=excluded.updatedat`,
+      activated_at=excluded.activated_at, updatedat=excluded.updatedat,
+      trial_started_at=excluded.trial_started_at, trial_used=excluded.trial_used`,
     [l.kind, l.license_id, l.machine_hash, canonicalJson(l.payload), l.signature, sealed,
-      l.valid_from, l.valid_until, l.valid_from, new Date().toISOString()]);
+      l.valid_from, l.valid_until, l.valid_from, new Date().toISOString(),
+      l.trial_started_at || '', l.trial_used ? 1 : 0]);
   void actor;
 }
 
@@ -203,11 +267,16 @@ export function status(db) {
   const row = loadRow(db);
   const fp = fingerprint();
   if (!row) {
-    return { present: false, state: 'none', severity: 'hard', days_remaining: 0, machine_hash: fp.machine_hash };
+    const trialStart = readMarker(db);
+    const trial = trialInfo(trialStart, trialStart !== '');
+    return { present: false, state: 'none', severity: 'hard', days_remaining: 0, machine_hash: fp.machine_hash, ...trial };
   }
   let payload;
   try { payload = JSON.parse(row.payload); } catch { payload = null; }
   const signatureOk = payload ? verify(payload, row.signature) : false;
+  // Earliest of the DB row and the on-disk marker is the permanent trial start.
+  const trialStart = [row.trial_started_at, readMarker(db)].filter(Boolean).sort()[0] || '';
+  const trial = trialInfo(trialStart, Boolean(row.trial_used) || trialStart !== '');
   const base = {
     present: true,
     kind: row.kind,
@@ -221,6 +290,7 @@ export function status(db) {
     entitlements: payload ? payload.entitlements || [] : [],
     machine_hash: fp.machine_hash,
     machine_ok: String(payload?.machine_hash || '') === '' || payload?.machine_hash === fp.machine_hash,
+    ...trial,
   };
   if (!signatureOk) return { ...base, state: 'invalid', severity: 'hard', days_remaining: 0 };
 

@@ -118,13 +118,17 @@ async function boot() {
   reloadNav();
   // First run: activate the bundled 90-day demo (bound to this machine) and show
   // the licence screen so the customer sees the term and can import a real
-  // licence or read the fingerprint.
+  // licence or read the fingerprint. The demo is one-time per machine, so a
+  // machine whose trial was already used is taken to the licence screen instead
+  // of being silently re-activated.
   let firstRun = false;
   try {
     state.license = await api.license();
     if (state.license && !state.license.present) {
       firstRun = true;
-      state.license = await api.activateDemo();
+      if (!state.license.trial_started) {
+        state.license = await api.activateDemo();
+      }
     }
   } catch { state.license = null; }
   renderLicenseBanner();
@@ -137,7 +141,12 @@ function renderLicenseBanner() {
   const b = el('license-banner');
   const lic = state.license;
   if (!lic || lic.severity === 'ok') { b.hidden = true; return; }
-  const msg = lic.state === 'none' ? 'No licence is active — start the demo or import a licence to post transactions.'
+  const msg = lic.state === 'none'
+    ? (lic.trial_expired
+      ? 'The 90-day demo has ended and no licence is active — import a licence to post transactions.'
+      : lic.trial_started
+        ? `Demo already used on this machine (${lic.trial_days_remaining} day(s) left) — import a licence to continue after it ends.`
+        : 'No licence is active — start the demo or import a licence to post transactions.')
     : lic.state === 'grace' ? `Licence past its term; running in grace (${lic.grace_remaining} day(s) left).`
       : lic.state === 'invalid' ? 'Licence failed verification. Import a valid licence.'
         : 'Licence expired — posting is disabled until you renew.';
