@@ -121,7 +121,9 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   On other platforms, or if the exe build fails, it falls back to the source
   layout (`runtime/node` + `runtime/backend/src`). This is **obfuscation, not
   encryption**: SEA embeds the bundle verbatim and minify only hides it, so a
-  determined reverse-engineer can still recover the logic.
+  determined reverse-engineer can still recover the logic. Planned hardening
+  (javascript-obfuscator in the build, server-side migration of sensitive logic,
+  Rust/packer trade-offs) is designed in `new_code/docs/BACKEND_CODE_PROTECTION.md`.
   On launch the Rust shell (`src-tauri/src/lib.rs`) spawns the backend exe (or
   `runtime/node runtime/backend/src/server.js` in dev), waits for
   `127.0.0.1:7100`, and kills the child on exit. The DB lives in a
