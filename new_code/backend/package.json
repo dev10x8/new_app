@@ -11,6 +11,8 @@
     "gen-schema": "python3 scripts/gen_schema.py",
     "seed": "node scripts/seed.js",
     "reset-db": "node scripts/reset.js",
+    "reset-pin": "node scripts/reset-pin.js",
+    "reset-admin-pin": "node scripts/reset-pin.js",
     "test": "node --test"
   }
 }
