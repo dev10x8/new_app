@@ -213,6 +213,11 @@ this repo as binaries under `Debug/` (Git LFS pointers) and `.dll` files.
   materialised stock table.
 - The web UI is framework-free: one route table (`web/menu.js`) drives the
   sidebar; screens live in `web/screens.js`; there are no build-time deps.
-  The sidebar shows group headers only; clicking one expands its items below it
-  (one group at a time). `ROUTE_GROUP` maps a route to its group so the active
-  group opens and highlights; a route must not be shared by two menu items.
+  The sidebar shows group headers only; two nav modes (footer button, saved in
+  `localStorage.navMode`) choose where submenus appear:
+  - `expand` (Option A): clicking a header expands its items inline (one group
+    at a time). `ROUTE_GROUP` maps a route to its group so the active group
+    opens and highlights; a route must not be shared by two menu items.
+  - `cards` (Option B): clicking a header opens a `group:<title>` launcher in
+    the main panel that shows the group's items as clickable boxes.
+  Both options are documented in `new_code/docs/UI_NAV_DESIGN.md`.

@@ -1,11 +1,23 @@
 import { api } from './api.js';
-import { NAV, ROUTE_TITLES, ROUTE_GROUP } from './menu.js';
+import { NAV, ROUTE_TITLES, ROUTE_GROUP, groupRoute, isGroupRoute, groupOfRoute } from './menu.js';
 import { h, setServerToday } from './ui.js';
 import { navIcon, groupIcon, svgIcon } from './icons.js';
 import { getTheme, applyTheme, toggleTheme } from './theme.js';
 import { screens } from './screens.js';
 
-const state = { user: null, meta: null, route: 'dashboard', license: null, open: null };
+// Navigation modes:
+//   'expand' — Option A: clicking a sidebar group expands its submenu inline.
+//   'cards'  — Option B: the sidebar lists groups only; clicking one opens a
+//              launcher of small boxes in the main panel.
+const NAV_MODES = ['expand', 'cards'];
+const navMode = () => {
+  const m = localStorage.getItem('navMode');
+  return NAV_MODES.includes(m) ? m : 'expand';
+};
+
+const state = {
+  user: null, meta: null, route: 'dashboard', license: null, open: null, mode: navMode(),
+};
 
 const el = (id) => document.getElementById(id);
 
@@ -43,9 +55,9 @@ const ctx = {
 // -------------------------------------------------------------- routing
 export function navigate(route) {
   state.route = route;
-  // Keep the owning group open so the active item is visible, then re-render
-  // the sidebar (single source of truth for the open group + active item).
-  state.open = ROUTE_GROUP[route] || null;
+  // In expand mode keep the owning group open so the active item is visible.
+  // In cards mode the sidebar has no open group; the launcher lives in main.
+  state.open = state.mode === 'expand' ? (ROUTE_GROUP[route] || null) : null;
   renderNav();
   void renderRoute();
   document.querySelector('.sidebar')?.classList.remove('open');
@@ -62,7 +74,8 @@ let renderToken = 0;
 async function renderRoute() {
   const route = state.route;
   const token = ++renderToken;
-  el('page-title').textContent = ROUTE_TITLES[route] || 'VanijLiquor';
+  const grp = groupOfRoute(route);
+  el('page-title').textContent = grp ? grp.title : (ROUTE_TITLES[route] || 'VanijLiquor');
   setPage(h('div', { class: 'loading' }, h('span', { class: 'spinner' }), 'Loading…'));
   try {
     const node = await screens(route, ctx);
@@ -78,17 +91,36 @@ async function renderRoute() {
 }
 
 // -------------------------------------------------------------- sidebar
-// The sidebar shows group headers only. Clicking a header toggles its items
-// inline (one open at a time); the group owning the current route opens on
-// navigation so the active item is always visible.
+// 'expand' mode (Option A): the sidebar shows group headers; clicking one
+// toggles its items inline (one open at a time); the group owning the current
+// route opens on navigation so the active item is always visible.
+// 'cards' mode (Option B): the sidebar shows group headers only; clicking one
+// opens the group's launcher in the main panel.
 function renderNav() {
   const nav = el('sidebar-nav');
   if (!state.user) { nav.replaceChildren(); return; }
-  const activeGroup = ROUTE_GROUP[state.route] || null;
+  nav.dataset.mode = state.mode;
+  const activeGroup = state.mode === 'cards'
+    ? (groupOfRoute(state.route)?.title || null)
+    : (ROUTE_GROUP[state.route] || null);
 
   nav.replaceChildren(...NAV.map((g) => {
-    const open = state.open === g.title;
+    const open = state.mode === 'expand' && state.open === g.title;
     const active = g.title === activeGroup;
+    const head = h('button', {
+      class: 'nav-group-head',
+      'aria-expanded': String(open),
+      onclick: () => (state.mode === 'cards'
+        ? navigate(groupRoute(g.title))
+        : (state.open = open ? null : g.title, renderNav())),
+    }, groupIcon(g.title), h('span', { class: 'nav-group-title' }, g.title),
+      state.mode === 'expand'
+        ? h('span', { class: 'nav-chevron' }, svgIcon('chevron', 14))
+        : h('span', { class: 'nav-chevron' }, svgIcon('chevron-right', 14)));
+
+    if (state.mode === 'cards') {
+      return h('div', { class: `nav-group${active ? ' active' : ''}` }, head);
+    }
     const items = h('div', { class: 'nav-items' },
       h('div', { class: 'nav-items-inner' },
         ...g.items.map((it) => h('button', {
@@ -96,14 +128,7 @@ function renderNav() {
           dataset: { route: it.route },
           onclick: () => navigate(it.route),
         }, navIcon(it.route, g.title), h('span', {}, it.title)))));
-    return h('div', { class: `nav-group${open ? ' open' : ''}${active ? ' active' : ''}` },
-      h('button', {
-        class: 'nav-group-head',
-        'aria-expanded': String(open),
-        onclick: () => { state.open = open ? null : g.title; renderNav(); },
-      }, groupIcon(g.title), h('span', { class: 'nav-group-title' }, g.title),
-        h('span', { class: 'nav-chevron' }, svgIcon('chevron', 14))),
-      items);
+    return h('div', { class: `nav-group${open ? ' open' : ''}${active ? ' active' : ''}` }, head, items);
   }));
 }
 
@@ -132,8 +157,9 @@ async function boot() {
   el('company-pill').textContent = `Company ${state.meta?.company ?? 1}`;
   el('year-pill').textContent = `Year ${state.meta?.year ?? 2024}`;
   el('clock-warning').hidden = !state.meta?.clockRolledBack;
-  state.open = ROUTE_GROUP[state.route] || null;
+  state.open = state.mode === 'expand' ? (ROUTE_GROUP[state.route] || null) : null;
   renderNav();
+  paintModeBtn();
   // First run: activate the bundled 90-day demo (bound to this machine) and show
   // the licence screen so the customer sees the term and can import a real
   // licence or read the fingerprint. The demo is one-time per machine, so a
@@ -206,12 +232,38 @@ function showDiagnostics(text) {
   el('login-form').appendChild(pre);
 }
 
+/** Label the nav-mode toggle for the mode it will switch to. */
+function paintModeBtn() {
+  const b = el('nav-mode-toggle');
+  if (!b) return;
+  b.textContent = state.mode === 'expand' ? 'Cards menu' : 'Expand menu';
+  b.title = state.mode === 'expand'
+    ? 'Switch to cards menu (submenus open as boxes in the main panel)'
+    : 'Switch to expand menu (submenus expand inline in the sidebar)';
+}
+
 function init() {
   applyTheme(getTheme());
   const themeBtn = el('theme-toggle');
   const paintThemeBtn = () => themeBtn.replaceChildren(svgIcon(getTheme() === 'dark' ? 'sun' : 'moon', 16));
   paintThemeBtn();
   themeBtn.addEventListener('click', () => { toggleTheme(); paintThemeBtn(); });
+
+  paintModeBtn();
+  el('nav-mode-toggle').addEventListener('click', () => {
+    state.mode = state.mode === 'expand' ? 'cards' : 'expand';
+    localStorage.setItem('navMode', state.mode);
+    state.open = state.mode === 'expand' ? (ROUTE_GROUP[state.route] || null) : null;
+    paintModeBtn();
+    renderNav();
+    // Landing on a group route with no launcher target: fall back to its first item.
+    if (state.mode === 'expand' && isGroupRoute(state.route)) {
+      const g = groupOfRoute(state.route);
+      if (g) navigate(g.items[0].route);
+    } else {
+      void renderRoute();
+    }
+  });
 
   el('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();

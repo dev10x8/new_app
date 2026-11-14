@@ -1,5 +1,7 @@
 import { api } from './api.js';
 import { h, table, form, field, input, select, money, num, today, kpi, delta } from './ui.js';
+import { groupOfRoute, isGroupRoute } from './menu.js';
+import { groupIcon, navIcon, svgIcon } from './icons.js';
 
 // Primary-key columns per master (mirrors backend/src/services/masters.js).
 const MASTER_PK = {
@@ -2041,7 +2043,36 @@ async function landedCostScreen(ctx) {
     card('Item-wise margin summary', itemsOut));
 }
 
+// ------------------------------------------------------- group launcher
+/** Option B landing screen: a group's items shown as small clickable boxes. */
+async function groupLauncher(ctx, route) {
+  const group = groupOfRoute(route);
+  if (!group) {
+    return h('div', { class: 'card' }, h('h3', {}, 'Menu group not found'),
+      h('p', { class: 'muted' }, `No group for "${route}".`));
+  }
+  const active = ctx.state.route;
+  const boxes = h('div', { class: 'launcher-grid' },
+    ...group.items.map((it) => h('button', {
+      class: `launcher-card${it.route === active ? ' active' : ''}`,
+      onclick: () => ctx.navigate(it.route),
+    },
+    h('span', { class: 'launcher-icon' }, navIcon(it.route, group.title)),
+    h('span', { class: 'launcher-label' }, it.title),
+    h('span', { class: 'launcher-go' }, svgIcon('chevron-right', 16)))));
+
+  return h('div', {},
+    h('div', { class: 'launcher-head' },
+      h('span', { class: 'launcher-head-icon' }, groupIcon(group.title)),
+      h('div', {},
+        h('h3', {}, group.title),
+        h('p', { class: 'muted small' }, `${group.items.length} item(s) — pick one to open`))),
+    boxes);
+}
+
+
 export async function screens(route, ctx) {
+  if (isGroupRoute(route)) return groupLauncher(ctx, route);
   if (route === 'dashboard') return dashboard(ctx);
   if (route === 'dash:sales') return dashboard(ctx);
   if (route === 'sysadmin') return systemAdmin(ctx);

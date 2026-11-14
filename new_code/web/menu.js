@@ -145,3 +145,21 @@ export const ROUTE_GROUP = (() => {
   for (const g of NAV) for (const it of g.items) m[it.route] = g.title;
   return m;
 })();
+
+// ---------------------------------------------------------------- launcher
+// Option B navigation ("cards"): the sidebar lists group headers only and each
+// header opens a launcher screen in the main panel that shows the group's items
+// as small clickable boxes. A launcher route is `group:<title>`.
+
+/** The launcher route id for a group title. */
+export const groupRoute = (title) => `group:${title}`;
+
+/** True for a `group:<title>` launcher route. */
+export const isGroupRoute = (route) => typeof route === 'string' && route.startsWith('group:');
+
+/** The NAV group for a `group:<title>` launcher route (or null). */
+export function groupOfRoute(route) {
+  if (!isGroupRoute(route)) return null;
+  const title = route.slice('group:'.length);
+  return NAV.find((g) => g.title === title) || null;
+}
