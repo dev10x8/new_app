@@ -199,6 +199,47 @@ function daySales(db, company, year, date) {
   return { bills: r.bills || 0, net: money(r.net || 0) };
 }
 
+/** Payment bucket for a sale type (legacy salestype values are free text). */
+function payBucket(salestype) {
+  const t = String(salestype || '').toUpperCase();
+  if (t === 'RETURN') return 'returns';
+  if (t.includes('CARD')) return 'card';
+  if (t.includes('CREDIT')) return 'credit';
+  if (t === 'CASH' || t === 'CS' || t.includes('CASH')) return 'cash';
+  return 'other';
+}
+
+/** Today's till session: bills and collections split by payment mode, plus
+ *  bottles sold — the left-hand metrics the legacy POS dashboard shows. */
+function todaySession(db, company, year, today) {
+  const byType = all(db,
+    `SELECT salestype, COUNT(*) AS bills, COALESCE(SUM(netamount),0) AS net
+       FROM salesbillmain
+      WHERE companycode=? AND yearcode=? AND trndate=?
+      GROUP BY salestype`,
+    [company, year, today]);
+  const buckets = { cash: 0, card: 0, credit: 0, returns: 0, other: 0 };
+  let bills = 0;
+  let net = 0;
+  for (const r of byType) {
+    buckets[payBucket(r.salestype)] = money(buckets[payBucket(r.salestype)] + r.net);
+    bills += r.bills;
+    net = money(net + r.net);
+  }
+  const bottles = get(db,
+    `SELECT COALESCE(SUM(d.qnty),0) AS bottles
+       FROM salesbilldetail d
+       JOIN salesbillmain m ON m.companycode=d.companycode AND m.yearcode=d.yearcode AND m.trnno=d.trnno
+      WHERE m.companycode=? AND m.yearcode=? AND m.trndate=? AND UPPER(m.salestype)<>'RETURN'`,
+    [company, year, today]);
+  return {
+    date: today, bills, net,
+    bottles: Number(bottles.bottles) || 0,
+    cash: buckets.cash, card: buckets.card, credit: buckets.credit,
+    returns: Math.abs(buckets.returns), other: buckets.other,
+  };
+}
+
 /** The figures the dashboard screen adds on top of the totals. */
 function dashboardExtras(db, company, year) {
   const today = clockToday();
@@ -207,6 +248,7 @@ function dashboardExtras(db, company, year) {
     today,
     todaySales: daySales(db, company, year, today),
     yesterdaySales: daySales(db, company, year, yesterday),
+    todaySession: todaySession(db, company, year, today),
     salesSeries: salesSeries(db, company, year, today, 7),
     lowStock: lowStock(db, { company, year }).slice(0, 8)
       .map((i) => ({ itemcode: i.itemcode, itemname: i.itemname, qty: i.qty, minlevel: i.minlevel, status: i.status })),

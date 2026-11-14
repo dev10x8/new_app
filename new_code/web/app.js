@@ -25,6 +25,7 @@ const cachedNavMode = () => {
 const state = {
   user: null, meta: null, route: 'dashboard', license: null, open: null,
   mode: urlNavMode() || cachedNavMode() || 'expand',
+  params: null,
 };
 
 const el = (id) => document.getElementById(id);
@@ -78,8 +79,9 @@ const ctx = {
 };
 
 // -------------------------------------------------------------- routing
-export function navigate(route) {
+export function navigate(route, params = null) {
   state.route = route;
+  state.params = params;
   // In expand mode keep the owning group open so the active item is visible.
   // In cards mode the sidebar has no open group; the launcher lives in main.
   state.open = state.mode === 'expand' ? (ROUTE_GROUP[route] || null) : null;

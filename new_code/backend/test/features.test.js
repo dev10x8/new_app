@@ -339,6 +339,32 @@ test('tally sync: inbound masters are received and applied', () => {
   } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
 });
 
+test('counter sale: per-line discount, surcharge and rounding balance the bill', () => {
+  const { db, dir } = freshDb();
+  try {
+    // 10 x 100 = 1000, 10% line discount -> 900 line amount; +10% surcharge on
+    // the gross, +0.40 rounding -> 900 + 100 + 0.40 = 1000.40.
+    const r = sales.createSale(db, {
+      company: COMPANY, year: YEAR, trndate: '2024-04-06', storecode: 'CNT1', salestype: 'CREDIT CARD',
+      ledgercode: 'C00001',
+      lines: [{ itemcode: 'I00001', qnty: 10, rate: 100, discp: 10 }],
+      surcharge: 100, roundoff: 0.4,
+    });
+    assert.equal(r.amount, 900);
+    assert.equal(r.surcharge, 100);
+    assert.equal(r.roundoff, 0.4);
+    assert.equal(r.netamount, 1000.4);
+    const detail = get(db, 'SELECT * FROM salesbilldetail WHERE companycode=? AND yearcode=? AND trnno=?',
+      [COMPANY, YEAR, r.trnno]);
+    assert.equal(detail.itemAmount, 900);
+    // The voucher must balance: Dr party = Cr sales + Cr surcharge + Cr rounding.
+    const jd = db.prepare(
+      `SELECT COALESCE(SUM(debit),0) AS d, COALESCE(SUM(credit),0) AS c
+         FROM journaldetail WHERE companycode=? AND yearcode=? AND trnno=?`).get(COMPANY, YEAR, r.trnno);
+    assert.equal(Math.round(jd.d * 100), Math.round(jd.c * 100));
+  } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
+});
+
 test('tally sync: token guard and sync report', () => {
   const { db, dir } = freshDb();
   try {

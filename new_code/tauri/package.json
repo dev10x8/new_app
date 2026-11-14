@@ -1,6 +1,6 @@
 {
   "name": "vanijliquor-tauri",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": true,
   "description": "Tauri (Web + Rust) desktop shell for VanijLiquor",
   "scripts": {

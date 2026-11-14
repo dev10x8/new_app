@@ -53,27 +53,39 @@ export function createSale(db, sale) {
       if (!item) throw new Error(`Unknown item ${line.itemcode}`);
       const rate = money(line.rate ?? item.salesrate ?? 0);
       const qty = Number(line.qnty) || 0;
-      const lineAmount = money(rate * qty);
+      // Per-line discount (legacy item-wise discount): a percentage, or an
+      // absolute amount. It lowers the line's taxable value, so GST is charged
+      // on the discounted amount - the same way the legacy grid's "TOTAL AMOUNT"
+      // column already had the line discount netted out.
+      const gross = money(rate * qty);
+      const lineDisc = money(line.discp ? money(gross * Number(line.discp) / 100) : (Number(line.discount) || 0));
+      const lineAmount = money(gross - lineDisc);
       amount = money(amount + lineAmount);
       // GST: split the line into taxable value + tax components (legacy logic).
       const tax = itemTax(db, sale.company, line.itemcode);
       const gst = lineGst(lineAmount, tax);
       gstTotal = money(gstTotal + gst.cgst + gst.sgst + gst.igst + gst.cess + gst.addcess);
-      resolved.push({ item, rate, qty, lineAmount, gst, tax, mrp: money(line.mrp ?? item.salesrate ?? 0), ...line });
+      resolved.push({ item, rate, qty, lineAmount, lineDisc, gst, tax, mrp: money(line.mrp ?? item.salesrate ?? 0), ...line });
     }
 
     const discamount = money(sale.discount || 0);
-    const netamount = money(amount - discamount);
+    // Credit-card surcharge and cash rounding (legacy: txt_surchargerate /
+    // txt_rnd). Both default to 0, so a plain sale is unaffected.
+    const surcharge = money(sale.surcharge || 0);
+    const roundoff = money(sale.roundoff || 0);
+    const netamount = money(amount - discamount + surcharge + roundoff);
 
     run(
       db,
       `INSERT INTO salesbillmain
          (companycode, trnno, trndate, ledgercode, amount, salestype, ratecode, storecode, yearcode,
-          discamount, netamount, account_head, discount_account_head, trntime, trnid, discount_reason, KFL, igst)
-       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+          discamount, netamount, account_head, discount_account_head, trntime, trnid, discount_reason, KFL, igst,
+          surcharge, roundoff)
+       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
       [sale.company, trnno, trndate, ledgercode, amount, sale.salestype, ratecode, sale.storecode, sale.year,
        discamount, netamount, params.SaleAccount_Head || 'L00003', params.discntacc || 'L00005',
-       trndate, trnid, sale.discountReason || null, sale.kfl || 'none', money(gstTotal)],
+       trndate, trnid, sale.discountReason || null, sale.kfl || 'none', money(gstTotal),
+       surcharge, roundoff],
     );
 
     for (const r of resolved) {
@@ -103,6 +115,12 @@ export function createSale(db, sale) {
     if (discamount > 0) {
       lines.push({ ledcode: discLed, debit: sign > 0 ? discamount : 0, credit: sign < 0 ? discamount : 0, narr: `Discount ${trnno}` });
     }
+    if (surcharge !== 0) {
+      lines.push({ ledcode: params.surcharge_account_head || saleLed, debit: sign * surcharge < 0 ? Math.abs(surcharge) : 0, credit: sign * surcharge > 0 ? Math.abs(surcharge) : 0, narr: `Surcharge ${trnno}` });
+    }
+    if (roundoff !== 0) {
+      lines.push({ ledcode: params.rndoffacc || discLed, debit: sign * roundoff < 0 ? Math.abs(roundoff) : 0, credit: sign * roundoff > 0 ? Math.abs(roundoff) : 0, narr: `Rounding ${trnno}` });
+    }
 
     run(db, 'INSERT INTO trnidmst (companycode, yearcode, trnid, trn_type, usercode) VALUES (?,?,?,?,?)',
       [sale.company, sale.year, trnid, 'SALE', sale.userId || null]);
@@ -121,7 +139,7 @@ export function createSale(db, sale) {
     try { captureSale(db, { company: sale.company, year: sale.year, trnno }); }
     catch { /* excise queueing is non-fatal */ }
 
-    return { trnno, trnid, amount, discamount, netamount, gst: money(gstTotal),
+    return { trnno, trnid, amount, discamount, surcharge, roundoff, netamount, gst: money(gstTotal),
       prefix: billPrefix(sale.salestype), lines: resolved.length,
       date: trndate, date_warning: dateCheck.backdated ? `back-dated by ${dateCheck.backdated_days} day(s)` : null,
       clock_rolled_back: dateCheck.clock_rolled_back };

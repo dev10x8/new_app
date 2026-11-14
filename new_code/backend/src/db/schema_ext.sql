@@ -559,6 +559,10 @@ ALTER TABLE [salesbilldetail] ADD COLUMN [addcess] REAL;
 ALTER TABLE [salesbilldetail] ADD COLUMN [gstp] REAL;
 ALTER TABLE [salesbillmain] ADD COLUMN [igst] REAL;
 
+-- ---- Counter sale: credit-card surcharge and cash rounding on the bill ----
+ALTER TABLE [salesbillmain] ADD COLUMN [surcharge] REAL;
+ALTER TABLE [salesbillmain] ADD COLUMN [roundoff] REAL;
+
 ALTER TABLE [purchasedetail] ADD COLUMN [taxable] REAL;
 ALTER TABLE [purchasedetail] ADD COLUMN [cgst] REAL;
 ALTER TABLE [purchasedetail] ADD COLUMN [sgst] REAL;

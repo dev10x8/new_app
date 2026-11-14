@@ -1,6 +1,6 @@
 [package]
 name = "vanijliquor"
-version = "1.0.8"
+version = "1.0.9"
 description = "VanijLiquor — Bar & Liquor POS (Tauri desktop shell)"
 edition = "2021"
 rust-version = "1.77"

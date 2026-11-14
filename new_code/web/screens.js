@@ -49,34 +49,59 @@ const formValues = (f) => Object.fromEntries(
 // --------------------------------------------------------------- login/dash
 async function dashboard(ctx) {
   const d = await api.dashboard();
+  const s = d.todaySession || {};
   const series = (d.salesSeries || []).map((r) => r.net);
   const trend = delta(d.yesterdaySales?.net, d.todaySales?.net);
 
-  const quick = h('div', { class: 'card' }, h('h3', {}, 'Quick actions'),
-    h('div', { class: 'list-menu' },
-      h('button', { onclick: () => ctx.navigate('sale') }, '＋ New Sale'),
-      h('button', { onclick: () => ctx.navigate('reports:sales') }, 'Sales Reports'),
-      h('button', { onclick: () => ctx.navigate('items') }, 'Item Master')));
+  // ---- Navigation header (legacy frmDashboardShow top strip) --------------
+  // The modules staff reach for most often, kept on the landing screen so a
+  // task like a stock adjustment or a lookup never needs a trip to the sidebar.
+  const navModules = [
+    { label: 'Reports', route: 'reports:sales' },
+    { label: 'Purchase', route: 'purchase' },
+    { label: 'Stock Transfer', route: 'stock-transfer' },
+    { label: 'ePOS', route: 'upi' },
+    { label: 'Item Master', route: 'items' },
+  ];
+  const navHeader = h('div', { class: 'dash-nav' },
+    h('span', { class: 'dash-nav-brand' }, 'Business Dashboard'),
+    h('div', { class: 'dash-nav-links' },
+      ...navModules.map((m) => h('button', { class: 'dash-nav-link', onclick: () => ctx.navigate(m.route) }, m.label))));
 
-  return h('div', {},
+  // ---- Session sidebar (left) — real-time till metrics --------------------
+  const metric = (label, value, opts = {}) => h('div', { class: `dash-metric${opts.strong ? ' strong' : ''}` },
+    h('span', { class: 'dash-metric-k' }, label),
+    h('span', { class: 'dash-metric-v' }, opts.money ? money(value) : num(value)));
+  const sidebar = h('aside', { class: 'dash-side' },
+    h('div', { class: 'card dash-side-card' },
+      h('h3', {}, 'Today’s session'),
+      h('p', { class: 'muted small' }, s.date || d.today || ''),
+      metric('Bottles sold', s.bottles || 0, { strong: true }),
+      metric('Cash collection', s.cash || 0, { money: true }),
+      metric('Card collection', s.card || 0, { money: true }),
+      metric('Credit (party)', s.credit || 0, { money: true }),
+      metric('Sales returns', s.returns || 0, { money: true }),
+      h('div', { class: 'dash-side-foot' },
+        metric('Bills today', s.bills || 0),
+        metric('Net sales', s.net || 0, { money: true }))));
+
+  // ---- Action / control panel (legacy bt_cash / bt_card / bt_return / bt_expense)
+  const actionPanel = h('div', { class: 'card dash-actions' },
+    h('h3', {}, 'Quick till actions'),
+    h('div', { class: 'dash-action-grid' },
+      h('button', { class: 'dash-action cash', onclick: () => ctx.navigate('sale', { mode: 'CASH' }) }, 'Cash Sale'),
+      h('button', { class: 'dash-action card', onclick: () => ctx.navigate('sale', { mode: 'CREDIT CARD' }) }, 'Credit Card'),
+      h('button', { class: 'dash-action return', onclick: () => ctx.navigate('sale', { mode: 'RETURN' }) }, 'Sales Return'),
+      h('button', { class: 'dash-action expense', onclick: () => ctx.openModal('Expenses', expenseForm(ctx, ctx.state.params || {})) }, 'Log Expense')));
+
+  // ---- Central data grid — the primary workspace --------------------------
+  const central = h('div', { class: 'dash-center' },
     h('div', { class: 'grid cols-4' },
       kpi({ label: "Today's Sales", value: d.todaySales?.net, money: true, trend, series }),
       kpi({ label: 'Bills Today', value: d.todaySales?.bills }),
       kpi({ label: 'Stock Value', value: d.stockValue, money: true }),
       kpi({ label: 'Low Stock', value: (d.lowStock || []).length })),
-    h('div', { class: 'section-title' }, 'Sales — last 7 days'),
-    h('div', { class: 'grid cols-4' },
-      kpi({ label: 'Sales Net (YTD)', value: d.sales.net, money: true }),
-      kpi({ label: 'Sales Bills (YTD)', value: d.sales.bills }),
-      kpi({ label: 'Purchase Net (YTD)', value: d.purchase.net, money: true }),
-      kpi({ label: 'Stock Lines', value: d.stockLines })),
-    h('div', { class: 'grid cols-2' }, quick, h('div', { class: 'card' },
-      h('h3', {}, 'Low stock'),
-      table([
-        { key: 'itemname', title: 'Item' },
-        { key: 'qty', title: 'Qty', num: true },
-        { key: 'status', title: 'Status', badge: (r) => (r.status === 'OUT' ? 'danger' : 'warn') },
-      ], d.lowStock || []))),
+    actionPanel,
     h('div', { class: 'section-title' }, 'Recent bills'),
     table([
       { key: 'trnno', title: 'Bill' },
@@ -84,6 +109,29 @@ async function dashboard(ctx) {
       { key: 'party', title: 'Party' },
       { key: 'netamount', title: 'Net', num: true },
     ], d.recentBills || []));
+
+  return h('div', {},
+    navHeader,
+    h('div', { class: 'dash-layout' }, sidebar, central),
+    h('div', { class: 'section-title' }, 'Sales — last 7 days'),
+    h('div', { class: 'grid cols-4' },
+      kpi({ label: 'Sales Net (YTD)', value: d.sales.net, money: true }),
+      kpi({ label: 'Sales Bills (YTD)', value: d.sales.bills }),
+      kpi({ label: 'Purchase Net (YTD)', value: d.purchase.net, money: true }),
+      kpi({ label: 'Stock Lines', value: d.stockLines })),
+    h('div', { class: 'grid cols-2' },
+      h('div', { class: 'card' }, h('h3', {}, 'Quick actions'),
+        h('div', { class: 'list-menu' },
+          h('button', { onclick: () => ctx.navigate('sale') }, '＋ New Sale'),
+          h('button', { onclick: () => ctx.navigate('reports:sales') }, 'Sales Reports'),
+          h('button', { onclick: () => ctx.navigate('items') }, 'Item Master'))),
+      h('div', { class: 'card' },
+        h('h3', {}, 'Low stock'),
+        table([
+          { key: 'itemname', title: 'Item' },
+          { key: 'qty', title: 'Qty', num: true },
+          { key: 'status', title: 'Status', badge: (r) => (r.status === 'OUT' ? 'danger' : 'warn') },
+        ], d.lowStock || []))));
 }
 
 async function systemAdmin(ctx) {
@@ -453,50 +501,360 @@ function repeater(fields, initial = []) {
 }
 
 // --------------------------------------------------------------- POS sale
+// Rebuilt to mirror the legacy frm_countersales "Counter Sale" form: a dense,
+// keyboard-first till with a scannable item grid, live totals
+// (gross / discount / surcharge / rounding / net / tendered), sale-type action
+// buttons and a party-details panel. Backed by the same createSale API, so the
+// double-entry, GST split, excise capture and Tally sync all still happen.
+const POS_ACTIONS = [
+  { key: 'cash', label: 'Cash\nSale', type: 'CASH' },
+  { key: 'party', label: 'Party\nSale', type: 'CREDIT ACCOUNT' },
+  { key: 'creditcard', label: 'Credit\nCard', type: 'CREDIT CARD' },
+  { key: 'return', label: 'Sales\nReturn', type: 'RETURN' },
+];
+
 async function posSale(ctx) {
-  const meta = ctx.state.meta || {};
-  const items = await api.items();
-  const saleTypes = meta.saleTypes || ['FL', 'CS', 'NAI', 'CASH', 'CREDIT', 'RETURN'];
-  const lineEd = repeater([
-    { name: 'itemcode', label: 'Item', options: items.map((i) => ({ value: i.itemcode, label: `${i.itemcode} · ${i.itemname}` })) },
-    { name: 'qnty', label: 'Qty', type: 'number', value: '1' },
-    { name: 'rate', label: 'Rate', type: 'number' },
-  ], [{ qnty: '1' }]);
-  const total = h('span', { class: 'pill' }, 'Total ₹0.00');
-  const recalc = () => {
-    const sum = lineEd.values().reduce((s, l) => s + (Number(l.qnty) || 0) * (Number(l.rate) || 0), 0);
-    total.textContent = `Total ₹${money(sum)}`;
+  const [items, ledgers, stores, rateinfos, params] = await Promise.all([
+    api.items(),
+    api.masters('ledger').catch(() => []),
+    api.masters('storage').catch(() => []),
+    api.masters('rateinfo').catch(() => []),
+    api.parameters().catch(() => ({})),
+  ]);
+  const byCode = new Map(items.map((i) => [String(i.itemcode).toUpperCase(), i]));
+  const byBarcode = new Map(items.filter((i) => i.barcode).map((i) => [String(i.barcode).toUpperCase(), i]));
+
+  const st = {
+    salestype: ctx.state.params?.mode || 'CASH',
+    lines: [],
+    store: stores.find((s) => s.ShopType === 'POS')?.shopcode || stores[0]?.shopcode || 'CNT1',
+    ratecode: params.ratecode || rateinfos[0]?.ratecode || 'GENERAL',
+    discRate: 0, discount: 0,
+    surchargeRate: Number(params.surcharge_percent) || 0, surcharge: 0,
+    roundoff: 0, tendered: 0, gross: 0, net: 0,
   };
-  const f = h('form', { class: 'form' },
-    h('div', { class: 'row three' },
-      field('Store / Counter', input('storecode', 'CNT1')),
-      field('Sale Type', select('salestype', saleTypes, 'FL')),
-      field('Party Ledger', input('ledgercode', 'C00001'))),
-    h('div', { class: 'row three' },
-      field('Date', input('trndate', today(), 'date')),
-      field('Bill Discount', input('discount', '0', 'number')),
-      h('div', {})),
-    h('div', { class: 'section-title' }, 'Items'),
-    lineEd.node,
-    h('div', { class: 'actions' }, total, h('button', { class: 'btn primary', type: 'submit' }, 'Save Sale')));
-  f.addEventListener('input', recalc);
-  recalc();
-  f.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = formValues(f);
-    const lines = lineEd.values().map((l) => ({ itemcode: l.itemcode, qnty: Number(l.qnty) || 1, rate: Number(l.rate) || 0 }));
-    if (!lines.length) return ctx.toast('Add at least one item', 'error');
+
+  const ledgerRowsFor = (type) => {
+    const t = String(type || '').toUpperCase();
+    let rows = ledgers;
+    if (t === 'CASH') rows = ledgers.filter((l) => /cash/i.test(l.type || '') || l.ledcode === params.cashparty);
+    else if (t === 'CREDIT CARD') rows = ledgers.filter((l) => /bank|upi/i.test(l.type || '') || l.ledcode === params.bankacc);
+    else if (t === 'CREDIT ACCOUNT') rows = ledgers.filter((l) => /party|customer|debtor/i.test(l.type || ''));
+    return rows.length ? rows : ledgers;
+  };
+
+  // ---- live totals (mirrors txt_gross / txt_discount / txt_nett / txt_rnd) --
+  const fGross = roField('Gross Amount');
+  const fDiscRate = numField('Disc %', '0', () => { st.discRate = Number(fDiscRate.input.value) || 0; if (st.discRate) st.discount = 0; recalc(); });
+  const fDiscount = numField('Discount', '0', () => { st.discount = Number(fDiscount.input.value) || 0; if (st.discount) st.discRate = 0; recalc(); });
+  const fReason = h('input', { name: 'discountReason', placeholder: 'Discount reason' });
+  const fSurchRate = numField('Surcharge %', String(st.surchargeRate || 0), () => { st.surchargeRate = Number(fSurchRate.input.value) || 0; recalc(); });
+  const fSurcharge = roField('Surcharge');
+  const fRound = roField('Rounding Off');
+  const fNet = roField('Net Amount', 'net');
+  const fTender = numField('Tendered Amount', '0', () => { st.tendered = Number(fTender.input.value) || 0; recalc(); });
+  const fChange = roField('Change');
+  const fParty = select('ledgercode', ledgerRowsFor('CASH').map((l) => ({ value: l.ledcode, label: l.name })));
+  const fPhone = h('input', { name: 'phone', readonly: true });
+  const fOpening = roField('Opening (Dr)');
+  const fPrevDue = roField('Previous Due');
+  const fNettDue = roField('Nett Due');
+  const fBillNo = h('input', { name: 'billNo', readonly: true, placeholder: 'auto' });
+  const fDate = input('trndate', today(), 'date');
+  const fStore = select('storecode', stores.map((s) => ({ value: s.shopcode, label: s.shopname })), st.store);
+  const fRate = select('ratecode', (rateinfos.length ? rateinfos : [{ ratecode: 'GENERAL', ratename: 'GENERAL' }]).map((r) => ({ value: r.ratecode, label: r.ratename })), st.ratecode);
+  const fBulk = h('input', { type: 'checkbox' });
+
+  // ---- item grid ---------------------------------------------------------
+  const tbody = h('tbody');
+  const emptyRow = () => h('tr', { class: 'pos-empty' }, h('td', { colspan: 11 }, 'Scan a barcode or search an item to start the bill.'));
+  const grid = h('table', { class: 'pos-grid' },
+    h('thead', {}, h('tr', {},
+      ...['Barcode', 'Item Name', 'Batch', 'Rate', 'MRP', 'Qty', 'Disc %', 'Disc Amt', 'Amount', 'ML', ''].map((t) => h('th', {}, t)))),
+    tbody);
+
+  function addLine(item, qty = 1) {
+    if (!item) return;
+    if (st.lines.length === 0) tbody.replaceChildren();
+    const line = {
+      itemcode: item.itemcode, itemname: item.itemname, barcode: item.barcode || '',
+      batchNo: '0', rate: Number(item.salesrate) || 0, mrp: Number(item.salesrate) || 0,
+      qnty: qty, discp: 0, discAmt: 0, amount: 0, ml: item.ml || 0,
+    };
+    st.lines.push(line);
+    const tr = h('tr', { dataset: { code: item.itemcode } });
+    const cell = (child, cls) => h('td', { class: cls || '' }, child);
+    const qtyIn = numFieldRaw(String(qty), () => { line.qnty = Number(qtyIn.value) || 0; recalc(); });
+    const rateIn = numFieldRaw(String(line.rate), () => { line.rate = Number(rateIn.value) || 0; recalc(); });
+    const discIn = numFieldRaw('0', () => { line.discp = Number(discIn.value) || 0; recalc(); });
+    const batchIn = h('input', { value: line.batchNo, size: 6, class: 'pos-cell' });
+    batchIn.addEventListener('input', () => { line.batchNo = batchIn.value; });
+    const mrpIn = h('input', { value: money(line.mrp), readonly: true, size: 7, class: 'pos-cell' });
+    const amtCell = h('td', { class: 'num pos-amt' }, '0.00');
+    const discAmtCell = h('td', { class: 'num' }, '0.00');
+    const rm = h('button', { class: 'btn small danger', type: 'button', title: 'Remove line' }, '✕');
+    rm.onclick = () => { st.lines.splice(st.lines.indexOf(line), 1); tr.remove(); if (!st.lines.length) tbody.append(emptyRow()); recalc(); };
+    line._render = () => {
+      const gross = line.rate * line.qnty;
+      line.discAmt = round2(gross * (line.discp || 0) / 100);
+      line.amount = round2(gross - line.discAmt);
+      amtCell.textContent = money(line.amount);
+      discAmtCell.textContent = money(line.discAmt);
+    };
+    tr.append(
+      cell(item.barcode || item.itemcode, 'pos-code'),
+      cell(item.itemname),
+      cell(batchIn),
+      cell(rateIn),
+      cell(mrpIn),
+      cell(qtyIn), cell(discIn), discAmtCell, amtCell, cell(String(line.ml || ''), 'num'),
+      cell(rm),
+    );
+    tbody.append(tr);
+    recalc();
+  }
+
+  function recalc() {
+    for (const l of st.lines) l._render();
+    st.gross = round2(st.lines.reduce((s, l) => s + l.amount, 0));
+    if (st.discRate) st.discount = round2(st.gross * st.discRate / 100);
+    const surcharge = st.salestype === 'CREDIT CARD' ? round2(st.gross * (st.surchargeRate || 0) / 100) : 0;
+    st.surcharge = surcharge;
+    const pre = round2(st.gross - (st.discount || 0) + surcharge);
+    const rounded = Math.round(pre);
+    st.roundoff = round2(rounded - pre);
+    st.net = rounded;
+    fGross.value = money(st.gross);
+    // Don't rewrite the field the user is currently editing (it would fight the
+    // keystrokes); update only the counterpart/computed displays.
+    const active = document.activeElement;
+    if (active !== fDiscount.input) fDiscount.input.value = money(st.discount || 0);
+    if (active !== fDiscRate.input) fDiscRate.input.value = String(st.discRate || 0);
+    fSurcharge.value = money(surcharge);
+    fRound.value = `${st.roundoff >= 0 ? '+' : '-'}${money(Math.abs(st.roundoff))}`;
+    fNet.value = money(st.net);
+    fChange.value = st.tendered > 0 ? money(st.tendered - st.net) : '0.00';
+    const showSurch = st.salestype === 'CREDIT CARD';
+    fSurchRate.wrap.hidden = !showSurch;
+    fSurcharge.wrap.hidden = !showSurch;
+    updateActionButtons();
+  }
+
+  // ---- party details -----------------------------------------------------
+  async function refreshParty() {
+    const ledcode = fParty.value;
+    const row = ledgers.find((l) => l.ledcode === ledcode);
+    fPhone.value = row?.phone || '';
     try {
-      const r = await api.createSale({ ...data, discount: Number(data.discount) || 0, lines, userId: ctx.state.user.usercode });
+      const entries = await api.ledger(ledcode);
+      const bal = entries.length ? Number(entries[entries.length - 1].balance) || 0 : 0;
+      fPrevDue.value = money(Math.abs(bal));
+      fNettDue.value = money(Math.abs(bal) + st.net);
+      fOpening.value = money(0);
+    } catch { fPrevDue.value = fNettDue.value = '0.00'; }
+  }
+  fParty.addEventListener('change', () => { refreshParty(); });
+
+  // ---- sale-type buttons (legacy ToolStrip) ------------------------------
+  const actionBtns = {};
+  const setSaleType = (type) => {
+    st.salestype = type;
+    fParty.replaceChildren(...ledgerRowsFor(type).map((l) => h('option', { value: l.ledcode }, l.name)));
+    if (type === 'CREDIT ACCOUNT') fParty.selectedIndex = Math.max(0, ledgerRowsFor(type).findIndex((l) => /debtor|party|customer/i.test(l.type || '')));
+    if (type === 'CREDIT CARD') { fSurchRate.input.value = String(st.surchargeRate || 0); }
+    if (type === 'RETURN') { /* return mode: bill qty shown as-is; net posts negative */ }
+    recalc();
+    refreshParty();
+  };
+  const actions = h('div', { class: 'pos-actions' },
+    ...POS_ACTIONS.map((a) => {
+      const b = h('button', { class: `pos-btn pos-${a.key}`, type: 'button' }, ...a.label.split('\n').flatMap((t, i) => (i ? [h('br'), t] : [t])));
+      b.onclick = () => setSaleType(a.type);
+      actionBtns[a.type] = b;
+      return b;
+    }),
+    h('button', { class: 'pos-btn', type: 'button', onclick: () => ctx.openModal('Expenses', expenseForm(ctx, params)) }, 'Expenses'),
+    h('button', { class: 'pos-btn', type: 'button', onclick: () => ctx.navigate('voucher:RECEIPT') }, 'Payment Receipt'),
+    h('button', { class: 'pos-btn', type: 'button', onclick: () => ctx.navigate('tally') }, 'XML-Query'),
+    h('button', { class: 'pos-btn', type: 'button', onclick: () => ctx.navigate('excise-sync') }, 'Excise'),
+    h('div', { class: 'pos-spacer' }),
+    h('button', { class: 'btn small', type: 'button', onclick: refreshParty }, 'Show Party Details'),
+    h('button', { class: 'btn small primary', type: 'submit', form: 'pos-form' }, 'Save [F8]'),
+    h('button', { class: 'btn small', type: 'button', onclick: () => printBill(st.lines) }, 'Print [F9]'),
+    h('button', { class: 'btn small danger', type: 'button', onclick: () => ctx.navigate('sale') }, 'Cancel'),
+  );
+  function updateActionButtons() {
+    for (const a of POS_ACTIONS) actionBtns[a.type]?.classList.toggle('active', st.salestype === a.type);
+  }
+
+  // ---- item search / scan ------------------------------------------------
+  const search = h('input', { class: 'pos-search', placeholder: 'Scan barcode / type item code or name, then Enter', list: 'pos-items', autofocus: true });
+  const searchList = h('datalist', { id: 'pos-items' }, ...items.slice(0, 800).map((i) => h('option', { value: i.barcode || i.itemcode }, `${i.itemcode} · ${i.itemname}`)));
+  async function commitSearch() {
+    const term = search.value.trim();
+    if (!term) return;
+    let item = byCode.get(term.toUpperCase()) || byBarcode.get(term.toUpperCase());
+    if (!item) { try { item = await api.findItem(term); } catch { item = null; } }
+    if (!item) { ctx.toast(`No item matches "${term}"`, 'error'); return; }
+    addLine(item, 1);
+    search.value = '';
+    search.focus();
+  }
+  search.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); commitSearch(); } });
+  search.addEventListener('change', commitSearch);
+
+  // ---- statements (Current Stocks / Current Sales) -----------------------
+  const stmtBody = h('tbody');
+  const stmt = h('div', { class: 'pos-stmt' },
+    h('div', { class: 'pos-stmt-tabs' },
+      h('button', { class: 'tab active', type: 'button', onclick: (e) => showStock(e.target) }, 'Current Stocks Statement'),
+      h('button', { class: 'tab', type: 'button', onclick: (e) => showSales(e.target) }, 'Current Sales Statement')),
+    h('div', { class: 'table-wrap' }, h('table', {}, h('thead', {}, h('tr', {}, h('th', {}, 'Item'), h('th', { class: 'num' }, 'Stock'))), stmtBody)));
+  async function showStock(btn) {
+    selectTab(btn);
+    stmtBody.replaceChildren(h('tr', {}, h('td', { colspan: 2, class: 'muted' }, 'Loading…')));
+    try {
+      const rows = (await api.inventoryStock()).filter((r) => !st.store || r.storecode === st.store).slice(0, 60);
+      stmtBody.replaceChildren(...(rows.length ? rows.map((r) => h('tr', {}, h('td', {}, r.itemname), h('td', { class: 'num' }, num(r.qty)))) : [h('tr', {}, h('td', { colspan: 2, class: 'muted' }, 'No stock movement today.'))]));
+    } catch { stmtBody.replaceChildren(h('tr', {}, h('td', { colspan: 2, class: 'muted' }, 'Stock unavailable.'))); }
+  }
+  async function showSales(btn) {
+    selectTab(btn);
+    stmtBody.replaceChildren(h('tr', {}, h('td', { colspan: 2, class: 'muted' }, 'Loading…')));
+    try {
+      const rows = await api.salesSummary({ from: today(), to: today() });
+      const totals = rows.reduce((a, r) => ({ bills: a.bills + Number(r.bills || 0), net: a.net + Number(r.net || 0) }), { bills: 0, net: 0 });
+      stmtBody.replaceChildren(
+        h('tr', {}, h('td', {}, 'Bills today'), h('td', { class: 'num' }, num(totals.bills))),
+        h('tr', {}, h('td', {}, 'Net sales today'), h('td', { class: 'num' }, money(totals.net))),
+      );
+    } catch { stmtBody.replaceChildren(h('tr', {}, h('td', { colspan: 2, class: 'muted' }, 'Sales summary unavailable.'))); }
+  }
+  const selectTab = (btn) => { for (const t of stmt.querySelectorAll('.tab')) t.classList.toggle('active', t === btn); };
+
+  // ---- form / save -------------------------------------------------------
+  const formEl = h('form', { class: 'pos-form', id: 'pos-form' },
+    h('div', { class: 'pos-top' },
+      h('div', { class: 'pos-top-row' },
+        field('Date', fDate), field('Bill No.', fBillNo),
+        field('Store', fStore), field('Rate List', fRate),
+        h('label', { class: 'field pos-bulk' }, h('span', {}, 'Bulk Sale'), fBulk)),
+      h('div', { class: 'pos-top-row' },
+        field('Party Name', fParty), field('Mobile', fPhone), field('Search', h('div', { class: 'pos-searchwrap' }, search, searchList)))),
+    h('div', { class: 'pos-main' },
+      h('div', { class: 'pos-gridwrap' },
+        h('div', { class: 'pos-gridhead' }, 'Items list', h('span', { class: 'muted' }, 'F2 to search · Enter to add')),
+        h('div', { class: 'pos-gridscroll' }, grid)),
+      h('div', { class: 'pos-side' },
+        h('div', { class: 'pos-totals' },
+          fGross.wrap, fDiscRate.wrap, fDiscount.wrap, field('Discount Reason', fReason),
+          fSurchRate.wrap, fSurcharge.wrap, fRound.wrap, fNet.wrap, fTender.wrap, fChange.wrap),
+        h('div', { class: 'pos-party' },
+          h('div', { class: 'section-title' }, 'Party Details'),
+          field('Opening (Dr)', fOpening.input), field('Previous Due', fPrevDue.input), field('Nett Due', fNettDue.input),
+          field('Payment', select('payment', ['Cash', 'Credit Card', 'Credit Account', 'Return'])),
+          field('Bank Name', h('input', { name: 'bank' })),
+          field('Chq No', h('input', { name: 'chqno' })),
+          field('Ref Bill No', h('input', { name: 'refbill' }))),
+        stmt)),
+    h('div', { class: 'pos-foot' }, actions),
+  );
+
+  formEl.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!st.lines.length) return ctx.toast('Add at least one item', 'error');
+    if (st.salestype === 'CREDIT ACCOUNT' && !fParty.value) return ctx.toast('Select a party for a party sale', 'error');
+    const lines = st.lines.map((l) => ({ itemcode: l.itemcode, qnty: l.qnty, rate: l.rate, mrp: l.mrp, batchNo: l.batchNo, discp: l.discp }));
+    try {
+      const r = await api.createSale({
+        salestype: st.salestype, storecode: fStore.value, ratecode: fRate.value,
+        ledgercode: fParty.value, trndate: fDate.value,
+        discount: st.discount || 0, discountReason: fReason.value || undefined,
+        surcharge: st.surcharge || 0, roundoff: st.roundoff || 0,
+        lines, userId: ctx.state.user.usercode,
+      });
       if (r.clock_rolled_back) ctx.toast('Warning: system clock appears to be set back', 'error');
-      ctx.openModal('Sale Saved', h('div', { class: 'grid cols-2' },
+      ctx.openModal('Bill Saved', h('div', { class: 'grid cols-2' },
         statCard('Bill No', r.trnno), statCard('Gross', money(r.amount)),
-        statCard('Discount', money(r.discamount)), statCard('Net', money(r.netamount)),
+        statCard('Discount', money(r.discamount)), statCard('Surcharge', money(r.surcharge || 0)),
+        statCard('Rounding', money(r.roundoff || 0)), statCard('Net', money(r.netamount)),
         r.date_warning ? statCard('Date', r.date_warning) : null));
-      ctx.toast('Sale saved', 'ok');
+      ctx.toast(`Saved ${r.trnno}`, 'ok');
+      fBillNo.value = r.trnno;
     } catch (ex) { ctx.toast(ex.message, 'error'); }
   });
-  return h('div', { class: 'card' }, h('h3', {}, 'Sale – POS'), f);
+
+  // Keyboard map (legacy: F8 save / F9 print / Esc clear; F2 search).
+  formEl.addEventListener('keydown', (e) => {
+    if (e.key === 'F2') { e.preventDefault(); search.focus(); search.select(); }
+    else if (e.key === 'F8') { e.preventDefault(); formEl.requestSubmit(); }
+    else if (e.key === 'F9') { e.preventDefault(); printBill(st.lines); }
+    else if (e.key === 'Escape') { e.preventDefault(); resetBill(); }
+  });
+  function resetBill() {
+    st.lines = []; tbody.replaceChildren(emptyRow());
+    st.discRate = st.discount = st.surcharge = st.roundoff = st.tendered = 0;
+    fReason.value = ''; fTender.input.value = '0';
+    setSaleType('CASH'); recalc();
+  }
+
+  const screen = h('div', { class: 'card pos-card' },
+    h('h3', {}, 'Counter Sale'), formEl);
+  setSaleType(st.salestype);
+  void showStock(stmt.querySelector('.tab.active'));
+  return screen;
+}
+
+/** Read-only display field (legacy read-only TextBox). */
+function roField(label, cls) {
+  const input = h('input', { readonly: true, class: cls || '' });
+  return { wrap: field(label, input), input, get value() { return input.value; }, set value(v) { input.value = v; } };
+}
+/** Number field with an oninput handler; returns { wrap, input }. */
+function numField(label, value, oninput) {
+  const input = h('input', { type: 'number', step: '0.01', value });
+  if (oninput) input.addEventListener('input', oninput);
+  return { wrap: field(label, input), input };
+}
+function numFieldRaw(value, oninput) {
+  const input = h('input', { type: 'number', step: '1', value, class: 'pos-cell' });
+  if (oninput) input.addEventListener('input', oninput);
+  return input;
+}
+function round2(n) { return Math.round((Number(n) + Number.EPSILON) * 100) / 100; }
+
+/** Expense capture (legacy bt_expense -> frm_ExpenceForm). */
+function expenseForm(ctx, params) {
+  const wrap = h('div', { class: 'form' });
+  const amount = h('input', { name: 'amount', type: 'number' });
+  const ledger = select('ledcode', [{ value: params.expenceacc || 'L00004', label: 'Expense / Purchase' }], params.expenceacc || 'L00004');
+  const pay = select('from', [{ value: params.cashhd || 'L00001', label: 'Cash' }, { value: params.bankacc || 'L00002', label: 'Bank' }]);
+  const narr = h('input', { name: 'narr', placeholder: 'Narration' });
+  const btn = h('button', { class: 'btn primary' }, 'Post Expense');
+  btn.onclick = async () => {
+    const amt = Number(amount.value) || 0;
+    if (amt <= 0) return ctx.toast('Enter an amount', 'error');
+    try {
+      await api.createVoucher({
+        type: 'PAYMENT', vchdate: today(), amount_paid: amt, head_account: ledger.value,
+        client_account: pay.value, narration: narr.value || 'Counter expense', debit: 0, credit: 0,
+      });
+      ctx.toast('Expense posted', 'ok'); ctx.closeModal();
+    } catch (ex) { ctx.toast(ex.message, 'error'); }
+  };
+  wrap.append(field('Amount', amount), field('Expense Head', ledger), field('Paid From', pay), field('Narration', narr),
+    h('div', { class: 'actions' }, btn));
+  return wrap;
+}
+
+/** Print a bill (browser print of the current lines). */
+function printBill(lines) {
+  if (!lines.length) return;
+  const rows = lines.map((l) => `<tr><td>${l.itemname}</td><td>${l.qnty}</td><td>${money(l.rate)}</td><td>${money(l.amount)}</td></tr>`).join('');
+  const w = window.open('', '_blank', 'width=380,height=600');
+  if (!w) return;
+  w.document.write(`<html><head><title>Bill</title><style>body{font:12px monospace;padding:8px}table{width:100%;border-collapse:collapse}td,th{border-bottom:1px dashed #999;padding:2px;text-align:left}</style></head><body><h3>VanijLiquor</h3><table><thead><tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amt</th></tr></thead><tbody>${rows}</tbody></table><p>Total: ${money(lines.reduce((s, l) => s + l.amount, 0))}</p></body></html>`);
+  w.document.close(); w.focus(); w.print();
 }
 
 const statCard = (k, v) => h('div', { class: 'stat' }, h('div', { class: 'k' }, k), h('div', { class: 'v' }, v));

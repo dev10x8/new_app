@@ -11,6 +11,7 @@ import * as purchase from '../src/services/purchase.js';
 import * as stock from '../src/services/stock.js';
 import * as vouchers from '../src/services/vouchers.js';
 import * as reports from '../src/services/reports.js';
+import * as clock from '../src/services/clock.js';
 import { trialBalance } from '../src/services/accounting.js';
 
 const COMPANY = '1';
@@ -215,6 +216,31 @@ test('reports return rows for sales, purchase, stock and accounts', () => {
     assert.equal(dash.recentBills.length, 1);
     assert.equal(dash.recentBills[0].party, 'Walk-in Customer'); // joined from the ledger master
     assert.ok(Array.isArray(dash.lowStock));
+  } finally {
+    db.close(); rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('dashboard today-session splits collections by payment mode and counts bottles', () => {
+  const { db, dir } = freshDb();
+  try {
+    const day = clock.today();
+    sales.createSale(db, {
+      company: COMPANY, year: YEAR, trndate: day, storecode: 'CNT1',
+      salestype: 'CASH', ledgercode: 'C00001', lines: [{ itemcode: 'I00001', qnty: 3, rate: 250 }],
+    });
+    sales.createSale(db, {
+      company: COMPANY, year: YEAR, trndate: day, storecode: 'CNT1',
+      salestype: 'CREDIT CARD', ledgercode: 'C00001', lines: [{ itemcode: 'I00001', qnty: 2, rate: 250 }],
+    });
+    const s = reports.dashboard(db, COMPANY, YEAR).todaySession;
+    assert.equal(s.date, day);
+    assert.equal(s.bills, 2);
+    assert.equal(s.bottles, 5);       // 3 + 2, returns excluded
+    assert.equal(s.cash, 750);        // 3 x 250
+    assert.equal(s.card, 500);        // 2 x 250
+    assert.equal(s.returns, 0);
+    assert.equal(s.net, 1250);
   } finally {
     db.close(); rmSync(dir, { recursive: true, force: true });
   }
