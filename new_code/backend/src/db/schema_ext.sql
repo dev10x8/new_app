@@ -859,4 +859,8 @@ CREATE TABLE IF NOT EXISTS [tbl_License] (
 ALTER TABLE [tbl_License] ADD COLUMN [trial_started_at] TEXT NOT NULL DEFAULT '';
 ALTER TABLE [tbl_License] ADD COLUMN [trial_used] INTEGER NOT NULL DEFAULT 0;
 
+-- UI navigation mode (Option A 'expand' vs Option B 'cards'). Added by ALTER so
+-- a fresh install and an upgraded one converge on the same column.
+ALTER TABLE [companyparamtr] ADD COLUMN [nav_mode] TEXT NOT NULL DEFAULT 'expand';
+
 

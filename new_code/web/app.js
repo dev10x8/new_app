@@ -9,14 +9,22 @@ import { screens } from './screens.js';
 //   'expand' — Option A: clicking a sidebar group expands its submenu inline.
 //   'cards'  — Option B: the sidebar lists groups only; clicking one opens a
 //              launcher of small boxes in the main panel.
+// The mode is an Admin parameter (`companyparamtr.nav_mode`), served in
+// /api/meta. A `?nav=cards` (or `?nav=expand`) URL query overrides it for a
+// single session so the two options can be previewed without changing config.
 const NAV_MODES = ['expand', 'cards'];
-const navMode = () => {
-  const m = localStorage.getItem('navMode');
-  return NAV_MODES.includes(m) ? m : 'expand';
+const urlNavMode = () => {
+  const v = new URLSearchParams(location.search).get('nav');
+  return NAV_MODES.includes(v) ? v : null;
+};
+const cachedNavMode = () => {
+  const v = localStorage.getItem('navMode');
+  return NAV_MODES.includes(v) ? v : null;
 };
 
 const state = {
-  user: null, meta: null, route: 'dashboard', license: null, open: null, mode: navMode(),
+  user: null, meta: null, route: 'dashboard', license: null, open: null,
+  mode: urlNavMode() || cachedNavMode() || 'expand',
 };
 
 const el = (id) => document.getElementById(id);
@@ -42,6 +50,22 @@ export function openModal(title, bodyNode) {
 export function closeModal() { el('modal').hidden = true; }
 
 // -------------------------------------------------------------- context
+/** Switch navigation mode at runtime (from Admin → Parameters or a `?nav=` link). */
+export function applyNavMode(mode) {
+  if (!NAV_MODES.includes(mode)) return;
+  state.mode = mode;
+  localStorage.setItem('navMode', mode);
+  state.open = mode === 'expand' ? (ROUTE_GROUP[state.route] || null) : null;
+  renderNav();
+  // Leaving a cards launcher for expand mode: show the group's first item so the
+  // main panel never shows a launcher the sidebar can no longer produce.
+  if (mode === 'expand' && isGroupRoute(state.route)) {
+    const g = groupOfRoute(state.route);
+    if (g) { navigate(g.items[0].route); return; }
+  }
+  void renderRoute();
+}
+
 const ctx = {
   state,
   toast,
@@ -50,6 +74,7 @@ const ctx = {
   navigate,
   setPage,
   renderNav,
+  applyNavMode,
 };
 
 // -------------------------------------------------------------- routing
@@ -153,13 +178,17 @@ async function boot() {
   el('app-view').hidden = false;
   el('who').textContent = `${state.user.username} · ${state.user.accesslevel}`;
   try { state.meta = await api.meta(); } catch { state.meta = null; }
+  // Adopt the company's configured nav mode unless a `?nav=` URL override is set.
+  if (!urlNavMode() && NAV_MODES.includes(state.meta?.navMode)) {
+    state.mode = state.meta.navMode;
+    localStorage.setItem('navMode', state.mode);
+  }
   setServerToday(state.meta?.today);
   el('company-pill').textContent = `Company ${state.meta?.company ?? 1}`;
   el('year-pill').textContent = `Year ${state.meta?.year ?? 2024}`;
   el('clock-warning').hidden = !state.meta?.clockRolledBack;
   state.open = state.mode === 'expand' ? (ROUTE_GROUP[state.route] || null) : null;
   renderNav();
-  paintModeBtn();
   // First run: activate the bundled 90-day demo (bound to this machine) and show
   // the licence screen so the customer sees the term and can import a real
   // licence or read the fingerprint. The demo is one-time per machine, so a
@@ -232,38 +261,12 @@ function showDiagnostics(text) {
   el('login-form').appendChild(pre);
 }
 
-/** Label the nav-mode toggle for the mode it will switch to. */
-function paintModeBtn() {
-  const b = el('nav-mode-toggle');
-  if (!b) return;
-  b.textContent = state.mode === 'expand' ? 'Cards menu' : 'Expand menu';
-  b.title = state.mode === 'expand'
-    ? 'Switch to cards menu (submenus open as boxes in the main panel)'
-    : 'Switch to expand menu (submenus expand inline in the sidebar)';
-}
-
 function init() {
   applyTheme(getTheme());
   const themeBtn = el('theme-toggle');
   const paintThemeBtn = () => themeBtn.replaceChildren(svgIcon(getTheme() === 'dark' ? 'sun' : 'moon', 16));
   paintThemeBtn();
   themeBtn.addEventListener('click', () => { toggleTheme(); paintThemeBtn(); });
-
-  paintModeBtn();
-  el('nav-mode-toggle').addEventListener('click', () => {
-    state.mode = state.mode === 'expand' ? 'cards' : 'expand';
-    localStorage.setItem('navMode', state.mode);
-    state.open = state.mode === 'expand' ? (ROUTE_GROUP[state.route] || null) : null;
-    paintModeBtn();
-    renderNav();
-    // Landing on a group route with no launcher target: fall back to its first item.
-    if (state.mode === 'expand' && isGroupRoute(state.route)) {
-      const g = groupOfRoute(state.route);
-      if (g) navigate(g.items[0].route);
-    } else {
-      void renderRoute();
-    }
-  });
 
   el('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();

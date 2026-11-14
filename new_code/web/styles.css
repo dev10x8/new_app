@@ -200,7 +200,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid color-mix(in srgb
 .nav-item.active svg { opacity: 1; }
 .sidebar-foot { padding: 12px 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .sidebar-foot .who { color: var(--ink); font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sidebar-foot .foot-actions { display: flex; align-items: center; gap: 6px; flex: none; }
 .sidebar-foot .btn.ghost { color: var(--sidebar-ink); }
 
 .topbar {

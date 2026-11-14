@@ -92,6 +92,7 @@ route('GET', '/api/meta', () => {
   const today = guard.date;
   const fy = get(db, 'SELECT stdate, enddate FROM yearmst WHERE companycode = ? AND yearcode = ?',
     [config.company, config.year]) || {};
+  const params = admin.getParameters(db, config.company);
   return {
     company: config.company,
     year: config.year,
@@ -100,6 +101,7 @@ route('GET', '/api/meta', () => {
     yearEnd: fy.enddate || `${Number(today.slice(0, 4)) + 1}-03-31`,
     clockRolledBack: guard.rolledBack,
     clockSkewSeconds: guard.skewSeconds,
+    navMode: params.nav_mode === 'cards' ? 'cards' : 'expand',
     masters: Object.keys(masters.MASTERS),
     saleTypes: sales.listSaleTypes(),
     reports: reports.REPORTS,

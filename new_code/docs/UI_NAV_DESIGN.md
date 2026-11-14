@@ -1,8 +1,8 @@
 # Sidebar navigation — two design options
 
-Status: **both options implemented**; switchable at runtime from the sidebar
-footer button ("Cards menu" / "Expand menu"). The choice is saved in
-`localStorage` under `navMode`.
+Status: **both options implemented**; the mode is an **Admin parameter**
+(Admin → Parameters → *Navigation* → *Sidebar menu style*), stored in
+`companyparamtr.nav_mode` and served in `GET /api/meta` as `navMode`.
 
 Scope: the vanilla-JS frontend in `new_code/web/`. One route table
 (`web/menu.js`) drives both options; screens live in `web/screens.js`. No new
@@ -81,17 +81,25 @@ screen the operator must step through; more main-panel surface to style.
 
 ## Switching
 
-The sidebar footer button toggles between the two modes and persists the choice.
+The mode is set in **Admin → Parameters → Navigation → Sidebar menu style**.
+Changing it saves `nav_mode` immediately (`PUT /api/admin/parameters`) and
+re-renders the sidebar for the current session; other users pick it up on their
+next sign-in via `/api/meta`. The choice is cached in `localStorage.navMode`
+so the sidebar renders in the right shape before `/api/meta` returns.
+
 Switching to *expand* while a `group:<title>` launcher route is open navigates to
 that group's first item so the main panel never shows a launcher the sidebar can
 no longer produce.
+
+A `?nav=cards` (or `?nav=expand`) URL query overrides the parameter for that
+page load only — useful for sharing a preview link without changing the saved
+setting. It is applied at boot and never written back to the server.
 
 ---
 
 ## Notes / possible follow-ups
 
-- The mode toggle is a temporary in-app switch to compare the options; once a
-  direction is chosen, one mode can become the fixed design (and the toggle
-  removed, or moved to Admin → Parameters).
+- The parameter replaces the earlier sidebar footer toggle; one mode can still be
+  made the only design by hiding the setting.
 - Option B could grow a "recent" row or a search box above the cards.
 - Neither option changes routing semantics for screens; both are pure shell.

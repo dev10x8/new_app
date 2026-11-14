@@ -266,7 +266,7 @@ async function inventoryScreen(ctx) {
 // --------------------------------------------------------------- admin
 async function paramsScreen(ctx) {
   const p = await api.parameters();
-  const skip = new Set(['companycode']);
+  const skip = new Set(['companycode', 'nav_mode']);
   const keys = Object.keys(p).filter((k) => !skip.has(k));
   const fields = keys.map((k) => h('div', { class: 'row' }, field(humanize(k), input(k, p[k] ?? ''))));
   const f = h('form', { class: 'form' }, ...fields);
@@ -277,7 +277,30 @@ async function paramsScreen(ctx) {
     try { await api.updateParameters(data); ctx.toast('Parameters saved', 'ok'); }
     catch (ex) { ctx.toast(ex.message, 'error'); }
   });
-  return h('div', { class: 'card' }, h('h3', {}, 'Parameters'), f);
+
+  // Navigation mode is a first-class choice (see docs/UI_NAV_DESIGN.md), not a
+  // raw text field: it drives how the sidebar reveals submenus.
+  const navMode = h('select', { name: 'nav_mode', class: 'nav-mode-select' },
+    ...[['expand', 'Expand in sidebar — click a group to show its items inline'],
+      ['cards', 'Cards in main panel — click a group to open its items as boxes']]
+      .map(([v, label]) => {
+        const o = h('option', { value: v }, label);
+        if ((p.nav_mode || 'expand') === v) o.selected = true;
+        return o;
+      }));
+  navMode.addEventListener('change', async () => {
+    try {
+      await api.updateParameters({ nav_mode: navMode.value });
+      ctx.applyNavMode(navMode.value);
+      ctx.toast(`Navigation set to ${navMode.value === 'cards' ? 'cards' : 'expand'} menu`, 'ok');
+    } catch (ex) { ctx.toast(ex.message, 'error'); }
+  });
+  const navCard = h('div', { class: 'card' },
+    h('h3', {}, 'Navigation'),
+    h('div', { class: 'row' }, field('Sidebar menu style', navMode)),
+    h('p', { class: 'muted small' }, 'Saved immediately for all users of this company.'));
+
+  return h('div', {}, navCard, h('div', { class: 'card' }, h('h3', {}, 'Parameters'), f));
 }
 
 async function usersScreen(ctx) {

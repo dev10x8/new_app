@@ -180,6 +180,10 @@ test('parameters can be read and updated', () => {
     assert.ok(p.companycode);
     admin.updateParameters(db, COMPANY, { bill_footer: 'Thanks!' });
     assert.equal(admin.getParameters(db, COMPANY).bill_footer, 'Thanks!');
+    // nav_mode defaults to 'expand' and is updatable (drives the sidebar menu style)
+    assert.equal(p.nav_mode, 'expand');
+    admin.updateParameters(db, COMPANY, { nav_mode: 'cards' });
+    assert.equal(admin.getParameters(db, COMPANY).nav_mode, 'cards');
   } finally { db.close(); rmSync(dir, { recursive: true, force: true }); }
 });
 
